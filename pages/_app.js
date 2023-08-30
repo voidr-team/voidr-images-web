@@ -6,6 +6,10 @@ import '../styles/main.scss'
 import { appWithTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+// Fonts
+import '@fontsource/space-grotesk'
+import '@fontsource/inter'
+
 const VoidrApp = ({ Component, pageProps, ...props }) => {
   const currentRoute = props.router.route
   const publicRoutes = ['/login', '/signin', '/logout']
