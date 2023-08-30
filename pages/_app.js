@@ -7,7 +7,6 @@ import { appWithTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const VoidrApp = ({ Component, pageProps, ...props }) => {
-  console.log('test1')
   const currentRoute = props.router.route
   const publicRoutes = ['/login', '/signin', '/logout']
 
