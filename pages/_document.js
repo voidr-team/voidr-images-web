@@ -37,21 +37,21 @@ class MyDocument extends Document {
             as="font"
             type="font/woff2"
             href="/fonts/Poppins-Bold.woff2"
-            crossorigin=""
+            crossOrigin=""
           />
           <link
             rel="preload"
             as="font"
             type="font/woff2"
             href="/fonts/Poppins-Medium.woff2"
-            crossorigin=""
+            crossOrigin=""
           />
           <link
             rel="preload"
             as="font"
             type="font/woff2"
             href="/fonts/Poppins-Regular.woff2"
-            crossorigin=""
+            crossOrigin=""
           />
         </Head>
         <body>

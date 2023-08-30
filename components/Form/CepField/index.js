@@ -9,7 +9,7 @@ const CepField = ({ name, label = 'CEP' }) => {
       rules={{
         required: 'Campo obrigatório',
         pattern: {
-          value: /[0-9]{5}\-[0-9]{3}/,
+          value: /[0-9]{5}-[0-9]{3}/,
           message: 'CEP inválido',
         },
       }}

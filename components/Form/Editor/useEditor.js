@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import 'highlight.js/styles/atom-one-dark.css'
 
 export default function useEditor({ name, defaultValue, onChange }) {
   const [currentEditorContent, setEditorContent] = useState(null)
@@ -10,7 +9,7 @@ export default function useEditor({ name, defaultValue, onChange }) {
   const [currentEditor, setEditor] = useState(null)
   const wrapperRef = useRef(null)
 
-  const updateEditor = editor => {
+  const updateEditor = (editor) => {
     const editorContent = editor.getContents()
     const editorValue = editor.root.innerHTML
     const editorText = editor.getText()
@@ -20,7 +19,7 @@ export default function useEditor({ name, defaultValue, onChange }) {
     setEditorText(editorText)
   }
 
-  const onEditorChange = editor => {
+  const onEditorChange = (editor) => {
     updateEditor(editor)
   }
 
@@ -38,7 +37,7 @@ export default function useEditor({ name, defaultValue, onChange }) {
       const editor = new Quill(`[data-editor="${name}"]`, {
         modules: {
           syntax: {
-            highlight: text => hljs.highlightAuto(text).value,
+            highlight: (text) => hljs.highlightAuto(text).value,
           },
           toolbar: [
             [{ header: 2 }],

@@ -18,7 +18,7 @@ const PhoneField = ({
       rules={{
         required: required ? 'Campo obrigatório' : undefined,
         pattern: {
-          value: /\+[0-9]{2}\s\([0-9]{2}\)\s[0-9]{5}\-[0-9]{4}/,
+          value: /\+[0-9]{2}\s\([0-9]{2}\)\s[0-9]{5}-[0-9]{4}/,
           message: 'Celular inválido',
         },
         minLength: {

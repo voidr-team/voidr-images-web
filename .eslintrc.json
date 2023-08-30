@@ -1,15 +1,6 @@
 {
   "root": true,
-  "parser": "babel-eslint",
-  "extends": [
-    "prettier",
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:jsx-a11y/recommended",
-    "plugin:react-hooks/recommended"
-  ],
+  "extends": ["prettier", "eslint:recommended", "plugin:react/recommended"],
   "env": {
     "browser": true,
     "commonjs": true,
@@ -17,7 +8,7 @@
     "node": true
   },
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": 2020,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -34,6 +25,6 @@
     "react/display-name": "off",
     "react/prop-types": "off",
     "no-unused-vars": "warn",
-    "import/namespace": "warn"
+    "react-hooks/exhaustive-deps": "off"
   }
 }
