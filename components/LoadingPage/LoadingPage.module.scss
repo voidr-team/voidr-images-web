@@ -1,0 +1,16 @@
+.loadingPageWrapper {
+  height: 100vh;
+  display: flex;
+
+  :global {
+    .loader {
+      margin: auto;
+      width: 90px;
+      height: 90px;
+    }
+
+    .loader div {
+      border-color: var(--content-theme-color) transparent transparent transparent;
+    }
+  }
+}

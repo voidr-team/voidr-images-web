@@ -1,0 +1,51 @@
+.confirmation {
+  min-height: 200px;
+  height: auto;
+  max-width: 400px;
+  min-width: auto;
+
+  :global {
+    .icon {
+      width: 70px;
+      height: 70px;
+    }
+
+    .icon[data-icon="check"] {
+      padding: 20px;
+      border-radius: 100%;
+      background: var(--theme-bounty);
+      color: white;
+    }
+  }
+
+  .head {
+    padding: 40px;
+    text-align: center;
+
+    > h1 {
+      margin-top: 40px;
+      font-size: 1.3rem;
+    }
+  }
+
+  .body {
+    border-top: 1px solid var(--theme-7);
+    padding: 40px;
+    background-color: var(--theme-8);
+
+    > p {
+      line-height: 1.2;
+      text-align: center;
+      padding: 0 20px;
+    }
+    
+    .actions {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+  } 
+}

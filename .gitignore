@@ -1,0 +1,9 @@
+node_modules
+package-lock.json
+dist
+.now
+.next
+.env
+.env.local
+.vercel
+.vscode
