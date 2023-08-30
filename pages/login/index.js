@@ -4,6 +4,7 @@ import LoginWithGoogle from '@/components/UI/LoginWithGoogle'
 import loadAllTranslations from '@/utils/i18n/loadAllTranslations'
 import { useTranslation } from 'next-i18next'
 import { useAuth0 } from '@auth0/auth0-react'
+import styles from './Login.module.scss'
 
 function LoginPage() {
   const { t } = useTranslation()
@@ -17,7 +18,7 @@ function LoginPage() {
         <h1>{t('Vamos começar!')}</h1>
         <p>{t('Faça o login abaixo')}</p>
         <button onClick={loginWithRedirect}>Login with redirect</button>
-        {/* <LoginWithGoogle customClass={styles.loginButton} /> */}
+        <LoginWithGoogle customClass={styles.loginButton} />
       </BaseLayout>
     </>
   )
