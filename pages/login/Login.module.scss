@@ -6,11 +6,22 @@
   height: 100%;
   border-radius: 6px;
   background-color: #1d1136;
+  background-image: url('/images/pattern.svg');
+  background-size: cover;
+  background-position-y: center;
   padding: 20px;
   position: relative;
 
+  .pattern {
+    object-fit: cover;
+    position: absolute;
+  }
+
   > h1 {
     color: #fff;
+    position: absolute;
+    top: 20%;
+    transform: translateY(-20%);
   }
 
   .imageLogo {

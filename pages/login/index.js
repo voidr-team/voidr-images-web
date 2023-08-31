@@ -1,19 +1,18 @@
 import BaseLayout from '../../layouts/BaseLayout'
 import Head from 'next/head'
-import LoginWithGoogle from '@/components/UI/LoginWithGoogle'
+// import LoginWithGoogle from '@/components/UI/LoginWithGoogle'
 import loadAllTranslations from '@/utils/i18n/loadAllTranslations'
 import { useTranslation } from 'next-i18next'
-import { useAuth0 } from '@auth0/auth0-react'
+// import { useAuth0 } from '@auth0/auth0-react'
 import styles from './Login.module.scss'
 import Logo from '@/public/images/logo.svg'
-import Pattern from '@/public/images/pattern.svg'
 import Image from 'next/image'
 
 import { Stack, Typography, Button } from '@mui/joy'
 
 function LoginPage() {
   const { t } = useTranslation()
-  const { loginWithRedirect } = useAuth0()
+  // const { loginWithRedirect } = useAuth0()
 
   return (
     <>
@@ -31,17 +30,11 @@ function LoginPage() {
         >
           <Stack width="40%">
             <div className={styles.wrapper}>
-              <Image
-                className={styles.pattern}
-                src={Pattern}
-                alt="Pattern image"
-              />
-
               <Typography
                 level="h1"
                 fontWeight="sm"
                 fontFamily="Space Grotesk"
-                fontSize="38px"
+                fontSize="48px"
               >
                 {t('pages.login.helper.title')}
               </Typography>
