@@ -1,5 +1,15 @@
 {
   "LoginWithGoogle": {
     "button": "Login with Google"
+  },
+  "pages": {
+    "login": {
+      "form": {
+        "title": "Welcome to Voidr"
+      },
+      "helper": {
+        "title": "Mitigate technology vendor risks with AI"
+      }
+    }
   }
 }
