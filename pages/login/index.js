@@ -34,9 +34,9 @@ function LoginPage() {
                 level="h1"
                 fontWeight="sm"
                 fontFamily="Space Grotesk"
-                fontSize="48px"
+                textColor="neutral.200"
               >
-                {t('pages.login.helper.title')}
+                Mitigue riscos de fornecedores de tecnologia com IA
               </Typography>
 
               <Image className={styles.imageLogo} src={Logo} alt="Voidr Logo" />
@@ -44,7 +44,7 @@ function LoginPage() {
           </Stack>
           <Stack>
             <Typography>{t('pages.login.form.title')}</Typography>
-            <Button>Teste</Button>
+            <Button>Entrar</Button>
           </Stack>
         </Stack>
       </BaseLayout>

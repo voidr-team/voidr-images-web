@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import i18nextConfig from '../next-i18next.config'
+import { getInitColorSchemeScript } from '@mui/joy/styles'
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)
@@ -64,6 +65,7 @@ class MyDocument extends Document {
             }}
           ></div>
           <div id="modal-wrapper"></div>
+          {getInitColorSchemeScript()}
           <Main />
           <NextScript />
         </body>
