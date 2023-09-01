@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import i18nextConfig from '../next-i18next.config'
+import { getInitColorSchemeScript } from '@mui/joy/styles'
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx)
@@ -32,27 +33,6 @@ class MyDocument extends Document {
           />
           <link rel="manifest" href="/icons/site.webmanifest" />
           <meta name="theme-color" content="#222b34" />
-          <link
-            rel="preload"
-            as="font"
-            type="font/woff2"
-            href="/fonts/Poppins-Bold.woff2"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            as="font"
-            type="font/woff2"
-            href="/fonts/Poppins-Medium.woff2"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            as="font"
-            type="font/woff2"
-            href="/fonts/Poppins-Regular.woff2"
-            crossOrigin=""
-          />
         </Head>
         <body>
           <div
@@ -64,6 +44,7 @@ class MyDocument extends Document {
             }}
           ></div>
           <div id="modal-wrapper"></div>
+          {getInitColorSchemeScript()}
           <Main />
           <NextScript />
         </body>

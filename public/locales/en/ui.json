@@ -5,7 +5,11 @@
   "pages": {
     "login": {
       "form": {
-        "title": "Welcome to Voidr"
+        "title": "Welcome to Voidr",
+        "span": {
+          "content": "Not have an account yet?",
+          "cta": "Contact us"
+        }
       },
       "helper": {
         "title": "Mitigate technology vendor risks with AI"

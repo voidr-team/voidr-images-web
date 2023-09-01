@@ -1,22 +1,59 @@
 :root {
-  --base-theme-color: #fff;
-  --feat-theme-color: #1691b0;
-  --content-theme-color: #222b34;
-  --secondary-theme-color: #50fa7b;
-  --light-content-theme-color: #586F86;
-  --darken-base-theme-color: hsl(223, 18%, 32%);
+  /* Cores Primárias */
+  --primary-50: #f9f8fc;
+  --primary-100: #e8e5f8;
+  --primary-200: #d2ccf3;
+  --primary-300: #827ba2;
+  --primary-400: #5d5879;
+  --primary-500: #3b3750;
+  --primary-600: #1c1136;
+  --primary-700: #1e272e;
 
-  --background-color: #f6f9fc;
+  /* Cores Neutras */
+  --neutral-50: #fafafa;
+  --neutral-100: #eeeeee;
+  --neutral-200: #eeeeee;
+  --neutral-300: #e1e1e1;
+  --neutral-400: #cacaca;
+  --neutral-500: #8e8e8e;
+  --neutral-600: #4b4b4b;
+  --neutral-700: #1f1f1f;
 
-  --link-theme-color: #28b8dd;
+  /* Cores de Perigo */
+  --danger-50: #fffbfb;
+  --danger-100: #fef2f2;
+  --danger-200: #ffebee;
+  --danger-300: #ffccd2;
+  --danger-400: #f49898;
+  --danger-500: #eb6f70;
+  --danger-600: #f64c4c;
+  --danger-700: #ec2d30;
 
-  --input-background: #E7EEF5;
+  /* Cores de Aviso */
+  --warning-50: #fffdfa;
+  --warning-100: #fff9ee;
+  --warning-200: #fff7e1;
+  --warning-300: #ffeab3;
+  --warning-400: #ffdd82;
+  --warning-500: #ffc62b;
+  --warning-600: #ffad0d;
+  --warning-700: #fe9b0e;
 
-  --theme-success: #0984e3;
-  --theme-error: #e06a6a;
-  --theme-warning: #fbd479;
+  /* Cores de Sucesso */
+  --success-50: #fbfefc;
+  --success-100: #f2faf6;
+  --success-200: #e5f5ec;
+  --success-300: #c0e5d1;
+  --success-400: #97d4b4;
+  --success-500: #6bc497;
+  --success-600: #47b881;
+  --success-700: #0c9d61;
 
-  --theme-bounty: #1abc9c;
-  --theme-status: #3498db;
-  --theme-skills: #f0932b;
+  /* Outros Estilos */
+  --h1-color: #1f1f1f;
+  --h1-font-size: 42px;
+
+  /* Fontes */
+  --font-display: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
 }
