@@ -22,6 +22,11 @@ const sidebarItems = [
     label: 'Supply Score',
     redirect: '/dashboard/supply-score',
   },
+  {
+    id: 4,
+    label: 'Organization',
+    redirect: '/dashboard/organization',
+  },
 ]
 
 function Sidebar() {
@@ -31,7 +36,7 @@ function Sidebar() {
     <Stack
       height="100vh"
       bgcolor="primary.600"
-      minWidth="280px"
+      minWidth="310px"
       alignItems="center"
       justifyContent="space-between"
       paddingY="40px"
