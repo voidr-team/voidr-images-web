@@ -4,7 +4,7 @@ import Image from 'next/image'
 function CardUser() {
   return (
     <Stack direction="row" spacing={1} alignItems="center">
-      <Image src="/images/logo.svg" alt="user" width={50} height={50} />
+      <Image src="/images/logo-small.svg" alt="user" width={50} height={50} />
       <Stack alignItems="flex-start" spacing={1}>
         <Typography textColor="neutral.100">Pedro Otávio</Typography>
         <Typography textColor="neutral.100">
