@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/joy'
+import { Stack } from '@mui/joy'
 import styles from './Sidebar.module.scss'
 import CardUser from './CardUser'
 import Link from 'next/link'
