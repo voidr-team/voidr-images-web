@@ -1,18 +1,17 @@
 import BaseLayout from '../../layouts/BaseLayout'
 import Head from 'next/head'
-// import LoginWithGoogle from '@/components/UI/LoginWithGoogle'
 import loadAllTranslations from '@/utils/i18n/loadAllTranslations'
 import { useTranslation } from 'next-i18next'
-// import { useAuth0 } from '@auth0/auth0-react'
 import styles from './Login.module.scss'
 import Logo from '@/public/images/logo.svg'
 import Image from 'next/image'
 
 import { Stack, Typography, Button } from '@mui/joy'
+import { useAuth0 } from '@auth0/auth0-react'
 
 function LoginPage() {
   const { t } = useTranslation()
-  // const { loginWithRedirect } = useAuth0()
+  const { loginWithRedirect } = useAuth0()
 
   return (
     <>
@@ -38,13 +37,12 @@ function LoginPage() {
               >
                 Mitigue riscos de fornecedores de tecnologia com IA
               </Typography>
-
               <Image className={styles.imageLogo} src={Logo} alt="Voidr Logo" />
             </div>
           </Stack>
           <Stack>
-            <Typography>{t('pages.login.form.title')}</Typography>
-            <Button>Entrar</Button>
+            <Typography>{t('pages.login.form.title', { ns: 'ui' })}</Typography>
+            <Button onClick={loginWithRedirect}> Entrar</Button>
           </Stack>
         </Stack>
       </BaseLayout>

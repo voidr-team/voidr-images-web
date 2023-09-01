@@ -33,27 +33,6 @@ class MyDocument extends Document {
           />
           <link rel="manifest" href="/icons/site.webmanifest" />
           <meta name="theme-color" content="#222b34" />
-          <link
-            rel="preload"
-            as="font"
-            type="font/woff2"
-            href="/fonts/Poppins-Bold.woff2"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            as="font"
-            type="font/woff2"
-            href="/fonts/Poppins-Medium.woff2"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            as="font"
-            type="font/woff2"
-            href="/fonts/Poppins-Regular.woff2"
-            crossOrigin=""
-          />
         </Head>
         <body>
           <div
