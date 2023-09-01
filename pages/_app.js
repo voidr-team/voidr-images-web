@@ -44,10 +44,7 @@ const VoidrApp = ({ Component, pageProps, ...props }) => {
   return (
     <Auth0Wrapper>
       <AuthProvider>
-        <CssVarsProvider theme={theme}>
-          <CssBaseline />
-          <LoggedLayout currentPage={currentRoute}>{BaseComp}</LoggedLayout>
-        </CssVarsProvider>
+        <LoggedLayout currentPage={currentRoute}>{BaseComp}</LoggedLayout>
         <ToastContainer />
       </AuthProvider>
     </Auth0Wrapper>
