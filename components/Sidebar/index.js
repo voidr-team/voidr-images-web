@@ -4,6 +4,7 @@ import CardUser from './CardUser'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
+import Image from 'next/image'
 
 const sidebarItems = [
   {
@@ -37,13 +38,12 @@ function Sidebar() {
       className={styles.sidebar}
     >
       <Stack width="100%" alignItems="center" direction="column" spacing={5}>
-        <Typography
-          textColor="neutral.100"
-          level="h1"
-          fontFamily="Space Grotesk"
-        >
-          voidr
-        </Typography>
+        <Image
+          src="/images/logo-with-name.svg"
+          alt="Oi"
+          width={140}
+          height={70}
+        />
         <ul className={styles.listWrapper}>
           {sidebarItems.map((item) => (
             <Link href={item.redirect} key={item.id}>
