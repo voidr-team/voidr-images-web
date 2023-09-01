@@ -6,7 +6,7 @@ const { default: BaseLayout } = require('../BaseLayout')
 function DashboardLayout({ children }) {
   return (
     <BaseLayout currentPage="dashboard">
-      <Stack direction="row" spacing={3}>
+      <Stack direction="row">
         <Sidebar />
         {children}
       </Stack>
