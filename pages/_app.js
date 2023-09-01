@@ -13,16 +13,27 @@ import '@fontsource/inter'
 import { CssVarsProvider } from '@mui/joy/styles'
 import { CssBaseline } from '@mui/joy'
 import theme from '@/utils/joy/theme'
+import { useState } from 'react'
+import {
+  QueryClient,
+  Hydrate,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 
 const VoidrApp = ({ Component, pageProps, ...props }) => {
   const currentRoute = props.router.route
   const publicRoutes = ['/login', '/signin', '/logout']
+  const [queryClient] = useState(() => new QueryClient())
 
   const BaseComp = (
-    <CssVarsProvider theme={theme}>
-      <CssBaseline />
-      <Component {...pageProps} />
-    </CssVarsProvider>
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <CssVarsProvider theme={theme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </CssVarsProvider>
+      </Hydrate>
+    </QueryClientProvider>
   )
 
   const isPublicRoute = publicRoutes.includes(currentRoute)
