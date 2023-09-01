@@ -1,9 +1,10 @@
 import DashboardLayout from '@/layouts/DashboardLayout'
+import VendorsList from '@/components/Vendors'
 
 function Vendors() {
   return (
     <DashboardLayout>
-      <p>Vendors</p>
+      <VendorsList />
     </DashboardLayout>
   )
 }

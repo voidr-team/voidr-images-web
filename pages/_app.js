@@ -22,7 +22,15 @@ import {
 
 const VoidrApp = ({ Component, pageProps, ...props }) => {
   const currentRoute = props.router.route
-  const publicRoutes = ['/login', '/signin', '/logout']
+  const publicRoutes = [
+    '/login',
+    '/signin',
+    '/logout',
+    '/dashboard',
+    '/dashboard/assessments',
+    '/dashboard/vendors',
+    '/dashboard/supply-score',
+  ]
   const [queryClient] = useState(() => new QueryClient())
 
   const BaseComp = (
