@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
-import http from '../../../utils/http'
+import http from '../../../services/http'
 
 export default function useSkillsSelect() {
   const [skills, setSkills] = useState(null)
 
-  const mapSkills = currentSkills =>
+  const mapSkills = (currentSkills) =>
     currentSkills.map(({ slug, label }) => ({ value: slug, label }))
 
   useEffect(() => {
     http('app/skills/')
       .then(({ data }) => setSkills(mapSkills(data.skills)))
-      .catch(err => {
+      .catch((err) => {
         console.error('Error on get skills', err)
       })
   }, [])
