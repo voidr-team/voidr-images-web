@@ -1,5 +1,5 @@
 import { useAuth0 } from '@auth0/auth0-react'
-import http from './http'
+import http from '../services/http'
 
 const useHttp = () => {
   const { getAccessTokenSilently } = useAuth0()
