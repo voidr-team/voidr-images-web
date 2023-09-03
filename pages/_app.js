@@ -18,16 +18,7 @@ import { QueryClient, Hydrate, QueryClientProvider } from 'react-query'
 
 const VoidrApp = ({ Component, pageProps, ...props }) => {
   const currentRoute = props.router.route
-  const publicRoutes = [
-    '/login',
-    '/signin',
-    '/logout',
-    '/dashboard',
-    '/dashboard/assessments',
-    '/dashboard/vendors',
-    '/dashboard/supply-score',
-    '/dashboard/organization',
-  ]
+  const publicRoutes = ['/login', '/signin', '/logout']
   const [queryClient] = useState(() => new QueryClient())
 
   const BaseComp = (
