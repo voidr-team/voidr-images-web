@@ -2,13 +2,13 @@ import { useQuery } from 'react-query'
 import { swrKeys } from '@/services/swrKeys'
 import organizationService from '@/services/organization.service'
 
-function useOrganizationList() {
+function useOrganizationMembers() {
   const { data, isLoading, isError } = useQuery({
     queryKey: swrKeys.GET_ORGANIZATION,
-    queryFn: () => organizationService.getOrganizations(),
+    queryFn: () => organizationService.getOrganizationMembers(),
   })
 
   return { data, isLoading, isError }
 }
 
-export default useOrganizationList
+export default useOrganizationMembers

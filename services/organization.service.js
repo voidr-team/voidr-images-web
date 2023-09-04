@@ -1,9 +1,9 @@
 import http from './http'
 
-async function getOrganizations() {
+async function getOrganizationMembers() {
   const result = await http.get('/organization/members')
 
   return result
 }
 
-export default { getOrganizations }
+export default { getOrganizationMembers }

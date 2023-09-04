@@ -39,6 +39,9 @@ class MyDocument extends Document {
             dangerouslySetInnerHTML={{
               __html: `
 							<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                <symbol id="More_Vertical" fill="none" viewBox="0 0 24 24"><rect width="2" height="2" x="11" y="17" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" rx="1"/><rect width="2" height="2" x="11" y="11" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" rx="1"/><rect width="2" height="2" x="11" y="5" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" rx="1"/></symbol>
+            
+                <symbol id="Remove_Minus_Circle" fill="none" viewBox="0 0 24 24"><g stroke="#EC2D30" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z" opacity=".32"/><path d="M8 12h8"/></g></symbol>
               </svg>
 						`,
             }}

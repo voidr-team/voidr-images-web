@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/joy'
+import { Button, Stack, Typography } from '@mui/joy'
 
 function OrganizationHeader() {
   return (
@@ -8,6 +8,9 @@ function OrganizationHeader() {
       padding="35px"
       bgcolor="neutral.50"
       boxShadow="md"
+      direction="row"
+      alignItems="center"
+      justifyContent="space-between"
       spacing={5}
     >
       <Stack maxWidth="600px" spacing={1}>
@@ -19,6 +22,7 @@ function OrganizationHeader() {
           além de convidar e gerenciar usuários internos
         </Typography>
       </Stack>
+      <Button>Convidar membros</Button>
     </Stack>
   )
 }
