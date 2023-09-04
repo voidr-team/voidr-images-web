@@ -48,7 +48,7 @@ const theme = extendTheme({
           400: '#F49898',
           500: '#EB6F70',
           600: '#F64C4C',
-          700: '##EC2D30',
+          700: '#EC2D30',
           800: undefined,
           900: undefined,
         },
@@ -124,7 +124,7 @@ const theme = extendTheme({
           400: '#F49898',
           500: '#EB6F70',
           600: '#F64C4C',
-          700: '##EC2D30',
+          700: '#EC2D30',
           800: undefined,
           900: undefined,
         },
@@ -157,6 +157,16 @@ const theme = extendTheme({
   },
   typography: {
     h1: { color: '#1F1F1F', fontSize: '42px', fontFamily: 'Space Grotesk' },
+  },
+  components: {
+    JoyButton: {
+      styleOverrides: {
+        root: () => ({
+          paddingBlock: '15px',
+          paddingInline: '30px',
+        }),
+      },
+    },
   },
   fontFamily: {
     display: '"Inter", var(--joy-fontFamily-fallback)',
