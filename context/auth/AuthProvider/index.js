@@ -4,6 +4,7 @@ import LoadingPage from '@/components/LoadingPage'
 // import { initLogger, loggerIdentify } from '@/utils/logger'
 import { useAuth0 } from '@auth0/auth0-react'
 import useHttp from '@/utils/useHttp'
+import persistCurrentRoute from '@/utils/auth/persisCurrentRoute'
 
 export const AuthContext = createContext()
 
@@ -16,6 +17,7 @@ function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
 
   function onLogout() {
+    persistCurrentRoute()
     localStorage.clear()
     logout({
       returnTo: `${window.location.origin}/`,
@@ -30,16 +32,30 @@ function AuthProvider({ children }) {
       },
     })
   }
-  function redirectToOnboarding(error) {
-    if (router.pathname !== '/onboarding')
-      return router.push({
-        pathname: '/onboarding',
-      })
-  }
 
   async function fetchUserInfo() {
-    const { data: payload } = await http('/user/info')
+    const { data: payload } = await http('user/info')
     return payload
+  }
+
+  const startLogger = (userData) => {
+    const { name, email, id, onboarding } = userData
+    const isDevelopment = process.env.NODE_ENV === 'development'
+    if (!isDevelopment) {
+      // const logger = initLogger()
+      // loggerIdentify(logger)({ name, email, id })
+    }
+  }
+
+  const redirectAfterLogin = () => {
+    const returnTo = sessionStorage.getItem('returnTo')
+    if (returnTo) {
+      sessionStorage.removeItem('returnTo')
+      router.push(returnTo)
+      return
+    } else {
+      router.push('/dashboard')
+    }
   }
 
   const fetchUser = () => {
@@ -63,13 +79,8 @@ function AuthProvider({ children }) {
       if (isAuthenticated) {
         fetchUser()
           .then((userData) => {
-            const { name, email, id, onboarding } = userData
-            const isDevelopment = process.env.NODE_ENV === 'development'
-            if (!isDevelopment) {
-              // const logger = initLogger()
-              // loggerIdentify(logger)({ name, email, id })
-            }
-            console.log(userData)
+            startLogger(userData)
+            redirectAfterLogin()
           })
           .catch((err) => {
             console.error(err)
