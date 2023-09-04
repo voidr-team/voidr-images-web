@@ -14,7 +14,7 @@ function OrganizationHeader() {
         <Typography fontSize="38px" level="h1">
           Organização
         </Typography>
-        <Typography fontFamily="Space Grotesk" fontWeight="400" level="body-md">
+        <Typography fontWeight="400" level="body-md">
           Aqui você pode gerenciar todas as configurações da sua organização,
           além de convidar e gerenciar usuários internos
         </Typography>

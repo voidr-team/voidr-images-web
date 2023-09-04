@@ -1,10 +1,10 @@
-const { default: swr_keys } = require('@/constants/swr_keys')
-const { useQuery } = require('react-query')
+import { useQuery } from 'react-query'
+import { swrKeys } from '@/services/swrKeys'
 import organizationService from '@/services/organization.service'
 
 function useOrganizationList() {
   const { data, isLoading, isError } = useQuery({
-    queryKey: swr_keys.get_data,
+    queryKey: swrKeys.GET_ORGANIZATION,
     queryFn: () => organizationService.getOrganizations(),
   })
 

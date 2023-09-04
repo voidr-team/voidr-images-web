@@ -1,4 +1,4 @@
-const { default: http } = require('./http')
+import http from './http'
 
 async function getOrganizations() {
   const result = await http.get('/organization/members')

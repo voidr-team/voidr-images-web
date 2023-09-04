@@ -1,7 +1,6 @@
 import Sidebar from '@/components/Sidebar'
 import { Stack } from '@mui/joy'
-
-const { default: BaseLayout } = require('../BaseLayout')
+import BaseLayout from '../BaseLayout'
 
 function DashboardLayout({ children }) {
   return (
