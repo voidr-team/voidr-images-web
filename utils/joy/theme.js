@@ -155,7 +155,9 @@ const theme = extendTheme({
       },
     },
   },
-  typography: { h1: { color: '#1F1F1F', fontSize: '42px' } },
+  typography: {
+    h1: { color: '#1F1F1F', fontSize: '42px', fontFamily: 'Space Grotesk' },
+  },
   fontFamily: {
     display: '"Inter", var(--joy-fontFamily-fallback)',
     body: '"Inter", var(--joy-fontFamily-fallback)',

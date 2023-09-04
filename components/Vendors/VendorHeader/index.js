@@ -1,16 +1,15 @@
-import { Button, Stack, Typography } from '@mui/joy'
-import Input from '../../Form/Input'
-import useVendors from '../useVendors'
+import { Button, Stack, Typography, Input, FormLabel } from '@mui/joy'
 import { FormProvider } from 'react-hook-form'
+import useVendors from '../useVendors'
 
 function VendorHeader() {
-  const { formMethods } = useVendors()
+  const { formMethods, onSubmit } = useVendors()
 
   return (
     <Stack
       width="100%"
-      maxHeight="270px"
       padding="35px"
+      height="100%"
       bgcolor="neutral.50"
       boxShadow="md"
       spacing={5}
@@ -19,7 +18,7 @@ function VendorHeader() {
         <Typography fontSize="38px" level="h1">
           Encontre fornecedores
         </Typography>
-        <Typography fontFamily="Space Grotesk" fontWeight="400" level="body-md">
+        <Typography fontWeight="400" level="body-md">
           Visualize o perfil de risco de cada fornecedor e tome decisões
           baseadas em evidências de amadurecimento cibernético
         </Typography>
@@ -27,26 +26,41 @@ function VendorHeader() {
 
       <Stack direction="row" spacing={1}>
         <FormProvider {...formMethods}>
-          <Input
-            placeholder="Busque pelo nome do fornecedor"
-            label="Nome"
-            {...formMethods.register('field-one')}
-          />
-          <Input
-            placeholder="Selecione a categoria"
-            label="Categoria"
-            {...formMethods.register('field-two')}
-          />
-          <Input
-            placeholder="Filtrar por área"
-            label="Área responsável"
-            {...formMethods.register('field-three')}
-          />
-          <Button>
-            <Typography whiteSpace="nowrap" textColor="neutral.50">
-              Buscar fornecedores
-            </Typography>
-          </Button>
+          <form onSubmit={onSubmit}>
+            <Stack
+              flexWrap="wrap"
+              alignItems="flex-end"
+              direction="row"
+              spacing={1}
+            >
+              <Stack>
+                <FormLabel>Nome</FormLabel>
+                <Input
+                  placeholder="Busque pelo nome do fornecedor"
+                  {...formMethods.register('field-one')}
+                />
+              </Stack>
+              <Stack>
+                <FormLabel>Categoria</FormLabel>
+                <Input
+                  placeholder="Selecione a categoria"
+                  {...formMethods.register('field-two')}
+                />
+              </Stack>
+              <Stack>
+                <FormLabel>Área responsável</FormLabel>
+                <Input
+                  placeholder="Filtrar por área"
+                  {...formMethods.register('field-three')}
+                />
+              </Stack>
+              <Button type="submit">
+                <Typography whiteSpace="nowrap" textColor="neutral.50">
+                  Buscar fornecedores
+                </Typography>
+              </Button>
+            </Stack>
+          </form>
         </FormProvider>
       </Stack>
     </Stack>
