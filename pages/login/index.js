@@ -1,17 +1,15 @@
 import BaseLayout from '../../layouts/BaseLayout'
 import Head from 'next/head'
 import loadAllTranslations from '@/utils/i18n/loadAllTranslations'
-import { useTranslation } from 'next-i18next'
 import styles from './Login.module.scss'
 import Logo from '@/public/images/logo-small.svg'
 import Image from 'next/image'
 
 import { Stack, Typography, Button } from '@mui/joy'
-import { useAuth0 } from '@auth0/auth0-react'
+import useLogin from './useLogin'
 
 function LoginPage() {
-  const { t } = useTranslation()
-  const { loginWithRedirect } = useAuth0()
+  const { t, loginWithRedirect } = useLogin()
 
   return (
     <>
