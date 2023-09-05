@@ -8,32 +8,22 @@ import {
   MenuItem,
   Stack,
   Table,
-  Divider,
+  ListDivider,
   Typography,
 } from '@mui/joy'
-
-const MOCK_LIST = [
-  {
-    name: 'Victor Buchalla',
-    email: 'pedro.couto@bounties.com',
-    roles: 'ADMIN',
-    id: 1,
-  },
-  {
-    name: 'Pedro Otávio',
-    email: 'pedro.couto@bounties.com',
-    roles: 'ADMIN',
-    id: 2,
-  },
-  {
-    name: 'Milson Júnior',
-    email: 'pedro.couto@bounties.com',
-    roles: 'ADMIN',
-    id: 3,
-  },
-]
+import useOrganizationMembers from './useOrganizationMembers'
+import Loader from '@/components/UI/Loader'
 
 function ListMembers() {
+  const { data, isLoading, deleteMember } = useOrganizationMembers()
+
+  if (isLoading)
+    return (
+      <Stack marginY={5}>
+        <Loader />
+      </Stack>
+    )
+
   return (
     <Stack>
       <Table>
@@ -47,21 +37,32 @@ function ListMembers() {
           </tr>
         </thead>
         <tbody>
-          {MOCK_LIST.map((list) => (
-            <tr key={list.id}>
+          {data?.data.map((member) => (
+            <tr key={member?.user_id}>
               <td>
-                <Avatar color="success">PO</Avatar>
+                <Avatar
+                  src={member.picture}
+                  width={30}
+                  height={30}
+                  alt="User profile pic"
+                />
               </td>
-              <td>{list.name}</td>
-              <td>{list.email}</td>
+              <td>{member?.name}</td>
+              <td>{member.email}</td>
               <td>
-                <Chip>{list.roles}</Chip>
+                {member.roles.length ? (
+                  member.roles.map((role) => (
+                    <Chip key={role.id}>{role.name}</Chip>
+                  ))
+                ) : (
+                  <Chip>-</Chip>
+                )}
               </td>
 
               <td>
                 <Dropdown>
-                  <MenuButton>
-                    <Icon height={20} width={20} id="More_Vertical " />
+                  <MenuButton sx={{ padding: 1 }}>
+                    <Icon height={20} width={20} id="More_Horizontal" />
                   </MenuButton>
                   <Menu>
                     <Stack padding="5px">
@@ -75,9 +76,9 @@ function ListMembers() {
                         </Typography>
                       </MenuItem>
 
-                      <Divider />
+                      <ListDivider />
 
-                      <MenuItem>
+                      <MenuItem onClick={() => deleteMember(member?.user_id)}>
                         <Icon height={20} width={20} id="Remove_Minus_Circle" />
                         <Typography
                           fontSize={14}

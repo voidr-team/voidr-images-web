@@ -1,5 +1,6 @@
 import { Tab, TabList, Tabs, TabPanel, Stack } from '@mui/joy'
 import ListMembers from './ListMembers'
+import ListInvites from './ListInvites'
 
 function List() {
   return (
@@ -18,11 +19,12 @@ function List() {
           <Tab>Membros</Tab>
           <Tab>Convites</Tab>
         </TabList>
+
         <TabPanel value={0}>
           <ListMembers />
         </TabPanel>
         <TabPanel value={1}>
-          <p>Listagem de convites</p>
+          <ListInvites />
         </TabPanel>
       </Tabs>
     </Stack>

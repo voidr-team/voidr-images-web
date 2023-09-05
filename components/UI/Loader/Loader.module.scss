@@ -13,7 +13,7 @@
     border: 4px solid;
     border-radius: 50%;
     animation: loaderAnimation 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: var(--secondary-theme-color) transparent transparent transparent;
+    border-color: var(--primary-600) transparent transparent transparent;
   }
 
   &.isLight div {

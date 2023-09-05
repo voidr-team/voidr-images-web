@@ -1,0 +1,36 @@
+.copyWrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer !important;
+
+  .textCopied {
+    position: absolute;
+    transform: translateX(-50%);
+    top: -29px;
+    left: 50%;
+    padding: 7px 14px;
+    border-radius: 3px;
+    font-size: 12px;
+    background-color: var(--theme-9);
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white !important;
+    will-change: opacity;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+
+    &.copied {
+      opacity: 1;
+    }
+  }
+
+  svg,
+  span {
+    vertical-align: middle;
+    cursor: pointer !important;
+  }
+
+  svg {
+    margin-left: 5px;
+  }
+}
