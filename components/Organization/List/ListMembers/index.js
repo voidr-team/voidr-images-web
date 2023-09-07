@@ -13,9 +13,13 @@ import {
 } from '@mui/joy'
 import useOrganizationMembers from './useOrganizationMembers'
 import Loader from '@/components/UI/Loader'
+import { useState } from 'react'
+import ManageUserRoles from './ManageUserRoles'
 
 function ListMembers() {
   const { data, isLoading, deleteMember } = useOrganizationMembers()
+  const [isOpenManageUserRoles, setIsOpenManageUserRoles] = useState(false)
+  const [currentUser, setCurrentUser] = useState({})
 
   if (isLoading)
     return (
@@ -37,8 +41,8 @@ function ListMembers() {
           </tr>
         </thead>
         <tbody>
-          {data?.data.map((member) => (
-            <tr key={member?.user_id}>
+          {data?.data.map((member, index) => (
+            <tr key={`${member?.user_id}_${index}`}>
               <td>
                 <Avatar
                   src={member.picture}
@@ -66,7 +70,12 @@ function ListMembers() {
                   </MenuButton>
                   <Menu>
                     <Stack padding="5px">
-                      <MenuItem>
+                      <MenuItem
+                        onClick={() => {
+                          setCurrentUser(member)
+                          setIsOpenManageUserRoles(true)
+                        }}
+                      >
                         <Typography
                           fontSize={14}
                           fontWeight="600"
@@ -97,6 +106,14 @@ function ListMembers() {
           ))}
         </tbody>
       </Table>
+
+      <ManageUserRoles
+        isOpen={isOpenManageUserRoles}
+        setIsOpen={setIsOpenManageUserRoles}
+        setUser={setCurrentUser}
+        user={currentUser}
+        title="Cargos do usuário"
+      />
     </Stack>
   )
 }

@@ -13,6 +13,7 @@ import Loader from '@/components/UI/Loader'
 import dayjs from 'dayjs'
 import Icon from '@/components/UI/Icon'
 import CopyClipboard from '@/components/CopyClipboard'
+import EmptyState from '@/components/UI/EmptyState'
 
 function ListInvites() {
   const { data, isLoading, cancelInvite } = useOrganizationInvites()
@@ -94,9 +95,7 @@ function ListInvites() {
           </Table>
         </Stack>
       ) : (
-        <Typography level="title-md">
-          You dont have any invitations to your organization at the moment
-        </Typography>
+        <EmptyState content="You dont have any invitations to your organization at the moment" />
       )}
     </>
   )
