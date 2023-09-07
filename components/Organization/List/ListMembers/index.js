@@ -30,7 +30,14 @@ function ListMembers() {
 
   return (
     <Stack>
-      <Table>
+      <Table
+        sx={{
+          '& tr > *:first-child': {
+            width: '50px',
+          },
+          '& tr > *:not(:first-child)': { textAlign: 'center' },
+        }}
+      >
         <thead>
           <tr>
             <th>Foto</th>
@@ -56,7 +63,9 @@ function ListMembers() {
               <td>
                 {member.roles.length ? (
                   member.roles.map((role) => (
-                    <Chip key={role.id}>{role.name}</Chip>
+                    <Chip sx={() => ({ marginX: '5px' })} key={role.id}>
+                      {role.name}
+                    </Chip>
                   ))
                 ) : (
                   <Chip>-</Chip>
