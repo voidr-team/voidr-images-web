@@ -1,6 +1,5 @@
-import { swrKeys } from '@/services/swrKeys'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
-import organizationService from '@/services/organization.service'
+import organizationService from '@/services/organization'
 import { useCallback } from 'react'
 import { confirm } from '@/components/Confirmation'
 import toastEz from '@/utils/toastEz'
@@ -8,16 +7,18 @@ import toastEz from '@/utils/toastEz'
 function useOrganizationInvites() {
   const queryClient = useQueryClient()
   const { data, isLoading: isLoadingGetInvites } = useQuery({
-    queryKey: [swrKeys.GET_ORGANIZATION_INVITES],
+    queryKey: [organizationService.swrKeys.GET_ORGANIZATION_INVITES],
     queryFn: () => organizationService.getOrganizationInvites(),
   })
 
   const { mutate: requestCancelInvite, isLoading: isLoadingRevokeConvite } =
     useMutation({
-      mutationKey: [swrKeys.DELETE_ORGANIZATION_INVITE],
+      mutationKey: [organizationService.swrKeys.DELETE_ORGANIZATION_INVITE],
       mutationFn: (id) => organizationService.deleteOrganizationInvite(id),
       onSuccess: async () => {
-        await queryClient.invalidateQueries([swrKeys.GET_ORGANIZATION_INVITES])
+        await queryClient.invalidateQueries([
+          organizationService.swrKeys.GET_ORGANIZATION_INVITES,
+        ])
         toastEz.success('Convite cancelado.')
       },
       onError: () => {

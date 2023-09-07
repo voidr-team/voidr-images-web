@@ -1,6 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query'
-import { swrKeys } from '@/services/swrKeys'
-import organizationService from '@/services/organization.service'
+import organizationService from '@/services/organization'
 import { useCallback } from 'react'
 import { confirm } from '@/components/Confirmation'
 import toastEz from '@/utils/toastEz'
@@ -12,17 +11,19 @@ function useOrganizationMembers() {
     isLoading: isLoadingGetMembers,
     isError,
   } = useQuery({
-    queryKey: [swrKeys.GET_ORGANIZATION_MEMBERS],
+    queryKey: [organizationService.swrKeys.GET_ORGANIZATION_MEMBERS],
     queryFn: () => organizationService.getOrganizationMembers(),
   })
 
   const { mutate: requestDeleteMember, isLoading: deleteIsLoading } =
     useMutation({
-      mutationKey: [swrKeys.DELETE_ORGANIZATION_MEMBER],
+      mutationKey: [organizationService.swrKeys.DELETE_ORGANIZATION_MEMBER],
       mutationFn: (userId) =>
         organizationService.deleteOrganizationMember(userId),
       onSuccess: async () => {
-        await queryClient.invalidateQueries([swrKeys.GET_ORGANIZATION_MEMBERS])
+        await queryClient.invalidateQueries([
+          organizationService.swrKeys.GET_ORGANIZATION_MEMBERS,
+        ])
         toastEz.success('Usuário removido')
       },
       onError: () => {
