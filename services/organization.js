@@ -38,12 +38,19 @@ async function putAddRolesInMember(userId, roles) {
   return response
 }
 
+async function postSendNewInvite(data) {
+  const response = await http.post('/organization/invites', { ...data })
+
+  return response
+}
+
 const swrKeys = {
   GET_ORGANIZATION_MEMBERS: 'GET_ORGANIZATION_MEMBERS',
   GET_ORGANIZATION_INVITES: 'GET_ORGANIZATION_INVITES',
   GET_ORGANIZATION_ROLES: 'GET_ORGANIZATION_ROLES',
 
   POST_ORGANIZATION_MEMBERS_ADD_ROLES: 'POST_ORGANIZATION_MEMBERS_ADD_ROLES',
+  POST_ORGANIZATION_INVITES: 'POST_ORGANIZATION_INVITES',
 
   DELETE_ORGANIZATION_MEMBER: 'DELETE_ORGANIZATION_MEMBER',
   DELETE_ORGANIZATION_INVITE: 'DELETE_ORGANIZATION_INVITE',
@@ -56,5 +63,6 @@ export default {
   deleteOrganizationInvite,
   getOrganizationRoles,
   putAddRolesInMember,
+  postSendNewInvite,
   swrKeys,
 }

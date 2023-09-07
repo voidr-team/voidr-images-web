@@ -1,6 +1,6 @@
 import { Button, Stack, Typography } from '@mui/joy'
 
-function OrganizationHeader() {
+function OrganizationHeader({ setIsOpenInviteMember }) {
   return (
     <Stack
       width="100%"
@@ -22,7 +22,9 @@ function OrganizationHeader() {
           além de convidar e gerenciar usuários internos
         </Typography>
       </Stack>
-      <Button>Convidar membros</Button>
+      <Button onClick={() => setIsOpenInviteMember((prevState) => !prevState)}>
+        Convidar membros
+      </Button>
     </Stack>
   )
 }
