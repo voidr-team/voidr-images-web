@@ -19,7 +19,7 @@ async function getOrganizationInvites() {
 }
 
 async function deleteOrganizationInvite(inviteId) {
-  const response = await http.delete(`/organization/invite/${inviteId}`)
+  const response = await http.delete(`/organization/invites/${inviteId}`)
 
   return response
 }
