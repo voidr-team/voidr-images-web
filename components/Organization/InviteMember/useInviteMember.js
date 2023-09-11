@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useMutation, useQueryClient } from 'react-query'
+import { useMutation, useQuery, useQueryClient } from 'react-query'
 import organizationService from '@/services/organization'
 import toastEz from '@/utils/toastEz'
 
@@ -20,6 +20,11 @@ function useInviteMember(setIsOpen) {
   const queryClient = useQueryClient()
   const formMethods = useForm({ resolver: yupResolver(schema) })
 
+  const { data, isLoading: isLoadingRoles } = useQuery({
+    queryKey: [organizationService.swrKeys.GET_ORGANIZATION_ROLES],
+    queryFn: () => organizationService.getOrganizationRoles(),
+  })
+
   const { mutate, isLoading: isLoadingSendInvite } = useMutation({
     mutationKey: [organizationService.swrKeys.POST_ORGANIZATION_INVITES],
     mutationFn: (data) => organizationService.postSendNewInvite(data),
@@ -28,6 +33,7 @@ function useInviteMember(setIsOpen) {
         organizationService.swrKeys.GET_ORGANIZATION_INVITES,
       ])
       setIsOpen(false)
+      formMethods.reset()
       toastEz.success('Convite enviado')
     },
     onError: () => {
@@ -36,10 +42,21 @@ function useInviteMember(setIsOpen) {
   })
 
   const onSubmit = formMethods.handleSubmit((data) => {
-    mutate(data)
+    const formattedData = {
+      ...data,
+      roles: data?.roles.map((role) => role?.id),
+    }
+
+    mutate(formattedData)
   })
 
-  return { formMethods, onSubmit, isLoadingSendInvite }
+  return {
+    formMethods,
+    onSubmit,
+    isLoadingSendInvite,
+    roles: data?.data,
+    isLoadingRoles,
+  }
 }
 
 export default useInviteMember

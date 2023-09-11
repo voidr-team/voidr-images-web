@@ -32,10 +32,10 @@ function ListMembers() {
     <Stack>
       <Table
         sx={{
-          '& tr > *:first-child': {
+          '& tr > *:first-of-type': {
             width: '50px',
           },
-          '& tr > *:not(:first-child)': { textAlign: 'center' },
+          '& tr > *:not(:first-of-type)': { textAlign: 'center' },
         }}
       >
         <thead>
