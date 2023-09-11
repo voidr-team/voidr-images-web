@@ -9,7 +9,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 
   @include above(768px) {
     flex-direction: row;
