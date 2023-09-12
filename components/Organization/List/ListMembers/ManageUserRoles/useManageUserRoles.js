@@ -12,7 +12,7 @@ function useManageUserRoles(userId, setIsOpen) {
     queryFn: () => organizationService.getOrganizationRoles(),
   })
 
-  const { mutate, isLoading: isLoadingUpdateRoles } = useMutation({
+  const { mutate: sendRoles, isLoading: isLoadingUpdateRoles } = useMutation({
     mutationKey:
       organizationService.swrKeys.POST_ORGANIZATION_MEMBERS_ADD_ROLES,
     mutationFn: (data) =>
@@ -33,7 +33,7 @@ function useManageUserRoles(userId, setIsOpen) {
     const rolesId = form?.userRoles?.map((role) => role.id)
 
     const data = { userId, roles: rolesId }
-    mutate(data)
+    sendRoles(data)
   })
 
   return {
