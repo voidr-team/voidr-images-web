@@ -1,17 +1,10 @@
-import {
-  Autocomplete,
-  Button,
-  Modal,
-  ModalDialog,
-  Stack,
-  Typography,
-  CircularProgress,
-} from '@mui/joy'
-import { Controller } from 'react-hook-form'
+import { Button, Modal, ModalDialog, Stack, Typography } from '@mui/joy'
+import { FormProvider } from 'react-hook-form'
 import PropTypes from 'prop-types'
 import useManageUserRoles from './useManageUserRoles'
 import Icon from '@/components/UI/Icon'
 import styles from './ManageUserRoles.module.scss'
+import Autocomplete from '@/components/Form/Autocomplete'
 
 function ManageUserRoles({ isOpen, setIsOpen, user, setUser, title }) {
   const { roles, formMethods, onSubmit, isLoadingRoles, isLoadingUpdateRoles } =
@@ -41,49 +34,26 @@ function ManageUserRoles({ isOpen, setIsOpen, user, setUser, title }) {
           </Stack>
 
           <Stack maxWidth={320} spacing={2} paddingY={2}>
-            <form onSubmit={onSubmit}>
-              <Controller
-                control={formMethods.control}
-                name={'userRoles'}
-                render={({ field: { onChange, name, onBlur, value } }) => (
-                  <Autocomplete
-                    placeholder="Cargos dos membros"
-                    id="user-roles-management"
-                    multiple
-                    value={value}
-                    defaultValue={user?.roles}
-                    name={name}
-                    onBlur={onBlur}
-                    onChange={(_event, value) => {
-                      return onChange(value ?? null)
-                    }}
-                    options={roles}
-                    getOptionLabel={(option) => option?.name}
-                    isOptionEqualToValue={(option, value) =>
-                      option?.name === value?.name
-                    }
-                    loading={isLoadingRoles}
-                    endDecorator={
-                      isLoadingRoles ? (
-                        <CircularProgress
-                          size="sm"
-                          sx={{ bgcolor: 'background.surface' }}
-                        />
-                      ) : null
-                    }
-                    sx={() => ({
-                      paddingX: 0.5,
-                      paddingY: 1,
-                    })}
-                  />
-                )}
-              />
-              <Stack marginY={2}>
-                <Button loading={isLoadingUpdateRoles} type="submit">
-                  Enviar
-                </Button>
-              </Stack>
-            </form>
+            <FormProvider {...formMethods}>
+              <form onSubmit={onSubmit}>
+                <Autocomplete
+                  label="Cargos"
+                  name="userRoles"
+                  placeholder="Cargos dos membros"
+                  multiple
+                  defaultValue={user?.roles}
+                  id="user-roles-management"
+                  isLoading={isLoadingRoles}
+                  options={roles}
+                />
+
+                <Stack marginY={2}>
+                  <Button loading={isLoadingUpdateRoles} type="submit">
+                    Enviar
+                  </Button>
+                </Stack>
+              </form>
+            </FormProvider>
           </Stack>
         </Stack>
       </ModalDialog>

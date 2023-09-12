@@ -1,17 +1,11 @@
-import {
-  FormControl,
-  FormLabel,
-  Stack,
-  Button,
-  Autocomplete,
-  CircularProgress,
-} from '@mui/joy'
+import { Stack, Button } from '@mui/joy'
 import PropTypes from 'prop-types'
 import styles from './InviteMember.module.scss'
 import useInviteMember from './useInviteMember'
-import { Controller, FormProvider } from 'react-hook-form'
+import { FormProvider } from 'react-hook-form'
 import Modal from '@/components/UI/Modal'
 import Input from '@/components/Form/Input'
+import Autocomplete from '@/components/Form/Autocomplete'
 
 function InviteMember({ isOpen, setIsOpen }) {
   const { onSubmit, formMethods, isLoadingSendInvite, isLoadingRoles, roles } =
@@ -38,43 +32,15 @@ function InviteMember({ isOpen, setIsOpen }) {
           </div>
 
           <div className={styles.autocompleteWrapper}>
-            <FormControl>
-              <FormLabel>Cargo</FormLabel>
-              <Controller
-                control={formMethods.control}
-                name={'roles'}
-                render={({ field: { onChange, name, onBlur, value } }) => (
-                  <Autocomplete
-                    placeholder="Cargos do membro"
-                    id="user-roles-invite"
-                    multiple
-                    value={value || []}
-                    name={name}
-                    onBlur={onBlur}
-                    onChange={(_event, value) => {
-                      return onChange(value ?? [])
-                    }}
-                    options={roles}
-                    getOptionLabel={(option) => option?.name}
-                    isOptionEqualToValue={(option, value) =>
-                      option?.name === value?.name
-                    }
-                    loading={isLoadingRoles}
-                    endDecorator={
-                      isLoadingRoles ? (
-                        <CircularProgress
-                          size="sm"
-                          sx={{ bgcolor: 'background.surface' }}
-                        />
-                      ) : null
-                    }
-                    sx={() => ({
-                      paddingX: 0.5,
-                    })}
-                  />
-                )}
-              />
-            </FormControl>
+            <Autocomplete
+              label="Cargo"
+              id="user-roles-invite"
+              placeholder="Cargos do membro"
+              multiple
+              isLoading={isLoadingRoles}
+              name="roles"
+              options={roles}
+            />
           </div>
 
           <Stack marginY={2}>
