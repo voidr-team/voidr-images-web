@@ -7,8 +7,8 @@ import {
   isHidden,
 } from './Button.module.scss'
 import cx from 'classnames'
-import Icon from '../Icon'
-import Loader from '../Loader'
+import Icon from '@/components/UI/Icon'
+import Loader from '@/components/UI/Loader'
 
 export default function Button({
   children,

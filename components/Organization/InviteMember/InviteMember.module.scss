@@ -1,0 +1,36 @@
+@import '/styles/mixins';
+
+.buttonCloseModal {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.inputsWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include above(768px) {
+    flex-direction: row;
+  }
+}
+
+.autocompleteWrapper {
+  width: 100%;
+  margin-block: 10px;
+
+  @include below(768px) {
+    max-width: 320px;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @include below(768px) {
+    display: block;
+  }
+}

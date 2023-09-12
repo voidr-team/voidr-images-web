@@ -1,0 +1,35 @@
+.sidebar {
+  .listWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+    width: 100%;
+
+    .listItem {
+      width: 100%;
+      font-size: 17px;
+      cursor: pointer;
+      color: var(--neutral-50);
+      padding-block: 15px;
+    }
+
+    .listItemActive {
+      background-color: var(--primary-700);
+      font-weight: 600;
+      color: var(--neutral-50);
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 10px;
+        border-radius: 6px;
+        background-color: var(--helper-600);
+        height: 100%;
+      }
+    }
+  }
+}

@@ -2,7 +2,7 @@ import BaseLayout from '../../layouts/BaseLayout'
 import Head from 'next/head'
 import loadAllTranslations from '@/utils/i18n/loadAllTranslations'
 import styles from './Login.module.scss'
-import Logo from '@/public/images/logo.svg'
+import Logo from '@/public/images/logo-small.svg'
 import Image from 'next/image'
 
 import { Stack, Typography, Button } from '@mui/joy'
