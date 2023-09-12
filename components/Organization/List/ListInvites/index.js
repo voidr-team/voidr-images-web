@@ -10,10 +10,10 @@ import {
 } from '@mui/joy'
 import useOrganizationInvites from './useOrganizationInvites'
 import Loader from '@/components/UI/Loader'
-import dayjs from 'dayjs'
 import Icon from '@/components/UI/Icon'
 import CopyClipboard from '@/components/CopyClipboard'
 import EmptyState from '@/components/UI/EmptyState'
+import formatDateLocal from '@/utils/formatDateLocal'
 
 function ListInvites() {
   const { data, isLoading, cancelInvite } = useOrganizationInvites()
@@ -46,8 +46,8 @@ function ListInvites() {
                 <tr key={invite.id}>
                   <td>{invite.invitee.email}</td>
                   <td>Pending</td>
-                  <td>{dayjs(invite.created_at).format('DD/MM/YYYY HH:mm')}</td>
-                  <td>{dayjs(invite.expires_at).format('DD/MM/YYYY HH:mm')}</td>
+                  <td>{formatDateLocal(invite.created_at)}</td>
+                  <td>{formatDateLocal(invite.expires_at)}</td>
                   <td>{invite.inviter.name}</td>
                   <td>
                     <Dropdown>

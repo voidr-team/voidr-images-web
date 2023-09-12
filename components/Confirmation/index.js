@@ -1,5 +1,5 @@
 import { Box, Divider, Button, Modal, ModalDialog, Typography } from '@mui/joy'
-import Icon from '../UI/Icon'
+import Icon from '@/components/UI/Icon'
 import { confirmable, createConfirmation } from 'react-confirm'
 
 function Confirmation({
