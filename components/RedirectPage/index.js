@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import Router from 'next/router'
-import LoadingPage from '../../components/LoadingPage'
+import LoadingPage from '@/components/LoadingPage'
 
 const RedirectPage = (path) => () => {
   useEffect(() => {
