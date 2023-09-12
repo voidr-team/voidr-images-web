@@ -50,7 +50,7 @@ function ManageUserRoles({ isOpen, setIsOpen, user, setUser, title }) {
                     placeholder="Cargos dos membros"
                     id="user-roles-management"
                     multiple
-                    value={value || []}
+                    value={value}
                     defaultValue={user?.roles}
                     name={name}
                     onBlur={onBlur}
