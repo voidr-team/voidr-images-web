@@ -30,7 +30,7 @@ function useManageUserRoles(userId, setIsOpen) {
   })
 
   const onSubmit = formMethods.handleSubmit((form) => {
-    const rolesId = form?.user_roles?.map((role) => role.id)
+    const rolesId = form?.userRoles?.map((role) => role.id)
 
     const data = { userId, roles: rolesId }
     mutate(data)
