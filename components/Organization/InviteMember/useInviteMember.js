@@ -25,7 +25,7 @@ function useInviteMember(setIsOpen) {
     queryFn: () => organizationService.getOrganizationRoles(),
   })
 
-  const { mutate, isLoading: isLoadingSendInvite } = useMutation({
+  const { mutate: sendInvite, isLoading: isLoadingSendInvite } = useMutation({
     mutationKey: [organizationService.swrKeys.POST_ORGANIZATION_INVITES],
     mutationFn: (data) => organizationService.postSendNewInvite(data),
     onSuccess: async () => {
@@ -47,7 +47,7 @@ function useInviteMember(setIsOpen) {
       roles: data?.roles.map((role) => role?.id),
     }
 
-    mutate(formattedData)
+    sendInvite(formattedData)
   })
 
   return {

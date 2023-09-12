@@ -11,7 +11,7 @@ function useOrganizationInvites() {
     queryFn: () => organizationService.getOrganizationInvites(),
   })
 
-  const { mutate: requestCancelInvite, isLoading: isLoadingRevokeConvite } =
+  const { mutate: deleteInvite, isLoading: isLoadingRevokeConvite } =
     useMutation({
       mutationKey: [organizationService.swrKeys.DELETE_ORGANIZATION_INVITE],
       mutationFn: (id) => organizationService.deleteOrganizationInvite(id),
@@ -34,7 +34,7 @@ function useOrganizationInvites() {
     })
 
     if (confirmAction) {
-      requestCancelInvite(id)
+      deleteInvite(id)
     }
   }, [])
 
