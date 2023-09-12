@@ -44,7 +44,7 @@ function ManageUserRoles({ isOpen, setIsOpen, user, setUser, title }) {
             <form onSubmit={onSubmit}>
               <Controller
                 control={formMethods.control}
-                name={'user_roles'}
+                name={'userRoles'}
                 render={({ field: { onChange, name, onBlur, value } }) => (
                   <Autocomplete
                     placeholder="Cargos dos membros"
