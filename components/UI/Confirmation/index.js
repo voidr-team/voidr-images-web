@@ -21,7 +21,7 @@ const Confirmation = ({
       isOpen={show}
       onCloseModal={() => proceed(false)}
       skipPortal
-      customClassDialog={styles.confirmation}
+      className={styles.confirmation}
     >
       <div className={styles.head}>
         <Icon id={icon} />

@@ -12,13 +12,13 @@ import Loader from '@/components/UI/Loader'
 
 export default function Button({
   children,
-  onButtonClick,
+  onClick,
   inverted,
   icon = '',
   iconRight = '',
   isLoading = false,
   linkStyle,
-  customClass = '',
+  className = '',
   hidden,
   ...props
 }) {
@@ -32,16 +32,16 @@ export default function Button({
           [link]: !!linkStyle,
           [isHidden]: hidden,
         },
-        customClass
+        className
       )}
       disabled={isLoading || props.disabled}
-      onClick={onButtonClick}
+      onClick={onClick}
       {...props}
     >
       <>
         {icon && <Icon id={icon} />}
         {isLoading ? (
-          <Loader light={!inverted} customClass={loaderWrapper} />
+          <Loader light={!inverted} className={loaderWrapper} />
         ) : (
           children
         )}

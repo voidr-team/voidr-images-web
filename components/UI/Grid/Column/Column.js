@@ -6,14 +6,14 @@ function Column({
   size = 12,
   sizeMobile = 12,
   sizeTablet = 12,
-  customClass,
+  className,
 }) {
   return (
     <div
       className={cx(
         styles.col,
         styles[`size${size}`],
-        customClass,
+        className,
         styles[`size-mobile${sizeMobile}`],
         styles[`size-tablet${sizeTablet}`],
         'column'

@@ -1,11 +1,11 @@
 import { loaderWrapper, isLight } from './Loader.module.scss'
 import cx from 'classnames'
 
-export default function Loader({ light, customClass }) {
+export default function Loader({ light, className }) {
   return (
-    <div className={cx('loader', customClass)}>
+    <div className={cx('loader', className)}>
       <div
-        className={cx(loaderWrapper, customClass, {
+        className={cx(loaderWrapper, className, {
           [isLight]: light,
         })}
       >

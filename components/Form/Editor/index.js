@@ -3,13 +3,12 @@ import cx from 'classnames'
 import styles from './Editor.module.scss'
 import { useController, useFormContext } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
-import { isEmpty } from 'ramda'
 
 const Editor = ({
   name,
   rules,
   defaultValue: defaultValueFromProps,
-  customClass,
+  className,
 }) => {
   const { control, getValues } = useFormContext()
   const defaultValue = getValues(name) || defaultValueFromProps || ''
@@ -34,12 +33,12 @@ const Editor = ({
     <div
       ref={wrapperRef}
       data-editor-wrapper={name}
-      className={cx(styles.editor, customClass, {
+      className={cx(styles.editor, className, {
         [styles.error]: !!fieldState.error,
       })}
     >
       <div
-        className={cx(styles.bordered, customClass)}
+        className={cx(styles.bordered, className)}
         ref={ref}
         onBlur={() =>
           onBlur({ text: currentEditorText, raw: currentEditorValue })

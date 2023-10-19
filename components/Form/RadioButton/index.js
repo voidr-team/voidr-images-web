@@ -4,7 +4,7 @@ import cx from 'classnames'
 import { useFormContext } from 'react-hook-form'
 
 const RadioButton = ({
-  customClass,
+  className,
   label,
   icon,
   value,
@@ -15,7 +15,7 @@ const RadioButton = ({
   const { register } = useFormContext()
   return (
     <label
-      className={cx(styles.radioButton, customClass, {
+      className={cx(styles.radioButton, className, {
         [styles.noIcon]: !icon,
         [styles.themeRounded]: theme === 'rounded',
       })}

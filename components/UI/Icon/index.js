@@ -1,6 +1,6 @@
 import cx from 'classnames'
 
-export default function Icon({ id, height, width, onClick, customClass }) {
+export default function Icon({ id, height, width, onClick, className }) {
   const isIconImg = /.svg$/.test(id)
   if (isIconImg) {
     return (
@@ -16,7 +16,7 @@ export default function Icon({ id, height, width, onClick, customClass }) {
   }
   return (
     <svg
-      className={cx('icon', customClass)}
+      className={cx('icon', className)}
       height={height}
       width={width}
       data-icon={id}

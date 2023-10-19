@@ -39,7 +39,7 @@ function AuthProvider({ children }) {
   }
 
   const startLogger = (userData) => {
-    const { name, email, id, onboarding } = userData
+    // const { name, email, id, onboarding } = userData
     const isDevelopment = process.env.NODE_ENV === 'development'
     if (!isDevelopment) {
       // const logger = initLogger()
@@ -54,7 +54,7 @@ function AuthProvider({ children }) {
       router.push(returnTo)
       return
     } else {
-      router.push('/dashboard')
+      router.push('/images/dashboard')
     }
   }
 
