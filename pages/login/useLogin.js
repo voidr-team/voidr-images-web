@@ -19,6 +19,8 @@ const useLogin = () => {
         },
       })
     }
+
+    return loginWithRedirect()
   }
 
   useEffect(() => {
@@ -26,7 +28,6 @@ const useLogin = () => {
   }, [])
 
   return {
-    loginWithRedirect,
     t,
   }
 }

@@ -8,7 +8,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 // Fonts
 import '@fontsource/space-grotesk'
-import '@fontsource/inter'
+import '@fontsource/work-sans'
 
 import { CssVarsProvider } from '@mui/joy/styles'
 import { CssBaseline } from '@mui/joy'
@@ -24,7 +24,7 @@ const VoidrApp = ({ Component, pageProps, ...props }) => {
   const BaseComp = (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
-        <CssVarsProvider theme={theme}>
+        <CssVarsProvider defaultMode="dark" theme={theme}>
           <CssBaseline />
           <Component {...pageProps} />
         </CssVarsProvider>

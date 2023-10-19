@@ -1,13 +1,15 @@
 :root {
   /* Cores Primárias */
-  --primary-50: #ece8f8;
-  --primary-100: #af9adf;
-  --primary-200: #714dc7;
-  --primary-300: #5836ab;
-  --primary-400: #442a84;
-  --primary-500: #301d5d;
-  --primary-600: #1c1136;
-  --primary-700: #080510;
+  --primary-50: #686c70;
+  --primary-100: #56595f;
+  --primary-200: #43474e;
+  --primary-300: #272840;
+  --primary-400: #1f222b;
+  --primary-500: #0c1019;
+  --primary-600: #160c17;
+  --primary-700: #160d0c;
+  --primary-800: #13140c;
+  --primary-900: #0c130f;
 
   /* Cores Helper */
   --helper-400: #d3d2fe;
@@ -60,6 +62,6 @@
   --h1-font-size: 42px;
 
   /* Fontes */
-  --font-display: 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-display: 'Work Sans', sans-serif;
+  --font-body: 'Work Sans', sans-serif;
 }

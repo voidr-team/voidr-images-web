@@ -1,4 +1,22 @@
 .sidebar {
+  min-width: fit-content;
+
+  .iconNavigationItem {
+    cursor: pointer !important;
+    padding: 10px;
+    transition: all 0.1s ease;
+
+    &:hover {
+      border-radius: 5px;
+      background-color: var(--primary-300);
+    }
+  }
+
+  .iconNavigationItemActive {
+    border-radius: 5px;
+    background-color: var(--primary-300);
+  }
+
   .listWrapper {
     display: flex;
     flex-direction: column;
@@ -7,28 +25,45 @@
     width: 100%;
 
     .listItem {
+      color: #9fa8c0 !important;
       width: 100%;
-      font-size: 17px;
+      font-size: 16px;
+      padding: 10px;
+      transition: all 0.1s ease;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       color: var(--neutral-50);
-      padding-block: 15px;
+
+      > svg {
+        color: #9fa8c0;
+        stroke: #9fa8c0;
+        fill: #9fa8c0;
+      }
+
+      &:hover {
+        border-radius: 5px;
+        background-color: var(--primary-300);
+        color: white !important;
+
+        > svg {
+          color: white;
+          stroke: white;
+          fill: white;
+        }
+      }
     }
 
     .listItemActive {
-      background-color: var(--primary-700);
-      font-weight: 600;
-      color: var(--neutral-50);
-      position: relative;
+      border-radius: 5px;
+      background-color: var(--primary-300);
+      color: white !important;
 
-      &::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 10px;
-        border-radius: 6px;
-        background-color: var(--helper-600);
-        height: 100%;
+      > svg {
+        color: white;
+        stroke: white;
+        fill: white;
       }
     }
   }

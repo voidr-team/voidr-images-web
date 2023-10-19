@@ -5,16 +5,16 @@ const theme = extendTheme({
     light: {
       palette: {
         primary: {
-          50: '#ECE8F8',
-          100: '#AF9ADF',
-          200: '#714DC7',
-          300: '#5836AB',
-          400: '#442A84',
-          500: '#301D5D',
-          600: '#1C1136',
-          700: '#080510',
-          800: undefined,
-          900: undefined,
+          50: '#686C70',
+          100: '#56595F',
+          200: '#43474E',
+          300: '#272840',
+          400: '#1F222B',
+          500: '#0C1019',
+          600: '#160C17',
+          700: '#160D0C',
+          800: '#13140C',
+          900: '#0C130F',
         },
         helper: {
           50: undefined,
@@ -81,16 +81,16 @@ const theme = extendTheme({
     dark: {
       palette: {
         primary: {
-          50: '#ECE8F8',
-          100: '#AF9ADF',
-          200: '#714DC7',
-          300: '#5836AB',
-          400: '#442A84',
-          500: '#301D5D',
-          600: '#1C1136',
-          700: '#080510',
-          800: undefined,
-          900: undefined,
+          50: '#686C70',
+          100: '#56595F',
+          200: '#43474E',
+          300: '#272840',
+          400: '#1F222B',
+          500: '#0C1019',
+          600: '#160C17',
+          700: '#160D0C',
+          800: '#13140C',
+          900: '#0C130F',
         },
         helper: {
           50: undefined,
@@ -169,8 +169,8 @@ const theme = extendTheme({
     },
   },
   fontFamily: {
-    display: '"Inter", var(--joy-fontFamily-fallback)',
-    body: '"Inter", var(--joy-fontFamily-fallback)',
+    display: '"Work Sans", var(--joy-fontFamily-fallback)',
+    body: '"Work Sans", var(--joy-fontFamily-fallback)',
   },
 })
 

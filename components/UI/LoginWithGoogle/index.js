@@ -3,7 +3,7 @@ import styles from './LoginWithGoogle.module.scss'
 import { useTranslation } from 'next-i18next'
 import cx from 'classnames'
 
-const LoginWithGoogle = ({ customClass }) => {
+const LoginWithGoogle = ({ className }) => {
   const { loginWithRedirect } = useAuth0()
 
   const { t } = useTranslation('ui')
@@ -16,7 +16,7 @@ const LoginWithGoogle = ({ customClass }) => {
 
   return (
     <button
-      className={cx(styles.googleLoginButton, customClass)}
+      className={cx(styles.googleLoginButton, className)}
       onClick={handleLogin}
     >
       <img src="/images/google-logo.svg" alt="Google logo" />

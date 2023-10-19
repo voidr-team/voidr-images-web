@@ -3,7 +3,7 @@ import CopyToClipboard from 'react-copy-to-clipboard'
 import styles from './CopyText.module.scss'
 import cx from 'classnames'
 
-const CopyText = ({ text, textToCopy, customClass, children }) => {
+const CopyText = ({ text, textToCopy, className, children }) => {
   const [copied, setCopied] = useState(false)
 
   function handleCopy() {
@@ -15,7 +15,7 @@ const CopyText = ({ text, textToCopy, customClass, children }) => {
 
   return (
     <CopyToClipboard text={textToCopy || text} onCopy={handleCopy}>
-      <div className={cx(styles.copyWrapper, customClass)}>
+      <div className={cx(styles.copyWrapper, className)}>
         <span
           className={cx({
             [styles.textCopied]: true,

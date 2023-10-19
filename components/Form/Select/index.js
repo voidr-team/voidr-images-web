@@ -27,7 +27,7 @@ const Select = ({
   iconId,
   label = 'Selecione uma opção',
   placeholder = '',
-  customClass,
+  className,
   isLoading,
   rules,
 }) => {
@@ -54,7 +54,7 @@ const Select = ({
   }, [])
   return (
     <div
-      className={cx(styles.inputWrapper, customClass, {
+      className={cx(styles.inputWrapper, className, {
         [styles.error]: !!fieldState.error,
       })}
     >
@@ -71,7 +71,7 @@ const Select = ({
         defaultValue={defaultValue}
         render={({ field: { onChange, onBlur, ref } }) => (
           <div className={styles.selectWrapper} ref={ref}>
-            {iconId && <Icon customClass={styles.icon} id={iconId} />}
+            {iconId && <Icon className={styles.icon} id={iconId} />}
             <ReactDropdownSelect
               className={styles.select}
               searchable={false}
