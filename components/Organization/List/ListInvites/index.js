@@ -58,11 +58,7 @@ function ListInvites() {
                         <Stack padding="5px">
                           <CopyClipboard text={invite.invitation_url}>
                             <MenuItem>
-                              <Typography
-                                fontSize={14}
-                                fontWeight="600"
-                                textColor="neutral.600"
-                              >
+                              <Typography fontSize={14} fontWeight="600">
                                 Copiar convite
                               </Typography>
                             </MenuItem>

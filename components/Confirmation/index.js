@@ -1,6 +1,7 @@
-import { Box, Divider, Button, Modal, ModalDialog, Typography } from '@mui/joy'
+import { Box, Divider, Modal, ModalDialog, Typography } from '@mui/joy'
 import Icon from '@/components/UI/Icon'
 import { confirmable, createConfirmation } from 'react-confirm'
+import Button from '../UI/Button'
 
 function Confirmation({
   show,
@@ -38,20 +39,8 @@ function Confirmation({
           <Box
             sx={{ display: 'flex', gap: 1, justifyContent: 'flex-end', pt: 2 }}
           >
-            <Button
-              variant="plain"
-              color="neutral"
-              onClick={() => proceed(false)}
-            >
-              {cancelLabel}
-            </Button>
-            <Button
-              variant="solid"
-              color="danger"
-              onClick={() => proceed(true)}
-            >
-              {okLabel}
-            </Button>
+            <Button onClick={() => proceed(false)}>{cancelLabel}</Button>
+            <Button onClick={() => proceed(true)}>{okLabel}</Button>
           </Box>
         </ModalDialog>
       </Modal>

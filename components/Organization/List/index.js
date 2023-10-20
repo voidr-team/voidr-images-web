@@ -12,7 +12,7 @@ function List() {
             [`[aria-selected="true"]`]: {
               bgcolor: 'transparent',
               fontWeight: 600,
-              color: theme.colorSchemes.light.palette.primary[600],
+              color: theme.colorSchemes.light.palette.helper[500],
             },
           })}
         >

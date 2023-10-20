@@ -1,16 +1,12 @@
 .buttonWrapper {
-  display: block;
-  font-weight: bold;
-  font-size: 14px;
-  padding: 6px 24px;
-  border-radius: 4px;
-  // background-color: var(--feat-theme-color);
-  background-color: #3B4042;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 3px 30px;
+  border-radius: 100px;
+  background-color: var(--helper-500);
   color: white;
   transition: background-color 0.4s, color 0.4s, border-color 0.4s;
   min-height: 44px;
-  // border: solid 2px var(--feat-theme-color);
-  border: solid 2px #3B4042;
   cursor: pointer;
   min-width: 120px;
   line-height: 1.2;
@@ -38,15 +34,14 @@
   }
 
   &:not([disabled]):not(.link):not(.inverted):hover {
-    background-color: darken(#3B4042, 10%);
-    border-color: darken(#3B4042, 10%);
+    background-color: darken(#5e5ce6, 10%);
+    border-color: darken(#5e5ce6, 10%);
     color: white;
   }
 
   &.invertedWrapper {
     background-color: transparent;
-    // color: var(--feat-theme-color);
-    color: #3B4042;
+    color: #5e5ce6;
   }
 
   &.hasIcon {

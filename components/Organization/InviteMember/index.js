@@ -1,4 +1,4 @@
-import { Stack, Button } from '@mui/joy'
+import { Stack } from '@mui/joy'
 import PropTypes from 'prop-types'
 import styles from './InviteMember.module.scss'
 import useInviteMember from './useInviteMember'
@@ -6,6 +6,7 @@ import { FormProvider } from 'react-hook-form'
 import Modal from '@/components/UI/Modal'
 import Input from '@/components/Form/Input'
 import Autocomplete from '@/components/Form/Autocomplete'
+import Button from '@/components/UI/Button'
 
 function InviteMember({ isOpen, setIsOpen }) {
   const { onSubmit, formMethods, isLoadingSendInvite, isLoadingRoles, roles } =
@@ -44,7 +45,7 @@ function InviteMember({ isOpen, setIsOpen }) {
           </div>
 
           <Stack marginY={2}>
-            <Button loading={isLoadingSendInvite} type="submit">
+            <Button isLoading={isLoadingSendInvite} type="submit">
               Enviar convite
             </Button>
           </Stack>

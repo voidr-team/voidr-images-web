@@ -1,4 +1,5 @@
-import { Button, Stack, Typography } from '@mui/joy'
+import Button from '@/components/UI/Button'
+import { Stack, Typography } from '@mui/joy'
 
 function OrganizationHeader({ setIsOpenInviteMember }) {
   return (
@@ -6,7 +7,6 @@ function OrganizationHeader({ setIsOpenInviteMember }) {
       width="100%"
       maxHeight="270px"
       padding="35px"
-      bgcolor="neutral.50"
       boxShadow="md"
       direction="row"
       alignItems="center"
