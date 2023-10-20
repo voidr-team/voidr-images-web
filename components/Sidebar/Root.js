@@ -14,11 +14,11 @@ function Root({ children }) {
       display="flex"
       direction="row"
       className={styles.sidebar}
-      height="100vh"
+      minHeight="100vh"
       bgcolor="primary.500"
     >
       <Stack
-        height="100vh"
+        minHeight="100vh"
         paddingX={1.2}
         paddingY={2.5}
         borderRight={1}

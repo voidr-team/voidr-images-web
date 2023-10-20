@@ -13,7 +13,7 @@ function ImageLayout({ children }) {
 
   return (
     <BaseLayout currentPage="dashboard">
-      <Stack direction="row">
+      <Stack gap={10} direction="row">
         <Sidebar.Root>
           <Sidebar.Content>
             <div>
@@ -46,7 +46,7 @@ function ImageLayout({ children }) {
           </Sidebar.Content>
         </Sidebar.Root>
 
-        {children}
+        <Stack flex="1">{children}</Stack>
       </Stack>
     </BaseLayout>
   )

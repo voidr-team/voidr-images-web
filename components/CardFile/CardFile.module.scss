@@ -1,0 +1,23 @@
+.cardFile {
+  max-width: fit-content;
+  min-width: 210px;
+  border-radius: 10px;
+  background-color: black;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+
+  > img {
+    width: 100%;
+    max-width: 210px;
+    object-fit: cover;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+
+  .content {
+    background-color: var(--neutral-700);
+    padding: 15px 10px;
+    border-end-end-radius: 10px;
+    border-end-start-radius: 10px;
+  }
+}

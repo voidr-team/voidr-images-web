@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import loadAllTranslations from '@/utils/i18n/loadAllTranslations'
-import useLogin from './useLogin'
+import useLogin from '@/hooks/useLogin'
 
 function LoginPage() {
   const { t } = useLogin()

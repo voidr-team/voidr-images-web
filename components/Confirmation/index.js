@@ -39,7 +39,9 @@ function Confirmation({
           <Box
             sx={{ display: 'flex', gap: 1, justifyContent: 'flex-end', pt: 2 }}
           >
-            <Button onClick={() => proceed(false)}>{cancelLabel}</Button>
+            <Button inverted onClick={() => proceed(false)}>
+              {cancelLabel}
+            </Button>
             <Button onClick={() => proceed(true)}>{okLabel}</Button>
           </Box>
         </ModalDialog>
