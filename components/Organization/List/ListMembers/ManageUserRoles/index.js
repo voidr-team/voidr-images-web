@@ -1,10 +1,11 @@
-import { Button, Modal, ModalDialog, Stack, Typography } from '@mui/joy'
+import { Modal, ModalDialog, Stack, Typography } from '@mui/joy'
 import { FormProvider } from 'react-hook-form'
 import PropTypes from 'prop-types'
 import useManageUserRoles from './useManageUserRoles'
 import Icon from '@/components/UI/Icon'
 import styles from './ManageUserRoles.module.scss'
 import Autocomplete from '@/components/Form/Autocomplete'
+import Button from '@/components/UI/Button'
 
 function ManageUserRoles({ isOpen, setIsOpen, user, setUser, title }) {
   const { roles, formMethods, onSubmit, isLoadingRoles, isLoadingUpdateRoles } =
@@ -47,8 +48,8 @@ function ManageUserRoles({ isOpen, setIsOpen, user, setUser, title }) {
                   options={roles}
                 />
 
-                <Stack marginY={2}>
-                  <Button loading={isLoadingUpdateRoles} type="submit">
+                <Stack display="flex" alignItems="flex-end" marginY={2}>
+                  <Button isLoading={isLoadingUpdateRoles} type="submit">
                     Enviar
                   </Button>
                 </Stack>

@@ -85,11 +85,7 @@ function ListMembers() {
                           setIsOpenManageUserRoles(true)
                         }}
                       >
-                        <Typography
-                          fontSize={14}
-                          fontWeight="600"
-                          textColor="neutral.600"
-                        >
+                        <Typography fontSize={14} fontWeight="600">
                           Gerenciar cargos
                         </Typography>
                       </MenuItem>
