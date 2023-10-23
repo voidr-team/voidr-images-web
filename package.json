@@ -46,9 +46,11 @@
     "yup": "1.2.0"
   },
   "devDependencies": {
+    "@types/node": "20.8.7",
     "eslint": "8.48.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-react": "7.33.2",
-    "prettier": "2.8.8"
+    "prettier": "2.8.8",
+    "typescript": "5.2.2"
   }
 }

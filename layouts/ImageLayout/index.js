@@ -13,7 +13,7 @@ function ImageLayout({ children }) {
 
   return (
     <BaseLayout currentPage="dashboard">
-      <Stack gap={10} direction="row">
+      <Stack gap={4} direction="row">
         <Sidebar.Root>
           <Sidebar.Content>
             <div>
