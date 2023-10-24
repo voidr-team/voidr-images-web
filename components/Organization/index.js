@@ -8,7 +8,7 @@ function OrganizationList() {
   const [isOpenInviteMember, setIsOpenInviteMember] = useState(false)
 
   return (
-    <Stack width="100%" spacing={2}>
+    <Stack minHeight="100vh" width="100%" spacing={2}>
       <OrganizationHeader setIsOpenInviteMember={setIsOpenInviteMember} />
       <List />
       <InviteMember

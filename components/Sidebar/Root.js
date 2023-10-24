@@ -11,6 +11,8 @@ function Root({ children }) {
 
   return (
     <Stack
+      position="fixed"
+      zIndex={999}
       display="flex"
       direction="row"
       className={styles.sidebar}
@@ -23,27 +25,29 @@ function Root({ children }) {
         paddingY={2.5}
         borderRight={1}
         alignItems="center"
-        borderColor="neutral.600"
+        borderColor="neutral.700"
       >
-        <Image
-          src="/images/logo-small.svg"
-          alt="Logo Voidr"
-          width={37}
-          height={37}
-        />
+        <Stack maxHeight="100vh">
+          <Image
+            src="/images/logo-small.svg"
+            alt="Logo voidr"
+            width={37}
+            height={37}
+          />
 
-        <Stack paddingTop={3} alignItems="center">
-          <Link href="/images/dashboard">
-            <Icon
-              className={cn(styles.iconNavigationItem, {
-                [styles.iconNavigationItemActive]:
-                  router.pathname.startsWith('/images'),
-              })}
-              id="Image_Icon"
-              width={45}
-              height={45}
-            />
-          </Link>
+          <Stack paddingTop={3} alignItems="center">
+            <Link href="/images/dashboard">
+              <Icon
+                className={cn(styles.iconNavigationItem, {
+                  [styles.iconNavigationItemActive]:
+                    router.pathname.startsWith('/images'),
+                })}
+                id="Image_Icon"
+                width={45}
+                height={45}
+              />
+            </Link>
+          </Stack>
         </Stack>
       </Stack>
 

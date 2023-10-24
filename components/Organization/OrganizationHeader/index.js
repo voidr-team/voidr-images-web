@@ -7,7 +7,6 @@ function OrganizationHeader({ setIsOpenInviteMember }) {
       width="100%"
       maxHeight="270px"
       padding="35px"
-      boxShadow="md"
       direction="row"
       alignItems="center"
       justifyContent="space-between"
