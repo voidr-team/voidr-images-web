@@ -1,0 +1,25 @@
+.planInfo {
+  position: relative;
+  width: 100%;
+  height: 15px;
+  border-radius: 1000px;
+  margin-top: 10px;
+  background-color: var(--primary-300);
+
+  .bar {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 200px;
+    border-radius: 1000px;
+    background-color: var(--helper-600);
+  }
+}
+
+.planUseInfo {
+  .smallBadge {
+    height: 4px;
+    width: 30px;
+    border-radius: 1000px;
+  }
+}

@@ -12,27 +12,29 @@ function Content({ children }) {
   return (
     <Stack
       borderRight={1}
-      borderColor="neutral.600"
+      borderColor="neutral.700"
       justifyContent="space-between"
       paddingX={3}
       paddingY={2.5}
     >
-      {children}
+      <Stack justifyContent="space-between" height="100%" maxHeight="95vh">
+        {children}
 
-      <ul className={styles.listWrapper}>
-        {sidebarItems.common.map((item) => (
-          <Link href={item.link} key={item.id}>
-            <li
-              className={cn(styles.listItem, {
-                [styles.listItemActive]: router.pathname === item.link,
-              })}
-            >
-              <Icon id="Image_Icon" width={17} height={17} />
-              {item.label}
-            </li>
-          </Link>
-        ))}
-      </ul>
+        <ul className={styles.listWrapper}>
+          {sidebarItems.common.map((item) => (
+            <Link href={item.link} key={item.id}>
+              <li
+                className={cn(styles.listItem, {
+                  [styles.listItemActive]: router.pathname === item.link,
+                })}
+              >
+                <Icon id="Image_Icon" width={17} height={17} />
+                {item.label}
+              </li>
+            </Link>
+          ))}
+        </ul>
+      </Stack>
     </Stack>
   )
 }

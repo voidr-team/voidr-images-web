@@ -13,7 +13,7 @@ function ImageLayout({ children }) {
 
   return (
     <BaseLayout currentPage="dashboard">
-      <Stack gap={4} direction="row">
+      <Stack direction="row">
         <Sidebar.Root>
           <Sidebar.Content>
             <div>
@@ -24,7 +24,7 @@ function ImageLayout({ children }) {
                 paddingTop={0.5}
                 paddingBottom={3}
               >
-                Voidr | Images
+                voidr | Images
               </Typography>
 
               <ul className={sidebarStyles.listWrapper}>
@@ -46,7 +46,9 @@ function ImageLayout({ children }) {
           </Sidebar.Content>
         </Sidebar.Root>
 
-        <Stack flex="1">{children}</Stack>
+        <Stack minHeight="100vh" marginLeft="360px" flex="1">
+          {children}
+        </Stack>
       </Stack>
     </BaseLayout>
   )

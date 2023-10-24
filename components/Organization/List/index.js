@@ -4,7 +4,7 @@ import ListInvites from './ListInvites'
 
 function List() {
   return (
-    <Stack padding="35px">
+    <Stack bgcolor="transparent" padding="35px">
       <Tabs aria-label="Organization members" defaultValue={0}>
         <TabList
           sx={(theme) => ({
