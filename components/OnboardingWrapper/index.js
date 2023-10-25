@@ -20,7 +20,7 @@ export default function OnboardingWrapper() {
             </StepRender>
 
             <StepRender steps={steps} eq="SETUP">
-              <Steps.Setup />
+              <Steps.Setup steps={steps} />
             </StepRender>
 
             <StepRender steps={steps} eq="START">
