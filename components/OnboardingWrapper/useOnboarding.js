@@ -18,6 +18,8 @@ const schema = yup.object().shape({
         .required('Required field'),
     })
   ),
+  project_name: yup.string().required('Required field'),
+  platform: yup.string().required('Required field'),
 })
 
 export default function useOnboarding() {

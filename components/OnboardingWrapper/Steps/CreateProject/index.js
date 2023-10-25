@@ -24,11 +24,7 @@ export default function CreateProject() {
         </Typography>
 
         <Stack marginTop={3} maxWidth="400px">
-          <Input
-            rules={{ required: 'The field is required' }}
-            name="project_name"
-            placeholder="Company XPTO Marketplace"
-          />
+          <Input name="project_name" placeholder="Company XPTO Marketplace" />
         </Stack>
       </Stack>
 
@@ -59,7 +55,6 @@ export default function CreateProject() {
             >
               <Stack width="100%" maxWidth="350px">
                 <Input
-                  rules={{ required: 'The field is required' }}
                   name={`domains.${index}.domain`}
                   placeholder="https://mywebsite.com"
                 />
@@ -104,7 +99,6 @@ export default function CreateProject() {
             <Stack justifyContent="center" gap={1} alignItems="center">
               <RadioButton
                 icon="Image_Icon"
-                rules={{ required: 'The field is required' }}
                 className={styles.radioButton}
                 name="platform"
                 value="web"
@@ -121,7 +115,6 @@ export default function CreateProject() {
             <Stack justifyContent="center" gap={1} alignItems="center">
               <RadioButton
                 icon="Image_Icon"
-                rules={{ required: 'The field is required' }}
                 className={styles.radioButton}
                 name="platform"
                 value="mobile"
