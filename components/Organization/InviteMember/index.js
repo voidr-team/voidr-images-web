@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import styles from './InviteMember.module.scss'
 import useInviteMember from './useInviteMember'
 import { FormProvider } from 'react-hook-form'
-import Modal from '@/components/UI/Modal'
-import Input from '@/components/Form/Input'
-import Autocomplete from '@/components/Form/Autocomplete'
-import Button from '@/components/UI/Button'
+import Modal from '../../UI/Modal'
+import Input from '../../Form/Input'
+import Autocomplete from '../../Form/Autocomplete'
+import Button from '../../UI/Button'
 
 function InviteMember({ isOpen, setIsOpen }) {
   const { onSubmit, formMethods, isLoadingSendInvite, isLoadingRoles, roles } =

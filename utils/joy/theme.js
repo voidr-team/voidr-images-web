@@ -6,7 +6,7 @@ const theme = extendTheme({
       palette: {
         primary: {
           50: '#686C70',
-          100: '#56595F',
+          100: '#9FA8C0',
           200: '#43474E',
           300: '#272840',
           400: '#1F222B',
@@ -82,7 +82,7 @@ const theme = extendTheme({
       palette: {
         primary: {
           50: '#686C70',
-          100: '#56595F',
+          100: '#9FA8C0',
           200: '#43474E',
           300: '#272840',
           400: '#1F222B',

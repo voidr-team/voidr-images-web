@@ -1,0 +1,26 @@
+.radioButton {
+  margin-bottom: 0;
+  border-radius: 10px;
+  max-width: fit-content;
+  position: relative;
+  padding: 10px;
+
+  div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column !important;
+  }
+
+  input[type='radio']:checked + div {
+    border: 1px solid var(--helper-500);
+
+    svg {
+      fill: var(--helper-500);
+      color: var(--helper-500);
+    }
+  }
+
+  input[type='radio']:not(:checked) + div {
+    border: 1px solid var(--neutral-500);
+  }
+}

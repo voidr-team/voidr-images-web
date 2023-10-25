@@ -12,7 +12,7 @@ import '@fontsource/work-sans'
 
 import { CssVarsProvider } from '@mui/joy/styles'
 import { CssBaseline } from '@mui/joy'
-import theme from '@/utils/joy/theme'
+import theme from '../utils/joy/theme'
 import { useState } from 'react'
 import { QueryClient, Hydrate, QueryClientProvider } from 'react-query'
 
