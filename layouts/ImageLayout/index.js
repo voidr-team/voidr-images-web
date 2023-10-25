@@ -24,7 +24,7 @@ function ImageLayout({ children }) {
                 paddingTop={0.5}
                 paddingBottom={3}
               >
-                voidr | Images
+                voidr | images
               </Typography>
 
               <ul className={sidebarStyles.listWrapper}>

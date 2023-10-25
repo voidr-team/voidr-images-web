@@ -5,9 +5,9 @@ import styles from './Setup.module.scss'
 export default function Setup({ steps }) {
   return (
     <Stack
+      height="80vh"
+      maxWidth="100vh"
       position="relative"
-      minWidth="100vh"
-      minHeight="80vh"
       marginY={{ xs: 6, sm: 7, md: 15 }}
     >
       <Stack>

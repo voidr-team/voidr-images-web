@@ -12,7 +12,7 @@ export default function OnboardingWrapper() {
     <Stack direction="row" minHeight="100vh" bgcolor="primary.500">
       <OnboardingSidebar steps={steps} />
 
-      <Stack marginLeft="350px">
+      <Stack width="100%" minHeight="100vh" marginLeft="350px">
         <form onSubmit={onSubmit}>
           <FormProvider {...formMethods}>
             <StepRender steps={steps} eq="CREATE_PROJECT">
@@ -24,7 +24,7 @@ export default function OnboardingWrapper() {
             </StepRender>
 
             <StepRender steps={steps} eq="START">
-              <Steps.Finish />
+              <Steps.Finish steps={steps} />
             </StepRender>
           </FormProvider>
         </form>
