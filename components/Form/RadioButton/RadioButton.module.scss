@@ -1,4 +1,4 @@
-.radioButton { 
+.radioButton {
   cursor: pointer;
 
   .wrapper {
@@ -7,8 +7,6 @@
     align-items: center;
     position: relative;
     padding: 30px;
-    border: 2px solid var(--theme-5);
-    color: var(--theme-5);
     opacity: 0.3;
     border-radius: 4px;
     transition: border 0.2s ease;
@@ -43,11 +41,9 @@
 
   &.themeRounded {
     .iconWrapper {
-      background-color: var(--input-background);
       border-radius: 50%;
       width: 92px;
       height: 92px;
-      border: 3px solid var(--content-theme-color);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -58,24 +54,21 @@
     max-width: 100%;
     width: 62px;
     height: 62px;
-    fill: var(--theme-5);
-    color: var(--theme-5);
     will-change: fill;
     transition: fill 0.2s ease, color 0.2s ease;
   }
-  
+
   > input {
     display: none;
   }
 
   &:hover .wrapper,
   > input:checked + .wrapper {
-    opacity: 1;
+    opacity: 0.5;
   }
 
   > input:not(:checked) + .wrapper {
     .fakeInput {
-      background-color: var(--theme-5);
       svg {
         opacity: 0;
       }
@@ -101,7 +94,6 @@
 
   .fakeInput {
     position: absolute;
-    background-color: var(--theme-bounty);
     border-radius: 50%;
     padding: 0px;
     height: 20px;
