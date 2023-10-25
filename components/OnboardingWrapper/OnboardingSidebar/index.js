@@ -51,7 +51,7 @@ export default function OnboardingSidebar({ steps }) {
             paddingTop={0.5}
             paddingBottom={3}
           >
-            voidr | Images
+            voidr | images
           </Typography>
           <Stack maxHeight="fit-content" position="relative" gap={5}>
             {onboardingSteps?.map((onboardingStep) => {
