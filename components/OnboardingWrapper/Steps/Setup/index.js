@@ -1,11 +1,12 @@
 import { Stack, Typography } from '@mui/joy'
 import Button from '../../../UI/Button'
 import styles from './Setup.module.scss'
+import CodeSnippet from './CodeSnippet'
 
 export default function Setup({ steps }) {
   return (
     <Stack
-      height="80vh"
+      minHeight="80vh"
       maxWidth="100vh"
       position="relative"
       marginY={{ xs: 6, sm: 7, md: 15 }}
@@ -54,21 +55,9 @@ export default function Setup({ steps }) {
         </div>
       </Stack>
 
-      <Stack
-        borderRadius={6}
-        marginTop={4}
-        height="250px"
-        bgcolor="primary.300"
-      ></Stack>
+      <CodeSnippet />
 
-      <Stack
-        position="absolute"
-        bottom={0}
-        right={0}
-        marginBottom={3}
-        direction="row"
-        gap={2}
-      >
+      <Stack marginY={6} direction="row" gap={2}>
         <Button onClick={steps.backStep} inverted type="button">
           Back
         </Button>
