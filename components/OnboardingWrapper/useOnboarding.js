@@ -27,6 +27,8 @@ export default function useOnboarding() {
   const formMethods = useForm({
     defaultValues: {
       domains: [{ domain: '' }],
+      tech: 'node',
+      framework: 'react',
     },
     resolver: yupResolver(schema),
   })

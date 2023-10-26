@@ -156,7 +156,7 @@ const theme = extendTheme({
     },
   },
   typography: {
-    h1: { fontSize: '42px', fontFamily: 'Space Grotesk' },
+    h1: { fontSize: '42px', fontFamily: 'Work Sans' },
   },
   components: {
     JoyButton: {
