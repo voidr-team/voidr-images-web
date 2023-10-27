@@ -55,7 +55,7 @@ function AuthProvider({ children }) {
       return
     } else {
       // TODO: DESCOMENTAR DEPOIS
-      // router.push('/images/dashboard')
+      router.push('/images/dashboard')
     }
   }
 

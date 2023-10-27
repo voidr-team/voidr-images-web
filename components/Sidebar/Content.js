@@ -11,6 +11,7 @@ function Content({ children }) {
 
   return (
     <Stack
+      minWidth="280px"
       borderRight={1}
       borderColor="neutral.700"
       justifyContent="space-between"

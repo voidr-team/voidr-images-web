@@ -19,16 +19,11 @@ const sidebarItems = {
   common: [
     {
       id: 1,
-      label: 'Organization settings',
-      link: '/common/org-settings',
-    },
-    {
-      id: 2,
       label: 'Plans',
       link: '/common/plans',
     },
     {
-      id: 3,
+      id: 2,
       label: 'Referral',
       link: '/common/referral',
     },
