@@ -9,6 +9,7 @@ export default function FileList() {
 
       <Grid
         container
+        maxWidth="900px"
         spacing={{ xs: 5 }}
         rows={3}
         columns={5}

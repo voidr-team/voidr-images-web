@@ -1,0 +1,17 @@
+.viewDocs {
+  text-decoration: underline;
+  color: var(--helper-500);
+}
+
+.iconWrapper {
+  padding: 8px;
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  background-color: #20234c;
+
+  svg {
+    color: var(--helper-500);
+  }
+}

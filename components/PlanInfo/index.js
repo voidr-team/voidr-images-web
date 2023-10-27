@@ -15,7 +15,7 @@ export default function PlanInfo() {
       <Stack gap={1} direction="row" alignItems="center">
         <Typography
           fontWeight="900"
-          fontSize={30}
+          fontSize={46}
           textColor="neutral.400"
           level="title-lg"
         >

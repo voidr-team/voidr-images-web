@@ -6,7 +6,7 @@ export default function LastProcessedFiles() {
   return (
     <Stack
       maxWidth="fit-content"
-      padding={4}
+      padding={2.8}
       borderRadius={6}
       border={1}
       borderColor="neutral.600"
@@ -14,14 +14,14 @@ export default function LastProcessedFiles() {
       <Typography level="h4">Latest processed files</Typography>
 
       <Stack
-        maxWidth="580px"
+        maxWidth="900px"
         width="100%"
         gap={3}
         direction="row"
         flexWrap="wrap"
         marginTop={4}
       >
-        {MOCK_FILES.slice(0, 6).map((item, index) => (
+        {MOCK_FILES.slice(0, 10).map((item, index) => (
           <CardFile
             key={index}
             imageName={item.imageName}

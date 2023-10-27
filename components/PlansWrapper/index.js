@@ -1,5 +1,5 @@
 import { Stack, Typography } from '@mui/joy'
-import PlanInfo from './PlanInfo'
+import PlanInfo from '../PlanInfo'
 import ChoosePlan from './ChoosePlan'
 
 export default function PlansWrapper() {
