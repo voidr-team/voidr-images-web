@@ -14,8 +14,6 @@ const data = [
 ]
 
 const chartOptions = {
-  // Configurações do gráfico ApexCharts
-  // Personalize de acordo com suas necessidades
   chart: {
     id: 'trafic-data',
     type: 'line',
@@ -100,12 +98,13 @@ const series = [
 export default function TrafficDataGraph() {
   return (
     <Stack
+      width="100%"
       maxWidth="fit-content"
       padding={2.8}
       borderRadius={6}
       border={1}
+      flex={1}
       borderColor="neutral.600"
-      minWidth="945px"
     >
       <Stack direction="row" justifyContent="space-between" alignItems="center">
         <Typography level="h4">Traffic</Typography>
@@ -117,6 +116,7 @@ export default function TrafficDataGraph() {
         series={series}
         type="line"
         height={280}
+        width={740}
       />
     </Stack>
   )

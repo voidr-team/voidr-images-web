@@ -18,7 +18,12 @@ export default function DashboardWrapper() {
         <Insights />
       </Stack>
 
-      <Stack maxHeight="350px" direction={{ sm: 'column', md: 'row' }} gap={3}>
+      <Stack
+        width="100%"
+        maxHeight="380px"
+        direction={{ sm: 'column', md: 'row' }}
+        gap={3}
+      >
         {typeof window !== 'undefined' ? <TrafficDataGraph /> : null}
         <PlanUsage />
       </Stack>

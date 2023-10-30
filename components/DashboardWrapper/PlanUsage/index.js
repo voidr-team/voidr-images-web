@@ -7,7 +7,6 @@ export default function PlanUsage() {
   return (
     <Stack
       minWidth="300px"
-      flex={1}
       padding={3.8}
       borderRadius={6}
       border={1}

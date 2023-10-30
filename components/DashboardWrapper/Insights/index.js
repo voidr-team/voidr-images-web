@@ -5,7 +5,7 @@ import styles from './Insights.module.scss'
 export default function Insights() {
   return (
     <Stack
-      minWidth="300px"
+      minWidth="320px"
       flex={1}
       padding={3.8}
       borderRadius={6}

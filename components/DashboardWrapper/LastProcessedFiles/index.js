@@ -21,7 +21,7 @@ export default function LastProcessedFiles() {
         flexWrap="wrap"
         marginTop={4}
       >
-        {MOCK_FILES.slice(0, 10).map((item, index) => (
+        {MOCK_FILES.slice(0, 8).map((item, index) => (
           <CardFile
             key={index}
             imageName={item.imageName}

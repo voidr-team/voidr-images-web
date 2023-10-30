@@ -1,0 +1,50 @@
+.container {
+  position: relative;
+  cursor: pointer;
+
+  .menu {
+    cursor: auto;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+    visibility: hidden;
+    overflow: hidden;
+    z-index: 9;
+  }
+
+  .visible {
+    animation: fadein 0.2s linear forwards;
+
+    @keyframes fadein {
+      from {
+        top: 100%;
+        opacity: 0;
+      }
+
+      to {
+        top: 110%;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  .hidden {
+    animation: fadeout 0.2s linear forwards;
+
+    @keyframes fadeout {
+      from {
+        top: 110%;
+        visibility: visible;
+        opacity: 1;
+      }
+
+      to {
+        top: 100%;
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+  }
+}
