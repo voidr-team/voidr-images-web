@@ -5,6 +5,7 @@ import LoadingPage from '@/components/LoadingPage'
 import { useAuth0 } from '@auth0/auth0-react'
 import useHttp from '@/utils/useHttp'
 import persistCurrentRoute from '@/utils/auth/persisCurrentRoute'
+import { isEmpty } from 'ramda'
 
 export const AuthContext = createContext()
 
@@ -47,8 +48,12 @@ function AuthProvider({ children }) {
     }
   }
 
-  const redirectAfterLogin = () => {
+  const redirectAfterLogin = (userData) => {
     const returnTo = sessionStorage.getItem('returnTo')
+    if (isEmpty(userData?.projects)) {
+      return router.push('/onboarding')
+    }
+
     if (returnTo) {
       sessionStorage.removeItem('returnTo')
       router.push(returnTo)
@@ -81,7 +86,7 @@ function AuthProvider({ children }) {
         fetchUser()
           .then((userData) => {
             startLogger(userData)
-            redirectAfterLogin()
+            redirectAfterLogin(userData)
           })
           .catch((err) => {
             console.error(err)
