@@ -1,7 +1,6 @@
 import { Stack, Typography } from '@mui/joy'
 import Input from '../../../Form/Input'
 import RadioButton from '../../../Form/RadioButton'
-import Button from '../../../UI/Button'
 import styles from './CreateProject.module.scss'
 import { useFieldArray, useFormContext } from 'react-hook-form'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
@@ -17,14 +16,14 @@ export default function CreateProject() {
   const [parentRef] = useAutoAnimate()
 
   return (
-    <Stack marginY={{ xs: 6, sm: 7, md: 15 }}>
+    <Stack marginTop={{ xs: 6, sm: 7, md: 15 }}>
       <Stack>
         <Typography fontWeight="600" fontSize={20}>
           Project name
         </Typography>
 
         <Stack marginTop={3} maxWidth="400px">
-          <Input name="project_name" placeholder="Company XPTO Marketplace" />
+          <Input name="name" placeholder="Company XPTO Marketplace" />
         </Stack>
       </Stack>
 
@@ -132,10 +131,6 @@ export default function CreateProject() {
 
           <ErrorMessage name="platform" errors={errors} />
         </Stack>
-      </Stack>
-
-      <Stack marginTop={6}>
-        <Button type="submit">Next</Button>
       </Stack>
     </Stack>
   )
