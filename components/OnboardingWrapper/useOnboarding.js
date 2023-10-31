@@ -5,6 +5,8 @@ import * as yup from 'yup'
 import { useMutation } from 'react-query'
 import projectService from '@/services/project'
 import toastEz from '@/utils/toastEz'
+import { useEffect } from 'react'
+import useAuth from '@/context/auth/useAuth'
 
 const formSteps = {
   order: ['CREATE_PROJECT', 'SETUP', 'START'],
@@ -35,6 +37,7 @@ export default function useOnboarding() {
     },
     resolver: yupResolver(schema),
   })
+  const { user } = useAuth()
 
   const { mutate: createProject, isLoading } = useMutation({
     mutationKey: [projectService.swrKeys.POST_CREATE_PROJECT],
@@ -44,6 +47,27 @@ export default function useOnboarding() {
       steps.nextStep()
     },
   })
+
+  const saveStepInStorage = (stepNumber) => {
+    sessionStorage.setItem(user?.sub + '_profileBuilderData_step', stepNumber)
+  }
+
+  const getStepInStorage = () => {
+    return sessionStorage.getItem(user?.sub + '_profileBuilderData_step')
+  }
+
+  useEffect(() => {
+    if (steps.current && steps.current > 0 && !steps.isLastStep) {
+      saveStepInStorage(steps.current)
+    }
+  }, [steps.current])
+
+  useEffect(() => {
+    const stepNumber = Number(getStepInStorage())
+    if (stepNumber !== 0 && !isNaN(stepNumber)) {
+      steps.sendToStep(stepNumber)
+    }
+  }, [user?.sub])
 
   const onSubmit = formMethods.handleSubmit((data) => {
     if (steps.getCurrentStepName() === 'CREATE_PROJECT') {
