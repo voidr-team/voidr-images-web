@@ -47,7 +47,10 @@ export default function useOnboarding() {
     onSuccess: async (data) => {
       toastEz.success('Projeto criado com sucesso')
       const orgId = data?.data?.createdBy?.organizationId
-      await getAccessTokenSilently({ organization: orgId, ignoreCache: true })
+      await getAccessTokenSilently({
+        organization: orgId,
+        ignoreCache: true,
+      })
       steps.nextStep()
     },
   })
