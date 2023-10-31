@@ -7,6 +7,7 @@ import projectService from '@/services/project'
 import toastEz from '@/utils/toastEz'
 import { useEffect } from 'react'
 import useAuth from '@/context/auth/useAuth'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const formSteps = {
   order: ['CREATE_PROJECT', 'SETUP', 'START'],
@@ -28,6 +29,7 @@ const schema = yup.object().shape({
 })
 
 export default function useOnboarding() {
+  const { getAccessTokenSilently } = useAuth0()
   const steps = useSteps(formSteps)
   const formMethods = useForm({
     defaultValues: {
@@ -42,8 +44,10 @@ export default function useOnboarding() {
   const { mutate: createProject, isLoading } = useMutation({
     mutationKey: [projectService.swrKeys.POST_CREATE_PROJECT],
     mutationFn: (data) => projectService.postCreateProject(data),
-    onSuccess: () => {
+    onSuccess: async (data) => {
       toastEz.success('Projeto criado com sucesso')
+      const orgId = data?.data?.createdBy?.organizationId
+      await getAccessTokenSilently({ organization: orgId, ignoreCache: true })
       steps.nextStep()
     },
   })
