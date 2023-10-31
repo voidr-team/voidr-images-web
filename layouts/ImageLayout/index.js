@@ -5,7 +5,6 @@ import { Stack, Typography } from '@mui/joy'
 import BaseLayout from '../BaseLayout'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import Icon from '@/components/UI/Icon'
 import cn from 'classnames'
 
 function ImageLayout({ children }) {
@@ -36,7 +35,7 @@ function ImageLayout({ children }) {
                           router.pathname === item.link,
                       })}
                     >
-                      <Icon id="Image_Icon" width={17} height={17} />
+                      <item.icon />
                       {item.label}
                     </li>
                   </Link>

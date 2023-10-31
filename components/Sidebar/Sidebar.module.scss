@@ -36,22 +36,10 @@
       gap: 10px;
       color: var(--neutral-50);
 
-      > svg {
-        color: #9fa8c0;
-        stroke: #9fa8c0;
-        fill: #9fa8c0;
-      }
-
       &:hover {
         border-radius: 5px;
         background-color: var(--primary-300);
         color: white !important;
-
-        > svg {
-          color: white;
-          stroke: white;
-          fill: white;
-        }
       }
     }
 
@@ -59,12 +47,6 @@
       border-radius: 5px;
       background-color: var(--primary-300);
       color: white !important;
-
-      > svg {
-        color: white;
-        stroke: white;
-        fill: white;
-      }
     }
   }
 }

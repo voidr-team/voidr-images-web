@@ -2,7 +2,6 @@ import { Stack } from '@mui/joy'
 import { useRouter } from 'next/router'
 import styles from './Sidebar.module.scss'
 import cn from 'classnames'
-import Icon from '../UI/Icon'
 import sidebarItems from './sidebarItems'
 import Link from 'next/link'
 
@@ -29,7 +28,7 @@ function Content({ children }) {
                   [styles.listItemActive]: router.pathname === item.link,
                 })}
               >
-                <Icon id="Image_Icon" width={17} height={17} />
+                <item.icon />
                 {item.label}
               </li>
             </Link>
