@@ -11,6 +11,17 @@
     cursor: pointer;
   }
 
+  li[class='next'],
+  li[class='previous'] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      margin-top: 10px;
+    }
+  }
+
   li[class='selected'] {
     border-radius: 4px;
     background-color: var(--primary-200) !important;

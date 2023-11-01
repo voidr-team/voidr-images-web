@@ -1,5 +1,6 @@
 import PaginationProvider from 'react-paginate'
 import styles from './Pagination.module.scss'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 export default function Pagination({ onPageChange, pageCount }) {
   return (
@@ -7,14 +8,14 @@ export default function Pagination({ onPageChange, pageCount }) {
       breakLabel="..."
       pageRangeDisplayed={5}
       pageCount={pageCount}
-      nextLabel=">"
+      nextLabel={<ChevronRight />}
       onPageChange={(event) => {
         const pageNumber = event?.selected === 0 ? 1 : event?.selected
 
         onPageChange(pageNumber)
       }}
       renderOnZeroPageCount={null}
-      previousLabel="<"
+      previousLabel={<ChevronLeft />}
       className={styles.pagination}
       initialPage={1}
     />
