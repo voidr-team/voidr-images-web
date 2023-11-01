@@ -9,6 +9,7 @@ const nextConfig = {
     remotePatterns: [
       { hostname: 'lh3.googleusercontent.com', protocol: 'https' },
       { hostname: 'cdn.discordapp.com', protocol: 'https' }, // TODO: REMOVE LATER
+      { hostname: 'ssl.stays.com.br', protocol: 'https' },
     ],
   },
 }

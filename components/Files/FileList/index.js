@@ -1,31 +1,45 @@
 import CardFile from '@/components/CardFile'
-import MOCK_FILES from '@/mock/MOCK_FILES'
+import useFilesList from '@/hooks/useFilesList'
 import { Grid, Stack, Typography } from '@mui/joy'
+import Pagination from '@/components/UI/Pagination'
+import Loader from '@/components/UI/Loader'
 
 export default function FileList() {
+  const { data, paginate, isLoading } = useFilesList()
+
   return (
     <Stack>
       <Typography level="h4">Latest processed files</Typography>
 
       <Grid
         container
-        maxWidth="900px"
+        maxWidth="1000px"
         spacing={{ xs: 5 }}
         rows={3}
         columns={5}
         sx={{ flexGrow: 1 }}
         marginTop={2}
       >
-        {MOCK_FILES.map((mock, index) => (
-          <Grid key={index}>
-            <CardFile
-              imageName={mock.imageName}
-              imageSizeSaved={mock.imageSizeSaved}
-              imageUrl={mock.imageUrl}
-            />
-          </Grid>
-        ))}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          data?.images?.map((image) => {
+            return (
+              <Grid key={image?._id ?? image?.id}>
+                <CardFile
+                  imageName={`${image?.name}.${image?.metadata?.format}`}
+                  imageSizeSaved={
+                    image?.rawMetadata?.size - image?.metadata?.size
+                  }
+                  imageUrl={image?.remote}
+                />
+              </Grid>
+            )
+          })
+        )}
       </Grid>
+
+      <Pagination onPageChange={paginate} pageCount={data?.pages} />
     </Stack>
   )
 }
