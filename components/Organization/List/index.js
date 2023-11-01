@@ -1,10 +1,24 @@
-import { Tab, TabList, Tabs, TabPanel, Stack } from '@mui/joy'
+import { Tab, TabList, Tabs, TabPanel, Stack, Typography } from '@mui/joy'
 import ListMembers from './ListMembers'
 import ListInvites from './ListInvites'
+import Button from '@/components/UI/Button'
 
-function List() {
+function List({ setIsOpenInviteMember }) {
   return (
     <Stack bgcolor="transparent" padding="35px">
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="space-between"
+        marginY={2}
+      >
+        <Typography level="h3">Members</Typography>
+        <Button
+          onClick={() => setIsOpenInviteMember((prevState) => !prevState)}
+        >
+          Invite member
+        </Button>
+      </Stack>
       <Tabs aria-label="Organization members" defaultValue={0}>
         <TabList
           sx={(theme) => ({

@@ -5,7 +5,7 @@ import styles from './CardFile.module.scss'
 export default function CardFile({ imageUrl, imageName, imageSizeSaved }) {
   return (
     <Stack className={styles.cardFile}>
-      <Image src={imageUrl} width={200} height={150} />
+      <Image src={imageUrl} alt={imageName} width={200} height={150} />
       <Stack className={styles.content}>
         <Typography textColor="neutral.400" level="title-sm">
           {imageName}

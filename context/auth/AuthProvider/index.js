@@ -10,7 +10,8 @@ import { isEmpty } from 'ramda'
 export const AuthContext = createContext()
 
 function AuthProvider({ children }) {
-  const { logout, isAuthenticated, isLoading, error } = useAuth0()
+  const { logout, isAuthenticated, isLoading, error, getAccessTokenSilently } =
+    useAuth0()
   const router = useRouter()
 
   const { http } = useHttp()
@@ -48,10 +49,18 @@ function AuthProvider({ children }) {
     }
   }
 
-  const redirectAfterLogin = (userData) => {
+  const redirectAfterLogin = async (userData) => {
     const returnTo = sessionStorage.getItem('returnTo')
     if (isEmpty(userData?.projects)) {
       return router.push('/onboarding')
+    } else {
+      const orgId = userData.currentProject?.organizationId
+      await getAccessTokenSilently({
+        cacheMode: 'off',
+        authorizationParams: {
+          organization: orgId,
+        },
+      })
     }
 
     if (returnTo) {
@@ -63,10 +72,14 @@ function AuthProvider({ children }) {
     }
   }
 
-  const fetchUser = () => {
+  const fetchUser = async () => {
     return fetchUserInfo().then((userData) => {
-      setUser({ ...userData })
-      return userData
+      const userWithProject = {
+        ...userData,
+        currentProject: userData?.projects[0],
+      }
+      setUser(userWithProject)
+      return userWithProject
     })
   }
 

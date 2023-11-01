@@ -19,7 +19,8 @@ const Auth0Wrapper = ({ children }) => {
         redirect_uri: redirectUri,
         audience: NEXT_PUBLIC_AUTH_AUDIENCE,
       }}
-      useRefreshTokens={true}
+      useRefreshTokens={false}
+      useRefreshTokensFallback={false}
       cacheLocation={'localstorage'}
     >
       {children}
