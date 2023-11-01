@@ -1,10 +1,4 @@
-import {
-  BarChart3,
-  CreditCard,
-  FolderOpen,
-  Settings,
-  UserPlus,
-} from 'lucide-react'
+import { BarChart3, CreditCard, FolderOpen, Settings } from 'lucide-react'
 
 const sidebarItems = {
   images: [
@@ -33,12 +27,6 @@ const sidebarItems = {
       label: 'Plans',
       icon: CreditCard,
       link: '/common/plans',
-    },
-    {
-      id: 2,
-      label: 'Referral',
-      icon: UserPlus,
-      link: '/common/referral',
     },
   ],
 }
