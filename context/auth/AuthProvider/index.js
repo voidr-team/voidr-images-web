@@ -67,8 +67,10 @@ function AuthProvider({ children }) {
       sessionStorage.removeItem('returnTo')
       router.push(returnTo)
       return
-    } else {
-      router.push('/images/dashboard')
+    }
+
+    if (router.pathname === '/') {
+      return router.push('/images/dashboard')
     }
   }
 

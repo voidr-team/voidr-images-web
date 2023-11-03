@@ -19,12 +19,18 @@ function List({ setIsOpenInviteMember }) {
           Invite member
         </Button>
       </Stack>
-      <Tabs aria-label="Organization members" defaultValue={0}>
+      <Tabs
+        sx={(theme) => ({
+          backgroundColor: theme.vars.palette.primary[500],
+        })}
+        aria-label="Organization members"
+        defaultValue={0}
+      >
         <TabList
           sx={(theme) => ({
             gap: 1,
             [`[aria-selected="true"]`]: {
-              bgcolor: 'transparent',
+              bgcolor: theme.vars.palette.primary[500],
               fontWeight: 600,
               color: theme.colorSchemes.light.palette.helper[500],
             },

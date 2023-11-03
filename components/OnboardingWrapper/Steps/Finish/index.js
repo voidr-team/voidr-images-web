@@ -3,8 +3,21 @@ import Image from 'next/image'
 import styles from './Finish.module.scss'
 import Button from '../../../UI/Button'
 import Loader from '@/components/UI/Loader'
+import useFilesList from '@/hooks/useFilesList'
+import { isEmpty } from 'ramda'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 export default function Finish({ steps }) {
+  const router = useRouter()
+  const { data } = useFilesList()
+
+  useEffect(() => {
+    if (!isEmpty(data?.images)) {
+      return router.push('/images/dashboard')
+    }
+  }, [data])
+
   return (
     <Stack position="relative" height="100vh" width="100%">
       <Image

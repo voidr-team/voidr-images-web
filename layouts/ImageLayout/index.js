@@ -6,9 +6,11 @@ import BaseLayout from '../BaseLayout'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
+import useAuth from '@/context/auth/useAuth'
 
 function ImageLayout({ children }) {
   const router = useRouter()
+  const { user } = useAuth()
 
   return (
     <BaseLayout currentPage="dashboard">
@@ -24,6 +26,15 @@ function ImageLayout({ children }) {
                 paddingBottom={3}
               >
                 voidr | images
+              </Typography>
+
+              <Typography
+                fontSize={18}
+                fontWeight="600"
+                marginY={1}
+                marginBottom={2}
+              >
+                {user?.currentProject?.name}
               </Typography>
 
               <ul className={sidebarStyles.listWrapper}>
