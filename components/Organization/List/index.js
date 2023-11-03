@@ -30,7 +30,7 @@ function List({ setIsOpenInviteMember }) {
           sx={(theme) => ({
             gap: 1,
             [`[aria-selected="true"]`]: {
-              bgcolor: 'transparent',
+              bgcolor: theme.vars.palette.primary[500],
               fontWeight: 600,
               color: theme.colorSchemes.light.palette.helper[500],
             },
