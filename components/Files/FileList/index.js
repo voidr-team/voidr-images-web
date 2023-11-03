@@ -4,7 +4,7 @@ import { Grid, Stack, Typography } from '@mui/joy'
 import Pagination from '@/components/UI/Pagination'
 import Loader from '@/components/UI/Loader'
 
-export default function FileList() {
+export default function FileList({ setIsDialogOpen, setCurrentImage }) {
   const { data, paginate, isLoading } = useFilesList()
 
   return (
@@ -25,7 +25,14 @@ export default function FileList() {
         ) : (
           data?.images?.map((image) => {
             return (
-              <Grid key={image?._id ?? image?.id}>
+              <Grid
+                onClick={() => {
+                  setCurrentImage(image)
+                  setIsDialogOpen((prevState) => !prevState)
+                }}
+                sx={{ cursor: 'pointer' }}
+                key={image?._id ?? image?.id}
+              >
                 <CardFile
                   imageName={`${image?.name}.${image?.metadata?.format}`}
                   imageSizeSaved={

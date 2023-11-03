@@ -1,0 +1,18 @@
+.modal {
+  position: fixed;
+  overflow-y: auto;
+  right: 0;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  background-color: #1d2330;
+  padding: 20px;
+
+  .image {
+    border-radius: 6px;
+  }
+
+  .wrapper {
+    padding: 0 40px;
+  }
+}
