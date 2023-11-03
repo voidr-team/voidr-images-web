@@ -1,6 +1,7 @@
 import { Stack, Typography } from '@mui/joy'
 // import styles from './Setup.module.scss'
 import CodeSnippet from './CodeSnippet'
+import { ChevronRight } from 'lucide-react'
 
 // function CredentialsKey() {
 //   return (
@@ -45,8 +46,14 @@ export default function Setup() {
       marginTop={{ xs: 6, sm: 7, md: 15 }}
     >
       <Stack>
-        <Typography fontWeight="600" fontSize={20}>
-          Setup &gt; Stack
+        <Typography
+          fontWeight="600"
+          fontSize={20}
+          alignContent="center"
+          alignItems="center"
+          display="flex"
+        >
+          Setup <ChevronRight /> Stack
         </Typography>
         <Typography
           marginTop={1}
