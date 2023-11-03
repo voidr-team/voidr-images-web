@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic'
-import { Stack } from '@mui/joy'
+import { Stack, Typography } from '@mui/joy'
 import LastProcessedFiles from './LastProcessedFiles'
 import Insights from './Insights'
 import PlanUsage from './PlanUsage'
@@ -19,6 +19,10 @@ export default function DashboardWrapper() {
   }))
   return (
     <Stack gap={3} paddingX={3} marginY={6}>
+      <Typography fontWeight="600" level="h3">
+        Dashboard
+      </Typography>
+
       <Stack direction={{ sm: 'column', md: 'row' }} gap={3}>
         <LastProcessedFiles />
         <Insights bytesSaved={data?.bytesSaved} />

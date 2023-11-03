@@ -13,7 +13,7 @@ export default function FilesList() {
     <Stack paddingX={3} marginY={4}>
       <Typography
         fontWeight="600"
-        level="h4"
+        level="h3"
         alignContent="center"
         alignItems="center"
         display="flex"
