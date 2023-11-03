@@ -4,6 +4,7 @@ import useFilesList from '@/hooks/useFilesList'
 import { Stack, Typography } from '@mui/joy'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
+import { isEmpty } from 'ramda'
 
 export default function LastProcessedFiles() {
   const { data, isLoading } = useFilesList()
@@ -29,24 +30,39 @@ export default function LastProcessedFiles() {
         {isLoading ? (
           <Loader />
         ) : (
-          data?.images?.map((image, index) => (
-            <CardFile
-              imageName={`${image?.name}.${image?.metadata?.format}`}
-              imageSizeSaved={image?.rawMetadata?.size - image?.metadata?.size}
-              imageUrl={image?.remote}
-              key={`${index}_${image?.name}`}
-            />
-          ))
+          <>
+            {isEmpty(data?.images) ? (
+              <Stack>
+                <Typography>
+                  You currently don&#39;t have any images.
+                </Typography>
+              </Stack>
+            ) : (
+              data?.images?.map((image, index) => (
+                <CardFile
+                  imageName={`${image?.name}.${image?.metadata?.format}`}
+                  imageSizeSaved={
+                    image?.rawMetadata?.size - image?.metadata?.size
+                  }
+                  imageUrl={image?.remote}
+                  key={`${index}_${image?.name}`}
+                />
+              ))
+            )}
+          </>
         )}
       </Stack>
-      <Link href="/images/files">
-        <Stack marginTop={2} direction="row" alignItems="center" gap={1}>
-          <Typography fontWeight="600" fontSize={14}>
-            View More
-          </Typography>
-          <ChevronRight color="#fff" />
-        </Stack>
-      </Link>
+
+      {!isEmpty(data?.images) ? (
+        <Link href="/images/files">
+          <Stack marginTop={2} direction="row" alignItems="center" gap={1}>
+            <Typography fontWeight="600" fontSize={14}>
+              View More
+            </Typography>
+            <ChevronRight color="#fff" />
+          </Stack>
+        </Link>
+      ) : null}
     </Stack>
   )
 }
