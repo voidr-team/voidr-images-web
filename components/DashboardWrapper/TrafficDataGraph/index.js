@@ -4,16 +4,7 @@ import { ChevronRight } from 'lucide-react'
 import dayjs from 'dayjs'
 import styles from './TrafficDataGraph.module.scss'
 
-const data = [
-  { date: '2023-10-20', value: 100 },
-  { date: '2023-10-21', value: 10 },
-  { date: '2023-10-22', value: 301.512 },
-  { date: '2023-10-23', value: 20 },
-  { date: '2023-10-24', value: 175 },
-  { date: '2023-10-25', value: 140 },
-]
-
-const chartOptions = {
+const chartOptions = (data) => ({
   chart: {
     id: 'trafic-data',
     type: 'line',
@@ -86,16 +77,15 @@ const chartOptions = {
       },
     },
   },
-}
+})
 
-const series = [
+const series = (data) => [
   {
     name: 'Valores',
     data: data.map((item) => item.value),
   },
 ]
-
-export default function TrafficDataGraph() {
+export default function TrafficDataGraph({ data = [] }) {
   return (
     <Stack
       width="100%"
@@ -112,8 +102,8 @@ export default function TrafficDataGraph() {
       </Stack>
 
       <ApexCharts
-        options={chartOptions}
-        series={series}
+        options={chartOptions(data)}
+        series={series(data)}
         type="line"
         height={280}
         width={740}

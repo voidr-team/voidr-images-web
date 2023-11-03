@@ -3,7 +3,7 @@ import { Stack, Typography } from '@mui/joy'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 
-export default function PlanUsage() {
+export default function PlanUsage({ usage = 0 }) {
   return (
     <Stack
       minWidth="300px"
@@ -12,8 +12,10 @@ export default function PlanUsage() {
       border={1}
       borderColor="neutral.600"
     >
-      <Typography level="h4">Free plan</Typography>
-      <PlanInfo />
+      <Typography level="h4">
+        {usage < 1000 ? 'Free plan' : 'Standard plan'}
+      </Typography>
+      <PlanInfo usage={usage} />
 
       <Link href="/common/plans">
         <Stack marginTop={2} direction="row" alignItems="center" gap={1}>

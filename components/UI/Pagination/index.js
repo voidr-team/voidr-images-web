@@ -10,14 +10,13 @@ export default function Pagination({ onPageChange, pageCount }) {
       pageCount={pageCount}
       nextLabel={<ChevronRight />}
       onPageChange={(event) => {
-        const pageNumber = event?.selected === 0 ? 1 : event?.selected
-
+        const pageNumber = event?.selected + 1
         onPageChange(pageNumber)
       }}
       renderOnZeroPageCount={null}
       previousLabel={<ChevronLeft />}
       className={styles.pagination}
-      initialPage={1}
+      initialPage={0}
     />
   )
 }

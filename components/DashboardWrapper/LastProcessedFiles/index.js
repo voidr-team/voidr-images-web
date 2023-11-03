@@ -1,15 +1,20 @@
 import CardFile from '@/components/CardFile'
-import MOCK_FILES from '@/mock/MOCK_FILES'
+import Loader from '@/components/UI/Loader'
+import useFilesList from '@/hooks/useFilesList'
 import { Stack, Typography } from '@mui/joy'
+import { ChevronRight } from 'lucide-react'
+import Link from 'next/link'
 
 export default function LastProcessedFiles() {
+  const { data, isLoading } = useFilesList()
   return (
     <Stack
-      maxWidth="fit-content"
+      maxWidth={!isLoading ? 'fit-content' : 'none'}
       padding={2.8}
       borderRadius={6}
       border={1}
       borderColor="neutral.600"
+      flexGrow={1}
     >
       <Typography level="h4">Latest processed files</Typography>
 
@@ -21,15 +26,27 @@ export default function LastProcessedFiles() {
         flexWrap="wrap"
         marginTop={4}
       >
-        {MOCK_FILES.slice(0, 8).map((item, index) => (
-          <CardFile
-            key={index}
-            imageName={item.imageName}
-            imageSizeSaved={item.imageSizeSaved}
-            imageUrl={item.imageUrl}
-          />
-        ))}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          data?.images?.map((image, index) => (
+            <CardFile
+              imageName={`${image?.name}.${image?.metadata?.format}`}
+              imageSizeSaved={image?.rawMetadata?.size - image?.metadata?.size}
+              imageUrl={image?.remote}
+              key={`${index}_${image?.name}`}
+            />
+          ))
+        )}
       </Stack>
+      <Link href="/images/files">
+        <Stack marginTop={2} direction="row" alignItems="center" gap={1}>
+          <Typography fontWeight="600" fontSize={14}>
+            View More
+          </Typography>
+          <ChevronRight color="#fff" />
+        </Stack>
+      </Link>
     </Stack>
   )
 }

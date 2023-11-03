@@ -2,14 +2,15 @@ import { Stack, Typography } from '@mui/joy'
 import styles from './PlanInfo.module.scss'
 
 function ProgressPlan({ level }) {
+  const width = level > 100 ? '100' : level
   return (
     <Stack className={styles.planInfo}>
-      <Stack className={styles.bar} style={{ width: `${level}%` }} />
+      <Stack className={styles.bar} style={{ width: `${width}%` }} />
     </Stack>
   )
 }
 
-export default function PlanInfo() {
+export default function PlanInfo({ usage = 0, totalImages = 1000 }) {
   return (
     <Stack marginTop={3} maxWidth="300px">
       <Stack gap={1} direction="row" alignItems="center">
@@ -19,14 +20,14 @@ export default function PlanInfo() {
           textColor="neutral.400"
           level="title-lg"
         >
-          5000
+          {usage}
         </Typography>
         <Typography fontSize={16} textColor="neutral.300" level="body-xs">
           Total images
         </Typography>
       </Stack>
 
-      <ProgressPlan level={80} />
+      <ProgressPlan level={(usage / totalImages) * 100} />
 
       <Stack direction="row" justifyContent="space-between">
         <Stack
@@ -50,7 +51,7 @@ export default function PlanInfo() {
               Processed
             </Typography>
             <Typography lineHeight={3} fontWeight="600" level="body-sm">
-              1200 images
+              {usage} images
             </Typography>
           </Stack>
         </Stack>
@@ -76,7 +77,7 @@ export default function PlanInfo() {
               Left
             </Typography>
             <Typography lineHeight={3} fontWeight="600" level="body-sm">
-              3800 images
+              {totalImages - usage} images
             </Typography>
           </Stack>
         </Stack>

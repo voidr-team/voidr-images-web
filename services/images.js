@@ -1,4 +1,4 @@
-const { default: http } = require('./http')
+import http from './http'
 
 async function getImages(pageNumber = 1) {
   const response = await http.get(`/images/?page=${pageNumber}`)
@@ -10,7 +10,9 @@ const swrKeys = {
   GET_IMAGES: 'GET_IMAGES',
 }
 
-export default {
+const imagesDashboard = {
   getImages,
   swrKeys,
 }
+
+export default imagesDashboard

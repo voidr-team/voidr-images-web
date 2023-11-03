@@ -1,8 +1,9 @@
 import { Stack, Typography } from '@mui/joy'
 import { Lightbulb, TrendingUp } from 'lucide-react'
 import styles from './Insights.module.scss'
+import formatBytes from '@/utils/formatBytes'
 
-export default function Insights() {
+export default function Insights({ bytesSaved = 0 }) {
   return (
     <Stack
       minWidth="320px"
@@ -16,7 +17,7 @@ export default function Insights() {
 
       <Stack marginY={2}>
         <Typography fontWeight="600" fontSize={50}>
-          42 GB{' '}
+          {formatBytes(bytesSaved)}{' '}
           <Typography fontWeight="500" fontSize={16} textColor="neutral.400">
             Saved data
           </Typography>

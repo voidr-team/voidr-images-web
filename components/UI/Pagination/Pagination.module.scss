@@ -1,6 +1,7 @@
 .pagination {
   display: flex;
   margin: 50px 0;
+  align-items: center;
 
   li {
     width: 35px;
@@ -11,14 +12,17 @@
     cursor: pointer;
   }
 
-  li[class='next'],
-  li[class='previous'] {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    svg {
-      margin-top: 10px;
+  :global {
+    .next,
+    .previous { 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      > a {
+        display: inline-block;
+        margin-top: 5px;
+      }
     }
   }
 
