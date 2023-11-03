@@ -8,6 +8,7 @@ export default function useFilesList() {
     queryKey: [imagesService.swrKeys.GET_IMAGES, router.query.page],
     queryFn: () => imagesService.getImages(router.query.page ?? 1),
     keepPreviousData: true,
+    staleTime: 120000,
   })
 
   const paginate = (page) => {
