@@ -7,8 +7,12 @@ const schema = yup.object().shape({
     yup.object().shape({
       domain: yup
         .string()
-        .url('Please provide a valid URL')
-        .required('Required field'),
+        .required('Required field')
+        .test(
+          'is-valid-domain-or-asterisk',
+          'Please provide a valid URL',
+          (value) => value === '*' || yup.string().url().isValidSync(value)
+        ),
     })
   ),
 })

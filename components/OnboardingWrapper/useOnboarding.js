@@ -20,11 +20,23 @@ const schema = yup.object().shape({
     yup.object().shape({
       domain: yup
         .string()
-        .url('Please provide a valid URL')
-        .required('Required field'),
+        .required('Required field')
+        .test(
+          'is-valid-domain-or-asterisk',
+          'Please provide a valid URL',
+          (value) => value === '*' || yup.string().url().isValidSync(value)
+        ),
     })
   ),
-  name: yup.string().required('Required field'),
+  name: yup
+    .string()
+    .matches(
+      /^[A-Za-z0-9-_]+$/,
+      'Name must be alphanumeric and can only contain hyphens and underscores'
+    )
+    .min(3, 'Name must be at least 3 characters')
+    .max(20, 'Name must be at most 20 characters')
+    .required('Required field'),
   platform: yup.string().required('Required field'),
 })
 
@@ -44,6 +56,10 @@ export default function useOnboarding() {
   const { mutate: createProject, isLoading } = useMutation({
     mutationKey: [projectService.swrKeys.POST_CREATE_PROJECT],
     mutationFn: (data) => projectService.postCreateProject(data),
+    onError: async (error) => {
+      const message = error?.response?.data?.error
+      toastEz.error(message)
+    },
     onSuccess: async (data) => {
       toastEz.success('Projeto criado com sucesso')
       const orgId = data?.data?.createdBy?.organizationId

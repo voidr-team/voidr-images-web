@@ -30,7 +30,7 @@ export default function OnboardingWrapper() {
           </FormProvider>
 
           <Stack marginY={6} direction="row" gap={2}>
-            {steps.isFirstStep || steps.isLastStep ? null : (
+            {/* {steps.isFirstStep || steps.isLastStep ? null : (
               <Button
                 disabled={isLoading}
                 onClick={steps.backStep}
@@ -39,7 +39,7 @@ export default function OnboardingWrapper() {
               >
                 Back
               </Button>
-            )}
+            )} */}
 
             {steps.isLastStep ? null : (
               <Button form="onboardingForm" isLoading={isLoading} type="submit">
