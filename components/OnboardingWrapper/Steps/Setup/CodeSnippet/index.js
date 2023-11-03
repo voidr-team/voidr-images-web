@@ -3,30 +3,26 @@ import styles from './CodeSnippet.module.scss'
 import RadioButton from '@/components/Form/RadioButton'
 import CodeBlocks from '@/components/UI/CodeBlocks'
 import { Stack } from '@mui/joy'
-// import { useFormContext } from 'react-hook-form'
+import { laravel, react, python, html } from './data'
+import { useFormContext } from 'react-hook-form'
 
 export default function CodeSnippet() {
-  // const { watch } = useFormContext()
-  // const [optionsTech] = watch(['tech'])
-  const codeString = `
-  import VoidrImage from '@voidr/image'
+  const { watch } = useFormContext()
+  const [optionsFramework, optionLanguage] = watch(['framework', 'tech'])
 
-  const ReactComponent = () => {
-    return (
-        <VoidrImage 
-            src="https://yourhosting.com/uncompressed.jpeg"
-            remote
-            convertWebp
-            optimizeLowBandwidth
-            compress={80}
-            cropTo={{
-              width: 250,
-              height: 250
-            }}
-        />
-    )
+  const options = {
+    react,
+    laravel,
+    django: python,
+    html,
   }
-  `
+
+  const language = {
+    react: 'javascript',
+    html: 'html',
+    laravel: 'php',
+    django: 'python',
+  }
 
   return (
     <Stack marginTop={8}>
@@ -50,53 +46,56 @@ export default function CodeSnippet() {
         <div className={styles.radioButtonWrapper}>
           <RadioButton
             className={styles.radioButton}
-            icon="Ruby_Icon"
-            name="tech"
-            value="ruby"
-          />
-        </div>
-        <div className={styles.radioButtonWrapper}>
-          <RadioButton
-            className={styles.radioButton}
             icon="Python_Icon"
             name="tech"
             value="python"
           />
         </div>
-        <div className={styles.radioButtonWrapper}>
-          <RadioButton
-            className={styles.radioButton}
-            icon="Java_Icon"
-            name="tech"
-            value="java"
-          />
-        </div>
       </Stack>
       <Stack marginTop={3}>
         <Stack className={styles.topSelectFramework} direction="row" gap={2}>
-          <RadioButton
-            className={styles.radioButtonHorizontal}
-            icon="Node_Icon"
-            label="NextJS"
-            name="framework"
-            value="next"
-          />
-          <RadioButton
-            className={styles.radioButtonHorizontal}
-            icon="Node_Icon"
-            label="React"
-            name="framework"
-            value="react"
-          />
-          <RadioButton
-            className={styles.radioButtonHorizontal}
-            icon="Node_Icon"
-            label="VueJS"
-            name="framework"
-            value="vue"
-          />
+          {optionLanguage === 'node' ? (
+            <>
+              <RadioButton
+                className={styles.radioButtonHorizontal}
+                icon="Node_Icon"
+                label="React"
+                name="framework"
+                value="react"
+              />
+
+              <RadioButton
+                className={styles.radioButtonHorizontal}
+                icon="Html_Icon"
+                label="HTML"
+                name="framework"
+                value="html"
+              />
+            </>
+          ) : null}
+          {optionLanguage === 'php' ? (
+            <RadioButton
+              className={styles.radioButtonHorizontal}
+              icon="Laravel_Icon"
+              label="Laravel"
+              name="framework"
+              value="laravel"
+            />
+          ) : null}
+          {optionLanguage === 'python' ? (
+            <RadioButton
+              className={styles.radioButtonHorizontal}
+              icon="Django_Icon"
+              label="Django"
+              name="framework"
+              value="django"
+            />
+          ) : null}
         </Stack>
-        <CodeBlocks code={codeString} />
+        <CodeBlocks
+          language={language[optionsFramework]}
+          code={options[optionsFramework]}
+        />
       </Stack>
     </Stack>
   )
