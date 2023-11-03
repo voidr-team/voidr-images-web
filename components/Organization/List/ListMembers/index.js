@@ -31,12 +31,13 @@ function ListMembers() {
   return (
     <Stack>
       <Table
-        sx={{
+        sx={(theme) => ({
           '& tr > *:first-of-type': {
             width: '50px',
           },
           '& tr > *:not(:first-of-type)': { textAlign: 'center' },
-        }}
+          '& thead th': { backgroundColor: theme.vars.palette.primary[500] },
+        })}
       >
         <thead>
           <tr>
