@@ -44,7 +44,7 @@ export default function LastProcessedFiles() {
                   imageSizeSaved={
                     image?.rawMetadata?.size - image?.metadata?.size
                   }
-                  imageUrl={image?.remote}
+                  imageUrl={image?.originUrl}
                   key={`${index}_${image?.name}`}
                 />
               ))

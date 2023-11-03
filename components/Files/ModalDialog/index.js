@@ -1,8 +1,9 @@
 import { ChevronsRight } from 'lucide-react'
 import styles from './ModalDialog.module.scss'
 import { Stack, Typography } from '@mui/joy'
-import Image from 'next/image'
 import dayjs from 'dayjs'
+
+const VOIDR_API_URL = process.env.NEXT_PUBLIC_VOIDR_API_URL
 
 export default function ModalDialog({
   isOpen,
@@ -34,11 +35,10 @@ export default function ModalDialog({
               </Typography>
 
               <Stack direction="row" gap={3} alignItems="flex-end">
-                <Image
+                <img
                   className={styles.image}
-                  src={currentImage.remote}
+                  src={`${VOIDR_API_URL}${currentImage.originUrl}`}
                   alt={currentImage.name}
-                  width={150}
                   height={100}
                 />
                 <Stack>
@@ -81,11 +81,10 @@ export default function ModalDialog({
               </Typography>
 
               <Stack marginY={3}>
-                <Image
+                <img
                   className={styles.image}
-                  src={currentImage.remote}
+                  src={`${VOIDR_API_URL}${currentImage.originUrl}`}
                   alt={currentImage.name}
-                  width={270}
                   height={200}
                 />
               </Stack>
@@ -113,8 +112,8 @@ export default function ModalDialog({
                     Dimensions
                   </Typography>
                   <Typography>
-                    {currentImage.rawMetadata?.width}x
-                    {currentImage.rawMetadata?.height}
+                    {currentImage.metadata?.width}x
+                    {currentImage.metadata?.height}
                   </Typography>
                 </Stack>
 
@@ -127,7 +126,7 @@ export default function ModalDialog({
                   <Typography textColor="neutral.500" fontWeight="600">
                     Size
                   </Typography>
-                  <Typography>{currentImage.rawMetadata?.size}kb</Typography>
+                  <Typography>{currentImage.metadata?.size}kb</Typography>
                 </Stack>
 
                 <Stack
@@ -140,7 +139,7 @@ export default function ModalDialog({
                     Size
                   </Typography>
                   <Typography textTransform="uppercase">
-                    {currentImage.rawMetadata?.format}
+                    {currentImage.metadata?.format}
                   </Typography>
                 </Stack>
 

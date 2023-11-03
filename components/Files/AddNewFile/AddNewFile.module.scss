@@ -4,6 +4,29 @@
   min-width: 100%;
   flex: 1;
 }
+.dropWrapper {
+  width: fit-content;
+  position: relative;
+
+  > .overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00000027;
+    cursor: not-allowed;
+  }
+
+  > .loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
 
 .dragDrop {
   button {

@@ -31,10 +31,10 @@ export default function Insights({ bytesSaved = 0 }) {
           </div>
 
           <Typography fontSize={16} fontWeight="500" textColor="neutral.400">
-            Use a opção xpto para carregar imagens especificamente para conexões
-            lentas.
+            {`Use the "convert:webp" and "compress:80" option to load images
+            specifically for slow connections.`}
           </Typography>
-          <a className={styles.viewDocs}>View docs</a>
+          {/* <a className={styles.viewDocs}>View docs</a> */}
         </Stack>
 
         <Stack gap={2}>
@@ -43,10 +43,10 @@ export default function Insights({ bytesSaved = 0 }) {
           </div>
 
           <Typography fontSize={16} fontWeight="500" textColor="neutral.400">
-            Use o face blur para anonimizar rostos em documentos e garanta mais
-            segurança
+            {`Use "crop:400x,position:attention" to crop the image in areas that
+            contain the presence of faces.`}
           </Typography>
-          <a className={styles.viewDocs}>View docs</a>
+          {/* <a className={styles.viewDocs}>View docs</a> */}
         </Stack>
       </Stack>
     </Stack>
