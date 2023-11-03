@@ -33,7 +33,7 @@ export default function LastProcessedFiles() {
             <CardFile
               imageName={`${image?.name}.${image?.metadata?.format}`}
               imageSizeSaved={image?.rawMetadata?.size - image?.metadata?.size}
-              imageUrl={image?.remote}
+              imageUrl={image?.originUrl}
               key={`${index}_${image?.name}`}
             />
           ))

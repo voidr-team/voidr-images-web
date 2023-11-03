@@ -6,46 +6,35 @@ import Loader from '@/components/UI/Loader'
 
 export default function FileList({ setIsDialogOpen, setCurrentImage }) {
   const { data, paginate, isLoading } = useFilesList()
-
   return (
     <Stack>
       <Typography level="h4">Latest processed files</Typography>
 
-      <Grid
-        container
-        maxWidth="1000px"
-        spacing={{ xs: 5 }}
-        rows={3}
-        columns={5}
-        sx={{ flexGrow: 1 }}
-        marginTop={2}
+      <Stack
+        maxWidth="900px"
+        width="100%"
+        gap={3}
+        direction="row"
+        flexWrap="wrap"
+        marginTop={4}
       >
         {isLoading ? (
           <Loader />
         ) : (
-          data?.images?.map((image) => {
-            return (
-              <Grid
-                onClick={() => {
-                  setCurrentImage(image)
-                  setIsDialogOpen((prevState) => !prevState)
-                }}
-                sx={{ cursor: 'pointer' }}
-                key={image?._id ?? image?.id}
-              >
-                <CardFile
-                  imageName={`${image?.name}.${image?.metadata?.format}`}
-                  imageSizeSaved={
-                    image?.rawMetadata?.size - image?.metadata?.size
-                  }
-                  imageUrl={image?.remote}
-                />
-              </Grid>
-            )
-          })
+          data?.images?.map((image, index) => (
+            <CardFile
+              onClick={() => {
+                setCurrentImage(image)
+                setIsDialogOpen((prevState) => !prevState)
+              }}
+              imageName={`${image?.name}.${image?.metadata?.format}`}
+              imageSizeSaved={image?.rawMetadata?.size - image?.metadata?.size}
+              imageUrl={image?.originUrl}
+              key={`${index}_${image?.name}`}
+            />
+          ))
         )}
-      </Grid>
-
+      </Stack>
       <Pagination onPageChange={paginate} pageCount={data?.pages} />
     </Stack>
   )
