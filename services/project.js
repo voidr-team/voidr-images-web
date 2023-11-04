@@ -16,11 +16,17 @@ async function updateDomain(domains) {
 
   return response
 }
+async function upgradePlan() {
+  const response = await http.post('/projects/plan/upgrade')
+
+  return response
+}
 
 const swrKeys = {
   POST_CREATE_PROJECT: 'POST_CREATE_PROJECT',
   GET_PROJECT: 'GET_PROJECT',
   UPDATE_DOMAIN: 'UPDATE_DOMAIN',
+  UPGRADE_PLAN: 'UPGRADE_PLAN',
 }
 
 const projectService = {
@@ -28,6 +34,7 @@ const projectService = {
   postCreateProject,
   getProject,
   updateDomain,
+  upgradePlan,
 }
 
 export default projectService

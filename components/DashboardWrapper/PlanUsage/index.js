@@ -1,9 +1,12 @@
 import PlanInfo from '@/components/PlanInfo'
+import useAuth from '@/context/auth/useAuth'
 import { Stack, Typography } from '@mui/joy'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 
 export default function PlanUsage({ usage = 0 }) {
+  const { user } = useAuth()
+  const isProPlan = user.currentProject.plan === 'PRO'
   return (
     <Stack
       minWidth="300px"
@@ -12,9 +15,7 @@ export default function PlanUsage({ usage = 0 }) {
       border={1}
       borderColor="neutral.600"
     >
-      <Typography level="h4">
-        {usage < 1000 ? 'Free plan' : 'Standard plan'}
-      </Typography>
+      <Typography level="h4">{isProPlan ? 'Pro plan' : 'Free plan'}</Typography>
       <PlanInfo usage={usage} />
 
       <Link href="/common/plans">

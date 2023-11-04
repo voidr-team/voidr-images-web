@@ -1,5 +1,6 @@
 import { Stack, Typography } from '@mui/joy'
 import styles from './PlanInfo.module.scss'
+import useAuth from '@/context/auth/useAuth'
 
 function ProgressPlan({ level }) {
   const width = level > 100 ? '100' : level
@@ -10,9 +11,12 @@ function ProgressPlan({ level }) {
   )
 }
 
-export default function PlanInfo({ usage = 0, totalImages = 1000 }) {
+export default function PlanInfo({ usage = 0 }) {
+  const { user } = useAuth()
+  const isProPlan = user.currentProject.plan === 'PRO'
+  const totalImages = isProPlan ? 100000 : 5000
   return (
-    <Stack marginTop={3} maxWidth="300px">
+    <Stack marginTop={3} maxWidth="400px">
       <Stack gap={1} direction="row" alignItems="center">
         <Typography
           fontWeight="900"

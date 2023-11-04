@@ -2,8 +2,12 @@ import { Stack, Typography } from '@mui/joy'
 import CardPricing from './CardPricing'
 import plansInfo from './plansInfo'
 import Button from '../../UI/Button'
+import useChoosePlan from './useChoosePlan'
+import useAuth from '@/context/auth/useAuth'
 
 export default function ChoosePlan() {
+  const { upgradePlan, isLoading } = useChoosePlan()
+  const { user } = useAuth()
   return (
     <Stack marginTop={5}>
       <Typography fontSize={30} fontWeight="600" level="h4">
@@ -23,14 +27,16 @@ export default function ChoosePlan() {
           <CardPricing.Benefits benefits={plansInfo.starter.benefits} />
 
           <CardPricing.Footer>
-            <Typography
-              textAlign="center"
-              level="body-md"
-              paddingY="3px"
-              textColor="neutral.300"
-            >
-              Current plan
-            </Typography>
+            {user.currentProject.plan === 'FREE' && (
+              <Typography
+                textAlign="center"
+                level="body-md"
+                paddingY="3px"
+                textColor="neutral.300"
+              >
+                Current plan
+              </Typography>
+            )}
           </CardPricing.Footer>
         </CardPricing.Root>
 
@@ -52,7 +58,22 @@ export default function ChoosePlan() {
           <CardPricing.Benefits benefits={plansInfo.pro.benefits} />
 
           <CardPricing.Footer>
-            <Button>Start now</Button>
+            {user.currentProject.plan === 'FREE' && (
+              <Button onClick={upgradePlan} isLoading={isLoading}>
+                Start now
+              </Button>
+            )}
+
+            {user.currentProject.plan === 'PRO' && (
+              <Typography
+                textAlign="center"
+                level="body-md"
+                paddingY="3px"
+                textColor="neutral.300"
+              >
+                Current plan
+              </Typography>
+            )}
           </CardPricing.Footer>
         </CardPricing.Root>
 
