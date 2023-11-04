@@ -44,7 +44,6 @@ function useInviteMember(setIsOpen) {
   const onSubmit = formMethods.handleSubmit((data) => {
     const formattedData = {
       ...data,
-      roles: data?.roles.map((role) => role?.id),
     }
 
     sendInvite(formattedData)

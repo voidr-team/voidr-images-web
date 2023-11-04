@@ -10,13 +10,19 @@ import { isEmpty } from 'ramda'
 export const AuthContext = createContext()
 
 function AuthProvider({ children }) {
-  const { logout, isAuthenticated, isLoading, error, getAccessTokenSilently } =
-    useAuth0()
+  const {
+    logout,
+    isAuthenticated,
+    isLoading: isAuth0Loading,
+    error,
+    getAccessTokenSilently,
+  } = useAuth0()
   const router = useRouter()
 
   const { http } = useHttp()
 
   const [user, setUser] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   function onLogout() {
     persistCurrentRoute()
@@ -49,9 +55,19 @@ function AuthProvider({ children }) {
     }
   }
 
+  const joinProject = async () => {
+    await http.post('projects/join')
+    if (router.pathname === '/') {
+      return router.push('/images/dashboard')
+    }
+  }
+
   const redirectAfterLogin = async (userData) => {
     const returnTo = sessionStorage.getItem('returnTo')
-    if (isEmpty(userData?.projects)) {
+    if (isEmpty(userData?.projects) && !userData?.organization?.id) {
+      joinProject()
+      return
+    } else if (isEmpty(userData?.projects)) {
       return router.push('/onboarding')
     } else {
       const orgId = userData.currentProject?.organizationId
@@ -69,7 +85,7 @@ function AuthProvider({ children }) {
       return
     }
 
-    if (router.pathname === '/') {
+    if (router.pathname === '/' || router.pathname === '/onboarding') {
       return router.push('/images/dashboard')
     }
   }
@@ -92,15 +108,17 @@ function AuthProvider({ children }) {
         return
       }
 
-      if (isLoading) {
+      if (isAuth0Loading) {
         return
       }
 
       if (isAuthenticated) {
+        setIsLoading(true)
         fetchUser()
           .then((userData) => {
             startLogger(userData)
             redirectAfterLogin(userData)
+            setIsLoading(false)
           })
           .catch((err) => {
             console.error(err)
@@ -112,11 +130,11 @@ function AuthProvider({ children }) {
     }
 
     startAuth()
-  }, [isLoading, isAuthenticated])
+  }, [isAuth0Loading, isAuthenticated])
 
   return (
     <>
-      {user ? (
+      {user && !isLoading ? (
         <AuthContext.Provider
           value={{ user, onLogout, redirectToLogin, fetchUser }}
         >

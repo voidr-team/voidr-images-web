@@ -32,19 +32,7 @@ function InviteMember({ isOpen, setIsOpen }) {
             />
           </div>
 
-          <div className={styles.autocompleteWrapper}>
-            <Autocomplete
-              label="Cargo"
-              id="user-roles-invite"
-              placeholder="Cargos do membro"
-              multiple
-              isLoading={isLoadingRoles}
-              name="roles"
-              options={roles}
-            />
-          </div>
-
-          <Stack marginY={2}>
+          <Stack marginTop={5}>
             <Button isLoading={isLoadingSendInvite} type="submit">
               Enviar convite
             </Button>

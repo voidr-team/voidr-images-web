@@ -14,8 +14,13 @@ function Modal({ children, isOpen, setIsOpen, onClose }) {
       open={isOpen}
       onClose={onClose ? onClose : () => setIsOpen((prevState) => !prevState)}
     >
-      <ModalDialog>
-        <Stack justifyContent="space-between" direction="column" spacing="20px">
+      <ModalDialog color="primary" size="lg" variant="solid">
+        <Stack
+          minWidth={550}
+          justifyContent="space-between"
+          direction="column"
+          spacing="20px"
+        >
           <Stack
             marginBottom={2}
             direction="row"
