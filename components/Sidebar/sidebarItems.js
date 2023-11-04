@@ -1,4 +1,10 @@
-import { BarChart3, CreditCard, FolderOpen, Settings } from 'lucide-react'
+import {
+  BarChart3,
+  CreditCard,
+  FolderOpen,
+  Settings,
+  LogOut,
+} from 'lucide-react'
 
 const sidebarItems = {
   images: [
@@ -27,6 +33,12 @@ const sidebarItems = {
       label: 'Plans',
       icon: CreditCard,
       link: '/common/plans',
+    },
+    {
+      id: 2,
+      label: 'LogOut',
+      icon: LogOut,
+      link: '/logout',
     },
   ],
 }

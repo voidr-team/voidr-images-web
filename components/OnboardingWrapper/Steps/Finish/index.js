@@ -14,7 +14,8 @@ export default function Finish({ steps }) {
 
   useEffect(() => {
     if (!isEmpty(data?.images)) {
-      return router.push('/images/dashboard')
+      router.push('/images/dashboard')
+      return
     }
   }, [data])
 

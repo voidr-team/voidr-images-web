@@ -7,6 +7,7 @@ export default function Insights({ bytesSaved = 0 }) {
   return (
     <Stack
       minWidth="320px"
+      maxWidth="400px"
       flex={1}
       padding={3.8}
       borderRadius={6}

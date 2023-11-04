@@ -6,6 +6,8 @@ export default function Logout() {
   const { logout } = useAuth0()
   useEffect(() => {
     logout()
+    localStorage.clear()
+    sessionStorage.clear()
     setTimeout(() => location.reload(), 1000)
   }, [])
 

@@ -10,7 +10,7 @@ export default function LastProcessedFiles() {
   const { data, isLoading } = useFilesList()
   return (
     <Stack
-      maxWidth={!isLoading ? 'fit-content' : 'none'}
+      maxWidth={!isLoading && !data ? 'fit-content' : 'none'}
       padding={2.8}
       borderRadius={6}
       border={1}
@@ -26,6 +26,7 @@ export default function LastProcessedFiles() {
         direction="row"
         flexWrap="wrap"
         marginTop={4}
+        flex={1}
       >
         {isLoading ? (
           <Loader />
