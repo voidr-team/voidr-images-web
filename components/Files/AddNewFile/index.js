@@ -50,7 +50,6 @@ export default function AddNewFile() {
 
     uppy.on('complete', (data) => {
       const filename = last(data?.successful?.[0]?.uploadURL?.split('/'))
-      console.log(filename)
       const remote = `${VOIDR_API_URL}/v1/images/raw/${user.currentProject.name}/${filename}`
       const imgUrl = `${VOIDR_API_URL}/v1/images/${user.currentProject.name}/compress:80/convert:webp/fetch/${remote}`
       if (filename) {
@@ -62,11 +61,11 @@ export default function AddNewFile() {
       } else {
         setIsLoading(false)
       }
+      uppy.removeFile(data?.successful?.[0]?.id)
     })
 
     return () => uppy.close({ reason: 'unmount' })
   }, [uppy])
-
   return (
     <Stack marginTop={3} className={styles.addNewFile}>
       <Stack className={styles.dropWrapper}>

@@ -6,7 +6,7 @@ import formatBytes from '@/utils/formatBytes'
 export default function Insights({ bytesSaved = 0 }) {
   return (
     <Stack
-      minWidth="320px"
+      minWidth="400px"
       maxWidth="400px"
       flex={1}
       padding={3.8}
