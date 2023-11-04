@@ -6,8 +6,8 @@ import Input from '@/components/Form/Input'
 import { Trash } from 'lucide-react'
 import Button from '@/components/UI/Button'
 
-export default function ChangeDomains() {
-  const { formMethods, onSubmit } = useChangeDomains()
+export default function ChangeDomains({ domains }) {
+  const { formMethods, onSubmit, isLoading } = useChangeDomains({ domains })
   const { fields, append, remove } = useFieldArray({
     control: formMethods.control,
     name: 'domains',
@@ -57,7 +57,7 @@ export default function ChangeDomains() {
           </Typography>
 
           <Stack marginY={3}>
-            <Button type="submit" inverted>
+            <Button type="submit" inverted isLoading={isLoading}>
               Save changes
             </Button>
           </Stack>

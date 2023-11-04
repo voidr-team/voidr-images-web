@@ -6,11 +6,28 @@ async function postCreateProject(data) {
   return response
 }
 
-const swrKeys = {
-  POST_CREATE_PROJECT: 'POST_CREATE_PROJECT',
+async function getProject() {
+  const response = await http.get('/projects')
+
+  return response
+}
+async function updateDomain(domains) {
+  const response = await http.put('/projects/domains', { domains })
+
+  return response
 }
 
-export default {
+const swrKeys = {
+  POST_CREATE_PROJECT: 'POST_CREATE_PROJECT',
+  GET_PROJECT: 'GET_PROJECT',
+  UPDATE_DOMAIN: 'UPDATE_DOMAIN',
+}
+
+const projectService = {
   swrKeys,
   postCreateProject,
+  getProject,
+  updateDomain,
 }
+
+export default projectService

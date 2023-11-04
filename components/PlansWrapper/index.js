@@ -2,8 +2,10 @@ import { Stack, Typography } from '@mui/joy'
 import PlanInfo from '../PlanInfo'
 import ChoosePlan from './ChoosePlan'
 import { ChevronRight } from 'lucide-react'
+import useDashboard from '@/hooks/useDashboard'
 
 export default function PlansWrapper() {
+  const { data, isLoading } = useDashboard()
   return (
     <Stack paddingX={3} marginY={4}>
       <Typography
@@ -16,7 +18,7 @@ export default function PlansWrapper() {
         Plans <ChevronRight /> Starter
       </Typography>
 
-      <PlanInfo />
+      <PlanInfo usage={data?.usage} />
       <ChoosePlan />
     </Stack>
   )
