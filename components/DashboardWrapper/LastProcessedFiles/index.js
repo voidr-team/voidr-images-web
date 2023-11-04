@@ -4,7 +4,7 @@ import useFilesList from '@/hooks/useFilesList'
 import { Stack, Typography } from '@mui/joy'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
-import { isEmpty } from 'ramda'
+import { isEmpty, take } from 'ramda'
 
 export default function LastProcessedFiles() {
   const { data, isLoading } = useFilesList()
@@ -39,7 +39,7 @@ export default function LastProcessedFiles() {
                 </Typography>
               </Stack>
             ) : (
-              data?.images?.map((image, index) => (
+              take(8, data?.images || [])?.map((image, index) => (
                 <CardFile
                   imageName={`${image?.name}.${image?.metadata?.format}`}
                   imageSizeSaved={
