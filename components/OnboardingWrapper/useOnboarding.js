@@ -6,6 +6,7 @@ import { useMutation } from 'react-query'
 import projectService from '@/services/project'
 import toastEz from '@/utils/toastEz'
 import { useAuth0 } from '@auth0/auth0-react'
+import useAuth from '@/context/auth/useAuth'
 
 const formSteps = {
   order: ['CREATE_PROJECT', 'SETUP', 'START'],
@@ -39,6 +40,7 @@ const schema = yup.object().shape({
 })
 
 export default function useOnboarding() {
+  const { fetchUser } = useAuth()
   const { getAccessTokenSilently } = useAuth0()
   const steps = useSteps(formSteps)
   const formMethods = useForm({
@@ -66,6 +68,7 @@ export default function useOnboarding() {
           organization: orgId,
         },
       })
+      await fetchUser()
       steps.nextStep()
     },
   })

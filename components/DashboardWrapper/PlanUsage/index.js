@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export default function PlanUsage({ usage = 0 }) {
   const { user } = useAuth()
-  const isProPlan = user.currentProject.plan === 'PRO'
+  const isProPlan = user?.currentProject?.plan === 'PRO'
   return (
     <Stack
       minWidth="300px"

@@ -58,13 +58,15 @@ function AuthProvider({ children }) {
   const joinProject = async () => {
     await http.post('projects/join')
     if (router.pathname === '/') {
-      return router.push('/images/dashboard')
+      await fetchUser().then(() => {
+        return router.push('/images/dashboard')
+      })
     }
   }
 
   const redirectAfterLogin = async (userData) => {
     const returnTo = sessionStorage.getItem('returnTo')
-    if (isEmpty(userData?.projects) && !userData?.organization?.id) {
+    if (isEmpty(userData?.projects) && userData?.organization?.id) {
       joinProject()
       return
     } else if (isEmpty(userData?.projects)) {

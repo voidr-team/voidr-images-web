@@ -6,7 +6,7 @@ export default function Price({ children }) {
       textAlign="center"
       justifyContent="center"
       height="100%"
-      maxHeight="110px "
+      maxHeight="110px"
     >
       {children}
     </Stack>
