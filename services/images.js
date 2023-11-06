@@ -6,12 +6,20 @@ async function getImages(pageNumber = 1) {
   return response
 }
 
+async function getImageVariations(id) {
+  const response = await http.get(`/images/${id}/relatives`)
+
+  return response
+}
+
 const swrKeys = {
   GET_IMAGES: 'GET_IMAGES',
+  GET_IMAGE_VARIATIONS: 'GET_IMAGE_VARIATIONS',
 }
 
 const imagesDashboard = {
   getImages,
+  getImageVariations,
   swrKeys,
 }
 

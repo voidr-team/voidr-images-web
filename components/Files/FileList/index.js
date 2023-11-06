@@ -6,6 +6,7 @@ import Loader from '@/components/UI/Loader'
 
 export default function FileList({ setIsDialogOpen, setCurrentImage }) {
   const { data, paginate, isLoading } = useFilesList()
+
   return (
     <Stack>
       <Typography level="h4">Latest processed files</Typography>

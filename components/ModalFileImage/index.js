@@ -1,7 +1,14 @@
 import { ChevronsRight } from 'lucide-react'
-import styles from './ModalDialog.module.scss'
+import styles from './ModalFileImage.module.scss'
 import { Stack, Typography } from '@mui/joy'
 import dayjs from 'dayjs'
+import useGetVariationsImage from '@/hooks/useGetVariationsImage'
+import Image from 'next/image'
+import { useEffect } from 'react'
+import ScrollContainer from 'react-indiana-drag-scroll'
+import 'react-indiana-drag-scroll/dist/style.css'
+import Loader from '../UI/Loader'
+import cn from 'classnames'
 
 const VOIDR_API_URL = process.env.NEXT_PUBLIC_VOIDR_API_URL
 
@@ -11,25 +18,37 @@ export default function ModalFileImage({
   currentImage,
   setCurrentImage,
 }) {
+  const {
+    data: imageVariations,
+    isLoading,
+    fetch,
+  } = useGetVariationsImage(currentImage?._id)
+
   const closeModal = () => {
     setCurrentImage(null)
     setIsOpen((prevState) => !prevState)
   }
 
+  useEffect(() => {
+    if (currentImage?._id) {
+      fetch()
+    }
+  }, [currentImage?._id])
+
   return (
     <>
       {isOpen ? (
         <div className={styles.modal}>
-          <Stack sx={{ cursor: 'pointer' }} onClick={closeModal}>
+          <Stack padding={3} sx={{ cursor: 'pointer' }} onClick={closeModal}>
             <ChevronsRight size={30} />
           </Stack>
 
-          <article className={styles.wrapper}>
-            <Typography fontSize={20} fontWeight="600">
+          <Stack>
+            <Typography paddingX={6} fontSize={20} fontWeight="600">
               Detailed info
             </Typography>
 
-            <Stack marginY={3}>
+            <Stack paddingX={6} marginY={3}>
               <Typography marginY={1} fontSize={14} fontWeight="600">
                 Source image
               </Typography>
@@ -75,7 +94,54 @@ export default function ModalFileImage({
               </Stack>
             </Stack>
 
-            <Stack marginTop={5}>
+            {imageVariations?.length > 1 && !isLoading ? (
+              <Stack marginY={3}>
+                <Typography
+                  paddingX={6}
+                  marginY={1}
+                  fontSize={14}
+                  fontWeight="600"
+                >
+                  Variations
+                </Typography>
+
+                <ScrollContainer className={styles.imageVariationsWrapper}>
+                  {imageVariations?.map((imageVariation) => {
+                    return (
+                      <>
+                        {isLoading ? (
+                          <Loader />
+                        ) : (
+                          <div
+                            className={cn(styles.scrollImageWrapper, {
+                              [styles.scrollImageWrapperActive]:
+                                imageVariation?._id === currentImage?._id,
+                            })}
+                          >
+                            <Image
+                              onClick={() => {
+                                setCurrentImage(imageVariation)
+                              }}
+                              key={imageVariation?._id ?? imageVariation?.id}
+                              src={imageVariation?.remote}
+                              className={cn({
+                                [styles.imageActive]:
+                                  imageVariation?._id === currentImage?._id,
+                              })}
+                              alt="Image Variation"
+                              width={80}
+                              height={60}
+                            />
+                          </div>
+                        )}
+                      </>
+                    )
+                  })}
+                </ScrollContainer>
+              </Stack>
+            ) : null}
+
+            <Stack paddingX={6} marginY={3}>
               <Typography fontSize={20} fontWeight="600">
                 Metadata & Snippet
               </Typography>
@@ -160,7 +226,7 @@ export default function ModalFileImage({
                 ) : null}
               </Stack>
             </Stack>
-          </article>
+          </Stack>
         </div>
       ) : null}
     </>

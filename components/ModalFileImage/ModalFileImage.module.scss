@@ -1,0 +1,78 @@
+@import '/styles/mixins';
+
+.modal {
+  position: fixed;
+  overflow-y: auto;
+  z-index: 999 !important;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1d2330;
+
+  @media (min-width: 1100px) {
+    width: 40%;
+  }
+
+  .image {
+    border-radius: 6px;
+    max-width: fit-content;
+  }
+}
+
+.imageVariationsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 45px;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 2px;
+  background-color: black;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollImageWrapper {
+    padding: 8px 0;
+    position: relative;
+    height: 100%;
+
+    > img {
+      border-radius: 3px;
+    }
+
+    .imageActive {
+      position: relative;
+      outline: 3px solid var(--helper-500);
+
+      &::before {
+        content: 'PEDRO';
+        position: absolute;
+        width: 400px;
+        height: 100px;
+        background-color: blue;
+        inset: 0;
+        z-index: 999 !important;
+      }
+    }
+  }
+
+  .scrollImageWrapperActive {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 3px;
+      background-color: var(--helper-500);
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

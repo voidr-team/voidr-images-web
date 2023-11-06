@@ -44,6 +44,7 @@
     "react-dropdown-select": "4.9.4",
     "react-hook-form": "7.45.1",
     "react-i18next": "13.2.1",
+    "react-indiana-drag-scroll": "3.0.3-alpha",
     "react-input-mask": "2.0.4",
     "react-paginate": "^8.2.0",
     "react-query": "3.39.3",
