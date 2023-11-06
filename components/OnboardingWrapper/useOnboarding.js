@@ -30,8 +30,8 @@ const schema = yup.object().shape({
   name: yup
     .string()
     .matches(
-      /^[A-Za-z0-9-_]+$/,
-      'Name must be alphanumeric and can only contain hyphens and underscores'
+      /^[a-z0-9-_]+$/,
+      'Name must be lowercase alphanumeric and can only contain hyphens and underscores'
     )
     .min(3, 'Name must be at least 3 characters')
     .max(20, 'Name must be at most 20 characters')
