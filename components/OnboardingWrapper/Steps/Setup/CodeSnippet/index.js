@@ -5,24 +5,34 @@ import CodeBlocks from '@/components/UI/CodeBlocks'
 import { Stack } from '@mui/joy'
 import { laravel, react, python, html } from './data'
 import { useFormContext } from 'react-hook-form'
+import { head } from 'ramda'
+import { useEffect } from 'react'
 
+const langFrameworksMap = {
+  node: ['react', 'html'],
+  php: ['laravel'],
+  python: ['django'],
+}
+const options = {
+  react,
+  laravel,
+  django: python,
+  html,
+}
+
+const languageMap = {
+  react: 'jsx',
+  html: 'html',
+  laravel: 'jsx',
+  django: 'jsx',
+}
 export default function CodeSnippet() {
-  const { watch } = useFormContext()
+  const { watch, setValue } = useFormContext()
   const [optionsFramework, optionLanguage] = watch(['framework', 'tech'])
 
-  const options = {
-    react,
-    laravel,
-    django: python,
-    html,
-  }
-
-  const language = {
-    react: 'javascript',
-    html: 'html',
-    laravel: 'php',
-    django: 'python',
-  }
+  useEffect(() => {
+    setValue('framework', head(langFrameworksMap[optionLanguage]))
+  }, [optionLanguage])
 
   return (
     <Stack marginTop={8}>
@@ -92,10 +102,12 @@ export default function CodeSnippet() {
             />
           ) : null}
         </Stack>
-        <CodeBlocks
-          language={language[optionsFramework]}
-          code={options[optionsFramework]}
-        />
+        <div className={styles.codeWrapper}>
+          <CodeBlocks
+            language={languageMap[optionsFramework]}
+            code={options[optionsFramework]}
+          />
+        </div>
       </Stack>
     </Stack>
   )

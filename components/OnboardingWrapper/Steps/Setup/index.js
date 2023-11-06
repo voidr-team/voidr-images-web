@@ -41,7 +41,7 @@ export default function Setup() {
   return (
     <Stack
       minHeight="80vh"
-      maxWidth="100vh"
+      maxWidth="1200px"
       position="relative"
       marginTop={{ xs: 6, sm: 7, md: 15 }}
     >

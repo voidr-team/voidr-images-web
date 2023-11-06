@@ -74,3 +74,10 @@
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
+
+.codeWrapper {
+  border: 1px solid var(--neutral-600);
+  border-top: none;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}

@@ -37,7 +37,6 @@
     "ramda": "0.29.0",
     "react": "18.2.0",
     "react-apexcharts": "1.4.1",
-    "react-code-blocks": "0.1.4",
     "react-confirm": "0.3.0-2",
     "react-copy-to-clipboard": "5.1.0",
     "react-dom": "18.2.0",
@@ -47,6 +46,7 @@
     "react-input-mask": "2.0.4",
     "react-paginate": "^8.2.0",
     "react-query": "3.39.3",
+    "react-syntax-highlighter": "^15.5.0",
     "react-toastify": "9.1.3",
     "sass": "1.63.6",
     "yup": "1.2.0"
