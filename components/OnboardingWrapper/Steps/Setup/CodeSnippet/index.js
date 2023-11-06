@@ -68,7 +68,7 @@ export default function CodeSnippet() {
             <>
               <RadioButton
                 className={styles.radioButtonHorizontal}
-                icon="Node_Icon"
+                icon="React_Icon"
                 label="React"
                 name="framework"
                 value="react"
