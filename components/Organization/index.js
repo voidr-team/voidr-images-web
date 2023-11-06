@@ -13,11 +13,11 @@ function OrganizationList() {
   return (
     <Stack minHeight="100vh" width="100%" spacing={2}>
       {isLoading ? (
-        <Stack padding="35px" alignItems="flex-start">
+        <Stack padding="35px">
           <Loader />
         </Stack>
       ) : (
-        <ChangeDomains domains={data.domains} />
+        <ChangeDomains domains={data?.domains} />
       )}
       <List setIsOpenInviteMember={setIsOpenInviteMember} />
       <InviteMember

@@ -37,7 +37,7 @@ export default function useChangeDomains({ domains }) {
   })
 
   const onSubmit = formMethods.handleSubmit((data) => {
-    const domains = data.domains.map((dom) => dom.domain)
+    const domains = data?.domains?.map((dom) => dom.domain)
     updateDomain(domains)
   })
 

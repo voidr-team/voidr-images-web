@@ -1,0 +1,22 @@
+.wrapper {
+  width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead tr th {
+    text-align: left;
+  }
+
+  td,
+  th {
+    padding-block: 10px;
+  }
+
+  tbody tr td {
+    vertical-align: middle;
+    margin-top: 20px;
+  }
+}

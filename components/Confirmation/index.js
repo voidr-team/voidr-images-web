@@ -2,6 +2,7 @@ import { Box, Divider, Modal, ModalDialog, Typography } from '@mui/joy'
 import Icon from '@/components/UI/Icon'
 import { confirmable, createConfirmation } from 'react-confirm'
 import Button from '../UI/Button'
+import styles from './Confirmation.module.scss'
 
 function Confirmation({
   show,
@@ -23,8 +24,14 @@ function Confirmation({
           <Typography
             id="alert-dialog-modal-title"
             level="h3"
+            textColor="neutral.300"
             startDecorator={
-              <Icon id="Triangle_Warning" width={30} height={30} />
+              <Icon
+                className={styles.confirmationIcon}
+                id="Triangle_Warning"
+                width={30}
+                height={30}
+              />
             }
           >
             {title}

@@ -27,7 +27,7 @@ export default function ChoosePlan() {
           <CardPricing.Benefits benefits={plansInfo.starter.benefits} />
 
           <CardPricing.Footer>
-            {user.currentProject.plan === 'FREE' && (
+            {user?.currentProject?.plan === 'FREE' && (
               <Typography
                 textAlign="center"
                 level="body-md"
@@ -58,13 +58,13 @@ export default function ChoosePlan() {
           <CardPricing.Benefits benefits={plansInfo.pro.benefits} />
 
           <CardPricing.Footer>
-            {user.currentProject.plan === 'FREE' && (
+            {user?.currentProject?.plan === 'FREE' && (
               <Button onClick={upgradePlan} isLoading={isLoading}>
                 Start now
               </Button>
             )}
 
-            {user.currentProject.plan === 'PRO' && (
+            {user?.currentProject?.plan === 'PRO' && (
               <Typography
                 textAlign="center"
                 level="body-md"

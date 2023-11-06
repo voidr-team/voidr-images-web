@@ -1,6 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import organizationService from '@/services/organization'
-import { useCallback } from 'react'
 import { confirm } from '@/components/Confirmation'
 import toastEz from '@/utils/toastEz'
 
@@ -31,7 +30,7 @@ function useOrganizationMembers() {
       },
     })
 
-  const deleteMember = useCallback(async (id) => {
+  const deleteMember = async (id) => {
     if (!id) return
     const confirmAction = await confirm({
       title: 'Você deseja remover o membro?',
@@ -41,7 +40,7 @@ function useOrganizationMembers() {
     if (confirmAction) {
       requestDeleteMember(id)
     }
-  }, [])
+  }
 
   const isLoading = isLoadingGetMembers || deleteIsLoading
 

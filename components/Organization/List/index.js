@@ -1,12 +1,4 @@
-import {
-  Tab,
-  TabList,
-  Tabs,
-  TabPanel,
-  Stack,
-  Typography,
-  tabClasses,
-} from '@mui/joy'
+import { Tab, TabList, Tabs, TabPanel, Stack, Typography } from '@mui/joy'
 import ListMembers from './ListMembers'
 import ListInvites from './ListInvites'
 import Button from '@/components/UI/Button'
@@ -44,8 +36,8 @@ function List({ setIsOpenInviteMember }) {
             },
           })}
         >
-          <Tab>Membros</Tab>
-          <Tab>Convites</Tab>
+          <Tab>Members</Tab>
+          <Tab>Invites</Tab>
         </TabList>
 
         <TabPanel value={0}>
