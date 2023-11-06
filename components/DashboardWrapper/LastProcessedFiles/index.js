@@ -8,7 +8,10 @@ import styles from './LastProcessedFiles.module.scss'
 import EmptyStateProcessedFiles from './EmptyStateProcessedFiles'
 import Widget from '@/components/UI/Widget'
 
-export default function LastProcessedFiles() {
+export default function LastProcessedFiles({
+  setIsDialogOpen,
+  setCurrentImage,
+}) {
   const { data, isLoading } = useFilesList()
 
   return (
@@ -23,6 +26,10 @@ export default function LastProcessedFiles() {
             ) : (
               take(8, data?.images || [])?.map((image, index) => (
                 <CardFile
+                  onClick={() => {
+                    setCurrentImage(image)
+                    setIsDialogOpen((prevState) => !prevState)
+                  }}
                   imageName={`${image?.name}.${image?.metadata?.format}`}
                   imageSizeSaved={
                     image?.rawMetadata?.size - image?.metadata?.size

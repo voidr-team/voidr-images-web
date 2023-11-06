@@ -1,7 +1,7 @@
 import { Stack, Typography } from '@mui/joy'
 import AddNewFile from './AddNewFile'
 import FileList from './FileList'
-import ModalDialog from './ModalDialog'
+import ModalFileImage from '../ModalFileImage'
 import { useState } from 'react'
 import { ChevronRight } from 'lucide-react'
 
@@ -29,7 +29,7 @@ export default function FilesList() {
         />
       </Stack>
 
-      <ModalDialog
+      <ModalFileImage
         currentImage={currentImage}
         setCurrentImage={setCurrentImage}
         isOpen={isDialogOpen}

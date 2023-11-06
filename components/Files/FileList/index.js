@@ -1,6 +1,6 @@
 import CardFile from '@/components/CardFile'
 import useFilesList from '@/hooks/useFilesList'
-import { Grid, Stack, Typography } from '@mui/joy'
+import { Stack, Typography } from '@mui/joy'
 import Pagination from '@/components/UI/Pagination'
 import Loader from '@/components/UI/Loader'
 
