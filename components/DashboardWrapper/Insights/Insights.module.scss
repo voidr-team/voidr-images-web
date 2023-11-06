@@ -1,17 +1,39 @@
-.viewDocs {
-  text-decoration: underline;
-  color: var(--helper-500);
+.usedData {
+  margin-block: 20px;
+
+  > h1 {
+    font-weight: 800;
+    font-size: 50px;
+    font-weight: 600;
+
+    span {
+      font-size: 16px;
+      color: var(--neutral-400);
+      font-weight: 500;
+    }
+  }
 }
-
-.iconWrapper {
-  padding: 8px;
-  border-radius: 100px;
-  width: 40px;
-  height: 40px;
+.helpBox {
   display: flex;
-  background-color: #20234c;
+  flex-direction: column;
+  gap: 10px;
 
-  svg {
-    color: var(--helper-500);
+  > p {
+    font-size: 16px;
+    color: var(--neutral-400);
+    font-weight: 500;
+  }
+
+  .iconWrapper {
+    padding: 8px;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    background-color: #20234c;
+
+    svg {
+      color: var(--helper-500);
+    }
   }
 }

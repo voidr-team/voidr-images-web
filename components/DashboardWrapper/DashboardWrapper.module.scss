@@ -1,0 +1,26 @@
+.dashboardWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+
+  .dataColumn {
+    grid-column: span 2;
+  }
+
+  .infoColumn {
+    grid-column: span 1;
+  }
+
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr;
+
+    .dataColumn {
+      grid-column: span 1 !important;
+    }
+
+    .infoColumn {
+      grid-column: span 1 !important;
+    }
+  }
+}

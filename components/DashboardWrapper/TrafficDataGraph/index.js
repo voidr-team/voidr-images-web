@@ -1,12 +1,12 @@
-import { Stack, Typography } from '@mui/joy'
 import ApexCharts from 'react-apexcharts'
-import { ChevronRight } from 'lucide-react'
 import dayjs from 'dayjs'
 import styles from './TrafficDataGraph.module.scss'
+import Widget from '@/components/UI/Widget'
 
 const chartOptions = (data) => ({
   chart: {
     id: 'trafic-data',
+    width: '100%',
     type: 'line',
     height: 280,
     animations: {
@@ -85,29 +85,16 @@ const series = (data) => [
     data: data.map((item) => item.value),
   },
 ]
+
 export default function TrafficDataGraph({ data = [] }) {
   return (
-    <Stack
-      width="100%"
-      maxWidth="fit-content"
-      padding={2.8}
-      borderRadius={6}
-      border={1}
-      flex={1}
-      borderColor="neutral.600"
-    >
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <Typography level="h4">Traffic</Typography>
-        <ChevronRight />
-      </Stack>
-
+    <Widget title="Traffic">
       <ApexCharts
         options={chartOptions(data)}
         series={series(data)}
         type="line"
         height={280}
-        width={740}
       />
-    </Stack>
+    </Widget>
   )
 }

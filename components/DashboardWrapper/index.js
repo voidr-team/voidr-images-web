@@ -1,9 +1,9 @@
 import dynamic from 'next/dynamic'
-import { Stack, Typography } from '@mui/joy'
 import LastProcessedFiles from './LastProcessedFiles'
 import Insights from './Insights'
 import PlanUsage from './PlanUsage'
 import useDashboard from '@/hooks/useDashboard'
+import styles from './DashboardWrapper.module.scss'
 const TrafficDataGraph = dynamic(
   () => {
     return import('./TrafficDataGraph')
@@ -17,28 +17,26 @@ export default function DashboardWrapper() {
     date: date,
     value: count,
   }))
+
   return (
-    <Stack gap={3} paddingX={3} marginY={6}>
-      <Typography fontWeight="600" level="h3">
-        Dashboard
-      </Typography>
-
-      <Stack direction={{ sm: 'column', md: 'row' }} gap={3}>
+    <div className={styles.dashboardWrapper}>
+      <div className={styles.dataColumn}>
         <LastProcessedFiles />
-        <Insights bytesSaved={data?.bytesSaved} />
-      </Stack>
+      </div>
 
-      <Stack
-        width="100%"
-        maxHeight="380px"
-        direction={{ sm: 'column', md: 'row' }}
-        gap={3}
-      >
+      <div className={styles.infoColumn}>
+        <Insights bytesSaved={data?.bytesSaved} />
+      </div>
+
+      <div className={styles.dataColumn}>
         {typeof window !== 'undefined' && !isLoading ? (
           <TrafficDataGraph data={graphData} />
         ) : null}
+      </div>
+
+      <div className={styles.infoColumn}>
         <PlanUsage usage={data?.usage} />
-      </Stack>
-    </Stack>
+      </div>
+    </div>
   )
 }
