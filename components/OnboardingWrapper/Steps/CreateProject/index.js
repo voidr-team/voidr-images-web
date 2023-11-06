@@ -17,14 +17,12 @@ export default function CreateProject() {
 
   return (
     <Stack marginTop={{ xs: 6, sm: 7, md: 15 }}>
-      <Stack>
-        <Typography fontWeight="600" fontSize={20}>
-          Project name
-        </Typography>
-
-        <Stack marginTop={3} maxWidth="400px">
-          <Input name="name" placeholder="Company XPTO Marketplace" />
-        </Stack>
+      <Stack maxWidth="400px">
+        <Input
+          name="name"
+          placeholder="Company XPTO Marketplace"
+          label="Project name"
+        />
       </Stack>
 
       <Stack marginTop={5}>
@@ -32,13 +30,7 @@ export default function CreateProject() {
           Domains
         </Typography>
 
-        <Typography
-          marginTop={1}
-          marginBottom={2}
-          fontWeight="500"
-          fontSize={18}
-          textColor="primary.100"
-        >
+        <Typography fontWeight="500" fontSize={16} textColor="primary.100">
           Connect with images on a Web Folder somewhere in the Internet.
         </Typography>
 
@@ -47,12 +39,11 @@ export default function CreateProject() {
             <Stack
               direction="row"
               alignItems="center"
-              maxWidth="400px"
+              maxWidth="450px"
               gap={2}
-              marginTop={1}
               key={field.id}
             >
-              <Stack width="100%" maxWidth="350px">
+              <Stack width="100%" maxWidth="400px">
                 <Input
                   name={`domains.${index}.domain`}
                   placeholder="https://mywebsite.com"
@@ -84,20 +75,15 @@ export default function CreateProject() {
         <Typography fontWeight="600" fontSize={20}>
           Platform
         </Typography>
-        <Typography
-          marginTop={2}
-          marginBottom={3}
-          textColor="primary.100"
-          fontSize={18}
-        >
+        <Typography marginBottom={1} textColor="primary.100" fontSize={16}>
           Select the type of platform your project runs on.
         </Typography>
 
         <Stack gap={2} maxWidth="400px">
-          <Stack direction="row">
-            <Stack justifyContent="center" gap={1} alignItems="center">
+          <Stack direction="row" gap={5}>
+            <Stack justifyContent="center" alignItems="center">
               <RadioButton
-                icon="Image_Icon"
+                icon="Web_Icon"
                 className={styles.radioButton}
                 name="platform"
                 value="web"
@@ -106,14 +92,15 @@ export default function CreateProject() {
                 textColor="primary.100"
                 fontSize={16}
                 fontWeight="600"
+                marginTop="8px"
               >
                 WEB
               </Typography>
             </Stack>
 
-            <Stack justifyContent="center" gap={1} alignItems="center">
+            <Stack justifyContent="center" alignItems="center">
               <RadioButton
-                icon="Image_Icon"
+                icon="Mobile_Icon"
                 className={styles.radioButton}
                 name="platform"
                 value="mobile"
@@ -123,6 +110,7 @@ export default function CreateProject() {
                 textColor="primary.100"
                 fontSize={16}
                 fontWeight="600"
+                marginTop="8px"
               >
                 MOBILE
               </Typography>

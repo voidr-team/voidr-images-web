@@ -10,7 +10,7 @@ import useAuth from '@/context/auth/useAuth'
 
 const formSteps = {
   order: ['CREATE_PROJECT', 'SETUP', 'START'],
-  current: 1,
+  current: 0,
   postStep: 'START',
 }
 

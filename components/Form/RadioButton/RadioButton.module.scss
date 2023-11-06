@@ -8,7 +8,7 @@
     position: relative;
     padding: 30px;
     opacity: 0.3;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: border 0.2s ease;
     will-change: opacity;
     height: 100%;
@@ -62,9 +62,12 @@
     display: none;
   }
 
-  &:hover .wrapper,
-  > input:checked + .wrapper {
+  &:hover .wrapper {
     opacity: 0.5;
+    
+  }
+  > input:checked + .wrapper {
+    opacity: 0.9;
   }
 
   > input:not(:checked) + .wrapper {

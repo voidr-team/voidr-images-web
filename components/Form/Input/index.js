@@ -1,5 +1,10 @@
 import ErrorMessage from '../../UI/ErrorMessage'
-import { FormControl, FormLabel, Input as InputProvider } from '@mui/joy'
+import {
+  FormControl,
+  FormLabel,
+  Input as InputProvider,
+  Typography,
+} from '@mui/joy'
 import { useFormContext } from 'react-hook-form'
 
 function Input({ name, rules = {}, label, ...props }) {
@@ -10,7 +15,11 @@ function Input({ name, rules = {}, label, ...props }) {
 
   return (
     <FormControl sx={{ width: '100%' }}>
-      <FormLabel>{label}</FormLabel>
+      <FormLabel>
+        <Typography fontWeight="600" fontSize={20}>
+          {label}
+        </Typography>
+      </FormLabel>
       <InputProvider
         sx={() => ({
           paddingBlock: '10px',
