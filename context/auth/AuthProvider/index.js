@@ -88,7 +88,7 @@ function AuthProvider({ children }) {
     }
 
     if (router.pathname === '/' || router.pathname === '/onboarding') {
-      return router.push('/images/dashboard')
+      // return router.push('/images/dashboard')
     }
   }
 

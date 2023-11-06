@@ -3,8 +3,15 @@
     padding: 0;
 
     svg {
-      width: 35px;
-      height: 35px;
+      padding-top: 5px;
+      width: 30px;
+      height: 30px;
+
+      &[data-icon="Php_Icon"] {
+        padding-top: 0;
+        width: 35px;
+        height: 35px;
+      }
     }
 
     input[type='radio']:checked + div {
@@ -73,4 +80,11 @@
   border: 1px solid var(--neutral-600);
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+}
+
+.codeWrapper {
+  border: 1px solid var(--neutral-600);
+  border-top: none;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
