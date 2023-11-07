@@ -7,7 +7,7 @@ import useDashboard from '@/hooks/useDashboard'
 export default function PlansWrapper() {
   const { data, isLoading } = useDashboard()
   return (
-    <Stack paddingX={3} marginY={4}>
+    <div>
       <Typography
         fontWeight="600"
         level="h4"
@@ -20,6 +20,6 @@ export default function PlansWrapper() {
 
       <PlanInfo usage={data?.usage} />
       <ChoosePlan />
-    </Stack>
+    </div>
   )
 }

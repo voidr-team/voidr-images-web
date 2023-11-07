@@ -16,6 +16,7 @@ function AuthProvider({ children }) {
     isLoading: isAuth0Loading,
     error,
     getAccessTokenSilently,
+    loginWithRedirect,
   } = useAuth0()
   const router = useRouter()
 
@@ -64,20 +65,34 @@ function AuthProvider({ children }) {
     }
   }
 
+  // REFACTOR: separar todo o roteamento, estura melhor pratica
   const redirectAfterLogin = async (userData) => {
     const returnTo = sessionStorage.getItem('returnTo')
-    if (isEmpty(userData?.projects) && userData?.organization?.id) {
+
+    const hasOrgId = !!userData?.organization?.id
+    if (isEmpty(userData?.projects) && hasOrgId) {
       joinProject()
       return
     } else if (isEmpty(userData?.projects)) {
       return router.push('/onboarding')
-    } else {
+    } else if (
+      !hasOrgId ||
+      userData.currentProject?.organizationId !== userData?.organization?.id
+    ) {
       const orgId = userData.currentProject?.organizationId
       await getAccessTokenSilently({
         cacheMode: 'off',
         authorizationParams: {
           organization: orgId,
         },
+      }).catch((e) => {
+        if (e.error === 'login_required' || e.error === 'consent_required') {
+          return loginWithRedirect({
+            authorizationParams: {
+              organization: orgId,
+            },
+          })
+        }
       })
     }
 

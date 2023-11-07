@@ -15,7 +15,7 @@ export default function ChangeDomains({ domains }) {
   const [parentRef] = useAutoAnimate()
 
   return (
-    <Stack padding="35px">
+    <div>
       <Typography level="h3">Domains</Typography>
       <FormProvider {...formMethods}>
         <form onSubmit={onSubmit}>
@@ -63,6 +63,6 @@ export default function ChangeDomains({ domains }) {
           </Stack>
         </form>
       </FormProvider>
-    </Stack>
+    </div>
   )
 }

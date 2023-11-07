@@ -5,7 +5,7 @@ import Button from '@/components/UI/Button'
 
 function List({ setIsOpenInviteMember }) {
   return (
-    <Stack bgcolor="transparent" padding="35px">
+    <div>
       <Stack
         direction="row"
         alignItems="center"
@@ -47,7 +47,7 @@ function List({ setIsOpenInviteMember }) {
           <ListInvites />
         </TabPanel>
       </Tabs>
-    </Stack>
+    </div>
   )
 }
 

@@ -6,7 +6,7 @@ import SidebarItem from './SidebarItem'
 function Content({ children }) {
   return (
     <Stack
-      minWidth="280px"
+      minWidth="220px"
       borderRight={1}
       borderColor="neutral.700"
       justifyContent="space-between"

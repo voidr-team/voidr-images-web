@@ -10,7 +10,7 @@ export default function FilesList() {
   const [currentImage, setCurrentImage] = useState(null)
 
   return (
-    <Stack paddingX={3} marginY={4}>
+    <div>
       <Typography
         fontWeight="600"
         level="h3"
@@ -35,6 +35,6 @@ export default function FilesList() {
         isOpen={isDialogOpen}
         setIsOpen={setIsDialogOpen}
       />
-    </Stack>
+    </div>
   )
 }

@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
 import useAuth from '@/context/auth/useAuth'
+import styles from './ImageLayour.module.scss'
 
 function ImageLayout({ children }) {
   const router = useRouter()
@@ -14,7 +15,7 @@ function ImageLayout({ children }) {
 
   return (
     <BaseLayout currentPage="dashboard">
-      <Stack direction="row">
+      <div className={styles.imageLayoutRoot}>
         <Sidebar.Root>
           <Sidebar.Content>
             <div>
@@ -56,10 +57,8 @@ function ImageLayout({ children }) {
           </Sidebar.Content>
         </Sidebar.Root>
 
-        <Stack minHeight="100vh" marginLeft="360px" flex="1">
-          {children}
-        </Stack>
-      </Stack>
+        <div className={styles.imageLayoutContainer}>{children}</div>
+      </div>
     </BaseLayout>
   )
 }

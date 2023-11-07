@@ -1,0 +1,14 @@
+
+.imageLayoutRoot {
+  display: flex;
+  flex-direction: row;
+
+  .imageLayoutContainer {
+    height: 100vh;
+    overflow: auto;
+    width: 100%;
+    flex: 1;
+    padding-inline: 40px;
+    padding-block: 40px;
+  }
+}

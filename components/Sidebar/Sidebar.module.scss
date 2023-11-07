@@ -1,5 +1,7 @@
 .sidebar {
-  min-width: fit-content;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
 
   .iconNavigationItem {
     cursor: pointer !important;
