@@ -24,20 +24,22 @@ export default function LastProcessedFiles({
             {isEmpty(data?.images) ? (
               <EmptyStateProcessedFiles />
             ) : (
-              take(8, data?.images || [])?.map((image, index) => (
-                <CardFile
-                  onClick={() => {
-                    setCurrentImage(image)
-                    setIsDialogOpen((prevState) => !prevState)
-                  }}
-                  imageName={`${image?.name}.${image?.metadata?.format}`}
-                  imageSizeSaved={
-                    image?.rawMetadata?.size - image?.metadata?.size
-                  }
-                  imageUrl={image?.originUrl}
-                  key={`${index}_${image?.name}`}
-                />
-              ))
+              <div className={styles.containerImage}>
+                {take(8, data?.images || [])?.map((image, index) => (
+                  <CardFile
+                    onClick={() => {
+                      setCurrentImage(image)
+                      setIsDialogOpen((prevState) => !prevState)
+                    }}
+                    imageName={`${image?.name}.${image?.metadata?.format}`}
+                    imageSizeSaved={
+                      image?.rawMetadata?.size - image?.metadata?.size
+                    }
+                    imageUrl={image?.originUrl}
+                    key={`${index}_${image?.name}`}
+                  />
+                ))}
+              </div>
             )}
           </>
         )}
