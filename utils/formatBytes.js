@@ -6,13 +6,18 @@ export default function formatBytes(bytes, decimals = 2) {
   let result
   let unit
 
-  // Se menor que 1 GB, converte para MB, senão para GB
-  if (bytes < GIGABYTE_FACTOR) {
-    result = (bytes / MEGABYTE_FACTOR).toFixed(decimals)
+  if (bytes < KILOBYTE_FACTOR) {
+    result = bytes.toFixed(decimals)
+    unit = 'KB'
+  } else if (bytes < MEGABYTE_FACTOR) {
+    result = (bytes / KILOBYTE_FACTOR).toFixed(decimals)
     unit = 'MB'
+  } else if (bytes < GIGABYTE_FACTOR) {
+    result = (bytes / MEGABYTE_FACTOR).toFixed(decimals)
+    unit = 'GB'
   } else {
     result = (bytes / GIGABYTE_FACTOR).toFixed(decimals)
-    unit = 'GB'
+    unit = 'TB'
   }
 
   return `${result} ${unit}`
