@@ -1,7 +1,6 @@
 import { Stack, Typography } from '@mui/joy'
 import styles from './CardFile.module.scss'
-
-const VOIDR_API_URL = process.env.NEXT_PUBLIC_VOIDR_API_URL
+import getImageSource from '@/utils/getImageSource'
 
 export default function CardFile({
   imageUrl,
@@ -17,7 +16,7 @@ export default function CardFile({
         cursor: onClick ? 'pointer' : 'default',
       }}
     >
-      <img src={`${VOIDR_API_URL}${imageUrl}`} alt={imageName} height={150} />
+      <img src={getImageSource(imageUrl)} alt={imageName} height={150} />
       <Stack className={styles.content}>
         <Typography textColor="neutral.400" level="title-sm">
           {imageName}

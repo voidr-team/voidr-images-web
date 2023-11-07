@@ -9,6 +9,8 @@ import ScrollContainer from 'react-indiana-drag-scroll'
 import 'react-indiana-drag-scroll/dist/style.css'
 import Loader from '../UI/Loader'
 import cn from 'classnames'
+import CopyURL from '../CopyURL'
+import getImageSource from '@/utils/getImageSource'
 
 const VOIDR_API_URL = process.env.NEXT_PUBLIC_VOIDR_API_URL
 
@@ -106,37 +108,36 @@ export default function ModalFileImage({
                 </Typography>
 
                 <ScrollContainer className={styles.imageVariationsWrapper}>
-                  {imageVariations?.map((imageVariation) => {
-                    return (
-                      <>
-                        {isLoading ? (
-                          <Loader />
-                        ) : (
-                          <div
-                            className={cn(styles.scrollImageWrapper, {
-                              [styles.scrollImageWrapperActive]:
+                  {isLoading ? (
+                    <Loader />
+                  ) : (
+                    <>
+                      {imageVariations?.map((imageVariation) => (
+                        <div
+                          key={imageVariation?._id}
+                          className={cn(styles.scrollImageWrapper, {
+                            [styles.scrollImageWrapperActive]:
+                              imageVariation?._id === currentImage?._id,
+                          })}
+                        >
+                          <Image
+                            onClick={() => {
+                              setCurrentImage(imageVariation)
+                            }}
+                            key={imageVariation?._id ?? imageVariation?.id}
+                            src={imageVariation?.remote}
+                            className={cn({
+                              [styles.imageActive]:
                                 imageVariation?._id === currentImage?._id,
                             })}
-                          >
-                            <Image
-                              onClick={() => {
-                                setCurrentImage(imageVariation)
-                              }}
-                              key={imageVariation?._id ?? imageVariation?.id}
-                              src={imageVariation?.remote}
-                              className={cn({
-                                [styles.imageActive]:
-                                  imageVariation?._id === currentImage?._id,
-                              })}
-                              alt="Image Variation"
-                              width={80}
-                              height={60}
-                            />
-                          </div>
-                        )}
-                      </>
-                    )
-                  })}
+                            alt="Image Variation"
+                            width={80}
+                            height={60}
+                          />
+                        </div>
+                      ))}
+                    </>
+                  )}
                 </ScrollContainer>
               </Stack>
             ) : null}
@@ -225,6 +226,10 @@ export default function ModalFileImage({
                   </Stack>
                 ) : null}
               </Stack>
+            </Stack>
+
+            <Stack paddingX={6} marginY={3}>
+              <CopyURL url={getImageSource(currentImage?.originUrl)} />
             </Stack>
           </Stack>
         </div>
