@@ -63,7 +63,7 @@ export default function CreateProject() {
           onClick={() => append({ domain: '' })}
           sx={{ cursor: 'pointer' }}
           marginTop={1}
-          textColor="helper.600"
+          textColor="helper.500"
           fontSize={16}
         >
           + Add domain
