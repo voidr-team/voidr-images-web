@@ -3,6 +3,7 @@ import useFilesList from '@/hooks/useFilesList'
 import { Stack, Typography } from '@mui/joy'
 import Pagination from '@/components/UI/Pagination'
 import Loader from '@/components/UI/Loader'
+import styles from './FileList.module.scss'
 
 export default function FileList({ setIsDialogOpen, setCurrentImage }) {
   const { data, paginate, isLoading } = useFilesList({ limit: 20 })
@@ -11,12 +12,13 @@ export default function FileList({ setIsDialogOpen, setCurrentImage }) {
     <Stack>
       <Typography level="h4">Latest processed files</Typography>
 
-      <Stack width="100%" gap={3} direction="row" flexWrap="wrap" marginTop={4}>
+      <div className={styles.cardFileList}>
         {isLoading ? (
           <Loader />
         ) : (
           data?.images?.map((image, index) => (
             <CardFile
+              className={styles.cardFileItem}
               onClick={() => {
                 setCurrentImage(image)
                 setIsDialogOpen((prevState) => !prevState)
@@ -28,7 +30,7 @@ export default function FileList({ setIsDialogOpen, setCurrentImage }) {
             />
           ))
         )}
-      </Stack>
+      </div>
       <Pagination onPageChange={paginate} pageCount={data?.pages} />
     </Stack>
   )

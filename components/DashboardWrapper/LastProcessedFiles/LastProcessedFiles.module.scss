@@ -8,6 +8,31 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+
+    > .cardFileItem {
+      @include above(900px) {
+        width: calc(100% / 3 - 20px);
+      }
+      @include above(1160px) {
+        width: calc(100% / 4 - 20px);
+      }
+
+      @include above(1201px) {
+        width: calc(100% / 2 - 20px);
+      }
+
+      @include above(1320px) {
+        width: calc(100% / 3 - 20px);
+      }
+      @include above(1490px) {
+        width: calc(100% / 4 - 20px);
+      }
+      
+      @include above(1650px) {
+        width: calc(100% / 5 - 20px);
+      }
+      
+    }
   }
 }
 

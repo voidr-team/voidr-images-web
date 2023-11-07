@@ -27,6 +27,7 @@ export default function LastProcessedFiles({
               <div className={styles.containerImage}>
                 {data?.images?.map((image, index) => (
                   <CardFile
+                    className={styles.cardFileItem}
                     onClick={() => {
                       setCurrentImage(image)
                       setIsDialogOpen((prevState) => !prevState)

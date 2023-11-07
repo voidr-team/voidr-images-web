@@ -2,16 +2,18 @@ import { Stack, Typography } from '@mui/joy'
 import styles from './CardFile.module.scss'
 import getImageSource from '@/utils/getImageSource'
 import formatBytes from '@/utils/formatBytes'
+import cn from 'classnames'
 
 export default function CardFile({
   imageUrl,
   imageName,
   imageSizeSaved,
   onClick,
+  className,
 }) {
   return (
     <Stack
-      className={styles.cardFile}
+      className={cn(styles.cardFile, className)}
       onClick={onClick}
       style={{
         cursor: onClick ? 'pointer' : 'default',
