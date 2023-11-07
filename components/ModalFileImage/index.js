@@ -11,6 +11,7 @@ import Loader from '../UI/Loader'
 import cn from 'classnames'
 import CopyURL from '../CopyURL'
 import getImageSource from '@/utils/getImageSource'
+import formatBytes from '@/utils/formatBytes'
 
 const VOIDR_API_URL = process.env.NEXT_PUBLIC_VOIDR_API_URL
 
@@ -76,7 +77,7 @@ export default function ModalFileImage({
                         fontWeight="600"
                       >
                         {`${currentImage.rawMetadata?.width}x${currentImage.rawMetadata?.height}`}
-                        , {`${currentImage.rawMetadata?.size}kb`}{' '}
+                        , {`${formatBytes(currentImage.rawMetadata?.size)}`}{' '}
                         <Typography
                           textColor="neutral.500"
                           textTransform="uppercase"
@@ -197,7 +198,9 @@ export default function ModalFileImage({
                     <Typography textColor="neutral.500" fontWeight="600">
                       Size
                     </Typography>
-                    <Typography>{currentImage.metadata?.size}kb</Typography>
+                    <Typography>
+                      {formatBytes(currentImage.metadata?.size)}
+                    </Typography>
                   </Stack>
 
                   <Stack

@@ -1,12 +1,16 @@
 import { Stack, Typography } from '@mui/joy'
 import Icon from '../../UI/Icon'
 import Image from 'next/image'
+import SidebarItem from '@/components/Sidebar/SidebarItem'
+import sidebarItems from '@/components/Sidebar/sidebarItems'
 
 const onboardingSteps = [
   { number: 1, label: 'Create project' },
   { number: 2, label: 'Setup' },
   { number: 3, label: 'Start' },
 ]
+
+const logoutItem = sidebarItems.common.find(({ id }) => id === 2)
 
 export default function OnboardingSidebar({ steps }) {
   return (
@@ -109,6 +113,12 @@ export default function OnboardingSidebar({ steps }) {
             />
           </Stack>
         </Stack>
+        <SidebarItem
+          link={logoutItem.link}
+          key={logoutItem.id}
+          Icon={logoutItem.icon}
+          label={logoutItem.label}
+        />
       </Stack>
     </Stack>
   )
