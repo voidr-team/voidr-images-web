@@ -5,7 +5,7 @@ import { ChevronRight } from 'lucide-react'
 import useDashboard from '@/hooks/useDashboard'
 
 export default function PlansWrapper() {
-  const { data, isLoading } = useDashboard()
+  const { data } = useDashboard()
   return (
     <div>
       <Typography

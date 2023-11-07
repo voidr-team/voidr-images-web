@@ -3,7 +3,7 @@ import ImageLayout from '@/layouts/ImageLayout'
 
 export default function Settings() {
   return (
-    <ImageLayout>
+    <ImageLayout title="Settings">
       <OrganizationList />
     </ImageLayout>
   )

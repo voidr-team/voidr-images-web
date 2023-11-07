@@ -3,7 +3,7 @@ import ImageLayout from '../../../layouts/ImageLayout'
 
 export default function Files() {
   return (
-    <ImageLayout>
+    <ImageLayout title="Files">
       <FilesList />
     </ImageLayout>
   )

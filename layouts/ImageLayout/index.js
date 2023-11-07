@@ -9,7 +9,7 @@ import cn from 'classnames'
 import useAuth from '@/context/auth/useAuth'
 import styles from './ImageLayour.module.scss'
 
-function ImageLayout({ children }) {
+function ImageLayout({ children, title }) {
   const router = useRouter()
   const { user } = useAuth()
 
@@ -57,7 +57,14 @@ function ImageLayout({ children }) {
           </Sidebar.Content>
         </Sidebar.Root>
 
-        <div className={styles.imageLayoutContainer}>{children}</div>
+        <div className={styles.imageLayoutScrollable}>
+          <div className={styles.container}>
+            <Typography level="h2" className={styles.title}>
+              {title}
+            </Typography>
+            {children}
+          </div>
+        </div>
       </div>
     </BaseLayout>
   )

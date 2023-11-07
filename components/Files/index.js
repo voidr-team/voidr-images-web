@@ -11,16 +11,6 @@ export default function FilesList() {
 
   return (
     <div>
-      <Typography
-        fontWeight="600"
-        level="h3"
-        alignContent="center"
-        alignItems="center"
-        display="flex"
-      >
-        Files <ChevronRight /> Upload
-      </Typography>
-
       <Stack gap={5}>
         <AddNewFile />
         <FileList
