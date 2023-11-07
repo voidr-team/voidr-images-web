@@ -18,13 +18,19 @@ function Input({ name, rules = {}, label, ...props }) {
     <FormControl sx={{ width: '100%' }}>
       <Label>{label}</Label>
       <InputProvider
-        sx={() => ({
+        sx={{
           paddingBlock: '10px',
           paddingInline: '15px',
-          backgroundColor: `#1C1E30`,
-          border: '0.5px solid white',
+          backgroundColor: `var(--joy-palette-primary-400)`,
+          border: '1px solid var(--joy-palette-neutral-600)',
           '--Input-focusedThickness': '0rem',
-        })}
+          ':hover': {
+            borderColor: 'var(--joy-palette-helper-500)',
+          },
+          '&:focus-within': {
+            borderColor: 'var(--joy-palette-helper-500)',
+          },
+        }}
         {...register(name, rules)}
         {...props}
       />
