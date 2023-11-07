@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 const SidebarItem = ({ link, label, Icon }) => {
   const router = useRouter()
   return (
-    <a href={link}>
+    <Link href={link}>
       <li
         className={cn(styles.listItem, {
           [styles.listItemActive]: router.pathname === link,
@@ -14,7 +14,7 @@ const SidebarItem = ({ link, label, Icon }) => {
         <Icon />
         {label}
       </li>
-    </a>
+    </Link>
   )
 }
 
