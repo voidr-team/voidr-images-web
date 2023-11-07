@@ -10,10 +10,10 @@
     gap: 20px;
 
     > .cardFileItem {
-      @include above(900px) {
+      @include above(800px) {
         width: calc(100% / 3 - 20px);
       }
-      @include above(1160px) {
+      @include above(950px) {
         width: calc(100% / 4 - 20px);
       }
 
@@ -21,14 +21,14 @@
         width: calc(100% / 2 - 20px);
       }
 
-      @include above(1320px) {
+      @include above(1220px) {
         width: calc(100% / 3 - 20px);
       }
-      @include above(1490px) {
+      @include above(1600px) {
         width: calc(100% / 4 - 20px);
       }
       
-      @include above(1650px) {
+      @include above(1700px) {
         width: calc(100% / 5 - 20px);
       }
       

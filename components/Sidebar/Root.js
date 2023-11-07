@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import cn from 'classnames'
 import Image from 'next/image'
 import Icon from '../UI/Icon'
+import { ChevronsRight } from 'lucide-react'
 
 function Root({ children }) {
   const router = useRouter()
@@ -18,6 +19,7 @@ function Root({ children }) {
         borderRight={1}
         alignItems="center"
         borderColor="neutral.700"
+        className={styles.firstSideHolder}
       >
         <Stack maxHeight="100vh">
           <Image
@@ -41,9 +43,11 @@ function Root({ children }) {
             </Link>
           </Stack>
         </Stack>
+        <div className={styles.chevron}>
+          <ChevronsRight />
+        </div>
       </Stack>
-
-      {children}
+      <div className={styles.sidebarContent}>{children}</div>
     </div>
   )
 }
