@@ -11,6 +11,7 @@ import Loader from '../UI/Loader'
 import cn from 'classnames'
 import CopyURL from '../CopyURL'
 import getImageSource from '@/utils/getImageSource'
+import CodeBlocks from '../UI/CodeBlocks'
 
 const VOIDR_API_URL = process.env.NEXT_PUBLIC_VOIDR_API_URL
 
@@ -234,6 +235,15 @@ export default function ModalFileImage({
 
               <Stack paddingX={6} marginY={3}>
                 <CopyURL url={getImageSource(currentImage?.originUrl)} />
+              </Stack>
+
+              <Stack paddingX={6} marginY={3}>
+                <div className={styles.snippetWrapper}>
+                  <CodeBlocks
+                    code='<img src="https://img.voidr.co/compress:80/convert:webp/fetch/url" />'
+                    language="html"
+                  />
+                </div>
               </Stack>
             </Stack>
           </div>

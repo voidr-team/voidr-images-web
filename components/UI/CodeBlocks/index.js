@@ -19,18 +19,4 @@ export default function CodeBlocks({ code = '', language = 'javascript' }) {
       {code.trim()}
     </SyntaxHighlighter>
   )
-  // return (
-  //   <CopyBlock
-  //     text={code.trim()}
-  //     showLineNumbers={false}
-  //     language={language}
-  //     theme={atomOneDark}
-  //     wrapLines
-  //     customStyle={{
-  //       border: '1px solid #4b4b4b',
-  //       borderTop: '0',
-  //       borderRadius: '0 0 6px 6px',
-  //     }}
-  //   />
-  // )
 }

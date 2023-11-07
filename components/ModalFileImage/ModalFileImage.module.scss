@@ -86,3 +86,12 @@
     }
   }
 }
+
+.snippetWrapper {
+  background-color: red;
+
+  code {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
