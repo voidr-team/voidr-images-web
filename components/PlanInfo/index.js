@@ -18,15 +18,10 @@ export default function PlanInfo({ usage = 0 }) {
   return (
     <Stack marginTop={3} maxWidth="400px">
       <Stack gap={1} direction="row" alignItems="center">
-        <Typography
-          fontWeight="900"
-          fontSize={46}
-          textColor="neutral.400"
-          level="title-lg"
-        >
+        <Typography fontWeight="900" fontSize={46} level="title-lg">
           {usage}
         </Typography>
-        <Typography fontSize={16} textColor="neutral.300" level="body-xs">
+        <Typography fontSize={16} level="body-xs">
           Total images
         </Typography>
       </Stack>

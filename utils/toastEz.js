@@ -10,9 +10,7 @@ const toastEz = {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      style: {
-        background: '#1abc9c',
-      },
+      theme: 'light',
     }),
   error: (message) =>
     toast.error(message, {
@@ -23,6 +21,7 @@ const toastEz = {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
+      theme: 'light',
     }),
 }
 export default toastEz

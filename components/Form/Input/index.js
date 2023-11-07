@@ -6,6 +6,7 @@ import {
   Typography,
 } from '@mui/joy'
 import { useFormContext } from 'react-hook-form'
+import Label from './Label'
 
 function Input({ name, rules = {}, label, ...props }) {
   const {
@@ -15,11 +16,7 @@ function Input({ name, rules = {}, label, ...props }) {
 
   return (
     <FormControl sx={{ width: '100%' }}>
-      <FormLabel>
-        <Typography fontWeight="600" fontSize={20}>
-          {label}
-        </Typography>
-      </FormLabel>
+      <Label>{label}</Label>
       <InputProvider
         sx={() => ({
           paddingBlock: '10px',
