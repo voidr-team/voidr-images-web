@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 import cn from 'classnames'
 import useAuth from '@/context/auth/useAuth'
 import styles from './ImageLayour.module.scss'
+import Head from 'next/head'
 
 function ImageLayout({ children, title }) {
   const router = useRouter()
@@ -15,6 +16,9 @@ function ImageLayout({ children, title }) {
 
   return (
     <BaseLayout currentPage="dashboard">
+      <Head>
+        <title>voidr | {title}</title>
+      </Head>
       <div className={styles.imageLayoutRoot}>
         <Sidebar.Root>
           <Sidebar.Content>

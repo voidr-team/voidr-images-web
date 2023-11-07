@@ -3,7 +3,7 @@ import PlansWrapper from '../../components/PlansWrapper'
 
 export default function Plans() {
   return (
-    <ImageLayout>
+    <ImageLayout title="Billing">
       <PlansWrapper />
     </ImageLayout>
   )
