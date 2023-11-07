@@ -6,6 +6,7 @@ import { useFieldArray, useFormContext } from 'react-hook-form'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { Trash } from 'lucide-react'
 import ErrorMessage from '@/components/UI/ErrorMessage'
+import Label from '@/components/Form/Input/Label'
 
 export default function CreateProject() {
   const {
@@ -26,9 +27,7 @@ export default function CreateProject() {
       </Stack>
 
       <Stack marginTop={5}>
-        <Typography fontWeight="600" fontSize={20}>
-          Domains
-        </Typography>
+        <Label>Domains</Label>
 
         <Typography fontWeight="500" fontSize={16} textColor="primary.100">
           Connect with images on a Web Folder somewhere in the Internet.
@@ -64,7 +63,7 @@ export default function CreateProject() {
           onClick={() => append({ domain: '' })}
           sx={{ cursor: 'pointer' }}
           marginTop={1}
-          textColor="helper.600"
+          textColor="helper.500"
           fontSize={16}
         >
           + Add domain

@@ -1,12 +1,16 @@
 import { Stack, Typography } from '@mui/joy'
 import Icon from '../../UI/Icon'
 import Image from 'next/image'
+import SidebarItem from '@/components/Sidebar/SidebarItem'
+import sidebarItems from '@/components/Sidebar/sidebarItems'
 
 const onboardingSteps = [
   { number: 1, label: 'Create project' },
   { number: 2, label: 'Setup' },
   { number: 3, label: 'Start' },
 ]
+
+const logoutItem = sidebarItems.common.find(({ id }) => id === 2)
 
 export default function OnboardingSidebar({ steps }) {
   return (
@@ -58,7 +62,8 @@ export default function OnboardingSidebar({ steps }) {
               const passedStepsSuccefully =
                 onboardingStep.number < steps.current + 1
 
-              const actualStep = steps.current + 1 === onboardingStep.number
+              const actualOrFinishedStep =
+                steps.current + 1 >= onboardingStep.number
 
               return (
                 <Stack
@@ -72,7 +77,9 @@ export default function OnboardingSidebar({ steps }) {
                     padding={2.3}
                     borderRadius={100}
                     border={2}
-                    borderColor={actualStep ? 'neutral.100' : 'primary.100'}
+                    borderColor={
+                      actualOrFinishedStep ? 'neutral.100' : 'neutral.600'
+                    }
                     width={30}
                     height={30}
                     justifyContent="center"
@@ -81,7 +88,9 @@ export default function OnboardingSidebar({ steps }) {
                     bgcolor="primary.500"
                   >
                     <Typography
-                      textColor={actualStep ? 'neutral.100' : 'primary.100'}
+                      textColor={
+                        actualOrFinishedStep ? 'neutral.100' : 'neutral.600'
+                      }
                       lineHeight={0}
                       level="body-lg"
                     >
@@ -93,7 +102,9 @@ export default function OnboardingSidebar({ steps }) {
                     </Typography>
                   </Stack>
                   <Typography
-                    textColor={actualStep ? 'neutral.100' : 'primary.100'}
+                    textColor={
+                      actualOrFinishedStep ? 'neutral.100' : 'neutral.600'
+                    }
                   >
                     {onboardingStep.label}
                   </Typography>
@@ -105,10 +116,16 @@ export default function OnboardingSidebar({ steps }) {
               width="1.5px"
               left="20px"
               height="100%"
-              bgcolor="neutral.500"
+              bgcolor="neutral.600"
             />
           </Stack>
         </Stack>
+        <SidebarItem
+          link={logoutItem.link}
+          key={logoutItem.id}
+          Icon={logoutItem.icon}
+          label={logoutItem.label}
+        />
       </Stack>
     </Stack>
   )

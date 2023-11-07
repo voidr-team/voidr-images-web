@@ -1,13 +1,9 @@
 import { Stack } from '@mui/joy'
-import { useRouter } from 'next/router'
 import styles from './Sidebar.module.scss'
-import cn from 'classnames'
 import sidebarItems from './sidebarItems'
-import Link from 'next/link'
+import SidebarItem from './SidebarItem'
 
 function Content({ children }) {
-  const router = useRouter()
-
   return (
     <Stack
       minWidth="280px"
@@ -22,16 +18,12 @@ function Content({ children }) {
 
         <ul className={styles.listWrapper}>
           {sidebarItems.common.map((item) => (
-            <Link href={item.link} key={item.id}>
-              <li
-                className={cn(styles.listItem, {
-                  [styles.listItemActive]: router.pathname === item.link,
-                })}
-              >
-                <item.icon />
-                {item.label}
-              </li>
-            </Link>
+            <SidebarItem
+              link={item.link}
+              key={item.id}
+              Icon={item.icon}
+              label={item.label}
+            />
           ))}
         </ul>
       </Stack>

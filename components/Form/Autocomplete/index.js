@@ -5,6 +5,7 @@ import {
   CircularProgress,
 } from '@mui/joy'
 import { useFormContext, Controller } from 'react-hook-form'
+import Label from '../Input/Label'
 
 function Autocomplete({
   label,
@@ -20,7 +21,7 @@ function Autocomplete({
 
   return (
     <FormControl>
-      <FormLabel>{label}</FormLabel>
+      <Label>{label}</Label>
       <Controller
         control={control}
         name={name}

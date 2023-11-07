@@ -9,6 +9,7 @@ import Loader from '@/components/UI/Loader'
 import useAuth from '@/context/auth/useAuth'
 import axios from 'axios'
 import { last } from 'ramda'
+import toastEz from '@/utils/toastEz'
 
 const VOIDR_API_URL = process.env.NEXT_PUBLIC_VOIDR_API_URL
 
@@ -57,6 +58,7 @@ export default function AddNewFile() {
           setIsLoading(false)
           const customEvent = new CustomEvent('images:fetch')
           document.dispatchEvent(customEvent)
+          toastEz.success('Image uploaded')
         })
       } else {
         setIsLoading(false)

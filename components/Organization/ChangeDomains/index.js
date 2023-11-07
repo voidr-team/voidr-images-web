@@ -50,7 +50,7 @@ export default function ChangeDomains({ domains }) {
             onClick={() => append({ domain: '' })}
             sx={{ cursor: 'pointer' }}
             marginTop={1}
-            textColor="helper.600"
+            textColor="helper.400"
             fontSize={16}
           >
             + Add domain

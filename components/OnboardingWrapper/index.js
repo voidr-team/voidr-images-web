@@ -5,10 +5,11 @@ import useOnboarding from './useOnboarding'
 import { FormProvider } from 'react-hook-form'
 import OnboardingSidebar from './OnboardingSidebar'
 import Button from '../UI/Button'
+import toastEz from '@/utils/toastEz'
 
 export default function OnboardingWrapper() {
   const { steps, formMethods, onSubmit, isLoading } = useOnboarding()
-
+  window.toastEz = toastEz
   return (
     <Stack direction="row" minHeight="100vh" bgcolor="primary.500">
       <OnboardingSidebar steps={steps} />
