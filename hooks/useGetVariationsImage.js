@@ -7,7 +7,7 @@ export default function useGetVariationsImage(id) {
     isLoading,
     refetch: fetch,
   } = useQuery({
-    queryKey: [imagesService.swrKeys.GET_IMAGE_VARIATIONS, id],
+    queryKey: [imagesService.swrKeys.GET_IMAGE_VARIATIONS],
     queryFn: () => imagesService.getImageVariations(id),
     staleTime: 600000,
     enabled: !!id,
