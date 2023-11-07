@@ -3,11 +3,11 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { useQuery } from 'react-query'
 
-export default function useFilesList() {
+export default function useFilesList({ limit = 10 }) {
   const router = useRouter()
   const { data, isLoading, refetch } = useQuery({
-    queryKey: [imagesService.swrKeys.GET_IMAGES, router.query.page],
-    queryFn: () => imagesService.getImages(router.query.page ?? 1),
+    queryKey: [imagesService.swrKeys.GET_IMAGES, router.query.page, limit],
+    queryFn: () => imagesService.getImages(router.query.page ?? 1, limit),
     keepPreviousData: true,
     staleTime: 120000,
   })

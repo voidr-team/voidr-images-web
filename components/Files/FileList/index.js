@@ -5,20 +5,13 @@ import Pagination from '@/components/UI/Pagination'
 import Loader from '@/components/UI/Loader'
 
 export default function FileList({ setIsDialogOpen, setCurrentImage }) {
-  const { data, paginate, isLoading } = useFilesList()
+  const { data, paginate, isLoading } = useFilesList({ limit: 20 })
 
   return (
     <Stack>
       <Typography level="h4">Latest processed files</Typography>
 
-      <Stack
-        maxWidth="900px"
-        width="100%"
-        gap={3}
-        direction="row"
-        flexWrap="wrap"
-        marginTop={4}
-      >
+      <Stack width="100%" gap={3} direction="row" flexWrap="wrap" marginTop={4}>
         {isLoading ? (
           <Loader />
         ) : (

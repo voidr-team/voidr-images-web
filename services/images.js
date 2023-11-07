@@ -1,7 +1,7 @@
 import http from './http'
 
-async function getImages(pageNumber = 1) {
-  const response = await http.get(`/images/?page=${pageNumber}`)
+async function getImages(pageNumber = 1, limit = 10) {
+  const response = await http.get(`/images/?page=${pageNumber}&limit=${limit}`)
 
   return response
 }

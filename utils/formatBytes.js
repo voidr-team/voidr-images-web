@@ -1,24 +1,11 @@
 export default function formatBytes(bytes, decimals = 2) {
-  const KILOBYTE_FACTOR = 1024
-  const MEGABYTE_FACTOR = KILOBYTE_FACTOR ** 2 // 1024^2
-  const GIGABYTE_FACTOR = KILOBYTE_FACTOR ** 3 // 1024^3
+  if (!+bytes) return '0 Bytes'
 
-  let result
-  let unit
+  const k = 1024
+  const dm = decimals < 0 ? 0 : decimals
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
 
-  if (bytes < KILOBYTE_FACTOR) {
-    result = bytes.toFixed(decimals)
-    unit = 'KB'
-  } else if (bytes < MEGABYTE_FACTOR) {
-    result = (bytes / KILOBYTE_FACTOR).toFixed(decimals)
-    unit = 'MB'
-  } else if (bytes < GIGABYTE_FACTOR) {
-    result = (bytes / MEGABYTE_FACTOR).toFixed(decimals)
-    unit = 'GB'
-  } else {
-    result = (bytes / GIGABYTE_FACTOR).toFixed(decimals)
-    unit = 'TB'
-  }
+  const i = Math.floor(Math.log(bytes) / Math.log(k))
 
-  return `${result} ${unit}`
+  return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
 }

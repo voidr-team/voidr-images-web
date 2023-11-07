@@ -10,15 +10,7 @@ function Root({ children }) {
   const router = useRouter()
 
   return (
-    <Stack
-      position="fixed"
-      zIndex={999}
-      display="flex"
-      direction="row"
-      className={styles.sidebar}
-      minHeight="100vh"
-      bgcolor="primary.500"
-    >
+    <div className={styles.sidebar}>
       <Stack
         minHeight="100vh"
         paddingX={1.2}
@@ -52,7 +44,7 @@ function Root({ children }) {
       </Stack>
 
       {children}
-    </Stack>
+    </div>
   )
 }
 

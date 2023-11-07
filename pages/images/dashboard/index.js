@@ -3,7 +3,7 @@ import ImageLayout from '@/layouts/ImageLayout'
 
 export default function Dashboard() {
   return (
-    <ImageLayout>
+    <ImageLayout title="Dashboard">
       <DashboardWrapper />
     </ImageLayout>
   )

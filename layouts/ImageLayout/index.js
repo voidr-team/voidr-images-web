@@ -7,14 +7,19 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
 import useAuth from '@/context/auth/useAuth'
+import styles from './ImageLayour.module.scss'
+import Head from 'next/head'
 
-function ImageLayout({ children }) {
+function ImageLayout({ children, title }) {
   const router = useRouter()
   const { user } = useAuth()
 
   return (
     <BaseLayout currentPage="dashboard">
-      <Stack direction="row">
+      <Head>
+        <title>voidr | {title}</title>
+      </Head>
+      <div className={styles.imageLayoutRoot}>
         <Sidebar.Root>
           <Sidebar.Content>
             <div>
@@ -56,10 +61,15 @@ function ImageLayout({ children }) {
           </Sidebar.Content>
         </Sidebar.Root>
 
-        <Stack minHeight="100vh" marginLeft="360px" flex="1">
-          {children}
-        </Stack>
-      </Stack>
+        <div className={styles.imageLayoutScrollable}>
+          <div className={styles.container}>
+            <Typography level="h2" className={styles.title}>
+              {title}
+            </Typography>
+            {children}
+          </div>
+        </div>
+      </div>
     </BaseLayout>
   )
 }

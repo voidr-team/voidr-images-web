@@ -1,0 +1,21 @@
+
+.imageLayoutRoot {
+  display: flex;
+  flex-direction: row;
+
+  .imageLayoutScrollable {
+    height: 100vh;
+    overflow: auto;
+    width: 100%;
+    flex: 1;
+
+    .container {
+      margin: 0 auto;
+      padding-block: 60px;
+      padding-inline: 60px;
+    }
+    .title {
+      margin-bottom: 25px;
+    }
+  }
+}

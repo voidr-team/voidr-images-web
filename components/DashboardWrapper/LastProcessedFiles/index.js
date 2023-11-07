@@ -12,7 +12,7 @@ export default function LastProcessedFiles({
   setIsDialogOpen,
   setCurrentImage,
 }) {
-  const { data, isLoading } = useFilesList()
+  const { data, isLoading } = useFilesList({ limit: 10 })
 
   return (
     <Widget title="Latest processed files">
@@ -25,7 +25,7 @@ export default function LastProcessedFiles({
               <EmptyStateProcessedFiles />
             ) : (
               <div className={styles.containerImage}>
-                {take(8, data?.images || [])?.map((image, index) => (
+                {data?.images?.map((image, index) => (
                   <CardFile
                     onClick={() => {
                       setCurrentImage(image)

@@ -10,17 +10,7 @@ export default function FilesList() {
   const [currentImage, setCurrentImage] = useState(null)
 
   return (
-    <Stack paddingX={3} marginY={4}>
-      <Typography
-        fontWeight="600"
-        level="h3"
-        alignContent="center"
-        alignItems="center"
-        display="flex"
-      >
-        Files <ChevronRight /> Upload
-      </Typography>
-
+    <div>
       <Stack gap={5}>
         <AddNewFile />
         <FileList
@@ -35,6 +25,6 @@ export default function FilesList() {
         isOpen={isDialogOpen}
         setIsOpen={setIsDialogOpen}
       />
-    </Stack>
+    </div>
   )
 }
