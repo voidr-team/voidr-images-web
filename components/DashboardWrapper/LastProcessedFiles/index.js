@@ -12,7 +12,7 @@ export default function LastProcessedFiles({
   setIsDialogOpen,
   setCurrentImage,
 }) {
-  const { data, isLoading } = useFilesList({ limit: 9 })
+  const { data, isLoading } = useFilesList({ limit: 8 })
 
   return (
     <Widget title="Latest processed files">
