@@ -1,0 +1,11 @@
+@import '/styles/mixins';
+
+.wrapper {
+  overflow-y: auto;
+  padding-inline: 30px;
+  width: 100%;
+
+  @include above(500px) {
+    padding-inline: 60px;
+  }
+}

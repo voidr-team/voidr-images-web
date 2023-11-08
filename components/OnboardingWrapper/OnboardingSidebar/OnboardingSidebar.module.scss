@@ -1,0 +1,39 @@
+@import '/styles/mixins';
+
+.sidebar {
+  position: relative;
+
+  .chevron {
+    display: block;
+
+    @include above(900px) {
+      display: none;
+    }
+  }
+
+  .chevronActive {
+    transform: rotate(-180deg);
+  }
+
+  .sidebarContent {
+    position: relative;
+    border: 1px solid var(--neutral-700);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 30px;
+    min-width: 250px;
+
+    @include below(900px) {
+      position: absolute;
+      z-index: 6;
+      transform: translateX(-100%);
+    }
+  }
+
+  .sidebarContentActive {
+    background-color: var(--primary-500);
+    height: 100%;
+    transform: translateX(58px);
+  }
+}

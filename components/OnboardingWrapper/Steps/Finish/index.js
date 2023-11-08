@@ -10,17 +10,23 @@ import { useRouter } from 'next/router'
 
 export default function Finish({ steps }) {
   const router = useRouter()
-  const { data } = useFilesList()
+  const { data, isLoading } = useFilesList({ limit: 2 })
+
+  // useEffect(() => {
+  //   if (!isEmpty(data?.images)) {
+  //     // router.push('/images/dashboard')
+  //     return
+  //   }
+  // }, [data])
 
   useEffect(() => {
-    if (!isEmpty(data?.images)) {
-      router.push('/images/dashboard')
-      return
+    if (!isLoading && !isEmpty(data?.images)) {
+      return router.push('/images/dashboard')
     }
-  }, [data])
+  }, [data, isLoading])
 
   return (
-    <Stack position="relative" height="100vh" width="100%">
+    <Stack position="relative" className={styles.finishWrapper}>
       <Image
         src="/images/dashboard-blur.svg"
         alt="Dashboard blur"
@@ -35,7 +41,6 @@ export default function Finish({ steps }) {
         border={1}
         borderColor="neutral.600"
         borderRadius={10}
-        maxWidth="370px"
         padding={4}
         className={styles.modalContainer}
       >

@@ -60,7 +60,7 @@ export default function useOnboarding() {
       toastEz.error(message)
     },
     onSuccess: async (data) => {
-      toastEz.success('Projeto criado com sucesso')
+      toastEz.success('Project created successfully')
       const orgId = data?.data?.createdBy?.organizationId
       await getAccessTokenSilently({
         cacheMode: 'off',

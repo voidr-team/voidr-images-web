@@ -3,6 +3,10 @@ import Icon from '../../UI/Icon'
 import Image from 'next/image'
 import SidebarItem from '@/components/Sidebar/SidebarItem'
 import sidebarItems from '@/components/Sidebar/sidebarItems'
+import { ChevronsRight } from 'lucide-react'
+import styles from './OnboardingSidebar.module.scss'
+import { useState } from 'react'
+import cn from 'classnames'
 
 const onboardingSteps = [
   { number: 1, label: 'Create project' },
@@ -13,14 +17,15 @@ const onboardingSteps = [
 const logoutItem = sidebarItems.common.find(({ id }) => id === 2)
 
 export default function OnboardingSidebar({ steps }) {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <Stack
-      position="fixed"
-      zIndex={999}
       display="flex"
       direction="row"
       minHeight="100vh"
       bgcolor="primary.500"
+      className={styles.sidebar}
     >
       <Stack
         minHeight="100vh"
@@ -28,24 +33,28 @@ export default function OnboardingSidebar({ steps }) {
         paddingY={2.5}
         borderRight={1}
         alignItems="center"
+        justifyContent="space-between"
         borderColor="neutral.700"
       >
-        <Stack maxHeight="100vh">
-          <Image
-            src="/images/logo-small.svg"
-            alt="Logo voidr"
-            width={37}
-            height={37}
-          />
-        </Stack>
+        <Image
+          src="/images/logo-small.svg"
+          alt="Logo voidr"
+          width={37}
+          height={37}
+        />
+
+        <figure
+          onClick={() => setIsOpen((prevState) => !prevState)}
+          className={cn(styles.chevron, { [styles.chevronActive]: !isOpen })}
+        >
+          <ChevronsRight />
+        </figure>
       </Stack>
 
-      <Stack
-        borderRight={1}
-        borderColor="neutral.700"
-        justifyContent="space-between"
-        paddingX={3}
-        paddingY={2.5}
+      <div
+        className={cn(styles.sidebarContent, {
+          [styles.sidebarContentActive]: isOpen,
+        })}
       >
         <Stack gap={4} height="100%" maxHeight="95vh">
           <Typography
@@ -126,7 +135,7 @@ export default function OnboardingSidebar({ steps }) {
           Icon={logoutItem.icon}
           label={logoutItem.label}
         />
-      </Stack>
+      </div>
     </Stack>
   )
 }

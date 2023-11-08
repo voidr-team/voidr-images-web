@@ -6,6 +6,7 @@ import { FormProvider } from 'react-hook-form'
 import OnboardingSidebar from './OnboardingSidebar'
 import Button from '../UI/Button'
 import toastEz from '@/utils/toastEz'
+import styles from './OnboardingWrapper.module.scss'
 
 export default function OnboardingWrapper() {
   const { steps, formMethods, onSubmit, isLoading } = useOnboarding()
@@ -14,7 +15,7 @@ export default function OnboardingWrapper() {
     <Stack direction="row" minHeight="100vh" bgcolor="primary.500">
       <OnboardingSidebar steps={steps} />
 
-      <Stack width="100%" minHeight="100vh" marginLeft="350px">
+      <section className={styles.wrapper}>
         <form id="onboardingForm" onSubmit={onSubmit}>
           <FormProvider {...formMethods}>
             <StepRender steps={steps} eq="CREATE_PROJECT">
@@ -49,7 +50,7 @@ export default function OnboardingWrapper() {
             )}
           </Stack>
         </form>
-      </Stack>
+      </section>
     </Stack>
   )
 }
