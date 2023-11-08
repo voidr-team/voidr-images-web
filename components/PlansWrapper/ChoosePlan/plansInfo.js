@@ -3,7 +3,6 @@ const starter = {
     {
       label: 'On the fly optimization',
     },
-    { label: '10 MB max file size' },
     { label: 'Convert next-gen formats' },
     { label: 'Responsive images' },
     { label: 'Global CDN' },
@@ -16,7 +15,7 @@ const pro = {
     {
       label: 'Everything on the Starter plan',
     },
-    { label: '100 MB max file size' },
+    { label: '2 MB max image size' },
     { label: 'E-mail/chat support' },
     { label: 'Custom CDN/Bucket' },
   ],

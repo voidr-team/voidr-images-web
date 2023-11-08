@@ -6,7 +6,8 @@ import useChoosePlan from './useChoosePlan'
 import useAuth from '@/context/auth/useAuth'
 
 export default function ChoosePlan() {
-  const { upgradePlan, isLoading } = useChoosePlan()
+  const { upgradePlan, isLoading, handleEnterpriseContact, getInTouch } =
+    useChoosePlan()
   const { user } = useAuth()
   return (
     <Stack marginTop={5}>
@@ -16,7 +17,7 @@ export default function ChoosePlan() {
 
       <Stack gap={3} marginTop={4} direction="row" flexWrap="wrap">
         <CardPricing.Root>
-          <CardPricing.Header title="Starter" benefit="5k images" />
+          <CardPricing.Header title="Starter" benefit="1k images" />
 
           <CardPricing.Price>
             <Typography textAlign="center" fontSize={48}>
@@ -89,7 +90,21 @@ export default function ChoosePlan() {
           <CardPricing.Benefits benefits={plansInfo.enterprise.benefits} />
 
           <CardPricing.Footer>
-            <Button>Contact Us</Button>
+            {user?.currentProject?.plan === 'ENTERPRISE' && (
+              <Typography
+                textAlign="center"
+                level="body-md"
+                paddingY="3px"
+                textColor="neutral.300"
+              >
+                Current plan
+              </Typography>
+            )}
+            {user?.currentProject?.plan !== 'ENTERPRISE' && (
+              <Button onClick={handleEnterpriseContact}>
+                {getInTouch ? "We'll get in touch" : 'Contact Us'}
+              </Button>
+            )}
           </CardPricing.Footer>
         </CardPricing.Root>
       </Stack>

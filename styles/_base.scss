@@ -28,6 +28,7 @@ body {
   font-family: 'Work Sans', sans-serif;
   font-weight: normal;
   background-repeat: no-repeat;
+  background-color: #0C1019; //var(--joy-palette-primary-500);
 
   @media screen and (max-width: 767px) {
     font-size: 14px;

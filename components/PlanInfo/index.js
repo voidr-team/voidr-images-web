@@ -14,7 +14,7 @@ function ProgressPlan({ level }) {
 export default function PlanInfo({ usage = 0 }) {
   const { user } = useAuth()
   const isProPlan = user?.currentProject?.plan === 'PRO'
-  const totalImages = isProPlan ? 100000 : 5000
+  const totalImages = isProPlan ? 100000 : 1000
   return (
     <Stack marginTop={3} maxWidth="400px">
       <Stack gap={1} direction="row" alignItems="center">
