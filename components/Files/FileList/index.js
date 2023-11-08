@@ -31,7 +31,10 @@ export default function FileList({ setIsDialogOpen, setCurrentImage }) {
           ))
         )}
       </div>
-      <Pagination onPageChange={paginate} pageCount={data?.pages} />
+
+      {!isLoading ? (
+        <Pagination onPageChange={paginate} pageCount={data?.pages} />
+      ) : null}
     </Stack>
   )
 }

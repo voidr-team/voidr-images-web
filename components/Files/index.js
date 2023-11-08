@@ -1,9 +1,8 @@
-import { Stack, Typography } from '@mui/joy'
+import { Stack } from '@mui/joy'
 import AddNewFile from './AddNewFile'
 import FileList from './FileList'
 import ModalFileImage from '../ModalFileImage'
 import { useState } from 'react'
-import { ChevronRight } from 'lucide-react'
 
 export default function FilesList() {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
