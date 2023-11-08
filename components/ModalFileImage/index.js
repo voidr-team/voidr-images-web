@@ -1,10 +1,10 @@
-import { ChevronsRight } from 'lucide-react'
+import { Check, ChevronsRight } from 'lucide-react'
 import styles from './ModalFileImage.module.scss'
 import { Stack, Typography } from '@mui/joy'
 import dayjs from 'dayjs'
 import useGetVariationsImage from '@/hooks/useGetVariationsImage'
 import Image from 'next/image'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import 'react-indiana-drag-scroll/dist/style.css'
 import Loader from '../UI/Loader'
@@ -13,6 +13,7 @@ import CopyURL from '../CopyURL'
 import getImageSource from '@/utils/getImageSource'
 import CodeBlocks from '../UI/CodeBlocks'
 import formatBytes from '@/utils/formatBytes'
+import Icon from '../UI/Icon'
 
 const VOIDR_API_URL = process.env.NEXT_PUBLIC_VOIDR_API_URL
 
@@ -27,6 +28,8 @@ export default function ModalFileImage({
     isLoading,
     fetch,
   } = useGetVariationsImage(currentImage?._id)
+  const [selectedLanguage, setSelectedLanguage] = useState('html')
+  const [copiedSnippet, setCopiedSnippet] = useState(false)
 
   const closeModal = () => {
     setCurrentImage(null)
@@ -38,6 +41,18 @@ export default function ModalFileImage({
       fetch()
     }
   }, [currentImage?._id])
+
+  const copySnippetCode = async () => {
+    setCopiedSnippet(true)
+
+    setTimeout(() => {
+      setCopiedSnippet(false)
+    }, 2000)
+
+    return await window.navigator.clipboard.writeText(
+      `<img src="${getImageSource(currentImage?.originUrl)}" />`
+    )
+  }
 
   return (
     <>
@@ -59,7 +74,7 @@ export default function ModalFileImage({
                   Source image
                 </Typography>
 
-                <Stack direction="row" gap={3} alignItems="flex-end">
+                <Stack direction="row" gap={3} alignItems="flex-start">
                   <img
                     className={styles.image}
                     src={`${VOIDR_API_URL}${currentImage.originUrl}`}
@@ -67,7 +82,11 @@ export default function ModalFileImage({
                     height={100}
                   />
                   <Stack>
-                    <Typography fontSize={14} fontWeight="500">
+                    <Typography
+                      className={styles.imageName}
+                      fontSize={14}
+                      fontWeight="500"
+                    >
                       {currentImage.name}
                     </Typography>
 
@@ -162,7 +181,7 @@ export default function ModalFileImage({
                   />
                 </Stack>
 
-                <Stack gap={3} maxWidth="400px">
+                <Stack gap={3}>
                   <Stack
                     direction="row"
                     justifyContent="space-between"
@@ -172,7 +191,9 @@ export default function ModalFileImage({
                     <Typography textColor="neutral.500" fontWeight="600">
                       File name
                     </Typography>
-                    <Typography>{currentImage.name}</Typography>
+                    <Typography className={styles.imageName}>
+                      {currentImage.name}
+                    </Typography>
                   </Stack>
 
                   <Stack
@@ -242,10 +263,36 @@ export default function ModalFileImage({
 
               <Stack paddingX={6} marginY={3}>
                 <div className={styles.snippetWrapper}>
-                  <CodeBlocks
-                    code='<img src="https://img.voidr.co/compress:80/convert:webp/fetch/url" />'
-                    language="html"
-                  />
+                  <div className={styles.selectLanguage}>
+                    <div className={styles.buttonGroup}>
+                      <button
+                        className={cn({
+                          [styles.buttonSelectLanguageActive]:
+                            selectedLanguage === 'html',
+                        })}
+                        onClick={() => setSelectedLanguage('html')}
+                      >
+                        <Icon id="Html_Icon" width={30} height={30} />
+                        HTML
+                      </button>
+                    </div>
+
+                    <button
+                      onClick={copySnippetCode}
+                      className={styles.copyButton}
+                    >
+                      {copiedSnippet ? <Check /> : 'Copy'}
+                    </button>
+                  </div>
+
+                  <div className={styles.content}>
+                    <CodeBlocks
+                      code={`<img src="${getImageSource(
+                        currentImage?.originUrl
+                      )}" />`}
+                      language="html"
+                    />
+                  </div>
                 </div>
               </Stack>
             </Stack>

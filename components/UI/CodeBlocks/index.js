@@ -6,6 +6,8 @@ export default function CodeBlocks({ code = '', language = 'javascript' }) {
     <SyntaxHighlighter
       language={language}
       style={oneDark}
+      lineProps={{ style: { wordBreak: 'break-all', whiteSpace: 'pre-wrap' } }}
+      wrapLines={true}
       codeTagProps={{
         style: { background: '#0C1019' },
       }}
