@@ -2,7 +2,7 @@ import PlanInfo from '../PlanInfo'
 import ChoosePlan from './ChoosePlan'
 import useDashboard from '@/hooks/useDashboard'
 
-export default function PlansWrapper() {
+export default function BillingWrapper() {
   const { data } = useDashboard()
   return (
     <div>

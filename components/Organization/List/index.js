@@ -37,7 +37,7 @@ function List({ setIsOpenInviteMember }) {
           })}
         >
           <Tab>Members</Tab>
-          <Tab>Invites</Tab>
+          <Tab>Invitations</Tab>
         </TabList>
 
         <TabPanel value={0}>

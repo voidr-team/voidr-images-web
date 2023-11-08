@@ -13,7 +13,7 @@ export default function PlanUsage({ usage = 0 }) {
     <Widget title={isProPlan ? 'Pro plan' : 'Free plan'}>
       <PlanInfo usage={usage} />
 
-      <Link href="/common/plans">
+      <Link href="/common/billing">
         <div className={styles.linkWrapper}>
           <span>Upgrade</span>
           <ChevronRight color="#fff" />

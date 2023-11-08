@@ -30,13 +30,13 @@ const sidebarItems = {
   common: [
     {
       id: 1,
-      label: 'Plans',
+      label: 'Billing',
       icon: CreditCard,
-      link: '/common/plans',
+      link: '/common/billing',
     },
     {
       id: 2,
-      label: 'LogOut',
+      label: 'Log Out',
       icon: LogOut,
       link: '/logout',
     },
