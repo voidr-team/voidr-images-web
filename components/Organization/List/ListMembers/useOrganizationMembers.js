@@ -23,18 +23,18 @@ function useOrganizationMembers() {
         await queryClient.invalidateQueries([
           organizationService.swrKeys.GET_ORGANIZATION_MEMBERS,
         ])
-        toastEz.success('Usuário removido')
+        toastEz.success('User removed.')
       },
       onError: () => {
-        toastEz.error('Ocorreu um erro ao remover o usuário')
+        toastEz.error('An error occurred while removing the user.')
       },
     })
 
   const deleteMember = async (id) => {
     if (!id) return
     const confirmAction = await confirm({
-      title: 'Você deseja remover o membro?',
-      description: 'Você deseja mesmo remover o membro?',
+      title: 'Do you want to remove the member?',
+      description: 'Do you really want to remove the member?',
     })
 
     if (confirmAction) {

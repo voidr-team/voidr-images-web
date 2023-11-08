@@ -7,8 +7,8 @@ import styles from './Confirmation.module.scss'
 function Confirmation({
   show,
   proceed,
-  okLabel = 'Confirmar',
-  cancelLabel = 'Cancelar',
+  okLabel = 'Confirm',
+  cancelLabel = 'Cancel',
   title = 'Confirmation',
   description = 'Are you sure?',
 }) {
@@ -44,12 +44,17 @@ function Confirmation({
             {description}
           </Typography>
           <Box
-            sx={{ display: 'flex', gap: 1, justifyContent: 'flex-end', pt: 2 }}
+            sx={{
+              display: 'flex',
+              gap: 1,
+              justifyContent: 'flex-start',
+              pt: 2,
+            }}
           >
+            <Button onClick={() => proceed(true)}>{okLabel}</Button>
             <Button inverted onClick={() => proceed(false)}>
               {cancelLabel}
             </Button>
-            <Button onClick={() => proceed(true)}>{okLabel}</Button>
           </Box>
         </ModalDialog>
       </Modal>

@@ -37,8 +37,8 @@ function ListInvites() {
                 <th>Status</th>
                 <th>Created at</th>
                 <th>Expires at</th>
-                <th>Criado por</th>
-                <th>Ações</th>
+                <th>Created by</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -59,7 +59,7 @@ function ListInvites() {
                           <CopyClipboard text={invite.invitation_url}>
                             <MenuItem>
                               <Typography fontSize={14} fontWeight="600">
-                                Copiar convite
+                                Copy invite
                               </Typography>
                             </MenuItem>
                           </CopyClipboard>
@@ -78,7 +78,7 @@ function ListInvites() {
                               textColor="danger.700"
                               paddingLeft={0.5}
                             >
-                              Remover convite
+                              Remove Invite
                             </Typography>
                           </MenuItem>
                         </Stack>

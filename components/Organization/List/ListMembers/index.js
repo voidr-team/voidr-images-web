@@ -27,10 +27,10 @@ function ListMembers() {
       <table className={styles.table}>
         <thead>
           <tr>
-            <th>Foto</th>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Ações</th>
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -66,7 +66,7 @@ function ListMembers() {
                           textColor="danger.700"
                           paddingLeft={0.5}
                         >
-                          Remover membro
+                          Remove member
                         </Typography>
                       </MenuItem>
                     </Menu>

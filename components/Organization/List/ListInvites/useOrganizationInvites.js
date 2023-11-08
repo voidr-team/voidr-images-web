@@ -19,18 +19,20 @@ function useOrganizationInvites() {
         await queryClient.invalidateQueries([
           organizationService.swrKeys.GET_ORGANIZATION_INVITES,
         ])
-        toastEz.success('Convite cancelado.')
+        toastEz.success('Invitation cancelled.')
       },
       onError: () => {
-        toastEz.error('Ocorreu um erro ao cancelar o convite')
+        toastEz.error('An error occurred while canceling the invitation.')
       },
     })
 
   const cancelInvite = useCallback(async (id) => {
     if (!id) return
     const confirmAction = await confirm({
-      title: 'Você deseja cancelar o convite?',
-      description: 'Você deseja mesmo cancelar o convite?',
+      title: 'Cancel invitation?',
+      description: 'Would you really like to cancel the invitation?',
+      okLabel: 'Cancel invitation',
+      cancelLabel: 'Back',
     })
 
     if (confirmAction) {
