@@ -16,7 +16,7 @@ export default function ChoosePlan() {
 
       <Stack gap={3} marginTop={4} direction="row" flexWrap="wrap">
         <CardPricing.Root>
-          <CardPricing.Header title="Starter" benefit="5k images" />
+          <CardPricing.Header title="Starter" benefit="1k images" />
 
           <CardPricing.Price>
             <Typography textAlign="center" fontSize={48}>
