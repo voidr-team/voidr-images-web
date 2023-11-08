@@ -232,7 +232,7 @@ export default function ModalFileImage({
                     gap={3}
                   >
                     <Typography textColor="neutral.500" fontWeight="600">
-                      Size
+                      Format
                     </Typography>
                     <Typography textTransform="uppercase">
                       {currentImage.metadata?.format}

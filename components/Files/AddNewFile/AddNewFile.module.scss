@@ -6,8 +6,14 @@
 }
 
 .dropWrapper {
-  width: fit-content;
+  max-width: fit-content;
   position: relative;
+
+  > p {
+    font-weight: 600;
+    margin-block: 10px;
+    color: var(--neutral-500);
+  }
 
   > .overlay {
     display: block;

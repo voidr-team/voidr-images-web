@@ -22,6 +22,15 @@ export default function AddNewFile() {
         meta: { type: 'file' },
         restrictions: {
           maxTotalFileSize: 20000000,
+          allowedFileTypes: [
+            '.png',
+            '.jpeg',
+            '.jpg',
+            '.webp',
+            '.gif',
+            '.tiff',
+            '.avif',
+          ],
           maxNumberOfFiles: 1,
         },
         autoProceed: true,
@@ -77,6 +86,9 @@ export default function AddNewFile() {
             <Loader className={styles.loader} />
           </>
         )}
+        <p>
+          Accepted formats for upload: PNG, JPEG, JPG, WEBP, GIF, TIFF and AVIF
+        </p>
         <DragDrop className={styles.dragDrop} uppy={uppy} />
       </Stack>
     </Stack>
