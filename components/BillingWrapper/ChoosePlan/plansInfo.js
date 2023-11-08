@@ -1,34 +1,28 @@
-const starter = {
+const payAsGrow = {
   benefits: [
     {
       label: 'On the fly optimization',
     },
+    { label: '100 MB max file size' },
     { label: 'Convert next-gen formats' },
     { label: 'Responsive images' },
-    { label: 'Global CDN' },
-    { label: 'Upload Rest API' },
-  ],
-}
-
-const pro = {
-  benefits: [
-    {
-      label: 'Everything on the Starter plan',
-    },
-    { label: '2 MB max image size' },
     { label: 'E-mail/chat support' },
     { label: 'Custom CDN/Bucket' },
+    { label: 'Upload Rest API' },
   ],
 }
 
 const enterprise = {
   benefits: [
     {
-      label: 'Everything on Pro plan',
+      label: 'Everything on previous plan',
     },
+    { label: '5 TB max file size' },
+    { label: 'Enterprise-grade security' },
+    { label: 'Custom features' },
+    { label: 'Dedicated solution architect' },
     { label: '24/7 Discord support' },
-    { label: '7 days backup' },
   ],
 }
 
-export default { starter, pro, enterprise }
+export default { payAsGrow, enterprise }

@@ -11,79 +11,37 @@ export default function ChoosePlan() {
   const { user } = useAuth()
   return (
     <Stack marginTop={5}>
-      <Typography fontSize={30} fontWeight="600" level="h4">
-        Choose a plan to upgrade
+      <Typography fontSize={20} fontWeight="600" level="h4">
+        Plans
       </Typography>
 
       <Stack gap={3} marginTop={4} direction="row" flexWrap="wrap">
         <CardPricing.Root>
-          <CardPricing.Header title="Starter" benefit="1k images" />
+          <CardPricing.Header title="Pay as you grow" />
 
           <CardPricing.Price>
-            <Typography textAlign="center" fontSize={48}>
-              Free
+            <Typography fontSize={48}>$1</Typography>
+            <Typography textColor="neutral.400" fontSize={20}>
+              each 1k images
             </Typography>
           </CardPricing.Price>
 
-          <CardPricing.Benefits benefits={plansInfo.starter.benefits} />
+          <CardPricing.Benefits benefits={plansInfo.payAsGrow.benefits} />
 
           <CardPricing.Footer>
-            {user?.currentProject?.plan === 'FREE' && (
-              <Typography
-                textAlign="center"
-                level="body-md"
-                paddingY="3px"
-                textColor="neutral.300"
-              >
-                Current plan
-              </Typography>
-            )}
+            {/* TODO: ADICIONAR A VALIDAÇÃO DE CURRENT PLAN PARA O PLANO PAY AS YOU GROW */}
+            <Button onClick={upgradePlan} isLoading={isLoading}>
+              Start now
+            </Button>
           </CardPricing.Footer>
         </CardPricing.Root>
 
         <CardPricing.Root>
-          <CardPricing.Header title="Pro" benefit="100k images" />
+          <CardPricing.Header title="Enterprise" />
 
           <CardPricing.Price>
-            <Typography fontSize={48}>
-              $60
-              <Typography textColor="neutral.500" fontSize={20}>
-                /month
-              </Typography>
-            </Typography>
-            <Typography textColor="neutral.200" fontSize={16}>
-              $1 per each 1k extra images
-            </Typography>
-          </CardPricing.Price>
-
-          <CardPricing.Benefits benefits={plansInfo.pro.benefits} />
-
-          <CardPricing.Footer>
-            {user?.currentProject?.plan === 'FREE' && (
-              <Button onClick={upgradePlan} isLoading={isLoading}>
-                Start now
-              </Button>
-            )}
-
-            {user?.currentProject?.plan === 'PRO' && (
-              <Typography
-                textAlign="center"
-                level="body-md"
-                paddingY="3px"
-                textColor="neutral.300"
-              >
-                Current plan
-              </Typography>
-            )}
-          </CardPricing.Footer>
-        </CardPricing.Root>
-
-        <CardPricing.Root>
-          <CardPricing.Header title="Enterprise" benefit="For heavy users" />
-
-          <CardPricing.Price>
-            <Typography textAlign="center" fontSize={25}>
-              Custom pricing
+            <Typography textAlign="center" fontSize={40}>
+              Custom
             </Typography>
           </CardPricing.Price>
 
