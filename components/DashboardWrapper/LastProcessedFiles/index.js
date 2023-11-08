@@ -3,9 +3,9 @@ import Loader from '@/components/UI/Loader'
 import useFilesList from '@/hooks/useFilesList'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
-import { isEmpty, take } from 'ramda'
+import { isEmpty } from 'ramda'
 import styles from './LastProcessedFiles.module.scss'
-import EmptyStateProcessedFiles from './EmptyStateProcessedFiles'
+import EmptyStateProcessedFiles from '../../EmptyStateProcessedFiles'
 import Widget from '@/components/UI/Widget'
 
 export default function LastProcessedFiles({

@@ -27,11 +27,10 @@
       @include above(1600px) {
         width: calc(100% / 4 - 20px);
       }
-      
+
       @include above(1700px) {
         width: calc(100% / 5 - 20px);
       }
-      
     }
   }
 }

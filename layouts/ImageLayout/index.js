@@ -1,13 +1,13 @@
 import Sidebar from '@/components/Sidebar'
 import sidebarStyles from '@/components/Sidebar/Sidebar.module.scss'
 import sidebarItems from '@/components/Sidebar/sidebarItems'
-import { Stack, Typography } from '@mui/joy'
+import { Typography } from '@mui/joy'
 import BaseLayout from '../BaseLayout'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
 import useAuth from '@/context/auth/useAuth'
-import styles from './ImageLayour.module.scss'
+import styles from './ImageLayout.module.scss'
 import Head from 'next/head'
 
 function ImageLayout({ children, title }) {

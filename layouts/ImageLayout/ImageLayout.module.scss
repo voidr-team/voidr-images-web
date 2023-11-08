@@ -1,3 +1,4 @@
+@import '/styles/mixins';
 
 .imageLayoutRoot {
   display: flex;
@@ -11,8 +12,11 @@
 
     .container {
       margin: 0 auto;
-      padding-block: 60px;
-      padding-inline: 60px;
+      padding: 30px;
+
+      @include above(500px) {
+        padding: 60px;
+      }
     }
     .title {
       margin-bottom: 25px;
