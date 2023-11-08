@@ -8,9 +8,7 @@ import { isEmpty } from 'ramda'
 import EmptyStateProcessedFiles from '@/components/EmptyStateProcessedFiles'
 
 export default function FileList({ setIsDialogOpen, setCurrentImage }) {
-  const { paginate, isLoading } = useFilesList({ limit: 20 })
-
-  const data = { images: [] }
+  const { data, paginate, isLoading } = useFilesList({ limit: 20 })
 
   return (
     <Stack>
