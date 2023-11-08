@@ -79,6 +79,9 @@ export default function AddNewFile() {
   }, [uppy])
   return (
     <Stack marginTop={3} className={styles.addNewFile}>
+      <p>
+        Accepted formats for upload: PNG, JPEG, JPG, WEBP, GIF, TIFF and AVIF
+      </p>
       <Stack className={styles.dropWrapper}>
         {isLoading && (
           <>
@@ -86,9 +89,7 @@ export default function AddNewFile() {
             <Loader className={styles.loader} />
           </>
         )}
-        <p>
-          Accepted formats for upload: PNG, JPEG, JPG, WEBP, GIF, TIFF and AVIF
-        </p>
+
         <DragDrop className={styles.dragDrop} uppy={uppy} />
       </Stack>
     </Stack>

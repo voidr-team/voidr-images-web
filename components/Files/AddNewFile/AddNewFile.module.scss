@@ -3,17 +3,17 @@
 .addNewFile {
   min-width: 100%;
   flex: 1;
-}
-
-.dropWrapper {
-  max-width: fit-content;
-  position: relative;
 
   > p {
     font-weight: 600;
     margin-block: 10px;
     color: var(--neutral-500);
   }
+}
+
+.dropWrapper {
+  max-width: fit-content;
+  position: relative;
 
   > .overlay {
     display: block;
