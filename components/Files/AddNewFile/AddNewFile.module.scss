@@ -3,11 +3,15 @@
 .addNewFile {
   min-width: 100%;
   flex: 1;
+  font-weight: 600;
 
   > p {
-    font-weight: 600;
     margin-block: 10px;
     color: var(--neutral-500);
+  }
+
+  > h3 {
+    font-size: 20px;
   }
 }
 

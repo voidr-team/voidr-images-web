@@ -1,11 +1,11 @@
 import dynamic from 'next/dynamic'
 import LastProcessedFiles from './LastProcessedFiles'
 import Insights from './Insights'
-import PlanUsage from './PlanUsage'
 import useDashboard from '@/hooks/useDashboard'
 import styles from './DashboardWrapper.module.scss'
 import ModalFileImage from '../ModalFileImage'
 import { useState } from 'react'
+import Metrics from './Metrics'
 const TrafficDataGraph = dynamic(
   () => {
     return import('./TrafficDataGraph')
@@ -43,7 +43,7 @@ export default function DashboardWrapper() {
       </div>
 
       <div className={styles.infoColumn}>
-        <PlanUsage usage={data?.usage} />
+        <Metrics usage={data?.usage} savedData={data?.bytesSaved} />
       </div>
 
       <ModalFileImage

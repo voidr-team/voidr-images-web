@@ -79,8 +79,10 @@ export default function AddNewFile() {
   }, [uppy])
   return (
     <Stack marginTop={3} className={styles.addNewFile}>
+      <h3>Upload file</h3>
+
       <p>
-        Accepted formats for upload: PNG, JPEG, JPG, WEBP, GIF, TIFF and AVIF
+        Accepted formats for upload: PNG, JPEG, JPG, WEBP, GIF, TIFF, and AVIF
       </p>
       <Stack className={styles.dropWrapper}>
         {isLoading && (

@@ -1,0 +1,10 @@
+.contentWrapper {
+  margin-block: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  article > p {
+    opacity: 0.8;
+  }
+}
