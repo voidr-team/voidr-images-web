@@ -17,19 +17,19 @@ class MyDocument extends Document {
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="/images/logo-small.svg"
+            href="/images/voidr-favicon.png"
           />
           <link
             rel="icon"
             type="image/svg+xml"
             sizes="32x32"
-            href="/images/logo-small.svg"
+            href="/images/voidr-favicon.png"
           />
           <link
             rel="icon"
             type="image/svg+xml"
             sizes="16x16"
-            href="/images/logo-small.svg"
+            href="/images/voidr-favicon.png"
           />
           <link rel="manifest" href="/icons/site.webmanifest" />
           <meta name="theme-color" content="#222b34" />

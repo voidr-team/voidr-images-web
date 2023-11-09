@@ -31,6 +31,7 @@
     "dayjs": "1.11.9",
     "fs-extra": "11.1.1",
     "i18next": "23.2.6",
+    "logrocket": "6.0.2",
     "lucide-react": "0.289.0",
     "next": "13.4.8",
     "next-i18next": "14.0.0",
