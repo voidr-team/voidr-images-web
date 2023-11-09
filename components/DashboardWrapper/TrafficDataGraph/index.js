@@ -88,7 +88,7 @@ const series = (data) => [
 
 export default function TrafficDataGraph({ data = [] }) {
   return (
-    <Widget title="Traffic">
+    <Widget title="Daily processed images">
       <ApexCharts
         options={chartOptions(data)}
         series={series(data)}
