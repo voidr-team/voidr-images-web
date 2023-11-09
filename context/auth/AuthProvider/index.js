@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import LoadingPage from '@/components/LoadingPage'
-// import { initLogger, loggerIdentify } from '@/utils/logger'
+import startMonitoring from '@/utils/monitoring'
 import { useAuth0 } from '@auth0/auth0-react'
 import useHttp from '@/utils/useHttp'
 import persistCurrentRoute from '@/utils/auth/persisCurrentRoute'
@@ -48,11 +48,11 @@ function AuthProvider({ children }) {
   }
 
   const startLogger = (userData) => {
-    // const { name, email, id, onboarding } = userData
+    const { name, email, sub } = userData
     const isDevelopment = process.env.NODE_ENV === 'development'
-    if (!isDevelopment) {
-      // const logger = initLogger()
-      // loggerIdentify(logger)({ name, email, id })
+    if (isDevelopment) {
+      console.log(userData)
+      startMonitoring({ name, email, id: sub })
     }
   }
 
