@@ -149,7 +149,7 @@ export default function ModalFileImage({
                                 setCurrentImage(imageVariation)
                               }}
                               key={imageVariation?._id}
-                              src={imageVariation?.originUrl}
+                              src={getImageSource(imageVariation?.originUrl)}
                               className={cn({
                                 [styles.imageActive]:
                                   imageVariation?._id === currentImage?._id,
