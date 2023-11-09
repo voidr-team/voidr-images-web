@@ -7,7 +7,7 @@ export default function useFilesList({ limit = 10 }) {
   const router = useRouter()
   const { data, isLoading, refetch } = useQuery({
     queryKey: [imagesService.swrKeys.GET_IMAGES, router.query.page, limit],
-    queryFn: () => imagesService.getImages(router.query.page ?? 1, limit),
+    queryFn: () => imagesService.getImages(router.query.page || 1, limit),
     keepPreviousData: true,
     staleTime: 120000,
   })

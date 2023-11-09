@@ -3,7 +3,6 @@ import styles from './ModalFileImage.module.scss'
 import { Stack, Typography } from '@mui/joy'
 import dayjs from 'dayjs'
 import useGetVariationsImage from '@/hooks/useGetVariationsImage'
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import 'react-indiana-drag-scroll/dist/style.css'
@@ -145,12 +144,12 @@ export default function ModalFileImage({
                                 imageVariation?._id === currentImage?._id,
                             })}
                           >
-                            <Image
+                            <img
                               onClick={() => {
                                 setCurrentImage(imageVariation)
                               }}
-                              key={imageVariation?._id ?? imageVariation?.id}
-                              src={imageVariation?.remote}
+                              key={imageVariation?._id}
+                              src={imageVariation?.originUrl}
                               className={cn({
                                 [styles.imageActive]:
                                   imageVariation?._id === currentImage?._id,
