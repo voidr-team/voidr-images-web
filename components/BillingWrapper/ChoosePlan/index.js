@@ -4,48 +4,52 @@ import plansInfo from './plansInfo'
 import Button from '../../UI/Button'
 import useChoosePlan from './useChoosePlan'
 import useAuth from '@/context/auth/useAuth'
+import { useTranslation } from 'next-i18next'
 
 export default function ChoosePlan() {
   const { upgradePlan, isLoading, handleEnterpriseContact, getInTouch } =
     useChoosePlan()
+  const { t } = useTranslation(['translations', 'common'])
   const { user } = useAuth()
   return (
     <Stack marginTop={5}>
       <Typography fontSize={20} fontWeight="600" level="h4">
-        Plans
+        {t('choose_plan.title')}
       </Typography>
 
       <Stack gap={3} marginTop={4} direction="row" flexWrap="wrap">
         <CardPricing.Root>
-          <CardPricing.Header title="Pay as you grow" />
+          <CardPricing.Header title={t('choose_plan.plans.1.title')} />
 
           <CardPricing.Price>
-            <Typography fontSize={48}>$1</Typography>
+            <Typography fontSize={48}>
+              {t('choose_plan.plans.1.value')}
+            </Typography>
             <Typography textColor="neutral.400" fontSize={20}>
-              each 1k images
+              {t('choose_plan.plans.1.description')}
             </Typography>
           </CardPricing.Price>
 
-          <CardPricing.Benefits benefits={plansInfo.payAsGrow.benefits} />
+          <CardPricing.Benefits benefits={plansInfo.payAsGrow.benefits(t)} />
 
           <CardPricing.Footer>
             {/* TODO: ADICIONAR A VALIDAÇÃO DE CURRENT PLAN PARA O PLANO PAY AS YOU GROW */}
             <Button onClick={upgradePlan} isLoading={isLoading}>
-              Start now
+              {t('choose_plan.start_now')}
             </Button>
           </CardPricing.Footer>
         </CardPricing.Root>
 
         <CardPricing.Root>
-          <CardPricing.Header title="Enterprise" />
+          <CardPricing.Header title={t('choose_plan.plans.2.title')} />
 
           <CardPricing.Price>
             <Typography textAlign="center" fontSize={40}>
-              Custom
+              {t('choose_plan.plans.2.value')}
             </Typography>
           </CardPricing.Price>
 
-          <CardPricing.Benefits benefits={plansInfo.enterprise.benefits} />
+          <CardPricing.Benefits benefits={plansInfo.enterprise.benefits(t)} />
 
           <CardPricing.Footer>
             {user?.currentProject?.plan === 'ENTERPRISE' && (
@@ -55,12 +59,14 @@ export default function ChoosePlan() {
                 paddingY="3px"
                 textColor="neutral.300"
               >
-                Current plan
+                {t('choose_plan.current_plan')}
               </Typography>
             )}
             {user?.currentProject?.plan !== 'ENTERPRISE' && (
               <Button onClick={handleEnterpriseContact}>
-                {getInTouch ? "We'll get in touch" : 'Contact Us'}
+                {getInTouch
+                  ? t('choose_plan.we_ll_get_in_touch')
+                  : t('choose_plan.contact_us')}
               </Button>
             )}
           </CardPricing.Footer>

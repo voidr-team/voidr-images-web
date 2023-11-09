@@ -3,6 +3,7 @@ import styles from './CardFile.module.scss'
 import getImageSource from '@/utils/getImageSource'
 import formatBytes from '@/utils/formatBytes'
 import cn from 'classnames'
+import { useTranslation } from 'next-i18next'
 
 export default function CardFile({
   imageUrl,
@@ -11,6 +12,7 @@ export default function CardFile({
   onClick,
   className,
 }) {
+  const { t } = useTranslation(['translations', 'common'])
   return (
     <Stack
       className={cn(styles.cardFile, className)}
@@ -29,7 +31,7 @@ export default function CardFile({
           {imageName}
         </Typography>
         <Typography textColor="neutral.500" level="body-xs" marginTop="auto">
-          {formatBytes(imageSizeSaved)} saved
+          {formatBytes(imageSizeSaved)} {t('common:saved')}
         </Typography>
       </Stack>
     </Stack>

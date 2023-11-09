@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 const SidebarItem = ({ link, label, Icon }) => {
   const router = useRouter()
+
   return (
     <Link href={link}>
       <li

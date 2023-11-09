@@ -3,8 +3,10 @@ import organizationService from '@/services/organization'
 import { useCallback } from 'react'
 import { confirm } from '@/components/Confirmation'
 import toastEz from '@/utils/toastEz'
+import { useTranslation } from 'next-i18next'
 
 function useOrganizationInvites() {
+  const { t } = useTranslation(['translations', 'common'])
   const queryClient = useQueryClient()
   const { data, isLoading: isLoadingGetInvites } = useQuery({
     queryKey: [organizationService.swrKeys.GET_ORGANIZATION_INVITES],
@@ -19,20 +21,20 @@ function useOrganizationInvites() {
         await queryClient.invalidateQueries([
           organizationService.swrKeys.GET_ORGANIZATION_INVITES,
         ])
-        toastEz.success('Invitation cancelled.')
+        toastEz.success(t('inviations.toast.cancelled_success'))
       },
       onError: () => {
-        toastEz.error('An error occurred while canceling the invitation.')
+        toastEz.error(t('inviations.toast.cancelled_error'))
       },
     })
 
   const cancelInvite = useCallback(async (id) => {
     if (!id) return
     const confirmAction = await confirm({
-      title: 'Cancel invitation?',
-      description: 'Would you really like to cancel the invitation?',
-      okLabel: 'Cancel invitation',
-      cancelLabel: 'Back',
+      title: t('inviations.confirm.title'),
+      description: t('inviations.confirm.description'),
+      okLabel: t('inviations.confirm.okLabel'),
+      cancelLabel: t('inviations.confirm.cancelLabel'),
     })
 
     if (confirmAction) {

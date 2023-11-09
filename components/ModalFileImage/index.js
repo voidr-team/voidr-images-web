@@ -13,8 +13,7 @@ import getImageSource from '@/utils/getImageSource'
 import CodeBlocks from '../UI/CodeBlocks'
 import formatBytes from '@/utils/formatBytes'
 import Icon from '../UI/Icon'
-
-const VOIDR_API_URL = process.env.NEXT_PUBLIC_VOIDR_API_URL
+import { useTranslation } from 'next-i18next'
 
 export default function ModalFileImage({
   isOpen,
@@ -29,6 +28,7 @@ export default function ModalFileImage({
   } = useGetVariationsImage(currentImage?._id)
   const [selectedLanguage, setSelectedLanguage] = useState('html')
   const [copiedSnippet, setCopiedSnippet] = useState(false)
+  const { t } = useTranslation(['translations', 'common'])
 
   const closeModal = () => {
     setCurrentImage(null)
@@ -65,12 +65,12 @@ export default function ModalFileImage({
 
             <Stack>
               <Typography paddingX={6} fontSize={20} fontWeight="600">
-                Detailed info
+                {t('image_detail.title')}
               </Typography>
 
               <Stack paddingX={6} marginY={3}>
                 <Typography marginY={1} fontSize={14} fontWeight="600">
-                  Source image
+                  {t('image_detail.source_img')}
                 </Typography>
 
                 <Stack direction="row" gap={3} alignItems="flex-start">
@@ -111,7 +111,7 @@ export default function ModalFileImage({
                       fontWeight="600"
                       textColor="neutral.500"
                     >
-                      Uploaded{' '}
+                      {t('image_detail.uploaded')}{' '}
                       {dayjs(currentImage?.createdAt).format(
                         'DD/MM/YYYY HH:MM'
                       )}
@@ -128,7 +128,7 @@ export default function ModalFileImage({
                     fontSize={14}
                     fontWeight="600"
                   >
-                    Variations
+                    {t('image_detail.variations')}
                   </Typography>
 
                   <ScrollContainer className={styles.imageVariationsWrapper}>
@@ -168,7 +168,7 @@ export default function ModalFileImage({
 
               <Stack paddingX={6} marginY={3}>
                 <Typography fontSize={20} fontWeight="600">
-                  Metadata & Snippet
+                  {t('image_detail.metadata')}
                 </Typography>
 
                 <Stack marginY={3}>
@@ -188,7 +188,7 @@ export default function ModalFileImage({
                     gap={3}
                   >
                     <Typography textColor="neutral.500" fontWeight="600">
-                      File name
+                      {t('image_detail.file_name')}
                     </Typography>
                     <Typography className={styles.imageName}>
                       {currentImage.name}
@@ -202,7 +202,7 @@ export default function ModalFileImage({
                     gap={3}
                   >
                     <Typography textColor="neutral.500" fontWeight="600">
-                      Dimensions
+                      {t('image_detail.dimensions')}
                     </Typography>
                     <Typography>
                       {currentImage.metadata?.width}x
@@ -217,7 +217,7 @@ export default function ModalFileImage({
                     gap={3}
                   >
                     <Typography textColor="neutral.500" fontWeight="600">
-                      Size
+                      {t('image_detail.size')}
                     </Typography>
                     <Typography>
                       {formatBytes(currentImage.metadata?.size)}
@@ -231,7 +231,7 @@ export default function ModalFileImage({
                     gap={3}
                   >
                     <Typography textColor="neutral.500" fontWeight="600">
-                      Format
+                      {t('image_detail.format')}
                     </Typography>
                     <Typography textTransform="uppercase">
                       {currentImage.metadata?.format}
@@ -246,7 +246,7 @@ export default function ModalFileImage({
                       gap={3}
                     >
                       <Typography textColor="neutral.500" fontWeight="600">
-                        Quality
+                        {t('image_detail.quality')}
                       </Typography>
                       <Typography>
                         {currentImage?.transformers?.compress?.quality}
@@ -280,7 +280,7 @@ export default function ModalFileImage({
                       onClick={copySnippetCode}
                       className={styles.copyButton}
                     >
-                      {copiedSnippet ? <Check /> : 'Copy'}
+                      {copiedSnippet ? <Check /> : t('common:copy')}
                     </button>
                   </div>
 

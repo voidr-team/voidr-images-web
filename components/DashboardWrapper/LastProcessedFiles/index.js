@@ -7,15 +7,17 @@ import { isEmpty } from 'ramda'
 import styles from './LastProcessedFiles.module.scss'
 import EmptyStateProcessedFiles from '../../EmptyStateProcessedFiles'
 import Widget from '@/components/UI/Widget'
+import { useTranslation } from 'next-i18next'
 
 export default function LastProcessedFiles({
   setIsDialogOpen,
   setCurrentImage,
 }) {
   const { data, isLoading } = useFilesList({ limit: 8 })
+  const { t } = useTranslation(['translations', 'common'])
 
   return (
-    <Widget title="Latest processed files">
+    <Widget title={t('file_list.title')}>
       <div className={styles.imagesWrapper}>
         {isLoading ? (
           <Loader />
@@ -49,7 +51,7 @@ export default function LastProcessedFiles({
       {!isEmpty(data?.images) ? (
         <Link href="/images/files">
           <div className={styles.viewMore}>
-            <span>View more</span>
+            <span>{t('common:view_more')}</span>
             <ChevronRight color="#fff" />
           </div>
         </Link>

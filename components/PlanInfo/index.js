@@ -1,6 +1,7 @@
 import { Stack, Typography } from '@mui/joy'
 import styles from './PlanInfo.module.scss'
 import useAuth from '@/context/auth/useAuth'
+import { useTranslation } from 'next-i18next'
 
 function ProgressPlan({ level }) {
   const width = level > 100 ? '100' : level
@@ -12,6 +13,7 @@ function ProgressPlan({ level }) {
 }
 
 export default function PlanInfo({ usage = 0 }) {
+  const { t } = useTranslation(['translations', 'common'])
   const { user } = useAuth()
   const isProPlan = user?.currentProject?.plan === 'PRO'
   const totalImages = isProPlan ? 100000 : 1000
@@ -22,7 +24,7 @@ export default function PlanInfo({ usage = 0 }) {
           {usage}
         </Typography>
         <Typography fontSize={16} level="body-xs">
-          Total images
+          {t('plan_info.total_images')}
         </Typography>
       </Stack>
 
@@ -50,7 +52,7 @@ export default function PlanInfo({ usage = 0 }) {
               Processed
             </Typography>
             <Typography lineHeight={3} fontWeight="600" level="body-sm">
-              {usage} images
+              {usage} {t('common:images')}
             </Typography>
           </Stack>
         </Stack>
@@ -73,10 +75,10 @@ export default function PlanInfo({ usage = 0 }) {
               textColor="neutral.500"
               level="body-sm"
             >
-              Left
+              {t('plan_info.left')}
             </Typography>
             <Typography lineHeight={3} fontWeight="600" level="body-sm">
-              {totalImages - usage} images
+              {totalImages - usage} {t('common:images')}
             </Typography>
           </Stack>
         </Stack>

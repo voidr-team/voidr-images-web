@@ -9,11 +9,12 @@ import cn from 'classnames'
 import useAuth from '@/context/auth/useAuth'
 import styles from './ImageLayout.module.scss'
 import Head from 'next/head'
+import { useTranslation } from 'next-i18next'
 
 function ImageLayout({ children, title }) {
   const router = useRouter()
   const { user } = useAuth()
-
+  const { t } = useTranslation(['translations', 'common'])
   return (
     <BaseLayout currentPage="dashboard">
       <Head>
@@ -52,7 +53,7 @@ function ImageLayout({ children, title }) {
                       })}
                     >
                       <item.icon />
-                      {item.label}
+                      {t(item.label)}
                     </li>
                   </Link>
                 ))}

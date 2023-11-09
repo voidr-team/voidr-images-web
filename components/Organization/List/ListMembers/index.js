@@ -11,9 +11,11 @@ import {
 import useOrganizationMembers from './useOrganizationMembers'
 import Loader from '@/components/UI/Loader'
 import styles from './ListMembers.module.scss'
+import { useTranslation } from 'next-i18next'
 
 function ListMembers() {
   const { data, isLoading, deleteMember } = useOrganizationMembers()
+  const { t } = useTranslation(['translations', 'common'])
 
   if (isLoading)
     return (
@@ -27,10 +29,10 @@ function ListMembers() {
       <table className={styles.table}>
         <thead>
           <tr>
-            <th>Picture</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Actions</th>
+            <th>{t('members.table.picture')}</th>
+            <th>{t('members.table.name')}</th>
+            <th>{t('members.table.email')}</th>
+            <th>{t('members.table.actions')}</th>
           </tr>
         </thead>
         <tbody>
@@ -66,7 +68,7 @@ function ListMembers() {
                           textColor="danger.700"
                           paddingLeft={0.5}
                         >
-                          Remove member
+                          {t('members.table.remove_member')}
                         </Typography>
                       </MenuItem>
                     </Menu>

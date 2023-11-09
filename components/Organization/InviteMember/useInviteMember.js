@@ -4,6 +4,7 @@ import * as yup from 'yup'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
 import organizationService from '@/services/organization'
 import toastEz from '@/utils/toastEz'
+import { useTranslation } from 'next-i18next'
 
 const schema = yup
   .object()
@@ -17,6 +18,7 @@ const schema = yup
   .required()
 
 function useInviteMember(setIsOpen) {
+  const { t } = useTranslation(['translations', 'common'])
   const queryClient = useQueryClient()
   const formMethods = useForm({ resolver: yupResolver(schema) })
 
@@ -34,10 +36,10 @@ function useInviteMember(setIsOpen) {
       ])
       setIsOpen(false)
       formMethods.reset()
-      toastEz.success('Convite enviado')
+      toastEz.success(t('inviations.toast.success'))
     },
     onError: () => {
-      toastEz.error('Ocorreu um erro ao enviar o convite')
+      toastEz.error(t('inviations.toast.error'))
     },
   })
 

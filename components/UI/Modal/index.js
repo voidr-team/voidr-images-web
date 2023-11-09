@@ -7,8 +7,10 @@ import {
 import PropTypes from 'prop-types'
 import Icon from '../Icon'
 import styles from './Modal.module.scss'
+import { useTranslation } from 'next-i18next'
 
 function Modal({ children, isOpen, setIsOpen, onClose }) {
+  const { t } = useTranslation(['translations', 'common'])
   return (
     <ModalProvider
       open={isOpen}
@@ -27,7 +29,7 @@ function Modal({ children, isOpen, setIsOpen, onClose }) {
             justifyContent="space-between"
             spacing={4}
           >
-            <Typography level="title-lg">Convidar novo membro</Typography>
+            <Typography level="title-lg">{t('invite_member.title')}</Typography>
             <button
               className={styles.buttonCloseModal}
               onClick={() => {

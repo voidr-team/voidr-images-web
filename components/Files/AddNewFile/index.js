@@ -10,10 +10,12 @@ import useAuth from '@/context/auth/useAuth'
 import axios from 'axios'
 import { last } from 'ramda'
 import toastEz from '@/utils/toastEz'
+import { useTranslation } from 'next-i18next'
 
 const VOIDR_API_URL = process.env.NEXT_PUBLIC_VOIDR_API_URL
 
 export default function AddNewFile() {
+  const { t } = useTranslation(['translations', 'common'])
   const [isLoading, setIsLoading] = useState(false)
   const { user } = useAuth()
   const uppy = useMemo(
@@ -67,7 +69,7 @@ export default function AddNewFile() {
           setIsLoading(false)
           const customEvent = new CustomEvent('images:fetch')
           document.dispatchEvent(customEvent)
-          toastEz.success('Image uploaded')
+          toastEz.success(t('add_new_file.toast.uploaded'))
         })
       } else {
         setIsLoading(false)
@@ -79,11 +81,9 @@ export default function AddNewFile() {
   }, [uppy])
   return (
     <Stack marginTop={3} className={styles.addNewFile}>
-      <h3>Upload file</h3>
+      <h3>{t('add_new_file.title')}</h3>
 
-      <p>
-        Accepted formats for upload: PNG, JPEG, JPG, WEBP, GIF, TIFF, and AVIF
-      </p>
+      <p>{t('add_new_file.accepted_formats')}</p>
       <Stack className={styles.dropWrapper}>
         {isLoading && (
           <>

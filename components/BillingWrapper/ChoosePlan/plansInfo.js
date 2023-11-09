@@ -1,27 +1,23 @@
 const payAsGrow = {
-  benefits: [
-    {
-      label: 'On the fly optimization',
-    },
-    { label: '2 MB max file size' },
-    { label: 'Convert next-gen formats' },
-    { label: 'Responsive images' },
-    { label: 'E-mail/chat support' },
-    { label: 'Custom CDN/Bucket' },
-    { label: 'Upload Rest API' },
+  benefits: (t) => [
+    { label: t('choose_plan.plans.1.item_1') },
+    { label: t('choose_plan.plans.1.item_2') },
+    { label: t('choose_plan.plans.1.item_3') },
+    { label: t('choose_plan.plans.1.item_4') },
+    { label: t('choose_plan.plans.1.item_5') },
+    { label: t('choose_plan.plans.1.item_6') },
+    { label: t('choose_plan.plans.1.item_7') },
   ],
 }
 
 const enterprise = {
-  benefits: [
-    {
-      label: 'Everything on previous plan',
-    },
-    { label: '5 TB max file size' },
-    { label: 'Enterprise-grade security' },
-    { label: 'Custom features' },
-    { label: 'Dedicated solution architect' },
-    { label: '24/7 Discord support' },
+  benefits: (t) => [
+    { label: t('choose_plan.plans.2.item_1') },
+    { label: t('choose_plan.plans.2.item_2') },
+    { label: t('choose_plan.plans.2.item_3') },
+    { label: t('choose_plan.plans.2.item_4') },
+    { label: t('choose_plan.plans.2.item_5') },
+    { label: t('choose_plan.plans.2.item_6') },
   ],
 }
 

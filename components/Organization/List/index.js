@@ -2,8 +2,10 @@ import { Tab, TabList, Tabs, TabPanel, Stack, Typography } from '@mui/joy'
 import ListMembers from './ListMembers'
 import ListInvites from './ListInvites'
 import Button from '@/components/UI/Button'
+import { useTranslation } from 'next-i18next'
 
 function List({ setIsOpenInviteMember }) {
+  const { t } = useTranslation(['translations', 'common'])
   return (
     <div>
       <Stack
@@ -12,11 +14,11 @@ function List({ setIsOpenInviteMember }) {
         justifyContent="space-between"
         marginY={2}
       >
-        <Typography level="h3">Members</Typography>
+        <Typography level="h3">{t('members.title')}</Typography>
         <Button
           onClick={() => setIsOpenInviteMember((prevState) => !prevState)}
         >
-          Invite member
+          {t('members.invite_member')}
         </Button>
       </Stack>
       <Tabs
@@ -36,8 +38,8 @@ function List({ setIsOpenInviteMember }) {
             },
           })}
         >
-          <Tab>Members</Tab>
-          <Tab>Invitations</Tab>
+          <Tab>{t('members.table.member')}</Tab>
+          <Tab>{t('members.table.invitation')}</Tab>
         </TabList>
 
         <TabPanel value={0}>

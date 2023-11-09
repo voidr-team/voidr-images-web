@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import toastEz from '@/utils/toastEz'
 import projectService from '@/services/project'
 import { useMutation } from 'react-query'
+import { useTranslation } from 'next-i18next'
 
 const schema = yup.object().shape({
   domains: yup.array().of(
@@ -21,11 +22,12 @@ const schema = yup.object().shape({
 })
 
 export default function useChangeDomains({ domains }) {
+  const { t } = useTranslation(['translations', 'common'])
   const { mutate: updateDomain, isLoading } = useMutation({
     mutationKey: [projectService.swrKeys.UPDATE_DOMAIN],
     mutationFn: (data) => projectService.updateDomain(data),
     onSuccess: async () => {
-      toastEz.success('Domains updated')
+      toastEz.success(t('change_domains.toast.success'))
     },
   })
 

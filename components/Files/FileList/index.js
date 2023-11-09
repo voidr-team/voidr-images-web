@@ -6,13 +6,15 @@ import Loader from '@/components/UI/Loader'
 import styles from './FileList.module.scss'
 import { isEmpty } from 'ramda'
 import EmptyStateProcessedFiles from '@/components/EmptyStateProcessedFiles'
+import { useTranslation } from 'next-i18next'
 
 export default function FileList({ setIsDialogOpen, setCurrentImage }) {
   const { data, paginate, isLoading } = useFilesList({ limit: 20 })
+  const { t } = useTranslation(['translations', 'common'])
 
   return (
     <Stack>
-      <Typography level="h4">Latest processed files</Typography>
+      <Typography level="h4">{t('file_list.title')}</Typography>
 
       <div className={styles.cardFileList}>
         {isLoading ? (

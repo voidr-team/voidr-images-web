@@ -7,6 +7,7 @@ import projectService from '@/services/project'
 import toastEz from '@/utils/toastEz'
 import { useAuth0 } from '@auth0/auth0-react'
 import useAuth from '@/context/auth/useAuth'
+import { useTranslation } from 'next-i18next'
 
 const formSteps = {
   order: ['CREATE_PROJECT', 'SETUP', 'START'],
@@ -40,6 +41,7 @@ const schema = yup.object().shape({
 })
 
 export default function useOnboarding() {
+  const { t } = useTranslation(['translations', 'common'])
   const { fetchUser } = useAuth()
   const { getAccessTokenSilently } = useAuth0()
   const steps = useSteps(formSteps)
@@ -60,7 +62,7 @@ export default function useOnboarding() {
       toastEz.error(message)
     },
     onSuccess: async (data) => {
-      toastEz.success('Project created successfully')
+      toastEz.success(t('onboarding.toast.success'))
       const orgId = data?.data?.createdBy?.organizationId
       await getAccessTokenSilently({
         cacheMode: 'off',

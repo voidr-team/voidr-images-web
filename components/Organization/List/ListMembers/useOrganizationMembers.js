@@ -2,9 +2,11 @@ import { useMutation, useQuery, useQueryClient } from 'react-query'
 import organizationService from '@/services/organization'
 import { confirm } from '@/components/Confirmation'
 import toastEz from '@/utils/toastEz'
+import { useTranslation } from 'next-i18next'
 
 function useOrganizationMembers() {
   const queryClient = useQueryClient()
+  const { t } = useTranslation(['translations', 'common'])
   const {
     data,
     isLoading: isLoadingGetMembers,
@@ -23,18 +25,18 @@ function useOrganizationMembers() {
         await queryClient.invalidateQueries([
           organizationService.swrKeys.GET_ORGANIZATION_MEMBERS,
         ])
-        toastEz.success('User removed.')
+        toastEz.success(t('members.remove_member.toast.success'))
       },
       onError: () => {
-        toastEz.error('An error occurred while removing the user.')
+        toastEz.error(t('members.remove_member.toast.error'))
       },
     })
 
   const deleteMember = async (id) => {
     if (!id) return
     const confirmAction = await confirm({
-      title: 'Do you want to remove the member?',
-      description: 'Do you really want to remove the member?',
+      title: t('members.remove_member.confirm.title'),
+      description: t('members.remove_member.confirm.description'),
     })
 
     if (confirmAction) {

@@ -7,10 +7,12 @@ import Modal from '../../UI/Modal'
 import Input from '../../Form/Input'
 import Autocomplete from '../../Form/Autocomplete'
 import Button from '../../UI/Button'
+import { useTranslation } from 'next-i18next'
 
 function InviteMember({ isOpen, setIsOpen }) {
   const { onSubmit, formMethods, isLoadingSendInvite, isLoadingRoles, roles } =
     useInviteMember(setIsOpen)
+  const { t } = useTranslation(['translations', 'common'])
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -18,14 +20,14 @@ function InviteMember({ isOpen, setIsOpen }) {
         <form className={styles.form} onSubmit={onSubmit}>
           <div className={styles.inputsWrapper}>
             <Input
-              label="Name"
+              label={t('common:name')}
               placeholder="John Doe"
               name="name"
               rules={{ required: true }}
             />
 
             <Input
-              label="E-mail"
+              label={t('common:email')}
               placeholder="example@example.com"
               name="email"
               rules={{ required: true }}
@@ -34,7 +36,7 @@ function InviteMember({ isOpen, setIsOpen }) {
 
           <Stack marginTop={5}>
             <Button isLoading={isLoadingSendInvite} type="submit">
-              Enviar convite
+              {t('invite_member.button')}
             </Button>
           </Stack>
         </form>

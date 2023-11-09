@@ -2,8 +2,10 @@ import { Stack } from '@mui/joy'
 import styles from './Sidebar.module.scss'
 import sidebarItems from './sidebarItems'
 import SidebarItem from './SidebarItem'
+import { useTranslation } from 'react-i18next'
 
 function Content({ children }) {
+  const { t } = useTranslation(['translations', 'common'])
   return (
     <Stack
       minWidth="220px"
@@ -23,7 +25,7 @@ function Content({ children }) {
               link={item.link}
               key={item.id}
               Icon={item.icon}
-              label={item.label}
+              label={t(item.label)}
             />
           ))}
         </ul>

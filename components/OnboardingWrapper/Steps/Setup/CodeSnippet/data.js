@@ -3,7 +3,7 @@ import React from 'react';
 
 function ResponsiveImage({ path, quality = 90, format = 'webp', alt }) {
   const voidrUrl = 'https://img.voidr.co';
-  const projectName = 'seazone';
+  const projectName = 'your_project_name';
 
   const getSrcWithWidth = (width) =>
     \`\${voidrUrl}/\${projectName}/compress:\${quality}/convert:\${format}/resize:\${width}x/fetch/\${path}\`;
@@ -25,7 +25,7 @@ export default ResponsiveImage;`
 export const laravel = `
 @php
     $voidrUrl = 'https://img.voidr.co';
-    $projectName = 'seazone';
+    $projectName = 'your_project_name';
     $quality = $quality ?? 90;
     $format = $format ?? 'webp';
 
@@ -54,7 +54,7 @@ register = template.Library()
 @register.simple_tag
 def get_src_with_width(path, width, quality=90, format='webp'):
     voidr_url = 'https://img.voidr.co'
-    project_name = 'seazone'
+    project_name = 'your_project_name'
     return f"{voidr_url}/{project_name}/compress:{quality}/convert:{format}/resize:{width}x/fetch/{path}"
 
 

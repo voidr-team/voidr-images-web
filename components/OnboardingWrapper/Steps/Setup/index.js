@@ -1,7 +1,7 @@
 import { Stack, Typography } from '@mui/joy'
 // import styles from './Setup.module.scss'
 import CodeSnippet from './CodeSnippet'
-import { ChevronRight } from 'lucide-react'
+import { useTranslation } from 'next-i18next'
 
 // function CredentialsKey() {
 //   return (
@@ -38,6 +38,7 @@ import { ChevronRight } from 'lucide-react'
 // }
 
 export default function Setup() {
+  const { t } = useTranslation(['translations', 'common'])
   return (
     <Stack
       minHeight="80vh"
@@ -53,7 +54,7 @@ export default function Setup() {
           alignItems="center"
           display="flex"
         >
-          Setup <ChevronRight /> Stack
+          {t('onboarding.setup.title')}
         </Typography>
         <Typography
           marginTop={1}
@@ -61,7 +62,7 @@ export default function Setup() {
           fontWeight="500"
           fontSize={18}
         >
-          Choose the right SDK for your stack.
+          {t('onboarding.setup.description')}
         </Typography>
       </Stack>
 

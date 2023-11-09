@@ -2,6 +2,7 @@ import ApexCharts from 'react-apexcharts'
 import dayjs from 'dayjs'
 import styles from './TrafficDataGraph.module.scss'
 import Widget from '@/components/UI/Widget'
+import { useTranslation } from 'next-i18next'
 
 const chartOptions = (data) => ({
   chart: {
@@ -87,8 +88,9 @@ const series = (data) => [
 ]
 
 export default function TrafficDataGraph({ data = [] }) {
+  const { t } = useTranslation(['translations', 'common'])
   return (
-    <Widget title="Daily processed images">
+    <Widget title={t('traffic_graph.title')}>
       <ApexCharts
         options={chartOptions(data)}
         series={series(data)}

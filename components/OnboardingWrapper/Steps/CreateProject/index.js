@@ -7,6 +7,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { Trash } from 'lucide-react'
 import ErrorMessage from '@/components/UI/ErrorMessage'
 import Label from '@/components/Form/Input/Label'
+import { useTranslation } from 'next-i18next'
 
 export default function CreateProject() {
   const {
@@ -15,22 +16,23 @@ export default function CreateProject() {
   } = useFormContext()
   const { fields, append, remove } = useFieldArray({ control, name: 'domains' })
   const [parentRef] = useAutoAnimate()
+  const { t } = useTranslation(['translations', 'common'])
 
   return (
     <Stack marginTop={{ xs: 6, sm: 7, md: 15 }}>
       <Stack maxWidth="400px">
         <Input
           name="name"
-          placeholder="Company XPTO Marketplace"
-          label="Project name"
+          placeholder={t('onboarding.create_project.form.project.placeholder')}
+          label={t('onboarding.create_project.form.project.label')}
         />
       </Stack>
 
       <Stack marginTop={5}>
-        <Label>Domains</Label>
+        <Label>{t('onboarding.create_project.form.domain.label')}</Label>
 
         <Typography fontWeight="500" fontSize={16} textColor="primary.100">
-          Connect with images on a Web Folder somewhere in the Internet.
+          {t('onboarding.create_project.form.domain.description')}
         </Typography>
 
         <div ref={parentRef}>
@@ -45,7 +47,9 @@ export default function CreateProject() {
               <Stack width="100%" maxWidth="400px">
                 <Input
                   name={`domains.${index}.domain`}
-                  placeholder="https://mywebsite.com"
+                  placeholder={t(
+                    'onboarding.create_project.form.domain.placeholder'
+                  )}
                 />
               </Stack>
 
@@ -66,16 +70,14 @@ export default function CreateProject() {
           textColor="helper.500"
           fontSize={16}
         >
-          + Add domain
+          {t('change_domains.add_domain')}
         </Typography>
       </Stack>
 
       <Stack marginTop={5}>
-        <Typography fontWeight="600" fontSize={20}>
-          Platform
-        </Typography>
+        <Label>{t('onboarding.create_project.form.platform.label')}</Label>
         <Typography marginBottom={1} textColor="primary.100" fontSize={16}>
-          Select the type of platform your project runs on.
+          {t('onboarding.create_project.form.platform.description')}
         </Typography>
 
         <Stack gap={2} maxWidth="400px">
@@ -93,7 +95,7 @@ export default function CreateProject() {
                 fontWeight="600"
                 marginTop="8px"
               >
-                WEB
+                {t('onboarding.create_project.form.platform.option_web')}
               </Typography>
             </Stack>
 
@@ -111,7 +113,7 @@ export default function CreateProject() {
                 fontWeight="600"
                 marginTop="8px"
               >
-                MOBILE
+                {t('onboarding.create_project.form.platform.option_mobile')}
               </Typography>
             </Stack>
           </Stack>

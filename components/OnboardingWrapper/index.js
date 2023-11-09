@@ -5,12 +5,12 @@ import useOnboarding from './useOnboarding'
 import { FormProvider } from 'react-hook-form'
 import OnboardingSidebar from './OnboardingSidebar'
 import Button from '../UI/Button'
-import toastEz from '@/utils/toastEz'
 import styles from './OnboardingWrapper.module.scss'
+import { useTranslation } from 'next-i18next'
 
 export default function OnboardingWrapper() {
   const { steps, formMethods, onSubmit, isLoading } = useOnboarding()
-  window.toastEz = toastEz
+  const { t } = useTranslation(['translations', 'common'])
   return (
     <Stack direction="row" minHeight="100vh" bgcolor="primary.500">
       <OnboardingSidebar steps={steps} />
@@ -45,7 +45,7 @@ export default function OnboardingWrapper() {
 
             {steps.isLastStep ? null : (
               <Button form="onboardingForm" isLoading={isLoading} type="submit">
-                Next
+                {t('common:next')}
               </Button>
             )}
           </Stack>

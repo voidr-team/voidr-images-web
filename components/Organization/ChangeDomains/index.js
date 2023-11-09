@@ -5,8 +5,10 @@ import { useAutoAnimate } from '@formkit/auto-animate/react'
 import Input from '@/components/Form/Input'
 import { Trash } from 'lucide-react'
 import Button from '@/components/UI/Button'
+import { useTranslation } from 'next-i18next'
 
 export default function ChangeDomains({ domains }) {
+  const { t } = useTranslation(['translations', 'common'])
   const { formMethods, onSubmit, isLoading } = useChangeDomains({ domains })
   const { fields, append, remove } = useFieldArray({
     control: formMethods.control,
@@ -16,7 +18,7 @@ export default function ChangeDomains({ domains }) {
 
   return (
     <div>
-      <Typography level="h3">Domains</Typography>
+      <Typography level="h3">{t('change_domains.title')}</Typography>
       <FormProvider {...formMethods}>
         <form onSubmit={onSubmit}>
           <div ref={parentRef}>
@@ -53,12 +55,12 @@ export default function ChangeDomains({ domains }) {
             textColor="helper.400"
             fontSize={16}
           >
-            + Add domain
+            {t('change_domains.add_domain')}
           </Typography>
 
           <Stack marginY={3}>
             <Button type="submit" inverted isLoading={isLoading}>
-              Save changes
+              {t('common:save_changes')}
             </Button>
           </Stack>
         </form>

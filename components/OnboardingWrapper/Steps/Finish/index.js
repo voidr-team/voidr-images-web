@@ -7,8 +7,10 @@ import useFilesList from '@/hooks/useFilesList'
 import { isEmpty } from 'ramda'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { useTranslation } from 'next-i18next'
 
 export default function Finish({ steps }) {
+  const { t } = useTranslation(['translations', 'common'])
   const router = useRouter()
   const { data, isLoading } = useFilesList({ limit: 2 })
 
@@ -45,14 +47,13 @@ export default function Finish({ steps }) {
         className={styles.modalContainer}
       >
         <Typography fontWeight="600" fontSize={20}>
-          Awaiting image data
+          {t('onboarding.finish.title')}
         </Typography>
         <Typography marginY={2} fontWeight="500" fontSize={16}>
-          No data has been received yet.
+          {t('onboarding.finish.no_data')}
         </Typography>
         <Typography textColor="neutral.400" fontWeight="400" fontSize={16}>
-          Make sure that you have finished setting everything up so that we can
-          load your dashboard.
+          {t('onboarding.finish.description')}
         </Typography>
 
         <Stack marginY={4}>
@@ -61,7 +62,7 @@ export default function Finish({ steps }) {
 
         <Stack marginY={2}>
           <Button inverted onClick={steps.backStep} type="button">
-            Back to setup
+            {t('onboarding.finish.back')}
           </Button>
         </Stack>
       </Stack>

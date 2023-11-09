@@ -14,9 +14,11 @@ import Icon from '@/components/UI/Icon'
 import CopyClipboard from '@/components/CopyClipboard'
 import EmptyState from '@/components/UI/EmptyState'
 import formatDateLocal from '@/utils/formatDateLocal'
+import { useTranslation } from 'next-i18next'
 
 function ListInvites() {
   const { data, isLoading, cancelInvite } = useOrganizationInvites()
+  const { t } = useTranslation(['translations', 'common'])
 
   if (isLoading) {
     return (
@@ -33,19 +35,19 @@ function ListInvites() {
           <Table>
             <thead>
               <tr>
-                <th>Email</th>
-                <th>Status</th>
-                <th>Created at</th>
-                <th>Expires at</th>
-                <th>Created by</th>
-                <th>Actions</th>
+                <th>{t('inviations.table.email')}</th>
+                <th>{t('inviations.table.status')}</th>
+                <th>{t('inviations.table.created_at')}</th>
+                <th>{t('inviations.table.expires_at')}</th>
+                <th>{t('inviations.table.created_by')}</th>
+                <th>{t('inviations.table.actions')}</th>
               </tr>
             </thead>
             <tbody>
               {data?.data.map((invite) => (
                 <tr key={invite.id}>
                   <td>{invite.invitee.email}</td>
-                  <td>Pending</td>
+                  <td>{t('common:pending')}</td>
                   <td>{formatDateLocal(invite.created_at)}</td>
                   <td>{formatDateLocal(invite.expires_at)}</td>
                   <td>{invite.inviter.name}</td>
@@ -59,7 +61,7 @@ function ListInvites() {
                           <CopyClipboard text={invite.invitation_url}>
                             <MenuItem>
                               <Typography fontSize={14} fontWeight="600">
-                                Copy invite
+                                {t('inviations.table.copy_invite')}
                               </Typography>
                             </MenuItem>
                           </CopyClipboard>
@@ -78,7 +80,7 @@ function ListInvites() {
                               textColor="danger.700"
                               paddingLeft={0.5}
                             >
-                              Remove Invite
+                              {t('inviations.table.remove_invite')}
                             </Typography>
                           </MenuItem>
                         </Stack>
@@ -91,7 +93,7 @@ function ListInvites() {
           </Table>
         </Stack>
       ) : (
-        <EmptyState content="You dont have any invitations to your organization at the moment" />
+        <EmptyState content={t('inviations.table.empty_state')} />
       )}
     </>
   )

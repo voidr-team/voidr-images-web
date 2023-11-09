@@ -7,17 +7,19 @@ import { ChevronsRight } from 'lucide-react'
 import styles from './OnboardingSidebar.module.scss'
 import { useState } from 'react'
 import cn from 'classnames'
+import { useTranslation } from 'next-i18next'
 
-const onboardingSteps = [
-  { number: 1, label: 'Create project' },
-  { number: 2, label: 'Setup' },
-  { number: 3, label: 'Start' },
+const onboardingSteps = (t) => [
+  { number: 1, label: t('onboarding.steps.create_project') },
+  { number: 2, label: t('onboarding.steps.setup') },
+  { number: 3, label: t('onboarding.steps.start') },
 ]
 
 const logoutItem = sidebarItems.common.find(({ id }) => id === 2)
 
 export default function OnboardingSidebar({ steps }) {
   const [isOpen, setIsOpen] = useState(false)
+  const { t } = useTranslation(['translations', 'common'])
 
   return (
     <Stack
@@ -67,7 +69,7 @@ export default function OnboardingSidebar({ steps }) {
             voidr | images
           </Typography>
           <Stack maxHeight="fit-content" position="relative" gap={5}>
-            {onboardingSteps?.map((onboardingStep) => {
+            {onboardingSteps(t)?.map((onboardingStep) => {
               const passedStepsSuccefully =
                 onboardingStep.number < steps.current + 1
 
@@ -133,7 +135,7 @@ export default function OnboardingSidebar({ steps }) {
           link={logoutItem.link}
           key={logoutItem.id}
           Icon={logoutItem.icon}
-          label={logoutItem.label}
+          label={t(logoutItem.label)}
         />
       </div>
     </Stack>

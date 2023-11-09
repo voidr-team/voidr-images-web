@@ -1,19 +1,18 @@
 import { Lightbulb, TrendingUp } from 'lucide-react'
 import styles from './Insights.module.scss'
 import Widget from '@/components/UI/Widget'
+import { useTranslation } from 'next-i18next'
 
 export default function Insights() {
+  const { t } = useTranslation(['translations', 'common'])
   return (
-    <Widget title="Insights">
+    <Widget title={t('insights.title')}>
       <article className={styles.helpBox}>
         <div className={styles.iconWrapper}>
           <TrendingUp />
         </div>
 
-        <p>
-          {`Use the "convert:webp" and "compress:80" option to load images
-            specifically for slow connections.`}
-        </p>
+        <p>{t('insights.content.1')}</p>
       </article>
 
       <article className={styles.helpBox}>
@@ -21,10 +20,7 @@ export default function Insights() {
           <Lightbulb />
         </div>
 
-        <p>
-          {`Use "crop:400x,position:attention" to crop the image in areas that
-            contain the presence of faces.`}
-        </p>
+        <p>{t('insights.content.2')}</p>
       </article>
     </Widget>
   )
