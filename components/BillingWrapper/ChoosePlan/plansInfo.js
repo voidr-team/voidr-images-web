@@ -3,7 +3,7 @@ const payAsGrow = {
     {
       label: 'On the fly optimization',
     },
-    { label: '100 MB max file size' },
+    { label: '2 MB max file size' },
     { label: 'Convert next-gen formats' },
     { label: 'Responsive images' },
     { label: 'E-mail/chat support' },
