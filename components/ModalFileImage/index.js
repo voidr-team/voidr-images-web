@@ -77,7 +77,7 @@ export default function ModalFileImage({
                 <Stack direction="row" gap={3} alignItems="flex-start">
                   <img
                     className={styles.image}
-                    src={`${VOIDR_API_URL}${currentImage.originUrl}`}
+                    src={getImageSource(currentImage.originUrl)}
                     alt={currentImage.name}
                     height={100}
                   />
@@ -175,7 +175,7 @@ export default function ModalFileImage({
                 <Stack marginY={3}>
                   <img
                     className={styles.image}
-                    src={`${VOIDR_API_URL}${currentImage.originUrl}`}
+                    src={getImageSource(currentImage.originUrl)}
                     alt={currentImage.name}
                     height={200}
                   />
