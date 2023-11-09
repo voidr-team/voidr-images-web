@@ -105,5 +105,7 @@
   "onboarding.finish.title": "Awaiting image data",
   "onboarding.finish.no_data": "No data has been received yet.",
   "onboarding.finish.description": "Make sure that you have finished setting everything up so that we can load your dashboard.",
-  "onboarding.finish.back": "Back to setup"
+  "onboarding.finish.back": "Back to setup",
+  "subscription.title": "Subscription",
+  "subscription.description": "View card & invoice details"
 }

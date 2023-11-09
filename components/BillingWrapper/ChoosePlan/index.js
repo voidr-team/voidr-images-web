@@ -33,10 +33,21 @@ export default function ChoosePlan() {
           <CardPricing.Benefits benefits={plansInfo.payAsGrow.benefits(t)} />
 
           <CardPricing.Footer>
-            {/* TODO: ADICIONAR A VALIDAÇÃO DE CURRENT PLAN PARA O PLANO PAY AS YOU GROW */}
-            <Button onClick={upgradePlan} isLoading={isLoading}>
-              {t('choose_plan.start_now')}
-            </Button>
+            {user?.currentProject?.plan === 'PRO' && (
+              <Typography
+                textAlign="center"
+                level="body-md"
+                paddingY="3px"
+                textColor="neutral.300"
+              >
+                {t('choose_plan.current_plan')}
+              </Typography>
+            )}
+            {user?.currentProject?.plan !== 'PRO' && (
+              <Button onClick={upgradePlan} isLoading={isLoading}>
+                {t('choose_plan.start_now')}
+              </Button>
+            )}
           </CardPricing.Footer>
         </CardPricing.Root>
 

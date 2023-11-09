@@ -22,6 +22,12 @@ async function upgradePlan() {
   return response
 }
 
+async function getSubscriptionUrl() {
+  const response = await http.get('/projects/subscription/url')
+
+  return response
+}
+
 const swrKeys = {
   POST_CREATE_PROJECT: 'POST_CREATE_PROJECT',
   GET_PROJECT: 'GET_PROJECT',
@@ -35,6 +41,7 @@ const projectService = {
   getProject,
   updateDomain,
   upgradePlan,
+  getSubscriptionUrl,
 }
 
 export default projectService

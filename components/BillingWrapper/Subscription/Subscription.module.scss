@@ -1,0 +1,18 @@
+.subscription {
+  margin-top: 40px;
+
+  .fakeLink {
+    color: var(--helper-500);
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 5px;
+    span {
+      text-decoration: underline;
+    }
+    > svg {
+      margin-bottom: -5px;
+      height: 22px;
+      width: 22px;
+    }
+  }
+}
