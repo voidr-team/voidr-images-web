@@ -10,7 +10,7 @@ import {
 } from '@mui/joy'
 import useOrganizationMembers from './useOrganizationMembers'
 import Loader from '@/components/UI/Loader'
-import styles from './ListMembers.module.scss'
+import styles from '../List.module.scss'
 import { useTranslation } from 'next-i18next'
 
 function ListMembers() {
@@ -59,7 +59,11 @@ function ListMembers() {
                     <MenuButton sx={{ padding: 1 }}>
                       <Icon height={20} width={20} id="More_Horizontal" />
                     </MenuButton>
-                    <Menu>
+                    <Menu
+                      sx={(theme) => ({
+                        backgroundColor: theme.vars.palette.primary[500],
+                      })}
+                    >
                       <MenuItem onClick={() => deleteMember(member?.sub)}>
                         <Icon height={20} width={20} id="Remove_Minus_Circle" />
                         <Typography

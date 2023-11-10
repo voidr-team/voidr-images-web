@@ -5,7 +5,6 @@ import {
   MenuButton,
   MenuItem,
   Stack,
-  Table,
   Typography,
 } from '@mui/joy'
 import useOrganizationInvites from './useOrganizationInvites'
@@ -15,6 +14,7 @@ import CopyClipboard from '@/components/CopyClipboard'
 import EmptyState from '@/components/UI/EmptyState'
 import formatDateLocal from '@/utils/formatDateLocal'
 import { useTranslation } from 'next-i18next'
+import styles from '../List.module.scss'
 
 function ListInvites() {
   const { data, isLoading, cancelInvite } = useOrganizationInvites()
@@ -32,7 +32,7 @@ function ListInvites() {
     <>
       {data?.data.length > 0 ? (
         <Stack>
-          <Table>
+          <table className={styles.table}>
             <thead>
               <tr>
                 <th>{t('inviations.table.email')}</th>
@@ -56,7 +56,11 @@ function ListInvites() {
                       <MenuButton sx={{ padding: 1 }}>
                         <Icon height={20} width={20} id="More_Horizontal" />
                       </MenuButton>
-                      <Menu>
+                      <Menu
+                        sx={(theme) => ({
+                          backgroundColor: theme.vars.palette.primary[500],
+                        })}
+                      >
                         <Stack padding="5px">
                           <CopyClipboard text={invite.invitation_url}>
                             <MenuItem>
@@ -90,7 +94,7 @@ function ListInvites() {
                 </tr>
               ))}
             </tbody>
-          </Table>
+          </table>
         </Stack>
       ) : (
         <EmptyState content={t('inviations.table.empty_state')} />
