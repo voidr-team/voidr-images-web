@@ -21,7 +21,7 @@
   "metrics.total_active_images": "Total active images",
   "files.title": "Files",
   "add_new_file.title": "Upload file",
-  "add_new_file.accepted_formats": "Accepted formats for upload: PNG, JPEG, JPG, WEBP, GIF, TIFF, and AVIF",
+  "add_new_file.accepted_formats": "Accepted formats for upload: PNG, JPEG, WEBP, GIF, TIFF, and AVIF",
   "add_new_file.toast.uploaded": "Image uploaded",
   "settings.title": "Settings",
   "change_domains.title": "Domains",
