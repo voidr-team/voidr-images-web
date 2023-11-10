@@ -1,0 +1,20 @@
+.externalLink {
+  color: var(--helper-500);
+  cursor: pointer;
+  width: fit-content;
+  margin-top: 5px;
+
+  &:visited, &:hover, &a:active {
+    color: var(--helper-500);
+  }
+
+  span {
+    text-decoration: underline;
+  }
+  
+  > svg {
+    margin-bottom: -5px;
+    height: 22px;
+    width: 22px;
+  }
+}

@@ -28,10 +28,6 @@ export default function OnboardingWrapper() {
             <StepRender steps={steps} eq="SETUP">
               <Steps.Setup steps={steps} />
             </StepRender>
-
-            <StepRender steps={steps} eq="START">
-              <Steps.Finish steps={steps} />
-            </StepRender>
           </FormProvider>
 
           <Stack marginY={6} direction="row" gap={2}>

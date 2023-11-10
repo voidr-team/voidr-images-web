@@ -88,7 +88,7 @@ export default function useOnboarding() {
         },
       })
       await fetchUser()
-      steps.nextStep()
+      return router.push('/images/dashboard')
     },
   })
 
@@ -106,6 +106,7 @@ export default function useOnboarding() {
 
   const onSubmit = formMethods.handleSubmit((data) => {
     persistData(data)
+
     if (steps.getCurrentStepName() === 'SETUP' && !userAlreadyCreateProject) {
       return createProject({
         name: data?.name,
@@ -124,11 +125,13 @@ export default function useOnboarding() {
   }, [])
 
   useEffect(() => {
-    router.replace({
-      query: {
-        page: steps.current + 1,
-      },
-    })
+    if (steps.getCurrentStepName() !== 'START') {
+      router.replace({
+        query: {
+          track: `step${steps.current + 1}`,
+        },
+      })
+    }
     persistStep(steps.current)
   }, [steps.current])
 

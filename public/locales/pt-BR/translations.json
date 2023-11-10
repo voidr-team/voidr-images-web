@@ -104,7 +104,7 @@
   "onboarding.setup.description": "Escolha o SDK certo para sua stack de tecnologia.",
   "onboarding.finish.title": "Aguardando dados de imagem",
   "onboarding.finish.no_data": "Nenhum dado foi recebido ainda.",
-  "onboarding.finish.description": "Certifique-se de ter concluído as configurações para que possamos carregar seu dashboard.",
+  "onboarding.finish.description": "Certifique-se de ter concluído a implementação do projeto \"{{project}}\" para que possamos carregar seu dashboard.",
   "onboarding.finish.back": "Voltar para configurações",
   "subscription.title": "Assinatura",
   "subscription.description": "Ver detalhes do cartão & assinatura"

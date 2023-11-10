@@ -6,6 +6,8 @@ import styles from './DashboardWrapper.module.scss'
 import ModalFileImage from '../ModalFileImage'
 import { useState } from 'react'
 import Metrics from './Metrics'
+import WaitingData from './WaitingData'
+import useDashboardWrapper from './useDashboardWrapper'
 const TrafficDataGraph = dynamic(
   () => {
     return import('./TrafficDataGraph')
@@ -14,17 +16,20 @@ const TrafficDataGraph = dynamic(
 )
 
 export default function DashboardWrapper() {
-  const [isDialogOpen, setIsDialogOpen] = useState(false)
-  const [currentImage, setCurrentImage] = useState(null)
-
-  const { data, isLoading } = useDashboard()
-  const graphData = data?.imagesPerDay?.map(({ count, date }) => ({
-    date: date,
-    value: count,
-  }))
+  const {
+    hasNoUsage,
+    graphData,
+    isLoading,
+    data,
+    isDialogOpen,
+    currentImage,
+    setCurrentImage,
+    setIsDialogOpen,
+  } = useDashboardWrapper()
 
   return (
     <div className={styles.dashboardWrapper}>
+      {hasNoUsage && !isLoading && <WaitingData />}
       <div className={styles.dataColumn}>
         <LastProcessedFiles
           setIsDialogOpen={setIsDialogOpen}
