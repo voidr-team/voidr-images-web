@@ -9,7 +9,7 @@ import ErrorMessage from '@/components/UI/ErrorMessage'
 import Label from '@/components/Form/Input/Label'
 import { useTranslation } from 'next-i18next'
 
-export default function CreateProject() {
+export default function CreateProject({ userAlreadyCreateProject }) {
   const {
     control,
     formState: { errors },
@@ -23,6 +23,7 @@ export default function CreateProject() {
       <Stack maxWidth="400px">
         <Input
           name="name"
+          readOnly={userAlreadyCreateProject}
           placeholder={t('onboarding.create_project.form.project.placeholder')}
           label={t('onboarding.create_project.form.project.label')}
         />
@@ -46,6 +47,7 @@ export default function CreateProject() {
             >
               <Stack width="100%" maxWidth="400px">
                 <Input
+                  readOnly={userAlreadyCreateProject}
                   name={`domains.${index}.domain`}
                   placeholder={t(
                     'onboarding.create_project.form.domain.placeholder'
@@ -53,7 +55,7 @@ export default function CreateProject() {
                 />
               </Stack>
 
-              {index === 0 ? null : (
+              {index === 0 || userAlreadyCreateProject ? null : (
                 <Trash
                   style={{ cursor: 'pointer' }}
                   onClick={() => remove(index)}
@@ -62,16 +64,17 @@ export default function CreateProject() {
             </Stack>
           ))}
         </div>
-
-        <Typography
-          onClick={() => append({ domain: '' })}
-          sx={{ cursor: 'pointer' }}
-          marginTop={1}
-          textColor="helper.500"
-          fontSize={16}
-        >
-          {t('change_domains.add_domain')}
-        </Typography>
+        {!userAlreadyCreateProject && (
+          <Typography
+            onClick={() => append({ domain: '' })}
+            sx={{ cursor: 'pointer' }}
+            marginTop={1}
+            textColor="helper.500"
+            fontSize={16}
+          >
+            {t('change_domains.add_domain')}
+          </Typography>
+        )}
       </Stack>
 
       <Stack marginTop={5}>
@@ -85,6 +88,7 @@ export default function CreateProject() {
             <Stack justifyContent="center" alignItems="center">
               <RadioButton
                 icon="Web_Icon"
+                readOnly={userAlreadyCreateProject}
                 className={styles.radioButton}
                 name="platform"
                 value="web"
@@ -103,6 +107,7 @@ export default function CreateProject() {
               <RadioButton
                 icon="Mobile_Icon"
                 className={styles.radioButton}
+                readOnly={userAlreadyCreateProject}
                 name="platform"
                 value="mobile"
               />

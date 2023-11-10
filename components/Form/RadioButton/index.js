@@ -3,7 +3,16 @@ import styles from './RadioButton.module.scss'
 import cx from 'classnames'
 import { useFormContext } from 'react-hook-form'
 
-const RadioButton = ({ className, label, icon, value, name, theme, rules }) => {
+const RadioButton = ({
+  className,
+  label,
+  icon,
+  value,
+  name,
+  theme,
+  rules,
+  readOnly,
+}) => {
   const { register } = useFormContext()
   return (
     <label
@@ -12,7 +21,12 @@ const RadioButton = ({ className, label, icon, value, name, theme, rules }) => {
         [styles.themeRounded]: theme === 'rounded',
       })}
     >
-      <input type="radio" value={value} {...register(name, rules)} />
+      <input
+        type="radio"
+        value={value}
+        {...register(name, rules)}
+        readOnly={readOnly}
+      />
       <div className={styles.wrapper}>
         {icon ? (
           <div className={styles.iconWrapper}>

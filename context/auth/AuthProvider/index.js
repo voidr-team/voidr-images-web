@@ -23,7 +23,7 @@ function AuthProvider({ children }) {
   const { http } = useHttp()
 
   const [user, setUser] = useState(null)
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   function onLogout() {
     persistCurrentRoute()
@@ -100,7 +100,6 @@ function AuthProvider({ children }) {
       router.push(returnTo)
       return
     }
-
     if (router.pathname === '/' || router.pathname === '/onboarding') {
       return router.push('/images/dashboard')
     }
@@ -133,7 +132,9 @@ function AuthProvider({ children }) {
         fetchUser()
           .then((userData) => {
             startLogger(userData)
-            redirectAfterLogin(userData)
+            return redirectAfterLogin(userData)
+          })
+          .then(() => {
             setIsLoading(false)
           })
           .catch((err) => {
