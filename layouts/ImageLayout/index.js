@@ -10,6 +10,7 @@ import useAuth from '@/context/auth/useAuth'
 import styles from './ImageLayout.module.scss'
 import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
+import Header from '../../components/Header'
 
 function ImageLayout({ children, title }) {
   const router = useRouter()
@@ -20,6 +21,7 @@ function ImageLayout({ children, title }) {
       <Head>
         <title>voidr | {title}</title>
       </Head>
+      <Header menuList={sidebarItems.images} />
       <div className={styles.imageLayoutRoot}>
         <Sidebar.Root>
           <Sidebar.Content>

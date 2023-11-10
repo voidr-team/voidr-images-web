@@ -1,10 +1,11 @@
 .wrapper {
   width: 100%;
+  overflow-x: auto;
 }
 
 .table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
 
   thead tr th {
     text-align: left;
@@ -13,6 +14,12 @@
   td,
   th {
     padding-block: 10px;
+  }
+
+  td + td,
+  th + th {
+    padding-left: 20px;
+    white-space: nowrap;
   }
 
   tbody tr td {

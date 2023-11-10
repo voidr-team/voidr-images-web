@@ -8,7 +8,7 @@
   .sidebarContent {
     height: 100%;
     display: flex;
-    transition: transform .25s ease, opacity 0.2s ease;
+    transition: transform 0.25s ease, opacity 0.2s ease;
 
     @include below(1440px) {
       position: absolute;
@@ -16,8 +16,8 @@
       z-index: 0;
       opacity: 0;
       transform: translateX(-100%);
-      box-shadow: 2px 0px 10px 3px rgba(0,0,0,0.69);
-    } 
+      box-shadow: 2px 0px 10px 3px rgba(0, 0, 0, 0.69);
+    }
   }
 
   .chevron {
@@ -26,7 +26,6 @@
   }
 
   @include below(1440px) {
-
     .chevron {
       display: block;
       margin-top: auto;
@@ -37,16 +36,20 @@
         position: relative;
         background-color: var(--joy-palette-primary-500);
       }
+
+      @include below(700px) {
+        display: none;
+      }
     }
     &:hover,
     &:focus {
-      .sidebarContent  {
+      .sidebarContent {
         z-index: 2;
         opacity: 1;
-        transform: translateX(65px)
+        transform: translateX(65px);
       }
     }
-  } 
+  }
 
   .iconNavigationItem {
     cursor: pointer !important;

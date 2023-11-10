@@ -11,10 +11,6 @@
   flex-direction: column;
   gap: 20px;
 
-  @include below(340px) {
-    width: 200px;
-  }
-
   > h4 {
     font-weight: 600;
     font-size: 20px;

@@ -31,7 +31,7 @@ function ListInvites() {
   return (
     <>
       {data?.data.length > 0 ? (
-        <Stack>
+        <section className={styles.wrapper}>
           <table className={styles.table}>
             <thead>
               <tr>
@@ -95,7 +95,7 @@ function ListInvites() {
               ))}
             </tbody>
           </table>
-        </Stack>
+        </section>
       ) : (
         <EmptyState content={t('inviations.table.empty_state')} />
       )}
