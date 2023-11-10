@@ -9,7 +9,8 @@ import styles from './OnboardingWrapper.module.scss'
 import { useTranslation } from 'next-i18next'
 
 export default function OnboardingWrapper() {
-  const { steps, formMethods, onSubmit, isLoading } = useOnboarding()
+  const { steps, formMethods, onSubmit, isLoading, userAlreadyCreateProject } =
+    useOnboarding()
   const { t } = useTranslation(['translations', 'common'])
   return (
     <Stack direction="row" minHeight="100vh" bgcolor="primary.500">
@@ -19,7 +20,9 @@ export default function OnboardingWrapper() {
         <form id="onboardingForm" onSubmit={onSubmit}>
           <FormProvider {...formMethods}>
             <StepRender steps={steps} eq="CREATE_PROJECT">
-              <Steps.CreateProject />
+              <Steps.CreateProject
+                userAlreadyCreateProject={userAlreadyCreateProject}
+              />
             </StepRender>
 
             <StepRender steps={steps} eq="SETUP">
@@ -32,7 +35,7 @@ export default function OnboardingWrapper() {
           </FormProvider>
 
           <Stack marginY={6} direction="row" gap={2}>
-            {/* {steps.isFirstStep || steps.isLastStep ? null : (
+            {steps.isFirstStep || steps.isLastStep ? null : (
               <Button
                 disabled={isLoading}
                 onClick={steps.backStep}
@@ -41,7 +44,7 @@ export default function OnboardingWrapper() {
               >
                 Back
               </Button>
-            )} */}
+            )}
 
             {steps.isLastStep ? null : (
               <Button form="onboardingForm" isLoading={isLoading} type="submit">

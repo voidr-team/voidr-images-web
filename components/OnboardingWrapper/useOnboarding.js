@@ -8,6 +8,8 @@ import toastEz from '@/utils/toastEz'
 import { useAuth0 } from '@auth0/auth0-react'
 import useAuth from '@/context/auth/useAuth'
 import { useTranslation } from 'next-i18next'
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 const formSteps = {
   order: ['CREATE_PROJECT', 'SETUP', 'START'],
@@ -42,11 +44,24 @@ const schema = yup.object().shape({
 
 export default function useOnboarding() {
   const { t } = useTranslation(['translations', 'common'])
-  const { fetchUser } = useAuth()
+  const { fetchUser, user } = useAuth()
   const { getAccessTokenSilently } = useAuth0()
   const steps = useSteps(formSteps)
+  const router = useRouter()
+  const userAlreadyCreateProject = user?.currentProject?.id
+
+  const loadData = () => {
+    try {
+      return JSON.parse(sessionStorage.getItem('onboarding_data'))
+    } catch (_) {
+      return null
+    }
+  }
+
+  const initialFormValues = loadData()
+
   const formMethods = useForm({
-    defaultValues: {
+    defaultValues: initialFormValues || {
       domains: [{ domain: '' }],
       tech: 'node',
       framework: 'react',
@@ -56,7 +71,9 @@ export default function useOnboarding() {
 
   const { mutate: createProject, isLoading } = useMutation({
     mutationKey: [projectService.swrKeys.POST_CREATE_PROJECT],
-    mutationFn: (data) => projectService.postCreateProject(data),
+    mutationFn: (data) => {
+      return projectService.postCreateProject(data)
+    },
     onError: async (error) => {
       const message = error?.response?.data?.error
       toastEz.error(message)
@@ -75,8 +92,21 @@ export default function useOnboarding() {
     },
   })
 
+  const persistData = (data) => {
+    sessionStorage.setItem('onboarding_data', JSON.stringify(data))
+  }
+
+  const persistStep = (step) => {
+    sessionStorage.setItem('onboarding_step', step)
+  }
+
+  const loadStep = () => {
+    return sessionStorage.getItem('onboarding_step') || 0
+  }
+
   const onSubmit = formMethods.handleSubmit((data) => {
-    if (steps.getCurrentStepName() === 'CREATE_PROJECT') {
+    persistData(data)
+    if (steps.getCurrentStepName() === 'SETUP' && !userAlreadyCreateProject) {
       return createProject({
         name: data?.name,
         domains: data?.domains?.map((domain) => domain?.domain),
@@ -88,5 +118,19 @@ export default function useOnboarding() {
     }
   })
 
-  return { steps, formMethods, onSubmit, isLoading }
+  useEffect(() => {
+    const step = loadStep()
+    steps.sendToStep(Number(step))
+  }, [])
+
+  useEffect(() => {
+    router.replace({
+      query: {
+        page: steps.current + 1,
+      },
+    })
+    persistStep(steps.current)
+  }, [steps.current])
+
+  return { steps, formMethods, onSubmit, isLoading, userAlreadyCreateProject }
 }
