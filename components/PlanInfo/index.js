@@ -16,7 +16,8 @@ export default function PlanInfo({ usage = 0 }) {
   const { t } = useTranslation(['translations', 'common'])
   const { user } = useAuth()
   const isProPlan = user?.currentProject?.plan === 'PRO'
-  const totalImages = isProPlan ? 100000 : 1000
+  const freeUsage = user?.currentProject?.usageLimit || 1000
+  const totalImages = isProPlan ? 100000 : freeUsage
   return (
     <Stack marginTop={3} maxWidth="400px">
       <Stack gap={1} direction="row" alignItems="center">
