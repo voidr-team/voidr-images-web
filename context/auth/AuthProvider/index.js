@@ -51,7 +51,6 @@ function AuthProvider({ children }) {
     const { name, email, sub } = userData
     const isDevelopment = process.env.NODE_ENV === 'development'
     if (isDevelopment) {
-      console.log(userData)
       startMonitoring({ name, email, id: sub })
     }
   }

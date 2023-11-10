@@ -9,7 +9,7 @@ import EmptyStateProcessedFiles from '@/components/EmptyStateProcessedFiles'
 import { useTranslation } from 'next-i18next'
 
 export default function FileList({ setIsDialogOpen, setCurrentImage }) {
-  const { data, paginate, isLoading } = useFilesList({ limit: 20 })
+  const { data, paginate, isLoading, page } = useFilesList({ limit: 20 })
   const { t } = useTranslation(['translations', 'common'])
 
   return (
@@ -45,7 +45,11 @@ export default function FileList({ setIsDialogOpen, setCurrentImage }) {
       </div>
 
       {!isLoading && !isEmpty(data?.images) ? (
-        <Pagination onPageChange={paginate} pageCount={data?.pages} />
+        <Pagination
+          onPageChange={paginate}
+          pageCount={data?.pages}
+          initialPage={page}
+        />
       ) : null}
     </Stack>
   )

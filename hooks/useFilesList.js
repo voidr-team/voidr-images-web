@@ -26,5 +26,7 @@ export default function useFilesList({ limit = 10 }) {
     })
   }
 
-  return { data: data?.data, isLoading, paginate }
+  const page = router.query?.page
+
+  return { data: data?.data, isLoading, paginate, page }
 }
