@@ -50,7 +50,7 @@ function AuthProvider({ children }) {
   const startLogger = (userData) => {
     const { name, email, sub } = userData
     const isDevelopment = process.env.NODE_ENV === 'development'
-    if (isDevelopment) {
+    if (!isDevelopment) {
       startMonitoring({ name, email, id: sub })
     }
   }
