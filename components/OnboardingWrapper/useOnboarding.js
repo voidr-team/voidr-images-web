@@ -88,7 +88,7 @@ export default function useOnboarding() {
         },
       })
       await fetchUser()
-      return router.push('/images/dashboard')
+      steps.nextStep()
     },
   })
 
@@ -107,11 +107,18 @@ export default function useOnboarding() {
   const onSubmit = formMethods.handleSubmit((data) => {
     persistData(data)
 
-    if (steps.getCurrentStepName() === 'SETUP' && !userAlreadyCreateProject) {
+    if (
+      steps.getCurrentStepName() === 'CREATE_PROJECT' &&
+      !userAlreadyCreateProject
+    ) {
       return createProject({
         name: data?.name,
         domains: data?.domains?.map((domain) => domain?.domain),
       })
+    }
+
+    if (steps.getCurrentStepName() === 'SETUP') {
+      return router.push('/images/dashboard')
     }
 
     if (!steps.isPostStep()) {

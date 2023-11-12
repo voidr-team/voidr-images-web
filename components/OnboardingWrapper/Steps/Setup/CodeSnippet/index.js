@@ -3,21 +3,16 @@ import styles from './CodeSnippet.module.scss'
 import RadioButton from '@/components/Form/RadioButton'
 import CodeBlocks from '@/components/UI/CodeBlocks'
 import { Stack } from '@mui/joy'
-import { laravel, react, python, html } from './data'
+import createSnippetData from './data'
 import { useFormContext } from 'react-hook-form'
 import { head } from 'ramda'
 import { useEffect } from 'react'
+import useAuth from '@/context/auth/useAuth'
 
 const langFrameworksMap = {
   node: ['react', 'html'],
   php: ['laravel'],
   python: ['django'],
-}
-const options = {
-  react,
-  laravel,
-  django: python,
-  html,
 }
 
 const languageMap = {
@@ -29,7 +24,17 @@ const languageMap = {
 export default function CodeSnippet() {
   const { watch, setValue } = useFormContext()
   const [optionsFramework, optionLanguage] = watch(['framework', 'tech'])
+  const { user } = useAuth()
+  const { laravel, react, python, html } = createSnippetData(
+    user?.currentProject?.name
+  )
 
+  const options = {
+    react,
+    laravel,
+    django: python,
+    html,
+  }
   useEffect(() => {
     setValue('framework', head(langFrameworksMap[optionLanguage]))
   }, [optionLanguage])

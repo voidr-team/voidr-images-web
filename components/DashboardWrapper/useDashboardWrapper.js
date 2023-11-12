@@ -27,6 +27,8 @@ const useDashboardWrapper = () => {
 
   const destroyPooling = () => {
     setPoolingId(null)
+    const customEvent = new CustomEvent('images:fetch')
+    document.dispatchEvent(customEvent)
     clearInterval(poolingId)
   }
 
