@@ -50,7 +50,7 @@ export default function PlanInfo({ usage = 0 }) {
               textColor="neutral.500"
               level="body-sm"
             >
-              Processed
+              {t('plan_info.processed')}
             </Typography>
             <Typography lineHeight={3} fontWeight="600" level="body-sm">
               {usage} {t('common:images')}

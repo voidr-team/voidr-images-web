@@ -102,6 +102,7 @@
   "onboarding.steps.create_project": "Create project",
   "onboarding.steps.setup": "Setup",
   "onboarding.steps.start": "Start",
+  "onboarding.create_project.title": "Create your project",
   "onboarding.create_project.form.project.label": "Project name",
   "onboarding.create_project.form.project.placeholder": "xpto_marketplace",
   "onboarding.create_project.form.domain.label": "Domains",
