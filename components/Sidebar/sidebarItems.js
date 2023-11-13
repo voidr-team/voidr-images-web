@@ -4,6 +4,7 @@ import {
   FolderOpen,
   Settings,
   LogOut,
+  // Megaphone,
 } from 'lucide-react'
 
 const sidebarItems = {
@@ -26,14 +27,20 @@ const sidebarItems = {
       icon: Settings,
       link: '/images/settings',
     },
-  ],
-  common: [
     {
-      id: 1,
+      id: 4,
       label: 'common:billing',
       icon: CreditCard,
       link: '/common/billing',
     },
+    // {
+    //   id: 5,
+    //   label: 'common:referral',
+    //   icon: Megaphone,
+    //   link: '/images/referral',
+    // },
+  ],
+  common: [
     {
       id: 2,
       label: 'common:log_out',

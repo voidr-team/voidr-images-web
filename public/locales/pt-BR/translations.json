@@ -24,6 +24,7 @@
   "add_new_file.accepted_formats": "Formatos aceitos para upload: PNG, JPEG, WEBP, GIF, TIFF e AVIF",
   "add_new_file.toast.uploaded": "Imagem enviada",
   "settings.title": "Configurações",
+  "referral.title": "Indicações",
   "change_domains.title": "Domínios",
   "change_domains.add_domain": "+ Adicionar domínio",
   "change_domains.toast.success": "Domínios atualizados",

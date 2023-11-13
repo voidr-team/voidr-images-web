@@ -11,11 +11,13 @@ import styles from './ImageLayout.module.scss'
 import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
 import Header from '../../components/Header'
+import { LibraryBig } from 'lucide-react'
 
 function ImageLayout({ children, title }) {
   const router = useRouter()
   const { user } = useAuth()
   const { t } = useTranslation(['translations', 'common'])
+
   return (
     <BaseLayout currentPage="dashboard">
       <Head>
@@ -59,6 +61,16 @@ function ImageLayout({ children, title }) {
                     </li>
                   </Link>
                 ))}
+                <a
+                  href="https://voidr-images.readme.io/reference/intro"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <li className={sidebarStyles.listItem}>
+                    <LibraryBig />
+                    {t('common:docs')}
+                  </li>
+                </a>
               </ul>
             </div>
           </Sidebar.Content>
