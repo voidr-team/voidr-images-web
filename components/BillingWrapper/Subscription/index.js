@@ -12,6 +12,7 @@ const Subscription = () => {
   if (user.currentProject?.plan !== 'PRO') {
     return null
   }
+
   return (
     <div className={styles.subscription}>
       <Typography level="h4">{t('subscription.title')}</Typography>

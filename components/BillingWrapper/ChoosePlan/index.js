@@ -19,14 +19,14 @@ export default function ChoosePlan() {
 
       <Stack gap={3} marginTop={4} direction="row" flexWrap="wrap">
         <CardPricing.Root>
-          <CardPricing.Header title={t('choose_plan.plans.1.title')} />
+          <CardPricing.Header title={t('choose_plan.plans.2.title')} />
 
           <CardPricing.Price>
             <Typography fontSize={48}>
-              {t('choose_plan.plans.1.value')}
+              {t('choose_plan.plans.2.value')}
             </Typography>
             <Typography textColor="neutral.400" fontSize={20}>
-              {t('choose_plan.plans.1.description')}
+              {t('choose_plan.plans.2.description')}
             </Typography>
           </CardPricing.Price>
 
@@ -52,11 +52,11 @@ export default function ChoosePlan() {
         </CardPricing.Root>
 
         <CardPricing.Root>
-          <CardPricing.Header title={t('choose_plan.plans.2.title')} />
+          <CardPricing.Header title={t('choose_plan.plans.3.title')} />
 
           <CardPricing.Price>
             <Typography textAlign="center" fontSize={40}>
-              {t('choose_plan.plans.2.value')}
+              {t('choose_plan.plans.3.value')}
             </Typography>
           </CardPricing.Price>
 
