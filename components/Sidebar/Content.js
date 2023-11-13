@@ -2,7 +2,7 @@ import { Stack } from '@mui/joy'
 import styles from './Sidebar.module.scss'
 import sidebarItems from './sidebarItems'
 import SidebarItem from './SidebarItem'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 function Content({ children }) {
   const { t } = useTranslation(['translations', 'common'])

@@ -11,6 +11,7 @@ export default function ChoosePlan() {
     useChoosePlan()
   const { t } = useTranslation(['translations', 'common'])
   const { user } = useAuth()
+
   return (
     <Stack marginTop={5}>
       <Typography fontSize={20} fontWeight="600" level="h4">
@@ -18,6 +19,34 @@ export default function ChoosePlan() {
       </Typography>
 
       <Stack gap={3} marginTop={4} direction="row" flexWrap="wrap">
+        <CardPricing.Root>
+          <CardPricing.Header title={t('choose_plan.plans.1.title')} />
+
+          <CardPricing.Price>
+            <Typography fontSize={48}>
+              {t('choose_plan.plans.1.value')}
+            </Typography>
+            <Typography textColor="neutral.400" fontSize={20}>
+              {t('choose_plan.plans.1.description')}
+            </Typography>
+          </CardPricing.Price>
+
+          <CardPricing.Benefits benefits={plansInfo.free.benefits(t)} />
+
+          <CardPricing.Footer>
+            {user?.currentProject?.plan === 'FREE' ? (
+              <Typography
+                textAlign="center"
+                level="body-md"
+                paddingY="3px"
+                textColor="neutral.300"
+              >
+                {t('choose_plan.current_plan')}
+              </Typography>
+            ) : null}
+          </CardPricing.Footer>
+        </CardPricing.Root>
+
         <CardPricing.Root>
           <CardPricing.Header title={t('choose_plan.plans.2.title')} />
 
