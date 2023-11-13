@@ -15,5 +15,7 @@
   "referral": "Indicação",
   "docs": "Documentação",
   "billing": "Faturamento",
-  "log_out": "Sair"
+  "log_out": "Sair",
+  "card_name": "Titular do cartão",
+  "add_card": "Cadastrar cartão"
 }

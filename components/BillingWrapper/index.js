@@ -25,7 +25,6 @@ export default function BillingWrapper() {
           </Typography>
         </Stack>
       )}
-
       <Subscription />
       <ChoosePlan />
     </div>

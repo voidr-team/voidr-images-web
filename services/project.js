@@ -28,6 +28,15 @@ async function getSubscriptionUrl() {
   return response
 }
 
+async function postCheckout({ token, name, email }) {
+  const response = await http.post('/projects/checkout', {
+    token,
+    name: name,
+    email: email,
+  })
+  return response
+}
+
 const swrKeys = {
   POST_CREATE_PROJECT: 'POST_CREATE_PROJECT',
   GET_PROJECT: 'GET_PROJECT',
@@ -42,6 +51,7 @@ const projectService = {
   updateDomain,
   upgradePlan,
   getSubscriptionUrl,
+  postCheckout,
 }
 
 export default projectService

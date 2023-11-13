@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styles from './InviteMember.module.scss'
 import useInviteMember from './useInviteMember'
 import { FormProvider } from 'react-hook-form'
-import Modal from '../../UI/Modal'
+import InviteMemberModal from './InviteMemberModal'
 import Input from '../../Form/Input'
 import Autocomplete from '../../Form/Autocomplete'
 import Button from '../../UI/Button'
@@ -15,7 +15,7 @@ function InviteMember({ isOpen, setIsOpen }) {
   const { t } = useTranslation(['translations', 'common'])
 
   return (
-    <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+    <InviteMemberModal isOpen={isOpen} setIsOpen={setIsOpen}>
       <FormProvider {...formMethods}>
         <form className={styles.form} onSubmit={onSubmit}>
           <div className={styles.inputsWrapper}>
@@ -41,7 +41,7 @@ function InviteMember({ isOpen, setIsOpen }) {
           </Stack>
         </form>
       </FormProvider>
-    </Modal>
+    </InviteMemberModal>
   )
 }
 

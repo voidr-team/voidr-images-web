@@ -1,0 +1,33 @@
+.checkoutInput {
+  padding: 5px;
+  border-radius: 6px;
+  padding-block: 12px;
+  padding-inline: 15px;
+  background-color: var(--joy-palette-primary-400);
+  border: 1px solid var(--joy-palette-neutral-600);
+
+  &:hover {
+    border-color: var(--joy-palette-helper-500);
+  }
+
+  &:focus {
+    border-color: var(--joy-palette-helper-500);
+  }
+}
+.modalHolder {
+  padding: 20px 20px;
+  max-width: 480px;
+
+  form {
+    margin-top: 25px;
+  }
+}
+.formHolder {
+  + .formHolder {
+    margin-top: 25px;
+  }
+
+}
+.action {
+  margin-top: 40px;
+}

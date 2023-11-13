@@ -18,6 +18,8 @@
     "@hookform/error-message": "2.0.1",
     "@hookform/resolvers": "3.3.1",
     "@mui/joy": "5.0.0-beta.4",
+    "@stripe/react-stripe-js": "2.3.1",
+    "@stripe/stripe-js": "2.1.11",
     "@uppy/aws-s3": "3.4.0",
     "@uppy/core": "3.6.0",
     "@uppy/dashboard": "3.6.0",

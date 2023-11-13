@@ -1,10 +1,12 @@
 import Input from '@/components/Form/Input'
-const EmailField = ({ name, label = 'Email' }) => {
+const EmailField = ({ name, label = 'Email', placeholder, defaultValue }) => {
   return (
     <Input
       name={name}
       type="email"
       label={label}
+      placeholder={placeholder}
+      defaultValue={defaultValue}
       rules={{
         required: 'Campo obrigatório',
         pattern: {

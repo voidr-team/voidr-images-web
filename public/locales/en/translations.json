@@ -119,5 +119,12 @@
   "onboarding.finish.description": "Make sure that you have finished setting everything up so that we can load your dashboard.",
   "onboarding.finish.back": "Back to setup",
   "subscription.title": "Subscription",
-  "subscription.description": "View card & invoice details"
+  "subscription.description": "View card & invoice details",
+  "checkout.title": "Add credit card",
+  "checkout.description": "You will only be charged when you reach the limit of 1000 images",
+  "checkout.card_number": "Card number",
+  "checkout.expiration_date": "Expiration date",
+  "checkout.cvc": "CVC",
+  "checkout.toast.error": "An error occurred while completing the checkout",
+  "checkout.toast.success": "Card registered successfully"
 }

@@ -119,5 +119,12 @@
   "onboarding.finish.description": "Certifique-se de ter concluído a implementação do projeto \"{{project}}\" para que possamos carregar seu dashboard.",
   "onboarding.finish.back": "Voltar para configurações",
   "subscription.title": "Assinatura",
-  "subscription.description": "Ver detalhes do cartão & assinatura"
+  "subscription.description": "Ver detalhes do cartão & assinatura",
+  "checkout.title": "Cadastre seu cartão de crédito",
+  "checkout.description": "Você receberá cobrança somente quando atingir o limite de 1000 imagens",
+  "checkout.card_number": "Número do cartão",
+  "checkout.expiration_date": "Data de expiração",
+  "checkout.cvc": "CVC",
+  "checkout.toast.error": "Ocorrou um erro ao completar o checkout",
+  "checkout.toast.success": "Cartão cadastrado com sucesso"
 }
