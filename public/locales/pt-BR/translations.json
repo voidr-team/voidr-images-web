@@ -27,6 +27,8 @@
   "referral.title": "Indicações & Recompensas",
   "referral.invite.title": "Convide amigos para testar o Voidr Images",
   "referral.invite.description": "🔥 Receba um kit de desenvolvedor com um moletom Voidr, camiseta Voidr, mousepad e adesivo quando você atingir 20 amigos convidados que se inscreverem a partir do seu link.",
+  "referral.invite.copy_url_title": "Seu link personalizado para convidar amigos",
+  "referral.invite.share_title": "Compartilhe seu link",
   "change_domains.title": "Domínios",
   "change_domains.add_domain": "+ Adicionar domínio",
   "change_domains.toast.success": "Domínios atualizados",
