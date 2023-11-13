@@ -44,18 +44,11 @@ export default function Setup() {
       minHeight="80vh"
       maxWidth="1200px"
       position="relative"
-      marginTop={{ xs: 6, sm: 7, md: 15 }}
+      marginTop={{ xs: '20px', sm: '30px', md: '50px' }}
     >
       <Stack>
-        <Typography
-          fontWeight="600"
-          fontSize={20}
-          alignContent="center"
-          alignItems="center"
-          display="flex"
-        >
-          {t('onboarding.setup.title')}
-        </Typography>
+        <Typography level="h2">{t('onboarding.setup.title')}</Typography>
+
         <Typography
           marginTop={1}
           textColor="primary.100"
