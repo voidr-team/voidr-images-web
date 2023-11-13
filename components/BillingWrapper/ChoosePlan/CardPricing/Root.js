@@ -7,7 +7,7 @@ export default function Root({ children }) {
       gap={3}
       border={1}
       p={3}
-      maxWidth={300}
+      maxWidth={340}
       borderColor="neutral.600"
       borderRadius={6}
       bgcolor="transparent"
