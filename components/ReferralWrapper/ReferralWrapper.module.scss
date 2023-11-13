@@ -1,0 +1,30 @@
+@import '/styles/mixins';
+
+.referralWrapper {
+  max-width: fit-content;
+  max-height: fit-content;
+  background-color: #1c1e2c;
+  border-radius: 6px;
+  display: flex;
+
+  @include below(800px) {
+    flex-wrap: wrap;
+  }
+
+  > img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .content {
+    padding: 35px;
+    max-width: 600px;
+
+    > p {
+      line-height: 22px;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 10px 0;
+    }
+  }
+}
