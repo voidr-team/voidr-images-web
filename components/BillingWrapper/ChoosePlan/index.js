@@ -1,6 +1,5 @@
 import { Stack, Typography } from '@mui/joy'
 import CardPricing from './CardPricing'
-import plansInfo from './plansInfo'
 import Button from '../../UI/Button'
 import useChoosePlan from './useChoosePlan'
 import useAuth from '@/context/auth/useAuth'
@@ -31,7 +30,7 @@ export default function ChoosePlan() {
             </Typography>
           </CardPricing.Price>
 
-          <CardPricing.Benefits benefits={plansInfo.free.benefits(t)} />
+          <CardPricing.Benefits planSlug="FREE" />
 
           <CardPricing.Footer>
             {user?.currentProject?.plan === 'FREE' ? (
@@ -59,7 +58,7 @@ export default function ChoosePlan() {
             </Typography>
           </CardPricing.Price>
 
-          <CardPricing.Benefits benefits={plansInfo.payAsGrow.benefits(t)} />
+          <CardPricing.Benefits planSlug="PRO" />
 
           <CardPricing.Footer>
             {user?.currentProject?.plan === 'PRO' && (
@@ -89,7 +88,7 @@ export default function ChoosePlan() {
             </Typography>
           </CardPricing.Price>
 
-          <CardPricing.Benefits benefits={plansInfo.enterprise.benefits(t)} />
+          <CardPricing.Benefits planSlug="ENTERPRISE" />
 
           <CardPricing.Footer>
             {user?.currentProject?.plan === 'ENTERPRISE' && (
