@@ -104,7 +104,7 @@
   "onboarding.steps.start": "Start",
   "onboarding.create_project.form.project.label": "Project name",
   "onboarding.create_project.form.project.placeholder": "xpto_marketplace",
-  "onboarding.create_project.form.domain.label": "Project name",
+  "onboarding.create_project.form.domain.label": "Domains",
   "onboarding.create_project.form.domain.description": "Connect with images on a Web Folder somewhere in the Internet.",
   "onboarding.create_project.form.domain.placeholder": "https://mywebsite.com",
   "onboarding.create_project.form.platform.label": "Platform",
