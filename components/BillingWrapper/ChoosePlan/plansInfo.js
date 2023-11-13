@@ -1,35 +1,12 @@
-const free = {
-  benefits: (t) => [
-    { label: t('choose_plan.plans.1.item_1') },
-    { label: t('choose_plan.plans.1.item_2') },
-    { label: t('choose_plan.plans.1.item_3') },
-    { label: t('choose_plan.plans.1.item_4') },
-    { label: t('choose_plan.plans.1.item_5') },
-    { label: t('choose_plan.plans.1.item_6') },
-    { label: t('choose_plan.plans.1.item_7') },
-  ],
-}
-const payAsGrow = {
-  benefits: (t) => [
-    { label: t('choose_plan.plans.2.item_1') },
-    { label: t('choose_plan.plans.2.item_2') },
-    { label: t('choose_plan.plans.2.item_3') },
-    { label: t('choose_plan.plans.2.item_4') },
-    { label: t('choose_plan.plans.2.item_5') },
-    { label: t('choose_plan.plans.2.item_6') },
-    { label: t('choose_plan.plans.2.item_7') },
-  ],
-}
+const plan = [
+  { label: 'choose_plan.plans.item_1', value: 0 },
+  { label: 'choose_plan.plans.item_2', value: 0 },
+  { label: 'choose_plan.plans.item_3', value: 0 },
+  { label: 'choose_plan.plans.item_4', value: 1 },
+  { label: 'choose_plan.plans.item_5', value: 1 },
+  { label: 'choose_plan.plans.item_6', value: 1 },
+  { label: 'choose_plan.plans.item_7', value: 2 },
+  { label: 'choose_plan.plans.item_8', value: 2 },
+]
 
-const enterprise = {
-  benefits: (t) => [
-    { label: t('choose_plan.plans.3.item_1') },
-    { label: t('choose_plan.plans.3.item_2') },
-    { label: t('choose_plan.plans.3.item_3') },
-    { label: t('choose_plan.plans.3.item_4') },
-    { label: t('choose_plan.plans.3.item_5') },
-    { label: t('choose_plan.plans.3.item_6') },
-  ],
-}
-
-export default { payAsGrow, enterprise, free }
+export default plan

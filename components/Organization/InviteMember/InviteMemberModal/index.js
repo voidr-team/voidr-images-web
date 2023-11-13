@@ -1,8 +1,9 @@
 import { Modal, ModalDialog, Stack, Typography } from '@mui/joy'
 import PropTypes from 'prop-types'
-import Icon from '../Icon'
+
 import styles from './InviteMemberModal.module.scss'
 import { useTranslation } from 'next-i18next'
+import Icon from '@/components/UI/Icon'
 
 function InviteMemberModal({ children, isOpen, setIsOpen, onClose }) {
   const { t } = useTranslation(['translations', 'common'])
