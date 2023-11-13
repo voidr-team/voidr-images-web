@@ -8,7 +8,7 @@ function LoginPage() {
   return (
     <>
       <Head>
-        <title>{t('login')} | voidr</title>
+        <title>voidr | Login</title>
       </Head>
     </>
   )
