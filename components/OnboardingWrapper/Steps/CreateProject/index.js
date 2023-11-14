@@ -89,8 +89,8 @@ export default function CreateProject({ userAlreadyCreateProject }) {
             {t('onboarding.create_project.form.platform.description')}
           </Typography>
 
-          <Stack gap={2} maxWidth="400px">
-            <Stack direction="row" gap={5}>
+          <Stack gap={2} maxWidth="300px">
+            <Stack direction="row" gap={3}>
               <Stack justifyContent="center" alignItems="center">
                 <RadioButton
                   icon="Web_Icon"
@@ -101,8 +101,7 @@ export default function CreateProject({ userAlreadyCreateProject }) {
                 />
                 <Typography
                   textColor="primary.100"
-                  fontSize={16}
-                  fontWeight="600"
+                  fontSize={14}
                   marginTop="8px"
                 >
                   {t('onboarding.create_project.form.platform.option_web')}
@@ -120,8 +119,7 @@ export default function CreateProject({ userAlreadyCreateProject }) {
 
                 <Typography
                   textColor="primary.100"
-                  fontSize={16}
-                  fontWeight="600"
+                  fontSize={14}
                   marginTop="8px"
                 >
                   {t('onboarding.create_project.form.platform.option_mobile')}
