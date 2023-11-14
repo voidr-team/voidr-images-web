@@ -12,6 +12,7 @@ import Head from 'next/head'
 import { useTranslation } from 'next-i18next'
 import Header from '../../components/Header'
 import { LibraryBig } from 'lucide-react'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 function ImageLayout({ children, title }) {
   const router = useRouter()
@@ -24,6 +25,7 @@ function ImageLayout({ children, title }) {
         <title>voidr | {title}</title>
       </Head>
       <Header menuList={sidebarItems.images} />
+
       <div className={styles.imageLayoutRoot}>
         <Sidebar.Root>
           <Sidebar.Content>
@@ -77,6 +79,9 @@ function ImageLayout({ children, title }) {
         </Sidebar.Root>
 
         <div className={styles.imageLayoutScrollable}>
+          <div className={styles.languageSwitcherWrapper}>
+            <LanguageSwitcher />
+          </div>
           <div className={styles.container}>
             <Typography level="h2" className={styles.title}>
               {title}
