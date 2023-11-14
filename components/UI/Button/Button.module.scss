@@ -26,6 +26,10 @@
       border-color: var(--neutral-200);
       color: var(--neutral-900);
     }
+
+    .loaderWrapper div {
+      border-color: var(--neutral-800) transparent transparent transparent !important;
+    }
   }
 
   &.small {

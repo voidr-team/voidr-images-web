@@ -1,5 +1,5 @@
 import Input from '@/components/Form/Input'
-import styles from './OptimizeFirstImage.module.scss'
+import styles from '../Steps.module.scss'
 import { FormProvider, useForm, useFormContext } from 'react-hook-form'
 import CodeBlocks from '@/components/UI/CodeBlocks'
 import getImageSource from '@/utils/getImageSource'
@@ -50,14 +50,14 @@ const OptimizeFirstImage = () => {
   }
 
   useEffect(() => {
-    if (formState.submitCount > 0 && !formState.errors.imageUrl) {
+    if (formState.submitCount > 0 && !formState.errors.imageUrl && image) {
       setImageUrl(image)
       setStep(1)
     }
   }, [formState.submitCount])
 
   return (
-    <div className={styles.optimizeFirstImage}>
+    <div className={styles.stepsHolder}>
       <h3>Envie sua primeira imagem</h3>
       <p>Siga os passos abaixo para começar a utilizar a API da voidr</p>
       <div className={styles.steps}>

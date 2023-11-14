@@ -11,8 +11,9 @@
     transition: opacity 0.2s ease, border 0.2s ease;
     will-change: opacity;
     position: relative;
-    width: 80px;
-    height: 80px;
+    border: 1px solid var(--neutral-600);
+    padding: 10px;
+    border-radius: 6px;
 
     span {
       text-align: center;
@@ -34,12 +35,18 @@
     }
   }
 
+  .iconWrapper {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+  }
+
   svg {
     display: block;
-    max-width: 100%;
-    height: 25%;
     will-change: fill;
     transition: fill 0.2s ease, color 0.2s ease;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   > input {
@@ -52,6 +59,7 @@
   }
   > input:checked + .wrapper {
     opacity: 0.9;
+    border-color: var(--neutral-100)
   }
 
   > input:not(:checked) + .wrapper {

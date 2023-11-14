@@ -8,129 +8,42 @@ import { Trash } from 'lucide-react'
 import ErrorMessage from '@/components/UI/ErrorMessage'
 import Label from '@/components/Form/Input/Label'
 import { useTranslation } from 'next-i18next'
+import stepsStyles from '../Steps.module.scss'
+import Button from '@/components/UI/Button'
 
-export default function CreateProject({ userAlreadyCreateProject }) {
-  const {
-    control,
-    formState: { errors },
-  } = useFormContext()
-  const { fields, append, remove } = useFieldArray({ control, name: 'domains' })
-  const [parentRef] = useAutoAnimate()
+export default function CreateProject({ userAlreadyCreateProject, isLoading }) {
+  const [parentStep1Ref] = useAutoAnimate()
   const { t } = useTranslation(['translations', 'common'])
 
   return (
-    <Stack marginTop={{ xs: '20px', sm: '30px', md: '50px' }}>
-      <Typography level="h2" className={styles.title}>
-        {t('onboarding.create_project.title')}
-      </Typography>
-      <Stack marginTop={{ xs: '20px', sm: '30px', md: '20px' }}>
-        <Stack maxWidth="400px">
+    <div className={stepsStyles.stepsHolder}>
+      <h3>Vamos começar</h3>
+      <p>
+        Antes de tudo, crie seu projeto para começar a utilizar a plataforma
+      </p>
+      <div className={stepsStyles.steps}>
+        <div className={stepsStyles.step} ref={parentStep1Ref}>
+          <h5>{t('onboarding.create_project.form.project.label')}</h5>
+          <p>O nome do projeto será utilizado nas chamadas da API</p>
           <Input
+            className={styles.projectInput}
             name="name"
             readOnly={userAlreadyCreateProject}
             placeholder={t(
               'onboarding.create_project.form.project.placeholder'
             )}
-            label={t('onboarding.create_project.form.project.label')}
           />
-        </Stack>
 
-        <Stack marginTop={5}>
-          <Label>{t('onboarding.create_project.form.domain.label')}</Label>
-
-          <Typography fontWeight="500" fontSize={16} textColor="primary.100">
-            {t('onboarding.create_project.form.domain.description')}
-          </Typography>
-
-          <div ref={parentRef}>
-            {fields.map((field, index) => (
-              <Stack
-                direction="row"
-                alignItems="center"
-                maxWidth="450px"
-                gap={2}
-                key={field.id}
-              >
-                <Stack width="100%" maxWidth="400px">
-                  <Input
-                    readOnly={userAlreadyCreateProject}
-                    name={`domains.${index}.domain`}
-                    placeholder={t(
-                      'onboarding.create_project.form.domain.placeholder'
-                    )}
-                  />
-                </Stack>
-
-                {index === 0 || userAlreadyCreateProject ? null : (
-                  <Trash
-                    style={{ cursor: 'pointer' }}
-                    onClick={() => remove(index)}
-                  />
-                )}
-              </Stack>
-            ))}
-          </div>
-          {!userAlreadyCreateProject && (
-            <Typography
-              onClick={() => append({ domain: '' })}
-              sx={{ cursor: 'pointer' }}
-              marginTop={1}
-              textColor="helper.500"
-              fontSize={16}
-            >
-              {t('change_domains.add_domain')}
-            </Typography>
-          )}
-        </Stack>
-
-        <Stack marginTop={5}>
-          <Label>{t('onboarding.create_project.form.platform.label')}</Label>
-          <Typography marginBottom={1} textColor="primary.100" fontSize={16}>
-            {t('onboarding.create_project.form.platform.description')}
-          </Typography>
-
-          <Stack gap={2} maxWidth="300px">
-            <Stack direction="row" gap={3}>
-              <Stack justifyContent="center" alignItems="center">
-                <RadioButton
-                  icon="Web_Icon"
-                  readOnly={userAlreadyCreateProject}
-                  className={styles.radioButton}
-                  name="platform"
-                  value="web"
-                />
-                <Typography
-                  textColor="primary.100"
-                  fontSize={14}
-                  marginTop="8px"
-                >
-                  {t('onboarding.create_project.form.platform.option_web')}
-                </Typography>
-              </Stack>
-
-              <Stack justifyContent="center" alignItems="center">
-                <RadioButton
-                  icon="Mobile_Icon"
-                  className={styles.radioButton}
-                  readOnly={userAlreadyCreateProject}
-                  name="platform"
-                  value="mobile"
-                />
-
-                <Typography
-                  textColor="primary.100"
-                  fontSize={14}
-                  marginTop="8px"
-                >
-                  {t('onboarding.create_project.form.platform.option_mobile')}
-                </Typography>
-              </Stack>
-            </Stack>
-
-            <ErrorMessage name="platform" errors={errors} />
-          </Stack>
-        </Stack>
-      </Stack>
-    </Stack>
+          <Button
+            size="small"
+            theme="light"
+            className={stepsStyles.action}
+            isLoading={isLoading}
+          >
+            Criar projeto
+          </Button>
+        </div>
+      </div>
+    </div>
   )
 }

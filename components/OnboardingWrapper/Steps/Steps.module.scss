@@ -1,0 +1,21 @@
+.stepsHolder {
+  padding: 80px;
+
+  > .steps {
+    padding-top: 40px;
+
+    .action {
+      margin-top: 30px;
+    }
+
+    > .step + .step {
+      margin-top: 60px;
+    }
+
+    > .disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      user-select: none;
+    }
+  }
+}
