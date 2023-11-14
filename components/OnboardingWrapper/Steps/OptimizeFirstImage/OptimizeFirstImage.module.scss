@@ -1,0 +1,21 @@
+.optimizeFirstImage {
+  padding: 50px;
+
+  > .steps {
+    padding: 50px;
+
+    .action {
+      margin-top: 30px;
+    }
+
+    > .step + .step {
+      margin-top: 60px;
+    }
+
+    > .disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      user-select: none;
+    }
+  }
+}

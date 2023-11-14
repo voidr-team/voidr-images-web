@@ -17,10 +17,10 @@ const swrKeys = {
   GET_IMAGE_VARIATIONS: 'GET_IMAGE_VARIATIONS',
 }
 
-const imagesDashboard = {
+const imagesService = {
   getImages,
   getImageVariations,
   swrKeys,
 }
 
-export default imagesDashboard
+export default imagesService

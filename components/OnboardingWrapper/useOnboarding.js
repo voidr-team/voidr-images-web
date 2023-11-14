@@ -40,6 +40,14 @@ const schema = yup.object().shape({
     .max(20, 'Name must be at most 20 characters')
     .required('Campo obrigatório'),
   platform: yup.string().required('Campo obrigatório'),
+  imageUrl: yup
+    .string()
+    .required('Campo obrigatório')
+    .test(
+      'is-valid-domain-or-asterisk',
+      'Forneça um URL válido',
+      (value) => value === '*' || yup.string().url().isValidSync(value)
+    ),
 })
 
 export default function useOnboarding() {

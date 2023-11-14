@@ -1,4 +1,4 @@
-import {
+import styles, {
   buttonWrapper,
   hasIcon,
   invertedWrapper,
@@ -19,6 +19,8 @@ export default function Button({
   isLoading = false,
   linkStyle,
   className = '',
+  theme = 'default',
+  size = 'default',
   hidden,
   ...props
 }) {
@@ -32,6 +34,8 @@ export default function Button({
           [link]: !!linkStyle,
           [isHidden]: hidden,
         },
+        styles[theme],
+        styles[size],
         className
       )}
       disabled={isLoading || props.disabled}

@@ -26,11 +26,11 @@ export default function OnboardingWrapper() {
             </StepRender>
 
             <StepRender steps={steps} eq="SETUP">
-              <Steps.Setup steps={steps} />
+              <Steps.OptimizeFirstImage steps={steps} />
             </StepRender>
           </FormProvider>
 
-          <Stack marginY={6} direction="row" gap={2}>
+          {/* <Stack marginY={6} direction="row" gap={2}>
             {steps.isFirstStep || steps.isLastStep ? null : (
               <Button
                 disabled={isLoading}
@@ -47,7 +47,7 @@ export default function OnboardingWrapper() {
                 {t('common:next')}
               </Button>
             )}
-          </Stack>
+          </Stack> */}
         </form>
       </section>
     </Stack>
