@@ -2,11 +2,11 @@
   font-weight: 500;
   font-size: 16px;
   padding: 3px 30px;
-  border-radius: 100px;
+  border-radius: 6px;
   background-color: var(--helper-500);
   border: 2px solid var(--helper-500);
   color: white;
-  transition: background-color 0.4s, color 0.4s, border-color 0.4s;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
   min-height: 44px;
   cursor: pointer;
   min-width: 120px;
@@ -36,6 +36,14 @@
     padding: 7px 8px;
     min-height: auto;
     font-size: 14px;
+
+    .loaderWrapper {
+      width: 17px;
+      height: 17px;
+      div > div {
+        border: 2px solid;
+      }
+    }
   }
 
   &.isHidden {

@@ -64,7 +64,6 @@ function AuthProvider({ children }) {
     }
   }
 
-  // REFACTOR: separar todo o roteamento, estura melhor pratica
   const redirectAfterLogin = async (userData) => {
     const returnTo = sessionStorage.getItem('returnTo')
 

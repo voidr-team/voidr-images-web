@@ -26,7 +26,7 @@ export default function OnboardingWrapper() {
               />
             </StepRender>
             <StepRender steps={steps} eq="SETUP">
-              <Steps.Setup steps={steps} />
+              <Steps.OptimizeFirstImage steps={steps} />
             </StepRender>
           </form>
         </FormProvider>
