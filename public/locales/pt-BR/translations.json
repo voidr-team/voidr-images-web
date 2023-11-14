@@ -114,5 +114,7 @@
   "checkout.expiration_date": "Data de expiração",
   "checkout.cvc": "CVC",
   "checkout.toast.error": "Ocorrou um erro ao completar o checkout",
-  "checkout.toast.success": "Cartão cadastrado com sucesso"
+  "checkout.toast.success": "Cartão cadastrado com sucesso",
+  "translations.change_language.en": "Inglês",
+  "translations.change_language.pt": "Português"
 }
