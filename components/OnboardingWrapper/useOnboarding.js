@@ -127,7 +127,7 @@ export default function useOnboarding() {
   })
 
   useEffect(() => {
-    const step = loadStep()
+    const step = router.query.step || loadStep()
     steps.sendToStep(Number(step))
   }, [])
 
