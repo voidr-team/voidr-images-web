@@ -3,11 +3,11 @@
 
     input[type='radio']:checked + div {
       padding: 10px;
-      border: 1px solid white;
+      border: 1px solid rgba(white, .7);
       opacity: 1;
 
       svg {
-        color: white;
+        color: rgba(white, .7);
       }
     }
 
@@ -56,7 +56,7 @@
     opacity: 1;
 
     svg, span {
-      color: white;
+      color: rgba(white, .7);
     }
   }
 
