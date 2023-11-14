@@ -36,6 +36,14 @@
     padding: 7px 8px;
     min-height: auto;
     font-size: 14px;
+
+    .loaderWrapper {
+      width: 17px;
+      height: 17px;
+      div > div {
+        border: 2px solid;
+      }
+    }
   }
 
   &.isHidden {
