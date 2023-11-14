@@ -72,7 +72,10 @@ export default function useOnboarding() {
   const { mutate: createProject, isLoading } = useMutation({
     mutationKey: [projectService.swrKeys.POST_CREATE_PROJECT],
     mutationFn: (data) => {
-      return projectService.postCreateProject(data)
+      return projectService.postCreateProject({
+        ...data,
+        referral: sessionStorage.getItem('voidr_referral_slug'),
+      })
     },
     onError: async (error) => {
       const message = error?.response?.data?.error
@@ -88,6 +91,7 @@ export default function useOnboarding() {
         },
       })
       await fetchUser()
+      sessionStorage.removeItem('voidr_referral_slug')
       steps.nextStep()
     },
   })

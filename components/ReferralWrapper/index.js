@@ -30,7 +30,7 @@ export default function ReferralWrapper() {
             {t('referral.invite.copy_url_title')}
           </Typography>
           <CopyURL
-            url={`https://app.voidr.co/referral/${user?.currentProject?.name}`}
+            url={`https://app.voidr.co/referral?slug=${user?.currentProject?.name}`}
           />
         </div>
 
