@@ -10,6 +10,16 @@
     width: 100%;
     flex: 1;
 
+    .languageSwitcherWrapper {
+      padding: 10px 50px;
+      display: flex;
+      justify-content: flex-end;
+
+      @include below(700px) {
+        display: none;
+      }
+    }
+
     .container {
       margin: 0 auto;
       padding: 30px;

@@ -19,111 +19,118 @@ export default function CreateProject({ userAlreadyCreateProject }) {
   const { t } = useTranslation(['translations', 'common'])
 
   return (
-    <Stack marginTop={{ xs: 6, sm: 7, md: 15 }}>
-      <Stack maxWidth="400px">
-        <Input
-          name="name"
-          readOnly={userAlreadyCreateProject}
-          placeholder={t('onboarding.create_project.form.project.placeholder')}
-          label={t('onboarding.create_project.form.project.label')}
-        />
-      </Stack>
+    <Stack marginTop={{ xs: '20px', sm: '30px', md: '50px' }}>
+      <Typography level="h2" className={styles.title}>
+        {t('onboarding.create_project.title')}
+      </Typography>
+      <Stack marginTop={{ xs: '20px', sm: '30px', md: '20px' }}>
+        <Stack maxWidth="400px">
+          <Input
+            name="name"
+            readOnly={userAlreadyCreateProject}
+            placeholder={t(
+              'onboarding.create_project.form.project.placeholder'
+            )}
+            label={t('onboarding.create_project.form.project.label')}
+          />
+        </Stack>
 
-      <Stack marginTop={5}>
-        <Label>{t('onboarding.create_project.form.domain.label')}</Label>
+        <Stack marginTop={5}>
+          <Label>{t('onboarding.create_project.form.domain.label')}</Label>
 
-        <Typography fontWeight="500" fontSize={16} textColor="primary.100">
-          {t('onboarding.create_project.form.domain.description')}
-        </Typography>
+          <Typography fontWeight="500" fontSize={16} textColor="primary.100">
+            {t('onboarding.create_project.form.domain.description')}
+          </Typography>
 
-        <div ref={parentRef}>
-          {fields.map((field, index) => (
-            <Stack
-              direction="row"
-              alignItems="center"
-              maxWidth="450px"
-              gap={2}
-              key={field.id}
+          <div ref={parentRef}>
+            {fields.map((field, index) => (
+              <Stack
+                direction="row"
+                alignItems="center"
+                maxWidth="450px"
+                gap={2}
+                key={field.id}
+              >
+                <Stack width="100%" maxWidth="400px">
+                  <Input
+                    readOnly={userAlreadyCreateProject}
+                    name={`domains.${index}.domain`}
+                    placeholder={t(
+                      'onboarding.create_project.form.domain.placeholder'
+                    )}
+                  />
+                </Stack>
+
+                {index === 0 || userAlreadyCreateProject ? null : (
+                  <Trash
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => remove(index)}
+                  />
+                )}
+              </Stack>
+            ))}
+          </div>
+          {!userAlreadyCreateProject && (
+            <Typography
+              onClick={() => append({ domain: '' })}
+              sx={{ cursor: 'pointer' }}
+              marginTop={1}
+              textColor="helper.500"
+              fontSize={16}
             >
-              <Stack width="100%" maxWidth="400px">
-                <Input
+              {t('change_domains.add_domain')}
+            </Typography>
+          )}
+        </Stack>
+
+        <Stack marginTop={5}>
+          <Label>{t('onboarding.create_project.form.platform.label')}</Label>
+          <Typography marginBottom={1} textColor="primary.100" fontSize={16}>
+            {t('onboarding.create_project.form.platform.description')}
+          </Typography>
+
+          <Stack gap={2} maxWidth="400px">
+            <Stack direction="row" gap={5}>
+              <Stack justifyContent="center" alignItems="center">
+                <RadioButton
+                  icon="Web_Icon"
                   readOnly={userAlreadyCreateProject}
-                  name={`domains.${index}.domain`}
-                  placeholder={t(
-                    'onboarding.create_project.form.domain.placeholder'
-                  )}
+                  className={styles.radioButton}
+                  name="platform"
+                  value="web"
                 />
+                <Typography
+                  textColor="primary.100"
+                  fontSize={16}
+                  fontWeight="600"
+                  marginTop="8px"
+                >
+                  {t('onboarding.create_project.form.platform.option_web')}
+                </Typography>
               </Stack>
 
-              {index === 0 || userAlreadyCreateProject ? null : (
-                <Trash
-                  style={{ cursor: 'pointer' }}
-                  onClick={() => remove(index)}
+              <Stack justifyContent="center" alignItems="center">
+                <RadioButton
+                  icon="Mobile_Icon"
+                  className={styles.radioButton}
+                  readOnly={userAlreadyCreateProject}
+                  name="platform"
+                  value="mobile"
                 />
-              )}
-            </Stack>
-          ))}
-        </div>
-        {!userAlreadyCreateProject && (
-          <Typography
-            onClick={() => append({ domain: '' })}
-            sx={{ cursor: 'pointer' }}
-            marginTop={1}
-            textColor="helper.500"
-            fontSize={16}
-          >
-            {t('change_domains.add_domain')}
-          </Typography>
-        )}
-      </Stack>
 
-      <Stack marginTop={5}>
-        <Label>{t('onboarding.create_project.form.platform.label')}</Label>
-        <Typography marginBottom={1} textColor="primary.100" fontSize={16}>
-          {t('onboarding.create_project.form.platform.description')}
-        </Typography>
-
-        <Stack gap={2} maxWidth="400px">
-          <Stack direction="row" gap={5}>
-            <Stack justifyContent="center" alignItems="center">
-              <RadioButton
-                icon="Web_Icon"
-                readOnly={userAlreadyCreateProject}
-                className={styles.radioButton}
-                name="platform"
-                value="web"
-              />
-              <Typography
-                textColor="primary.100"
-                fontSize={16}
-                fontWeight="600"
-                marginTop="8px"
-              >
-                {t('onboarding.create_project.form.platform.option_web')}
-              </Typography>
+                <Typography
+                  textColor="primary.100"
+                  fontSize={16}
+                  fontWeight="600"
+                  marginTop="8px"
+                >
+                  {t('onboarding.create_project.form.platform.option_mobile')}
+                </Typography>
+              </Stack>
             </Stack>
 
-            <Stack justifyContent="center" alignItems="center">
-              <RadioButton
-                icon="Mobile_Icon"
-                className={styles.radioButton}
-                readOnly={userAlreadyCreateProject}
-                name="platform"
-                value="mobile"
-              />
-
-              <Typography
-                textColor="primary.100"
-                fontSize={16}
-                fontWeight="600"
-                marginTop="8px"
-              >
-                {t('onboarding.create_project.form.platform.option_mobile')}
-              </Typography>
-            </Stack>
+            <ErrorMessage name="platform" errors={errors} />
           </Stack>
-
-          <ErrorMessage name="platform" errors={errors} />
         </Stack>
       </Stack>
     </Stack>

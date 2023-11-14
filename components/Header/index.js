@@ -7,6 +7,7 @@ import cn from 'classnames'
 import Image from 'next/image'
 import sidebarItems from '@/components/Sidebar/sidebarItems'
 import { useRouter } from 'next/router'
+import LanguageSwitcher from '../LanguageSwitcher'
 
 export default function Header({ menuList }) {
   const router = useRouter()
@@ -24,9 +25,13 @@ export default function Header({ menuList }) {
         height={30}
       />
 
-      <figure onClick={toggleMenu} className={styles.toggleMenu}>
-        {isOpen ? <X /> : <Menu />}
-      </figure>
+      <div className={styles.menuActions}>
+        <LanguageSwitcher />
+
+        <figure onClick={toggleMenu} className={styles.toggleMenu}>
+          {isOpen ? <X /> : <Menu />}
+        </figure>
+      </div>
 
       <nav className={cn(styles.navbar, { [styles.navbarActive]: isOpen })}>
         <ul>

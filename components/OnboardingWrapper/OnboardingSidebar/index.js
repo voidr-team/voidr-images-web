@@ -31,8 +31,8 @@ export default function OnboardingSidebar({ steps }) {
     >
       <Stack
         minHeight="100vh"
-        paddingX={1.2}
-        paddingY={2.5}
+        paddingX={'14px'}
+        paddingY={'20px'}
         borderRight={1}
         alignItems="center"
         justifyContent="space-between"
@@ -41,8 +41,8 @@ export default function OnboardingSidebar({ steps }) {
         <Image
           src="/images/logo-small.svg"
           alt="Logo voidr"
-          width={37}
-          height={37}
+          width={40}
+          height={40}
         />
 
         <figure
@@ -59,15 +59,12 @@ export default function OnboardingSidebar({ steps }) {
         })}
       >
         <Stack gap={4} height="100%" maxHeight="95vh">
-          <Typography
-            textColor="neutral.200"
-            fontWeight="600"
-            fontSize={19}
-            paddingTop={0.5}
-            paddingBottom={3}
-          >
-            voidr | images
-          </Typography>
+          <Image
+            src="/images/logo-typo.svg"
+            width="146"
+            height="20"
+            alt="Logo typo voidr"
+          />
           <Stack maxHeight="fit-content" position="relative" gap={5}>
             {onboardingSteps(t)?.map((onboardingStep) => {
               const passedStepsSuccefully =

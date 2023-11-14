@@ -9,8 +9,15 @@
   position: relative;
   border-bottom: 1px solid var(--neutral-600);
 
-  .toggleMenu {
-    cursor: pointer;
+  .menuActions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .toggleMenu {
+      margin-top: 6px;
+      cursor: pointer;
+    }
   }
 
   .navbar {

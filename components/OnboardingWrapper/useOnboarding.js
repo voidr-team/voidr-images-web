@@ -22,10 +22,10 @@ const schema = yup.object().shape({
     yup.object().shape({
       domain: yup
         .string()
-        .required('Required field')
+        .required('Campo obrigatório')
         .test(
           'is-valid-domain-or-asterisk',
-          'Please provide a valid URL',
+          'Forneça um URL válido',
           (value) => value === '*' || yup.string().url().isValidSync(value)
         ),
     })
@@ -34,12 +34,12 @@ const schema = yup.object().shape({
     .string()
     .matches(
       /^[a-z0-9-_]+$/,
-      'Name must be lowercase alphanumeric and can only contain hyphens and underscores'
+      'O nome deve ser alfanumérico em minúsculas e só pode conter hífenes e sublinhados'
     )
     .min(3, 'Name must be at least 3 characters')
     .max(20, 'Name must be at most 20 characters')
-    .required('Required field'),
-  platform: yup.string().required('Required field'),
+    .required('Campo obrigatório'),
+  platform: yup.string().required('Campo obrigatório'),
 })
 
 export default function useOnboarding() {

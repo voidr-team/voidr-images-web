@@ -15,5 +15,7 @@
   "referral": "Referral",
   "docs": "Documentation",
   "billing": "Billing",
-  "log_out": "Log Out"
+  "log_out": "Log Out",
+  "card_name": "Cardholder's name",
+  "add_card": "Add card"
 }
