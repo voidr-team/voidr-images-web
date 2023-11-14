@@ -36,6 +36,12 @@
     }
   }
 
+  .iconWrapper {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+  }
+
   svg {
     display: block;
     max-width: 100%;
@@ -59,6 +65,7 @@
   }
   > input:checked + .wrapper {
     opacity: 0.9;
+    border-color: var(--neutral-100)
   }
 
   > input:not(:checked) + .wrapper {

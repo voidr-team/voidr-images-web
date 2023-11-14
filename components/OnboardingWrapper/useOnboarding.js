@@ -17,30 +17,29 @@ const formSteps = {
   postStep: 'START',
 }
 
-const schema = yup.object().shape({
-  domains: yup.array().of(
-    yup.object().shape({
-      domain: yup
-        .string()
-        .required('Campo obrigatório')
-        .test(
-          'is-valid-domain-or-asterisk',
-          'Forneça um URL válido',
-          (value) => value === '*' || yup.string().url().isValidSync(value)
-        ),
-    })
-  ),
-  name: yup
-    .string()
-    .matches(
-      /^[a-z0-9-_]+$/,
-      'O nome deve ser alfanumérico em minúsculas e só pode conter hífenes e sublinhados'
-    )
-    .min(3, 'Name must be at least 3 characters')
-    .max(20, 'Name must be at most 20 characters')
-    .required('Campo obrigatório'),
-  platform: yup.string().required('Campo obrigatório'),
-})
+const getSchema = (step) =>
+  yup.object().shape({
+    name: yup
+      .string()
+      .matches(
+        /^[a-z0-9-_]+$/,
+        'O nome deve ser alfanumérico em minúsculas e só pode conter hífenes e sublinhados'
+      )
+      .min(3, 'Name must be at least 3 characters')
+      .max(20, 'Name must be at most 20 characters')
+      .required('Campo obrigatório'),
+    imageUrl:
+      step === 0
+        ? yup.string().optional()
+        : yup
+            .string()
+            .required('Campo obrigatório')
+            .test(
+              'is-valid-domain-or-asterisk',
+              'Forneça um URL válido',
+              (value) => value === '*' || yup.string().url().isValidSync(value)
+            ),
+  })
 
 export default function useOnboarding() {
   const { t } = useTranslation(['translations', 'common'])
@@ -62,17 +61,19 @@ export default function useOnboarding() {
 
   const formMethods = useForm({
     defaultValues: initialFormValues || {
-      domains: [{ domain: '' }],
       tech: 'node',
       framework: 'react',
     },
-    resolver: yupResolver(schema),
+    resolver: yupResolver(getSchema(steps.current)),
   })
 
   const { mutate: createProject, isLoading } = useMutation({
     mutationKey: [projectService.swrKeys.POST_CREATE_PROJECT],
     mutationFn: (data) => {
-      return projectService.postCreateProject(data)
+      return projectService.postCreateProject({
+        ...data,
+        domains: ['*'],
+      })
     },
     onError: async (error) => {
       const message = error?.response?.data?.error
@@ -105,6 +106,7 @@ export default function useOnboarding() {
   }
 
   const onSubmit = formMethods.handleSubmit((data) => {
+    console.log('maybe?')
     persistData(data)
 
     if (
@@ -115,14 +117,6 @@ export default function useOnboarding() {
         name: data?.name,
         domains: data?.domains?.map((domain) => domain?.domain),
       })
-    }
-
-    if (steps.getCurrentStepName() === 'SETUP') {
-      return router.push('/images/dashboard')
-    }
-
-    if (!steps.isPostStep()) {
-      return steps.nextStep()
     }
   })
 
