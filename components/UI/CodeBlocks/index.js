@@ -13,6 +13,8 @@ export default function CodeBlocks({ code = '', language = 'javascript' }) {
       }}
       customStyle={{
         background: '#0C1019',
+        fontSize: '12px',
+        padding: '18px',
         'pre > code': {
           'background-color': '#0C1019',
         },

@@ -1,47 +1,43 @@
 .radioButtonWrapper {
   .radioButton {
-    padding: 0;
-
-    svg {
-      padding-top: 5px;
-      width: 30px;
-      height: 30px;
-
-      &[data-icon="Php_Icon"] {
-        padding-top: 0;
-        width: 35px;
-        height: 35px;
-      }
-    }
 
     input[type='radio']:checked + div {
       padding: 10px;
-      border: 1px solid var(--helper-500);
+      border: 1px solid white;
       opacity: 1;
 
       svg {
-        color: var(--helper-500);
+        color: white;
       }
     }
 
     input[type='radio']:not(:checked) + div {
       padding: 10px;
-      border: 1px solid var(--neutral-500);
+      border: 1px solid var(--neutral-700);
       opacity: 1;
+
+      svg {
+        color: var(--neutral-500);
+      }
     }
 
     input[type='radio']:not(:checked) + div > div,
     input[type='radio']:checked + div > div {
-      max-height: 35px;
+      height: 100%;
     }
   }
 }
 
 .radioButtonHorizontal {
+
   svg {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+    position: static;
+    margin-right: 6px;
+    max-width: none;
+    width: 25px;
+    height: 100%;
+    transform: none;
+    padding: 0;
   }
 
   div {
@@ -59,19 +55,17 @@
     padding: 10px;
     opacity: 1;
 
-    svg {
-      // fill: var(--helper-500);
-      // stroke: var(--helper-500);
-      color: var(--helper-500);
-    }
-
-    span {
-      color: var(--helper-500);
+    svg, span {
+      color: white;
     }
   }
 
   input[type='radio']:not(:checked) + div {
     opacity: 1;
+
+    svg, span {
+      color: var(--neutral-600);
+    }
   }
 }
 
@@ -83,7 +77,7 @@
 $base-snippet-radius: 10px;
 
 .topSelectFramework {
-  padding: 20px 15px;
+  padding: 0 25px;
   border-top-left-radius: $base-snippet-radius;
   border-top-right-radius: $base-snippet-radius;
 }
