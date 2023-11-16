@@ -30,20 +30,14 @@ function ImageLayout({ children, title }) {
         <Sidebar.Root>
           <Sidebar.Content>
             <div>
-              <Typography
-                textColor="neutral.200"
-                fontWeight="600"
-                fontSize={19}
-                paddingTop={0.5}
-                paddingBottom={3}
-              >
-                voidr | images
-              </Typography>
+              <div className={styles.logoTypo}>
+                <img src="/images/logo-typo.svg" alt="voidr logo typo" />
+              </div>
 
               <Typography
                 fontSize={18}
                 fontWeight="600"
-                marginY={1}
+                marginY={'30px'}
                 marginBottom={2}
               >
                 {user?.currentProject?.name}

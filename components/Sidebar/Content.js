@@ -11,9 +11,9 @@ function Content({ children }) {
       minWidth="220px"
       height="100%"
       borderRight={1}
-      borderColor="neutral.700"
+      borderColor="#1d232d"
       justifyContent="space-between"
-      paddingX={3}
+      paddingX={'20px'}
       paddingY={2.5}
     >
       <Stack justifyContent="space-between" height="100%" maxHeight="95vh">

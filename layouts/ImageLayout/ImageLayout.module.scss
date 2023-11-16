@@ -32,4 +32,15 @@
       margin-bottom: 25px;
     }
   }
+
+  .logoTypo {
+    padding: 14px 0;
+    width: 140px;
+    display: flex;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+    }
+  }
 }
