@@ -3,9 +3,10 @@
 
   > .steps {
     padding-top: 40px;
+    max-width: 1000px;
 
     .action {
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     > .step + .step {
@@ -13,9 +14,22 @@
     }
 
     > .disabled {
-      opacity: 0.3;
+      opacity: 0.4;
       cursor: not-allowed;
+      filter: blur(4px);
       user-select: none;
     }
   }
+}
+
+.projectNameWrapper {
+  padding: 1px 6px;
+  border-radius: 5px;
+  background-color: #2b313d;
+  display: inline-block;
+}
+
+.docs {
+  display: flex;
+  align-items: center;
 }

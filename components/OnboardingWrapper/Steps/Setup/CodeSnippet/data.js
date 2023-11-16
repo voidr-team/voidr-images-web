@@ -1,13 +1,13 @@
-export default function createSnippetData(projectName = 'my_project') {
+export default function createSnippetData(imageSource) {
   const react = `
   import React from 'react';
   
   function ResponsiveImage({ path, quality = 90, format = 'webp', alt }) {
     const voidrUrl = 'https://img.voidr.co';
-    const projectName = '${projectName}';
+    const projectName = '${imageSource}';
   
     const getSrcWithWidth = (width) =>
-      \`\${voidrUrl}/\${projectName}/compress:\${quality}/convert:\${format}/resize:\${width}x/fetch/\${path}\`;
+      \`\${voidrUrl}/\${imageSource}/compress:\${quality}/convert:\${format}/resize:\${width}x/fetch/\${path}\`;
   
     return (
       <picture>
@@ -26,7 +26,7 @@ export default function createSnippetData(projectName = 'my_project') {
   const laravel = `
   @php
       $voidrUrl = 'https://img.voidr.co';
-      $projectName = '${projectName}';
+      $projectName = '${imageSource}';
       $quality = $quality ?? 90;
       $format = $format ?? 'webp';
   
@@ -55,7 +55,7 @@ export default function createSnippetData(projectName = 'my_project') {
   @register.simple_tag
   def get_src_with_width(path, width, quality=90, format='webp'):
       voidr_url = 'https://img.voidr.co'
-      project_name = '${projectName}'
+      project_name = '${imageSource}'
       return f"{voidr_url}/{project_name}/compress:{quality}/convert:{format}/resize:{width}x/fetch/{path}"
   
   
@@ -63,46 +63,12 @@ export default function createSnippetData(projectName = 'my_project') {
   {% load responsive_image %}
   
   <picture>
-    <source media="(min-width: 1200px)" srcset="{% get_src_with_width path 1200 %}">
-    <source media="(min-width: 900px)" srcset="{% get_src_with_width path 900 %}">
-    <source media="(min-width: 750px)" srcset="{% get_src_with_width path 750 %}">
-    <source media="(min-width: 640px)" srcset="{% get_src_with_width path 640 %}">
-    <source media="(min-width: 450px)" srcset="{% get_src_with_width path 450 %}">
-    <img src="{% get_src_with_width path 320 %}" alt="{{ alt }}">
-  </picture>
-  
-  
-  {% include 'responsive_image.html' with path='https://mysite.com/image/path.jpg' alt='Your image description' %}
+    
+  <img src="{% get_src_with_width path 320 %}" alt="{{ alt }}">
+  <img src={${imageSource}} alt="image description" width="300" />
   `
 
-  const html = `
-  <picture>
-    <source 
-      media="(min-width: 1200px)" 
-      srcset="https://img.voidr.co/${projectName}/compress:90/convert:webp
-              /resize:1200x/fetch/https://mysite.com/image/path.jpg">
-    <source 
-      media="(min-width: 900px)" 
-      srcset="https://img.voidr.co/${projectName}/compress:90/convert:webp
-      /resize:900x/fetch/https://mysite.com/image/path.jpg">
-  
-    <source 
-      media="(min-width: 750px)" 
-      srcset="https://img.voidr.co/${projectName}/compress:90/convert:webp/
-      resize:750x/fetch/https://mysite.com/image/path.jpg">
-  
-    <source 
-      media="(min-width: 640px)" 
-      srcset="https://img.voidr.co/${projectName}/compress:90/convert:webp/
-      resize:640x/fetch/https://mysite.com/image/path.jpg">
-  
-    <source 
-      media="(min-width: 450px)" 
-      srcset="https://img.voidr.co/${projectName}/compress:90/convert:webp/
-      resize:450x/fetch/https://mysite.com/image/path.jpg">
-  
-    <img src="https://img.voidr.co/${projectName}/compress:90/convert:webp/
-      resize:320x/fetch/https://mysite.com/image/path.jpg" alt="Alt Text">
-  </picture>`
+  const html = `<img src={${imageSource}} alt="image description" width="300" />`
+
   return { react, laravel, python, html }
 }

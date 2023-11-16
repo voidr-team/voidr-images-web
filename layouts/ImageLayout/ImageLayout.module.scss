@@ -11,7 +11,7 @@
     flex: 1;
 
     .languageSwitcherWrapper {
-      padding: 10px 50px;
+      padding: 20px 60px;
       display: flex;
       justify-content: flex-end;
 
@@ -25,7 +25,7 @@
       padding: 30px;
 
       @include above(500px) {
-        padding: 60px;
+        padding: 30px 60px;
       }
     }
     .title {

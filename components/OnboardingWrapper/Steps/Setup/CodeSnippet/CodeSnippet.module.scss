@@ -83,7 +83,11 @@ $base-snippet-radius: 10px;
 }
 
 .codeWrapper {
-  border-top: none;
-  border-bottom-left-radius: $base-snippet-radius;
-  border-bottom-right-radius: $base-snippet-radius;
+  border-radius: $base-snippet-radius;
 }
+
+// .codeWrapper {
+//   border-top: none;
+//   border-bottom-left-radius: $base-snippet-radius;
+//   border-bottom-right-radius: $base-snippet-radius;
+// }

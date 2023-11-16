@@ -9,14 +9,14 @@ export default function CodeBlocks({ code = '', language = 'javascript' }) {
       lineProps={{ style: { wordBreak: 'break-all', whiteSpace: 'pre-wrap' } }}
       wrapLines={true}
       codeTagProps={{
-        style: { background: '#060709' },
+        style: { background: '#0C1019' },
       }}
       customStyle={{
         fontSize: '12px',
         padding: '18px',
-        background: '#060709',
+        background: '#0C1019',
         'pre > code': {
-          'background-color': '#060709',
+          'background-color': '#0C1019',
         },
       }}
     >

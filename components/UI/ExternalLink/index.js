@@ -1,7 +1,15 @@
 import styles from './ExternalLink.module.scss'
-import { ExternalLink as Icon } from 'lucide-react'
+import Icon from '@/components/UI/Icon'
 
-const ExternalLink = ({ onClick, href, Tag = 'a', children, target, rel }) => {
+const ExternalLink = ({
+  onClick,
+  href,
+  Tag = 'a',
+  children,
+  target,
+  rel,
+  icon = 'Info_Icon',
+}) => {
   return (
     <Tag
       className={styles.externalLink}
@@ -10,7 +18,10 @@ const ExternalLink = ({ onClick, href, Tag = 'a', children, target, rel }) => {
       target={target}
       rel={rel}
     >
-      <span>{children}</span> <Icon />
+      <div>
+        <Icon id={icon} width={24} height={24} />
+        {children}
+      </div>
     </Tag>
   )
 }

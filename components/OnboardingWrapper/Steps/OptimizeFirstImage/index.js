@@ -1,7 +1,7 @@
 import Input from '@/components/Form/Input'
 import styles from '../Steps.module.scss'
-import { FormProvider, useForm, useFormContext } from 'react-hook-form'
-import CodeBlocks from '@/components/UI/CodeBlocks'
+import { useFormContext } from 'react-hook-form'
+import CodeSnippet from '@/components/OnboardingWrapper/Steps/Setup/CodeSnippet'
 import getImageSource from '@/utils/getImageSource'
 import Button from '@/components/UI/Button'
 import useAuth from '@/context/auth/useAuth'
@@ -9,7 +9,6 @@ import ExternalLink from '@/components/UI/ExternalLink'
 import cn from 'classnames'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
 import http from '@/services/http'
 import Loader from '@/components/UI/Loader'
 import imagesService from '@/services/images'
@@ -35,7 +34,7 @@ const OptimizeFirstImage = () => {
   const image = watch('imageUrl')
 
   const imageSource = getImageSource(
-    `/${projectName}/resize:300x/convert:webp/compress:90/fetch/${imageUrl}`
+    `/${projectName}/resize:300x/convert:webp/compress:80/fetch/${imageUrl}`
   )
   const handleProcessImage = async () => {
     setStep(2)
@@ -58,18 +57,23 @@ const OptimizeFirstImage = () => {
 
   return (
     <div className={styles.stepsHolder}>
-      <h3>Envie sua primeira imagem</h3>
-      <p>Siga os passos abaixo para começar a utilizar a API da voidr</p>
+      <h3>🎉 Processe sua primeira imagem</h3>
+      <p>Siga os passos abaixo para começar a utilizar a API da Voidr Images</p>
       <div className={styles.steps}>
         <div className={styles.step} ref={parentStep1Ref}>
-          <h5>Adicione uma url de imagem</h5>
+          <h5>1. Adicione a URL da imagem</h5>
           <Input
             placeholder="https://yourwebsite.com/images/awesome_img.jpeg"
             name="imageUrl"
             readOnly={step > 0}
           />
           {step === 0 && (
-            <Button className={styles.action} theme="light" size="small">
+            <Button
+              className={styles.action}
+              icon="Image_Icon"
+              theme="light"
+              size="small"
+            >
               Adicionar imagem
             </Button>
           )}
@@ -78,18 +82,20 @@ const OptimizeFirstImage = () => {
           className={cn(styles.step, step === 0 ? styles.disabled : '')}
           ref={parentStep2Ref}
         >
-          <h5>Adicione a tag img no seu projeto</h5>
+          <h5>2. Integre de acordo com o código abaixo</h5>
           <p>
-            Use o nome do seu projeto &quot;<strong>{projectName}</strong>&quot;
+            Use o nome do seu projeto{' '}
+            <span className={styles.projectNameWrapper}>{projectName}</span>{' '}
             para chamar a API
           </p>
-          <CodeBlocks code={`<img src="${imageSource}" />`} language="html" />
+          <CodeSnippet imageSource={imageSource} />
           {step === 1 && (
             <Button
               className={styles.action}
               theme="light"
               size="small"
               type="button"
+              icon="Thunder_Icon"
               onClick={() => handleProcessImage()}
             >
               Processar imagem
@@ -134,8 +140,19 @@ const OptimizeFirstImage = () => {
               href="https://voidr-images.readme.io/reference/intro"
               target="_blank"
               rel="noreferrer"
+              icon="Docs_Icon"
             >
-              Para mais informações, consulte nossa documentação
+              <h6>Para mais informações</h6>
+              <p>Consulte nossa documentação</p>
+            </ExternalLink>
+            <ExternalLink
+              href="https://chat.whatsapp.com/HGk47PecZXRFRgxJ32PKX0"
+              target="_blank"
+              rel="noreferrer"
+              icon="Info_Icon"
+            >
+              <h6>Preciso de ajuda</h6>
+              <p>Fale com um especialista</p>
             </ExternalLink>
           </div>
         </div>
