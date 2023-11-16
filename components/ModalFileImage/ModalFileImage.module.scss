@@ -2,20 +2,24 @@
 
 .modalOverlay {
   position: fixed;
-  inset: 0;
-  z-index: 999 !important;
+  right: -1000%;
+  z-index: 999;
   min-height: 100vh;
   min-width: 100vw;
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+.modalOverlayActive {
+  inset: 0;
+}
+
 .modal {
+  transition: all 0.9s;
   position: fixed;
   overflow-y: auto;
   z-index: 999 !important;
-  right: 0;
+  right: -1000%;
   top: 0;
-  width: 100%;
   height: 100%;
   background-color: #1d2330;
 
@@ -37,6 +41,11 @@
     overflow: hidden;
     line-height: 1.3;
   }
+}
+
+.modalActive {
+  right: 0;
+  transition: all 0.3s;
 }
 
 .imageVariationsWrapper {
