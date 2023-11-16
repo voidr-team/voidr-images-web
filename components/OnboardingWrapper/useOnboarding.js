@@ -73,6 +73,7 @@ export default function useOnboarding() {
       return projectService.postCreateProject({
         ...data,
         domains: ['*'],
+        referral: sessionStorage.getItem('voidr_referral_slug'),
       })
     },
     onError: async (error) => {
@@ -89,6 +90,7 @@ export default function useOnboarding() {
         },
       })
       await fetchUser()
+      sessionStorage.removeItem('voidr_referral_slug')
       steps.nextStep()
     },
   })

@@ -4,7 +4,7 @@ import {
   FolderOpen,
   Settings,
   LogOut,
-  // Megaphone,
+  Megaphone,
 } from 'lucide-react'
 
 const sidebarItems = {
@@ -33,12 +33,12 @@ const sidebarItems = {
       icon: CreditCard,
       link: '/common/billing',
     },
-    // {
-    //   id: 5,
-    //   label: 'common:referral',
-    //   icon: Megaphone,
-    //   link: '/images/referral',
-    // },
+    {
+      id: 5,
+      label: 'common:referral',
+      icon: Megaphone,
+      link: '/images/referral',
+    },
   ],
   common: [
     {

@@ -13,12 +13,12 @@ import '@fontsource/work-sans'
 import { CssVarsProvider } from '@mui/joy/styles'
 import { CssBaseline } from '@mui/joy'
 import theme from '../utils/joy/theme'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { QueryClient, Hydrate, QueryClientProvider } from 'react-query'
 
 const VoidrApp = ({ Component, pageProps, ...props }) => {
   const currentRoute = props.router.route
-  const publicRoutes = ['/login', '/signin', '/logout']
+  const publicRoutes = ['/login', '/signin', '/logout', '/referral']
   const [queryClient] = useState(() => new QueryClient())
 
   const BaseComp = (
