@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import ExternalLink from '@/components/UI/ExternalLink'
 import useAuth from '@/context/auth/useAuth'
+import InlineLink from '@/components/UI/InlineLink'
 
 export default function WaitingData() {
   const { t } = useTranslation(['translations', 'common'])
@@ -49,13 +50,13 @@ export default function WaitingData() {
           <Loader />
         </Stack>
 
-        <ExternalLink
+        <InlineLink
           href="https://voidr-images.readme.io/reference/intro"
           target="_blank"
           rel="noreferrer"
         >
           Ir para documentação
-        </ExternalLink>
+        </InlineLink>
       </Stack>
     </Stack>
   )
