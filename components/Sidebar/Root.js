@@ -14,19 +14,19 @@ function Root({ children }) {
     <div className={styles.sidebar}>
       <Stack
         minHeight="100vh"
-        paddingX={1.2}
-        paddingY={2.5}
+        paddingX={'14px'}
+        paddingY={'20px'}
         borderRight={1}
         alignItems="center"
-        borderColor="neutral.700"
-        className={styles.firstSideHolder}
+        justifyContent="space-between"
+        borderColor="var(--neutral-700)"
       >
         <Stack maxHeight="100vh">
           <Image
             src="/images/logo-small.svg"
             alt="Logo voidr"
-            width={37}
-            height={37}
+            width={45}
+            height={45}
           />
 
           <Stack paddingTop={3} alignItems="center">

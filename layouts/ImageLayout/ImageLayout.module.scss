@@ -11,7 +11,7 @@
     flex: 1;
 
     .languageSwitcherWrapper {
-      padding: 10px 50px;
+      padding: 20px 60px;
       display: flex;
       justify-content: flex-end;
 
@@ -25,11 +25,22 @@
       padding: 30px;
 
       @include above(500px) {
-        padding: 60px;
+        padding: 30px 60px;
       }
     }
     .title {
       margin-bottom: 25px;
+    }
+  }
+
+  .logoTypo {
+    padding: 14px 0;
+    width: 140px;
+    display: flex;
+    align-items: center;
+
+    img {
+      max-width: 100%;
     }
   }
 }

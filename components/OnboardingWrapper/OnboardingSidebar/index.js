@@ -36,7 +36,7 @@ export default function OnboardingSidebar({ steps }) {
         borderRight={1}
         alignItems="center"
         justifyContent="space-between"
-        borderColor="neutral.700"
+        borderColor="var(--neutral-700)"
       >
         <Image
           src="/images/logo-small.svg"
@@ -58,14 +58,14 @@ export default function OnboardingSidebar({ steps }) {
           [styles.sidebarContentActive]: isOpen,
         })}
       >
-        <Stack gap={4} height="100%" maxHeight="95vh">
+        <Stack gap={10} height="100%" maxHeight="95vh">
           <Image
             src="/images/logo-typo.svg"
             width="146"
             height="20"
             alt="Logo typo voidr"
           />
-          <Stack maxHeight="fit-content" position="relative" gap={5}>
+          <Stack maxHeight="fit-content" position="relative" gap={10}>
             {onboardingSteps(t)?.map((onboardingStep) => {
               const passedStepsSuccefully =
                 onboardingStep.number < steps.current + 1
@@ -77,38 +77,14 @@ export default function OnboardingSidebar({ steps }) {
                 <Stack
                   key={onboardingStep.number}
                   direction="row"
+                  justifyContent="space-between"
                   alignItems="center"
+                  width={'150px'}
+                  position={'relative'}
+                  left={'86px'}
                   zIndex={9}
                   gap={2}
                 >
-                  <Stack
-                    padding={2.3}
-                    borderRadius={100}
-                    border={2}
-                    borderColor={
-                      actualOrFinishedStep ? 'neutral.100' : 'neutral.600'
-                    }
-                    width={30}
-                    height={30}
-                    justifyContent="center"
-                    alignItems="center"
-                    maxWidth="fit-content"
-                    bgcolor="primary.500"
-                  >
-                    <Typography
-                      textColor={
-                        actualOrFinishedStep ? 'neutral.100' : 'neutral.600'
-                      }
-                      lineHeight={0}
-                      level="body-lg"
-                    >
-                      {passedStepsSuccefully ? (
-                        <Icon id="Check_Mark" width={17} height={17} />
-                      ) : (
-                        onboardingStep.number
-                      )}
-                    </Typography>
-                  </Stack>
                   <Typography
                     textColor={
                       actualOrFinishedStep ? 'neutral.100' : 'neutral.600'
@@ -116,16 +92,22 @@ export default function OnboardingSidebar({ steps }) {
                   >
                     {onboardingStep.label}
                   </Typography>
+                  <Stack
+                    borderRadius={100}
+                    border={2}
+                    marginLeft={'14px'}
+                    borderColor={
+                      actualOrFinishedStep ? 'helper.500' : 'neutral.700'
+                    }
+                    width={14}
+                    height={14}
+                    justifyContent="center"
+                    alignItems="center"
+                    bgcolor="primary.500"
+                  ></Stack>
                 </Stack>
               )
             })}
-            <Stack
-              position="absolute"
-              width="1.5px"
-              left="20px"
-              height="100%"
-              bgcolor="neutral.600"
-            />
           </Stack>
         </Stack>
         <SidebarItem

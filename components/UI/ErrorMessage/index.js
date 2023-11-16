@@ -1,5 +1,5 @@
 import { ErrorMessage as ErrorMessagePrimitive } from '@hookform/error-message'
-import { Stack, Typography } from '@mui/joy'
+import styles from './ErrorMessage.module.scss'
 
 function ErrorMessage({ name, errors, personalizedMessage }) {
   return (
@@ -7,11 +7,7 @@ function ErrorMessage({ name, errors, personalizedMessage }) {
       name={name}
       errors={errors}
       render={({ message }) => (
-        <Stack marginY={1}>
-          <Typography textColor={'danger.600'}>
-            {message ?? personalizedMessage}
-          </Typography>
-        </Stack>
+        <p className={styles.errorMessage}>{message ?? personalizedMessage}</p>
       )}
     />
   )

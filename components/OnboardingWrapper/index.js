@@ -17,38 +17,19 @@ export default function OnboardingWrapper() {
       <OnboardingSidebar steps={steps} />
 
       <section className={styles.wrapper}>
-        <form id="onboardingForm" onSubmit={onSubmit}>
-          <FormProvider {...formMethods}>
+        <FormProvider {...formMethods}>
+          <form id="onboardingForm" onSubmit={onSubmit}>
             <StepRender steps={steps} eq="CREATE_PROJECT">
               <Steps.CreateProject
                 userAlreadyCreateProject={userAlreadyCreateProject}
+                isLoading={isLoading}
               />
             </StepRender>
-
             <StepRender steps={steps} eq="SETUP">
-              <Steps.Setup steps={steps} />
+              <Steps.OptimizeFirstImage steps={steps} />
             </StepRender>
-          </FormProvider>
-
-          <Stack marginY={6} direction="row" gap={2}>
-            {steps.isFirstStep || steps.isLastStep ? null : (
-              <Button
-                disabled={isLoading}
-                onClick={steps.backStep}
-                inverted
-                type="button"
-              >
-                Back
-              </Button>
-            )}
-
-            {steps.isLastStep ? null : (
-              <Button form="onboardingForm" isLoading={isLoading} type="submit">
-                {t('common:next')}
-              </Button>
-            )}
-          </Stack>
-        </form>
+          </form>
+        </FormProvider>
       </section>
     </Stack>
   )

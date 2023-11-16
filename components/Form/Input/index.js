@@ -7,16 +7,18 @@ import {
 } from '@mui/joy'
 import { useFormContext } from 'react-hook-form'
 import Label from './Label'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 function Input({ name, rules = {}, label, ...props }) {
   const {
     register,
     formState: { errors },
   } = useFormContext()
+  const [parentRef] = useAutoAnimate()
 
   return (
-    <FormControl sx={{ width: '100%' }}>
-      <Label>{label}</Label>
+    <FormControl sx={{ width: '100%' }} ref={parentRef}>
+      {label && <Label>{label}</Label>}
       <InputProvider
         sx={{
           paddingBlock: '10px',

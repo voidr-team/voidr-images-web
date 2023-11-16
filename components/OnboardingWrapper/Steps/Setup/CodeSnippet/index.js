@@ -21,13 +21,11 @@ const languageMap = {
   laravel: 'jsx',
   django: 'jsx',
 }
-export default function CodeSnippet() {
+export default function CodeSnippet({ imageSource }) {
   const { watch, setValue } = useFormContext()
   const [optionsFramework, optionLanguage] = watch(['framework', 'tech'])
   const { user } = useAuth()
-  const { laravel, react, python, html } = createSnippetData(
-    user?.currentProject?.name
-  )
+  const { laravel, react, python, html } = createSnippetData(imageSource)
 
   const options = {
     react,
@@ -40,8 +38,8 @@ export default function CodeSnippet() {
   }, [optionLanguage])
 
   return (
-    <Stack marginTop={8}>
-      <Stack direction="row" gap={2}>
+    <Stack marginTop={1}>
+      {/* <Stack direction="row" gap={2}>
         <div className={styles.radioButtonWrapper}>
           <RadioButton
             className={styles.radioButton}
@@ -66,9 +64,8 @@ export default function CodeSnippet() {
             value="python"
           />
         </div>
-      </Stack>
-      <Stack marginTop={3}>
-        <Stack className={styles.topSelectFramework} direction="row" gap={2}>
+      </Stack> */}
+      {/* <Stack className={styles.topSelectFramework} direction="row" gap={2}>
           {optionLanguage === 'node' ? (
             <>
               <RadioButton
@@ -106,14 +103,13 @@ export default function CodeSnippet() {
               value="django"
             />
           ) : null}
-        </Stack>
-        <div className={styles.codeWrapper}>
-          <CodeBlocks
-            language={languageMap[optionsFramework]}
-            code={options[optionsFramework]}
-          />
-        </div>
-      </Stack>
+        </Stack> */}
+      <div className={styles.codeWrapper}>
+        <CodeBlocks
+          language={'html'}
+          code={`<img src="${imageSource}" alt="image description" width="300" />`}
+        />
+      </div>
     </Stack>
   )
 }

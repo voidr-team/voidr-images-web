@@ -5,31 +5,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     position: relative;
-    padding: 30px;
     opacity: 0.3;
     border-radius: 6px;
-    transition: border 0.2s ease;
+    transition: opacity 0.2s ease, border 0.2s ease;
     will-change: opacity;
-    height: 100%;
-
-    @media screen and (max-width: 939px) {
-      width: auto;
-      padding: 14px;
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 20px;
-
-      span {
-        text-align: left !important;
-      }
-
-      svg {
-        margin-right: 10px;
-        width: 40px;
-        height: 40px;
-      }
-    }
+    position: relative;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
 
     span {
       text-align: center;
@@ -50,12 +35,26 @@
       margin-bottom: 15px;
     }
   }
+
+  .iconWrapper {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+  }
+
   svg {
+    display: block;
     max-width: 100%;
-    width: 62px;
-    height: 62px;
+    height: 100%;
+    padding: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     will-change: fill;
     transition: fill 0.2s ease, color 0.2s ease;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   > input {
@@ -68,6 +67,7 @@
   }
   > input:checked + .wrapper {
     opacity: 0.9;
+    border-color: var(--neutral-100)
   }
 
   > input:not(:checked) + .wrapper {

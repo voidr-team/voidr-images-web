@@ -8,6 +8,7 @@ import { useState } from 'react'
 import Metrics from './Metrics'
 import WaitingData from './WaitingData'
 import useDashboardWrapper from './useDashboardWrapper'
+import LoadingPage from '../LoadingPage'
 const TrafficDataGraph = dynamic(
   () => {
     return import('./TrafficDataGraph')
@@ -26,7 +27,9 @@ export default function DashboardWrapper() {
     setCurrentImage,
     setIsDialogOpen,
   } = useDashboardWrapper()
-
+  if (isLoading || hasNoUsage) {
+    return <LoadingPage />
+  }
   return (
     <div className={styles.dashboardWrapper}>
       {hasNoUsage && !isLoading && <WaitingData />}
