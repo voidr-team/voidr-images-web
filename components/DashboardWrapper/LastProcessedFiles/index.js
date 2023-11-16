@@ -13,7 +13,9 @@ export default function LastProcessedFiles({
   setIsDialogOpen,
   setCurrentImage,
 }) {
-  const { data, isLoading } = useFilesList({ limit: 8 })
+  const { data, isLoading } = useFilesList({
+    limit: 15,
+  })
   const { t } = useTranslation(['translations', 'common'])
 
   return (

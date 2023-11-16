@@ -5,6 +5,10 @@
   height: 100vh;
   overflow: hidden;
 
+  svg {
+    background-color: red;
+  }
+
   .sidebarContent {
     height: 100%;
     display: flex;
@@ -55,6 +59,7 @@
     cursor: pointer !important;
     padding: 10px;
     transition: all 0.1s ease;
+    color: #fff;
 
     &:hover {
       border-radius: 5px;

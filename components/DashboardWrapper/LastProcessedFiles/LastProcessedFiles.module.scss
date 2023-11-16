@@ -9,7 +9,36 @@
     flex-wrap: wrap;
     gap: 20px;
 
+    @include below(1700px) {
+      & > div:nth-child(n + 13) {
+        display: none;
+      }
+    }
+
+    @include below(1219px) {
+      & > div:nth-child(n + 14) {
+        display: none;
+      }
+    }
+
+    @include below(950px) {
+      & > div:nth-child(n + 9) {
+        display: none;
+      }
+    }
+
+    @include below(949px) {
+      & > div:nth-child(n + 7) {
+        display: none;
+      }
+    }
+
     > .cardFileItem {
+      width: calc(100% / 1 - 20px);
+
+      @include above(374px) {
+        width: calc(100% / 2 - 20px);
+      }
       @include above(800px) {
         width: calc(100% / 3 - 20px);
       }
