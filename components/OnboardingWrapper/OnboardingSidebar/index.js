@@ -1,5 +1,4 @@
 import { Stack, Typography } from '@mui/joy'
-import Icon from '../../UI/Icon'
 import Image from 'next/image'
 import SidebarItem from '@/components/Sidebar/SidebarItem'
 import sidebarItems from '@/components/Sidebar/sidebarItems'
@@ -67,9 +66,6 @@ export default function OnboardingSidebar({ steps }) {
           />
           <Stack maxHeight="fit-content" position="relative" gap={10}>
             {onboardingSteps(t)?.map((onboardingStep) => {
-              const passedStepsSuccefully =
-                onboardingStep.number < steps.current + 1
-
               const actualOrFinishedStep =
                 steps.current + 1 >= onboardingStep.number
 

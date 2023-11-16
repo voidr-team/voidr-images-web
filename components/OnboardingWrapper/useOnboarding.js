@@ -73,7 +73,7 @@ export default function useOnboarding() {
       return projectService.postCreateProject({
         ...data,
         domains: ['*'],
-        referral: sessionStorage.getItem('voidr_referral_slug'),
+        referral: sessionStorage.getItem('voidr_referral_slug') ?? undefined,
       })
     },
     onError: async (error) => {
@@ -108,7 +108,6 @@ export default function useOnboarding() {
   }
 
   const onSubmit = formMethods.handleSubmit((data) => {
-    console.log('maybe?')
     persistData(data)
 
     if (

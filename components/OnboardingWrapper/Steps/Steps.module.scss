@@ -1,5 +1,11 @@
+@import '/styles/mixins';
+
 .stepsHolder {
   padding: 80px;
+
+  @include below(800px) {
+    padding: 15px 5px;
+  }
 
   > .steps {
     padding-top: 40px;

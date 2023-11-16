@@ -3,6 +3,10 @@
 .sidebar {
   position: relative;
 
+  @include below(900px) {
+    display: none !important;
+  }
+
   .chevron {
     display: block;
 
@@ -27,7 +31,7 @@
     @include below(900px) {
       position: absolute;
       z-index: 6;
-      transform: translateX(-100%);
+      transform: translateX(-1000%);
     }
   }
 
