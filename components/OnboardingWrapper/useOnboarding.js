@@ -108,7 +108,6 @@ export default function useOnboarding() {
   }
 
   const onSubmit = formMethods.handleSubmit((data) => {
-    console.log('maybe?')
     persistData(data)
 
     if (
