@@ -3,7 +3,7 @@ import useSubscription from './useSubscription'
 import { Typography } from '@mui/joy'
 import styles from './Subscription.module.scss'
 import { useTranslation } from 'next-i18next'
-import ExternalLink from '@/components/UI/ExternalLink'
+import InlineLink from '@/components/UI/InlineLink'
 
 const Subscription = () => {
   const { user } = useAuth()
@@ -16,9 +16,9 @@ const Subscription = () => {
   return (
     <div className={styles.subscription}>
       <Typography level="h4">{t('subscription.title')}</Typography>
-      <ExternalLink onClick={onClickViewSubscription}>
+      <InlineLink onClick={onClickViewSubscription}>
         {t('subscription.description')}
-      </ExternalLink>
+      </InlineLink>
     </div>
   )
 }
