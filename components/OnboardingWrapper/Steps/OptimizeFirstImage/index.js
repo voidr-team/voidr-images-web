@@ -13,7 +13,7 @@ import http from '@/services/http'
 import Loader from '@/components/UI/Loader'
 import imagesService from '@/services/images'
 import formatBytes from '@/utils/formatBytes'
-import { useTranslation } from 'next-i18next'
+import { Trans, useTranslation } from 'next-i18next'
 
 const OptimizeFirstImage = () => {
   const { user } = useAuth()
@@ -57,11 +57,11 @@ const OptimizeFirstImage = () => {
 
   return (
     <div className={styles.stepsHolder}>
-      <h3>🎉 Processe sua primeira imagem</h3>
-      <p>Siga os passos abaixo para começar a utilizar a API da Voidr Images</p>
+      <h3>{t('onboarding.optimize_first_image.title')}</h3>
+      <p>{t('onboarding.optimize_first_image.subtitle')}</p>
       <div className={styles.steps}>
         <div className={styles.step} ref={parentStep1Ref}>
-          <h5>1. Adicione a URL da imagem</h5>
+          <h5>{t('onboarding.optimize_first_image.step_1.title')}</h5>
           <Input
             placeholder="https://yourwebsite.com/images/awesome_img.jpeg"
             name="imageUrl"
@@ -74,7 +74,7 @@ const OptimizeFirstImage = () => {
               theme="light"
               size="small"
             >
-              Adicionar imagem
+              {t('onboarding.optimize_first_image.step_1.button')}
             </Button>
           )}
         </div>
@@ -82,11 +82,16 @@ const OptimizeFirstImage = () => {
           className={cn(styles.step, step === 0 ? styles.disabled : '')}
           ref={parentStep2Ref}
         >
-          <h5>2. Integre de acordo com o código abaixo</h5>
+          <h5>{t('onboarding.optimize_first_image.step_2.title')}</h5>
           <p>
-            Use o nome do seu projeto{' '}
-            <span className={styles.projectNameWrapper}>{projectName}</span>{' '}
-            para chamar a API
+            <Trans
+              t={t}
+              i18nKey={'onboarding.optimize_first_image.step_2.decription'}
+              values={{ project: projectName }}
+              components={{
+                highlight: <span className={styles.projectNameWrapper} />,
+              }}
+            ></Trans>
           </p>
           <CodeSnippet imageSource={imageSource} />
           {step === 1 && (
@@ -98,7 +103,7 @@ const OptimizeFirstImage = () => {
               icon="Thunder_Icon"
               onClick={() => handleProcessImage()}
             >
-              Processar imagem
+              {t('onboarding.optimize_first_image.step_2.button')}
             </Button>
           )}
         </div>
@@ -128,7 +133,7 @@ const OptimizeFirstImage = () => {
                     type="button"
                     onClick={() => (window.location.href = '/images/dashboard')}
                   >
-                    Continuar para dashboard
+                    {t('onboarding.optimize_first_image.finish_button')}
                   </Button>
                 </div>
               </>
@@ -142,8 +147,10 @@ const OptimizeFirstImage = () => {
               rel="noreferrer"
               icon="Docs_Icon"
             >
-              <h6>Para mais informações</h6>
-              <p>Consulte nossa documentação</p>
+              <h6>{t('onboarding.optimize_first_image.links.docs.title')}</h6>
+              <p>
+                {t('onboarding.optimize_first_image.links.docs.description')}
+              </p>
             </ExternalLink>
             <ExternalLink
               href="https://chat.whatsapp.com/HGk47PecZXRFRgxJ32PKX0"
@@ -151,8 +158,10 @@ const OptimizeFirstImage = () => {
               rel="noreferrer"
               icon="Info_Icon"
             >
-              <h6>Preciso de ajuda</h6>
-              <p>Fale com um especialista</p>
+              <h6>{t('onboarding.optimize_first_image.links.help.title')}</h6>
+              <p>
+                {t('onboarding.optimize_first_image.links.help.description')}
+              </p>
             </ExternalLink>
           </div>
         </div>
