@@ -1,6 +1,5 @@
 import { Check, ChevronsRight } from 'lucide-react'
 import styles from './ModalFileImage.module.scss'
-import { Stack, Typography } from '@mui/joy'
 import dayjs from 'dayjs'
 import useGetVariationsImage from '@/hooks/useGetVariationsImage'
 import { useEffect, useState } from 'react'
@@ -62,237 +61,157 @@ export default function ModalFileImage({
         })}
       />
       <div className={cn(styles.modal, { [styles.modalActive]: isOpen })}>
-        <Stack padding={3}>
+        <div className={styles.insideSpace}>
           <ChevronsRight size={30} onClick={closeModal} cursor="pointer" />
-        </Stack>
+        </div>
 
-        <Stack>
-          <Typography paddingX={6} fontSize={20} fontWeight="600">
-            {t('image_detail.title')}
-          </Typography>
+        <h4>{t('image_detail.title')}</h4>
 
-          <Stack paddingX={6} marginY={3}>
-            <Typography marginY={1} fontSize={14} fontWeight="600">
-              {t('image_detail.source_img')}
-            </Typography>
+        <article className={styles.imageInfo}>
+          <span>{t('image_detail.source_img')}</span>
 
-            <Stack direction="row" gap={3} alignItems="flex-start">
-              <img
-                className={styles.image}
-                src={getImageSource(currentImage?.originUrl)}
-                alt={currentImage?.name}
-                height={100}
-              />
-              <Stack>
-                <Typography
-                  className={styles.imageName}
-                  fontSize={14}
-                  fontWeight="500"
-                >
-                  {currentImage?.name}
-                </Typography>
+          <div className={styles.contentImageInfo}>
+            <img
+              className={styles.image}
+              src={getImageSource(currentImage?.originUrl)}
+              alt={currentImage?.name}
+              height={100}
+            />
+            <div>
+              <p className={styles.imageName}>{currentImage?.name}</p>
 
-                <Stack direction="row" gap={2}>
-                  <Typography
-                    textColor="neutral.500"
-                    fontSize={12}
-                    fontWeight="600"
-                  >
-                    {`${currentImage?.rawMetadata?.width}x${currentImage?.rawMetadata?.height}`}
-                    , {`${formatBytes(currentImage?.rawMetadata?.size)}`}{' '}
-                    <Typography
-                      textColor="neutral.500"
-                      textTransform="uppercase"
+              <p>
+                {`${currentImage?.rawMetadata?.width}x${currentImage?.rawMetadata?.height}`}
+                , {`${formatBytes(currentImage?.rawMetadata?.size)}`}{' '}
+                <span>{currentImage?.rawMetadata?.format}</span>
+              </p>
+
+              <span>
+                {t('image_detail.uploaded')}{' '}
+                {dayjs(currentImage?.createdAt).format('DD/MM/YYYY HH:MM')}
+              </span>
+            </div>
+          </div>
+        </article>
+
+        {imageVariations?.length > 1 && !isLoading ? (
+          <div className={styles.imageVariationsContainer}>
+            <p>{t('image_detail.variations')}</p>
+
+            <ScrollContainer className={styles.imageVariationsWrapper}>
+              {isLoading ? (
+                <Loader />
+              ) : (
+                <>
+                  {imageVariations?.map((imageVariation) => (
+                    <div
+                      key={imageVariation?._id}
+                      className={cn(styles.scrollImageWrapper, {
+                        [styles.scrollImageWrapperActive]:
+                          imageVariation?._id === currentImage?._id,
+                      })}
                     >
-                      {currentImage?.rawMetadata?.format}
-                    </Typography>
-                  </Typography>
-                </Stack>
-
-                <Typography
-                  fontSize={14}
-                  fontWeight="600"
-                  textColor="neutral.500"
-                >
-                  {t('image_detail.uploaded')}{' '}
-                  {dayjs(currentImage?.createdAt).format('DD/MM/YYYY HH:MM')}
-                </Typography>
-              </Stack>
-            </Stack>
-          </Stack>
-
-          {imageVariations?.length > 1 && !isLoading ? (
-            <Stack marginY={3}>
-              <Typography
-                paddingX={6}
-                marginY={1}
-                fontSize={14}
-                fontWeight="600"
-              >
-                {t('image_detail.variations')}
-              </Typography>
-
-              <ScrollContainer className={styles.imageVariationsWrapper}>
-                {isLoading ? (
-                  <Loader />
-                ) : (
-                  <>
-                    {imageVariations?.map((imageVariation) => (
-                      <div
+                      <img
+                        onClick={() => {
+                          setCurrentImage(imageVariation)
+                        }}
                         key={imageVariation?._id}
-                        className={cn(styles.scrollImageWrapper, {
-                          [styles.scrollImageWrapperActive]:
+                        src={getImageSource(imageVariation?.originUrl)}
+                        className={cn({
+                          [styles.imageActive]:
                             imageVariation?._id === currentImage?._id,
                         })}
-                      >
-                        <img
-                          onClick={() => {
-                            setCurrentImage(imageVariation)
-                          }}
-                          key={imageVariation?._id}
-                          src={getImageSource(imageVariation?.originUrl)}
-                          className={cn({
-                            [styles.imageActive]:
-                              imageVariation?._id === currentImage?._id,
-                          })}
-                          alt="Image Variation"
-                          width={80}
-                          height={60}
-                        />
-                      </div>
-                    ))}
-                  </>
-                )}
-              </ScrollContainer>
-            </Stack>
-          ) : null}
+                        alt="Image Variation"
+                        width={80}
+                        height={60}
+                      />
+                    </div>
+                  ))}
+                </>
+              )}
+            </ScrollContainer>
+          </div>
+        ) : null}
 
-          <Stack paddingX={6} marginY={3}>
-            <Typography fontSize={20} fontWeight="600">
-              {t('image_detail.metadata')}
-            </Typography>
+        <div className={styles.metadataWrapper}>
+          <h5>{t('image_detail.metadata')}</h5>
 
-            <Stack marginY={3}>
-              <img
-                className={styles.image}
-                src={getImageSource(currentImage?.originUrl)}
-                alt={currentImage?.name}
-                height={200}
-              />
-            </Stack>
+          <img
+            className={styles.image}
+            src={getImageSource(currentImage?.originUrl)}
+            alt={currentImage?.name}
+            height={200}
+          />
 
-            <Stack gap={3}>
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-                gap={3}
-              >
-                <Typography textColor="neutral.500" fontWeight="600">
-                  {t('image_detail.file_name')}
-                </Typography>
-                <Typography className={styles.imageName}>
-                  {currentImage?.name}
-                </Typography>
-              </Stack>
+          <article>
+            <div className={styles.infoWrapper}>
+              <span>{t('image_detail.file_name')}</span>
+              <p className={styles.imageName}>{currentImage?.name}</p>
+            </div>
 
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-                gap={3}
-              >
-                <Typography textColor="neutral.500" fontWeight="600">
-                  {t('image_detail.dimensions')}
-                </Typography>
-                <Typography>
-                  {currentImage?.metadata?.width}x
-                  {currentImage?.metadata?.height}
-                </Typography>
-              </Stack>
+            <div className={styles.infoWrapper}>
+              <span>{t('image_detail.dimensions')}</span>
+              <p>
+                {currentImage?.metadata?.width}x{currentImage?.metadata?.height}
+              </p>
+            </div>
 
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-                gap={3}
-              >
-                <Typography textColor="neutral.500" fontWeight="600">
-                  {t('image_detail.size')}
-                </Typography>
-                <Typography>
-                  {formatBytes(currentImage?.metadata?.size)}
-                </Typography>
-              </Stack>
+            <div className={styles.infoWrapper}>
+              <span>{t('image_detail.size')}</span>
+              <p>{formatBytes(currentImage?.metadata?.size)}</p>
+            </div>
 
-              <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-                gap={3}
-              >
-                <Typography textColor="neutral.500" fontWeight="600">
-                  {t('image_detail.format')}
-                </Typography>
-                <Typography textTransform="uppercase">
-                  {currentImage?.metadata?.format}
-                </Typography>
-              </Stack>
+            <div className={styles.infoWrapper}>
+              <span>{t('image_detail.format')}</span>
+              <p style={{ textTransform: 'uppercase' }}>
+                {currentImage?.metadata?.format}
+              </p>
+            </div>
 
-              {currentImage?.transformers?.compress?.quality ? (
-                <Stack
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  gap={3}
+            {currentImage?.transformers?.compress?.quality ? (
+              <div className={styles.infoWrapper}>
+                <span>{t('image_detail.quality')}</span>
+                <p>{currentImage?.transformers?.compress?.quality}</p>
+              </div>
+            ) : null}
+          </article>
+        </div>
+
+        <div className={styles.containerWrapper}>
+          <CopyURL url={getImageSource(currentImage?.originUrl)} />
+        </div>
+
+        <div className={styles.containerWrapper}>
+          <div className={styles.snippetWrapper}>
+            <div className={styles.selectLanguage}>
+              <div className={styles.buttonGroup}>
+                <button
+                  className={cn({
+                    [styles.buttonSelectLanguageActive]:
+                      selectedLanguage === 'html',
+                  })}
+                  onClick={() => setSelectedLanguage('html')}
                 >
-                  <Typography textColor="neutral.500" fontWeight="600">
-                    {t('image_detail.quality')}
-                  </Typography>
-                  <Typography>
-                    {currentImage?.transformers?.compress?.quality}
-                  </Typography>
-                </Stack>
-              ) : null}
-            </Stack>
-          </Stack>
-
-          <Stack paddingX={6} marginY={3}>
-            <CopyURL url={getImageSource(currentImage?.originUrl)} />
-          </Stack>
-
-          <Stack paddingX={6} marginY={3}>
-            <div className={styles.snippetWrapper}>
-              <div className={styles.selectLanguage}>
-                <div className={styles.buttonGroup}>
-                  <button
-                    className={cn({
-                      [styles.buttonSelectLanguageActive]:
-                        selectedLanguage === 'html',
-                    })}
-                    onClick={() => setSelectedLanguage('html')}
-                  >
-                    <Icon id="Html_Icon" width={30} height={30} />
-                    HTML
-                  </button>
-                </div>
-
-                <button onClick={copySnippetCode} className={styles.copyButton}>
-                  {copiedSnippet ? <Check /> : t('common:copy')}
+                  <Icon id="Html_Icon" width={30} height={30} />
+                  HTML
                 </button>
               </div>
 
-              <div className={styles.content}>
-                <CodeBlocks
-                  code={`<img src="${getImageSource(
-                    currentImage?.originUrl
-                  )}" />`}
-                  language="html"
-                />
-              </div>
+              <button onClick={copySnippetCode} className={styles.copyButton}>
+                {copiedSnippet ? <Check /> : t('common:copy')}
+              </button>
             </div>
-          </Stack>
-        </Stack>
+
+            <div className={styles.content}>
+              <CodeBlocks
+                code={`<img src="${getImageSource(
+                  currentImage?.originUrl
+                )}" />`}
+                language="html"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )

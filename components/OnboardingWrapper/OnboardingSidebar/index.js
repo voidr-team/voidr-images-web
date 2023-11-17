@@ -21,22 +21,8 @@ export default function OnboardingSidebar({ steps }) {
   const { t } = useTranslation(['translations', 'common'])
 
   return (
-    <Stack
-      display="flex"
-      direction="row"
-      minHeight="100vh"
-      bgcolor="primary.500"
-      className={styles.sidebar}
-    >
-      <Stack
-        minHeight="100vh"
-        paddingX={'14px'}
-        paddingY={'20px'}
-        borderRight={1}
-        alignItems="center"
-        justifyContent="space-between"
-        borderColor="var(--neutral-700)"
-      >
+    <aside className={styles.sidebar}>
+      <div className={styles.sidebarActions}>
         <Image
           src="/images/logo-small.svg"
           alt="Logo voidr"
@@ -50,14 +36,14 @@ export default function OnboardingSidebar({ steps }) {
         >
           <ChevronsRight />
         </figure>
-      </Stack>
+      </div>
 
       <div
         className={cn(styles.sidebarContent, {
           [styles.sidebarContentActive]: isOpen,
         })}
       >
-        <Stack gap={10} height="100%" maxHeight="95vh">
+        <Stack gap={10} height="100%">
           <Image
             src="/images/logo-typo.svg"
             width="146"
@@ -106,6 +92,7 @@ export default function OnboardingSidebar({ steps }) {
             })}
           </Stack>
         </Stack>
+
         <SidebarItem
           link={logoutItem.link}
           key={logoutItem.id}
@@ -113,6 +100,6 @@ export default function OnboardingSidebar({ steps }) {
           label={t(logoutItem.label)}
         />
       </div>
-    </Stack>
+    </aside>
   )
 }

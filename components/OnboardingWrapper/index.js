@@ -1,4 +1,3 @@
-import { Stack } from '@mui/joy'
 import Steps from './Steps'
 import StepRender from '../Steps/StepRender'
 import useOnboarding from './useOnboarding'
@@ -17,7 +16,7 @@ export default function OnboardingWrapper() {
       <OnboardingHeaderMobile />
       <StepsCountMobile steps={steps} />
 
-      <Stack direction="row" minHeight="100vh" bgcolor="primary.500">
+      <div className={styles.wrapperContent}>
         <OnboardingSidebar steps={steps} />
 
         <aside className={styles.wrapper}>
@@ -35,7 +34,7 @@ export default function OnboardingWrapper() {
             </form>
           </FormProvider>
         </aside>
-      </Stack>
+      </div>
     </section>
   )
 }

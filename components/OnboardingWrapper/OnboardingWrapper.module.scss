@@ -9,3 +9,9 @@
     padding-inline: 60px;
   }
 }
+
+.wrapperContent {
+  display: flex;
+  background-color: var(--primary-500);
+  min-height: 100vh;
+}
