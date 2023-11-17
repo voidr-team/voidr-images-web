@@ -1,7 +1,7 @@
-import { Stack, Typography } from '@mui/joy'
 import plan from '../plansInfo'
 import { useTranslation } from 'react-i18next'
 import { Check, X } from 'lucide-react'
+import styles from './CardPricing.module.scss'
 
 const plans = {
   FREE: 0,
@@ -13,19 +13,17 @@ export default function Benefits({ planSlug }) {
   const { t } = useTranslation(['translations', 'common'])
 
   return (
-    <Stack gap={2} marginY={3}>
+    <ul className={styles.benefitsWrapper}>
       {plan?.map((benefit, index) => {
         const hasBenefit = plans[planSlug] >= benefit?.value
 
         return (
-          <Stack direction="row" alignItems="center" gap={1} key={index}>
+          <li className={styles.listWrapper} key={index}>
             {hasBenefit ? <Check color="#2EB272" /> : <X color="#A5A5A5" />}
-            <Typography level="body-md" textColor="neutral.400">
-              {t(benefit?.label)}
-            </Typography>
-          </Stack>
+            {t(benefit?.label)}
+          </li>
         )
       })}
-    </Stack>
+    </ul>
   )
 }

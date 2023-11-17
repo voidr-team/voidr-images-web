@@ -1,22 +1,22 @@
-import { Stack } from '@mui/joy'
+import { useState } from 'react'
 import AddNewFile from './AddNewFile'
 import FileList from './FileList'
 import ModalFileImage from '../ModalFileImage'
-import { useState } from 'react'
+import styles from './Files.module.scss'
 
 export default function FilesList() {
   const [isDialogOpen, setIsDialogOpen] = useState(false)
   const [currentImage, setCurrentImage] = useState(null)
 
   return (
-    <div>
-      <Stack gap={5}>
+    <>
+      <div className={styles.container}>
         <AddNewFile />
         <FileList
           setIsDialogOpen={setIsDialogOpen}
           setCurrentImage={setCurrentImage}
         />
-      </Stack>
+      </div>
 
       <ModalFileImage
         currentImage={currentImage}
@@ -24,6 +24,6 @@ export default function FilesList() {
         isOpen={isDialogOpen}
         setIsOpen={setIsDialogOpen}
       />
-    </div>
+    </>
   )
 }

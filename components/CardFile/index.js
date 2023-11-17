@@ -1,4 +1,3 @@
-import { Stack, Typography } from '@mui/joy'
 import styles from './CardFile.module.scss'
 import getImageSource from '@/utils/getImageSource'
 import formatBytes from '@/utils/formatBytes'
@@ -14,7 +13,7 @@ export default function CardFile({
 }) {
   const { t } = useTranslation(['translations', 'common'])
   return (
-    <Stack
+    <figure
       className={cn(styles.cardFile, className)}
       onClick={onClick}
       style={{
@@ -22,18 +21,12 @@ export default function CardFile({
       }}
     >
       <img src={getImageSource(imageUrl)} alt={imageName} height={150} />
-      <Stack className={styles.content}>
-        <Typography
-          level="body-sm"
-          className={styles.imageName}
-          title={imageName}
-        >
-          {imageName}
-        </Typography>
-        <Typography textColor="neutral.500" level="body-xs" marginTop="auto">
+      <div className={styles.content}>
+        <p className={styles.imageName}>{imageName}</p>
+        <span>
           {formatBytes(imageSizeSaved)} {t('common:saved')}
-        </Typography>
-      </Stack>
-    </Stack>
+        </span>
+      </div>
+    </figure>
   )
 }

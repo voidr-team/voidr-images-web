@@ -1,0 +1,75 @@
+.rootWrapper {
+  width: 100%;
+  border: 1px solid var(--neutral-600);
+  max-width: 340px;
+  border-radius: 6px;
+  padding: 30px;
+  background-color: var(--primary-600);
+}
+
+.headerWrapper {
+  text-align: center;
+  gap: 20px;
+
+  > h1 {
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  > p {
+    font-weight: 500;
+    color: var(--neutral-500);
+    font-size: 16px;
+  }
+}
+
+.priceWrapper {
+  height: 100%;
+  max-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  > h1 {
+    font-weight: 500;
+    color: var(--neutral-100);
+    font-size: 48px;
+  }
+
+  > h3 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+  }
+
+  > p {
+    font-size: 20px;
+    color: var(--neutral-400);
+  }
+}
+
+.benefitsWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-block: 30px;
+  gap: 19px;
+
+  .listWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--neutral-400);
+  }
+}
+
+.footerWrapper {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  align-items: center;
+
+  > p {
+    color: var(--neutral-300);
+  }
+}

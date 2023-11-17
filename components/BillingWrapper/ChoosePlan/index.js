@@ -1,10 +1,10 @@
-import { Stack, Typography } from '@mui/joy'
 import CardPricing from './CardPricing'
 import Button from '../../UI/Button'
 import useChoosePlan from './useChoosePlan'
 import useAuth from '@/context/auth/useAuth'
 import { useTranslation } from 'next-i18next'
 import Checkout from '../Checkout'
+import styles from './ChoosePlan.module.scss'
 
 export default function ChoosePlan() {
   const {
@@ -19,36 +19,23 @@ export default function ChoosePlan() {
 
   return (
     <>
-      <Stack marginTop={5}>
-        <Typography fontSize={20} fontWeight="600" level="h4">
-          {t('choose_plan.title')}
-        </Typography>
+      <section className={styles.wrapperChoosePlan}>
+        <h5>{t('choose_plan.title')}</h5>
 
-        <Stack gap={3} marginTop={4} direction="row" flexWrap="wrap">
+        <div className={styles.cardsPlanContainer}>
           <CardPricing.Root>
             <CardPricing.Header title={t('choose_plan.plans.1.title')} />
 
             <CardPricing.Price>
-              <Typography fontSize={48}>
-                {t('choose_plan.plans.1.value')}
-              </Typography>
-              <Typography textColor="neutral.400" fontSize={20}>
-                {t('choose_plan.plans.1.description')}
-              </Typography>
+              <h1>{t('choose_plan.plans.1.value')}</h1>
+              <p>{t('choose_plan.plans.1.description')}</p>
             </CardPricing.Price>
 
             <CardPricing.Benefits planSlug="FREE" />
 
             <CardPricing.Footer>
               {user?.currentProject?.plan === 'FREE' ? (
-                <Typography
-                  textAlign="center"
-                  level="body-md"
-                  paddingY="3px"
-                  textColor="neutral.300"
-                >
-                  {t('choose_plan.current_plan')}
-                </Typography>
+                <p>{t('choose_plan.current_plan')}</p>
               ) : null}
             </CardPricing.Footer>
           </CardPricing.Root>
@@ -57,26 +44,15 @@ export default function ChoosePlan() {
             <CardPricing.Header title={t('choose_plan.plans.2.title')} />
 
             <CardPricing.Price>
-              <Typography fontSize={48}>
-                {t('choose_plan.plans.2.value')}
-              </Typography>
-              <Typography textColor="neutral.400" fontSize={20}>
-                {t('choose_plan.plans.2.description')}
-              </Typography>
+              <h1>{t('choose_plan.plans.2.value')}</h1>
+              <p>{t('choose_plan.plans.2.description')}</p>
             </CardPricing.Price>
 
             <CardPricing.Benefits planSlug="PRO" />
 
             <CardPricing.Footer>
               {user?.currentProject?.plan === 'PRO' && (
-                <Typography
-                  textAlign="center"
-                  level="body-md"
-                  paddingY="3px"
-                  textColor="neutral.300"
-                >
-                  {t('choose_plan.current_plan')}
-                </Typography>
+                <p>{t('choose_plan.current_plan')}</p>
               )}
               {user?.currentProject?.plan !== 'PRO' && (
                 <Button onClick={upgradePlan}>
@@ -90,23 +66,14 @@ export default function ChoosePlan() {
             <CardPricing.Header title={t('choose_plan.plans.3.title')} />
 
             <CardPricing.Price>
-              <Typography textAlign="center" fontSize={40}>
-                {t('choose_plan.plans.3.value')}
-              </Typography>
+              <h3>{t('choose_plan.plans.3.value')}</h3>
             </CardPricing.Price>
 
             <CardPricing.Benefits planSlug="ENTERPRISE" />
 
             <CardPricing.Footer>
               {user?.currentProject?.plan === 'ENTERPRISE' && (
-                <Typography
-                  textAlign="center"
-                  level="body-md"
-                  paddingY="3px"
-                  textColor="neutral.300"
-                >
-                  {t('choose_plan.current_plan')}
-                </Typography>
+                <p>{t('choose_plan.current_plan')}</p>
               )}
               {user?.currentProject?.plan !== 'ENTERPRISE' && (
                 <Button onClick={handleEnterpriseContact}>
@@ -117,8 +84,8 @@ export default function ChoosePlan() {
               )}
             </CardPricing.Footer>
           </CardPricing.Root>
-        </Stack>
-      </Stack>
+        </div>
+      </section>
       <Checkout setIsOpen={setIsOpen} open={isOpen} />
     </>
   )

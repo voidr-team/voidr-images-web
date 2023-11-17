@@ -23,10 +23,17 @@
       word-break: break-all;
       display: -webkit-box;
       -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;  
+      -webkit-box-orient: vertical;
       overflow: hidden;
       line-height: 1.3;
       height: 40px;
+      font-size: 15px;
+    }
+
+    > span {
+      color: var(--neutral-500);
+      font-size: 13px;
+      margin-top: auto;
     }
   }
 }

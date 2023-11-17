@@ -1,0 +1,10 @@
+.wrapperChoosePlan {
+  margin-top: 40px;
+
+  .cardsPlanContainer {
+    display: flex;
+    margin-top: 35px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
