@@ -7,8 +7,29 @@ import useAuth from '@/context/auth/useAuth'
 import Icon from '../UI/Icon'
 
 export default function ReferralWrapper() {
-  const { t } = useTranslation(['translations', 'common'])
+  const { t, i18n } = useTranslation(['translations', 'common'])
   const { user } = useAuth()
+
+  const onShare = () => {
+    require('share-api-polyfill')
+    window.navigator
+      .share(
+        {
+          title: t('referral.invite.title'),
+          text: t('referral.invite.description'),
+          url: `https://app.voidr.co/referral?slug=${user?.currentProject?.name}`,
+        },
+        {
+          copy: true,
+          email: true,
+          whatsapp: true,
+          telegram: true,
+          language: i18n?.language ?? 'pt',
+        }
+      )
+      .then(() => console.log('Shared!'))
+      .catch((error) => console.error('Error on share', error))
+  }
 
   return (
     <section className={styles.referralWrapper}>
@@ -38,8 +59,18 @@ export default function ReferralWrapper() {
           <Typography level="body-md">
             {t('referral.invite.share_title')}
           </Typography>
-          <Icon id="Whatsapp_Icon_Outlined" width={40} height={40} />
-          <Icon id="Telegram_Icon_Outlined" width={40} height={40} />
+          <Icon
+            onClick={onShare}
+            id="Whatsapp_Icon_Outlined"
+            width={40}
+            height={40}
+          />
+          <Icon
+            onClick={onShare}
+            id="Telegram_Icon_Outlined"
+            width={40}
+            height={40}
+          />
         </div>
       </div>
     </section>

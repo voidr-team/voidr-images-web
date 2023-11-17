@@ -22,7 +22,7 @@ function ImageLayout({ children, title }) {
   return (
     <BaseLayout currentPage="dashboard">
       <Head>
-        <title>voidr | {title}</title>
+        <title>Voidr | {title}</title>
       </Head>
       <Header menuList={sidebarItems.images} />
 

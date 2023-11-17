@@ -26,7 +26,8 @@ const chartOptions = (data) => ({
   },
   stroke: {
     curve: 'smooth',
-    colors: ['#5E5CE6'],
+    colors: ['#5e5ce6'],
+    width: 2,
   },
   dataLabels: {
     enabled: false,
@@ -65,7 +66,8 @@ const chartOptions = (data) => ({
     },
   },
   grid: {
-    strokeDashArray: 1,
+    strokeDashArray: 0,
+    borderColor: '#1d232d',
     position: 'back',
     xaxis: {
       lines: {
