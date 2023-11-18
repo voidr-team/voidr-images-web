@@ -15,8 +15,10 @@ export default function CreateProject({ userAlreadyCreateProject, isLoading }) {
       <p>{t('onboarding.create_project.subtitle')}</p>
       <div className={stepsStyles.steps}>
         <div className={stepsStyles.step} ref={parentStep1Ref}>
-          <h5>{t('onboarding.create_project.form.project.label')}</h5>
-          <p>{t('onboarding.create_project.form.project.description')}</p>
+          <div className={stepsStyles.stepLabel}>
+            <h5>{t('onboarding.create_project.form.project.label')}</h5>
+            <p>{t('onboarding.create_project.form.project.description')}</p>
+          </div>
           <Input
             className={styles.projectInput}
             name="name"

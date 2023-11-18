@@ -94,10 +94,10 @@
   "onboarding.steps.create_project": "Create project",
   "onboarding.steps.setup": "Setup",
   "onboarding.steps.start": "Start",
-  "onboarding.create_project.title": "Let's get started",
-  "onboarding.create_project.subtitle": "First of all, create your project to start using the platform",
+  "onboarding.create_project.title": "🚀 Let's get started",
+  "onboarding.create_project.subtitle": "Creating your project is the starting point for unlocking the incredible image processing power of our platform",
   "onboarding.create_project.form.project.label": "Project name",
-  "onboarding.create_project.form.project.description": "The project name will be used in API calls",
+  "onboarding.create_project.form.project.description": "Este nome será a chave para integrar e acessar as funcionalidades exclusivas da nossa API",
   "onboarding.create_project.form.project.placeholder": "xpto_marketplace",
   "onboarding.create_project.form.project.action": "Create project",
   "onboarding.optimize_first_image.title": "🎉 Process your first image",
@@ -127,6 +127,7 @@
   "checkout.cvc": "CVC",
   "checkout.toast.error": "An error occurred while completing the checkout",
   "checkout.toast.success": "Card registered successfully",
-  "translations.change_language.en": "English",
-  "translations.change_language.pt": "Portuguese"
+  "translations.change_language.en": "🇺🇸 English",
+  "translations.change_language.es": "🇪🇸 Español",
+  "translations.change_language.pt": "🇧🇷 Português"
 }

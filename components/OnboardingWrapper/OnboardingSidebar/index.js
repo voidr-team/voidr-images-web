@@ -79,7 +79,6 @@ export default function OnboardingSidebar({ steps }) {
                   position={'relative'}
                   left={'86px'}
                   zIndex={9}
-                  gap={2}
                 >
                   <Typography
                     textColor={

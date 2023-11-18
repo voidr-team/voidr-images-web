@@ -73,9 +73,8 @@ function ImageLayout({ children, title }) {
         </Sidebar.Root>
 
         <div className={styles.imageLayoutScrollable}>
-          <div className={styles.languageSwitcherWrapper}>
-            <LanguageSwitcher />
-          </div>
+          <LanguageSwitcher />
+          <div className={styles.languageSwitcherWrapper}></div>
           <div className={styles.container}>
             <Typography level="h2" className={styles.title}>
               {title}

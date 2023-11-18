@@ -4,6 +4,7 @@ import StepRender from '../Steps/StepRender'
 import useOnboarding from './useOnboarding'
 import { FormProvider } from 'react-hook-form'
 import OnboardingSidebar from './OnboardingSidebar'
+import LanguageSwitcher from '../LanguageSwitcher'
 import styles from './OnboardingWrapper.module.scss'
 import OnboardingHeaderMobile from './OnboardingHeaderMobile'
 import StepsCountMobile from './StepsCountMobile'
@@ -21,6 +22,7 @@ export default function OnboardingWrapper() {
         <OnboardingSidebar steps={steps} />
 
         <aside className={styles.wrapper}>
+          <LanguageSwitcher />
           <FormProvider {...formMethods}>
             <form id="onboardingForm" onSubmit={onSubmit}>
               <StepRender steps={steps} eq="CREATE_PROJECT">
