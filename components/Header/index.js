@@ -27,30 +27,34 @@ export default function Header({ menuList }) {
 
       <div className={styles.menuActions}>
         <LanguageSwitcher />
-
-        <figure onClick={toggleMenu} className={styles.toggleMenu}>
-          {isOpen ? <X /> : <Menu />}
-        </figure>
+        {menuList && (
+          <figure onClick={toggleMenu} className={styles.toggleMenu}>
+            {isOpen ? <X /> : <Menu />}
+          </figure>
+        )}
       </div>
 
-      <nav className={cn(styles.navbar, { [styles.navbarActive]: isOpen })}>
-        <ul>
-          {menuList.concat(sidebarItems.common)?.map((menuItem, index) => {
-            return (
-              <Link key={`${menuItem?.id}_${index}`} href={menuItem?.link}>
-                <li
-                  className={cn(styles.listItem, {
-                    [styles.listItemActive]: router.pathname === menuItem?.link,
-                  })}
-                >
-                  <menuItem.icon />
-                  {t(menuItem?.label)}
-                </li>
-              </Link>
-            )
-          })}
-        </ul>
-      </nav>
+      {menuList && (
+        <nav className={cn(styles.navbar, { [styles.navbarActive]: isOpen })}>
+          <ul>
+            {menuList.concat(sidebarItems.common)?.map((menuItem, index) => {
+              return (
+                <Link key={`${menuItem?.id}_${index}`} href={menuItem?.link}>
+                  <li
+                    className={cn(styles.listItem, {
+                      [styles.listItemActive]:
+                        router.pathname === menuItem?.link,
+                    })}
+                  >
+                    <menuItem.icon />
+                    {t(menuItem?.label)}
+                  </li>
+                </Link>
+              )
+            })}
+          </ul>
+        </nav>
+      )}
     </header>
   )
 }

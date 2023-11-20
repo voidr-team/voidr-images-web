@@ -1,3 +1,15 @@
+@import '/styles/mixins';
+
+.languageSwitcherWrapper {
+  padding: 30px 60px 0;
+  display: flex;
+  justify-content: flex-end;
+
+  @include below(700px) {
+    display: none;
+  }
+}
+
 .menuActivatorWrapper {
   display: flex;
   align-items: center;
@@ -16,6 +28,7 @@
   background-color: var(--primary-800);
   padding: 15px 25px;
   gap: 15px;
+  width: 150px;
 }
 
 .listItem {
