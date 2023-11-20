@@ -75,6 +75,7 @@ export default function ChoosePlan() {
               {user?.currentProject?.plan === 'ENTERPRISE' && (
                 <p>{t('choose_plan.current_plan')}</p>
               )}
+
               {user?.currentProject?.plan !== 'ENTERPRISE' && (
                 <Button onClick={handleEnterpriseContact}>
                   {getInTouch

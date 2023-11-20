@@ -9,6 +9,19 @@
   position: relative;
   border-bottom: 1px solid var(--neutral-700);
 
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .languageSwitcherWrapper {
+      > div {
+        padding: 0;
+        display: flex;
+      }
+    }
+  }
+
   .toggleMenu {
     margin-top: 6px;
     cursor: pointer;

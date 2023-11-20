@@ -5,7 +5,7 @@
   display: flex;
   justify-content: flex-end;
 
-  @include below(700px) {
+  @include below(900px) {
     display: none;
   }
 }

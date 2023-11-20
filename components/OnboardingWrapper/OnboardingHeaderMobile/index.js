@@ -5,6 +5,7 @@ import { LibraryBig, LogOut, Menu, X } from 'lucide-react'
 import cn from 'classnames'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 export default function OnboardingHeaderMobile() {
   const { t } = useTranslation(['common'])
@@ -21,9 +22,15 @@ export default function OnboardingHeaderMobile() {
         height={30}
       />
 
-      <figure onClick={toggleMenu} className={styles.toggleMenu}>
-        {isOpen ? <X /> : <Menu />}
-      </figure>
+      <div>
+        <div className={styles.languageSwitcherWrapper}>
+          <LanguageSwitcher />
+        </div>
+
+        <figure onClick={toggleMenu} className={styles.toggleMenu}>
+          {isOpen ? <X /> : <Menu />}
+        </figure>
+      </div>
 
       <nav className={cn(styles.navbar, { [styles.navbarActive]: isOpen })}>
         <ul>
