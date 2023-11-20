@@ -1,6 +1,5 @@
 import useAuth from '@/context/auth/useAuth'
 import useSubscription from './useSubscription'
-import { Typography } from '@mui/joy'
 import styles from './Subscription.module.scss'
 import { useTranslation } from 'next-i18next'
 import InlineLink from '@/components/UI/InlineLink'
@@ -14,8 +13,8 @@ const Subscription = () => {
   }
 
   return (
-    <div className={styles.subscription}>
-      <Typography level="h4">{t('subscription.title')}</Typography>
+    <div style={{ backgroundColor: 'red' }} className={styles.subscription}>
+      <h5>{t('subscription.title')}</h5>
       <InlineLink onClick={onClickViewSubscription}>
         {t('subscription.description')}
       </InlineLink>

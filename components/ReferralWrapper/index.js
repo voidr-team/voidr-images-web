@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import styles from './ReferralWrapper.module.scss'
-import { Typography } from '@mui/joy'
 import { useTranslation } from 'next-i18next'
 import CopyURL from '../CopyURL'
 import useAuth from '@/context/auth/useAuth'
@@ -41,24 +40,18 @@ export default function ReferralWrapper() {
       />
 
       <div className={styles.content}>
-        <Typography level="h3">{t('referral.invite.title')}</Typography>
-        <Typography level="body-md">
-          {t('referral.invite.description')}
-        </Typography>
+        <h4>{t('referral.invite.title')}</h4>
+        <p>{t('referral.invite.description')}</p>
 
         <div className={styles.copyUrlWrapper}>
-          <Typography level="body-md">
-            {t('referral.invite.copy_url_title')}
-          </Typography>
+          <p>{t('referral.invite.copy_url_title')}</p>
           <CopyURL
             url={`https://app.voidr.co/referral?slug=${user?.currentProject?.name}`}
           />
         </div>
 
         <div className={styles.shareLink}>
-          <Typography level="body-md">
-            {t('referral.invite.share_title')}
-          </Typography>
+          <p>{t('referral.invite.share_title')}</p>
           <Icon
             onClick={onShare}
             id="Whatsapp_Icon_Outlined"

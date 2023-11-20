@@ -1,4 +1,3 @@
-import { Stack, Typography } from '@mui/joy'
 import Image from 'next/image'
 import SidebarItem from '@/components/Sidebar/SidebarItem'
 import sidebarItems from '@/components/Sidebar/sidebarItems'
@@ -43,55 +42,37 @@ export default function OnboardingSidebar({ steps }) {
           [styles.sidebarContentActive]: isOpen,
         })}
       >
-        <Stack gap={10} height="100%">
+        <div className={styles.sidebarHolder}>
           <Image
             src="/images/logo-typo.svg"
             width="146"
             height="20"
             alt="Logo typo voidr"
           />
-          <Stack maxHeight="fit-content" position="relative" gap={10}>
+          <ul>
             {onboardingSteps(t)?.map((onboardingStep) => {
               const actualOrFinishedStep =
                 steps.current + 1 >= onboardingStep.number
 
               return (
-                <Stack
-                  key={onboardingStep.number}
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  width={'150px'}
-                  position={'relative'}
-                  left={'86px'}
-                  zIndex={9}
-                  gap={2}
-                >
-                  <Typography
-                    textColor={
-                      actualOrFinishedStep ? 'neutral.100' : 'neutral.600'
-                    }
+                <li key={onboardingStep.number}>
+                  <p
+                    className={cn(styles.paragraphContent, {
+                      [styles.paragraphContentActive]: !actualOrFinishedStep,
+                    })}
                   >
                     {onboardingStep.label}
-                  </Typography>
-                  <Stack
-                    borderRadius={100}
-                    border={2}
-                    marginLeft={'14px'}
-                    borderColor={
-                      actualOrFinishedStep ? 'helper.500' : 'neutral.700'
-                    }
-                    width={14}
-                    height={14}
-                    justifyContent="center"
-                    alignItems="center"
-                    bgcolor="primary.500"
-                  ></Stack>
-                </Stack>
+                  </p>
+                  <div
+                    className={cn(styles.listFloatingBuble, {
+                      [styles.listFloatingBubleActive]: actualOrFinishedStep,
+                    })}
+                  />
+                </li>
               )
             })}
-          </Stack>
-        </Stack>
+          </ul>
+        </div>
 
         <SidebarItem
           link={logoutItem.link}

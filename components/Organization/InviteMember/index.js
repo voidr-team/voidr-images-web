@@ -1,16 +1,14 @@
-import { Stack } from '@mui/joy'
 import PropTypes from 'prop-types'
 import styles from './InviteMember.module.scss'
 import useInviteMember from './useInviteMember'
 import { FormProvider } from 'react-hook-form'
 import InviteMemberModal from './InviteMemberModal'
 import Input from '../../Form/Input'
-import Autocomplete from '../../Form/Autocomplete'
 import Button from '../../UI/Button'
 import { useTranslation } from 'next-i18next'
 
 function InviteMember({ isOpen, setIsOpen }) {
-  const { onSubmit, formMethods, isLoadingSendInvite, isLoadingRoles, roles } =
+  const { onSubmit, formMethods, isLoadingSendInvite } =
     useInviteMember(setIsOpen)
   const { t } = useTranslation(['translations', 'common'])
 
@@ -34,11 +32,9 @@ function InviteMember({ isOpen, setIsOpen }) {
             />
           </div>
 
-          <Stack marginTop={5}>
-            <Button isLoading={isLoadingSendInvite} type="submit">
-              {t('invite_member.button')}
-            </Button>
-          </Stack>
+          <Button isLoading={isLoadingSendInvite} type="submit">
+            {t('invite_member.button')}
+          </Button>
         </form>
       </FormProvider>
     </InviteMemberModal>

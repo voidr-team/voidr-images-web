@@ -1,13 +1,12 @@
 .radioButtonWrapper {
   .radioButton {
-
     input[type='radio']:checked + div {
       padding: 10px;
-      border: 1px solid rgba(white, .7);
+      border: 1px solid rgba(white, 0.7);
       opacity: 1;
 
       svg {
-        color: rgba(white, .7);
+        color: rgba(white, 0.7);
       }
     }
 
@@ -29,7 +28,6 @@
 }
 
 .radioButtonHorizontal {
-
   svg {
     position: static;
     margin-right: 6px;
@@ -55,15 +53,17 @@
     padding: 10px;
     opacity: 1;
 
-    svg, span {
-      color: rgba(white, .7);
+    svg,
+    span {
+      color: rgba(white, 0.7);
     }
   }
 
   input[type='radio']:not(:checked) + div {
     opacity: 1;
 
-    svg, span {
+    svg,
+    span {
       color: var(--neutral-600);
     }
   }
@@ -83,11 +83,6 @@ $base-snippet-radius: 10px;
 }
 
 .codeWrapper {
+  margin-top: 10px;
   border-radius: $base-snippet-radius;
 }
-
-// .codeWrapper {
-//   border-top: none;
-//   border-bottom-left-radius: $base-snippet-radius;
-//   border-bottom-right-radius: $base-snippet-radius;
-// }

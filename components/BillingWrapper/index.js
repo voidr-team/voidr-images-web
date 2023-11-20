@@ -13,7 +13,7 @@ export default function BillingWrapper() {
 
   return (
     <div>
-      {user.currentProject?.plan !== 'FREE' ? (
+      {user.currentProject?.plan === 'FREE' ? (
         <PlanInfo usage={data?.usage} />
       ) : (
         <div className={styles.wrapperPlanUsage}>

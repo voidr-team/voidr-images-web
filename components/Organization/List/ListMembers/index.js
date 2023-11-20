@@ -1,13 +1,5 @@
 import Icon from '@/components/UI/Icon'
-import {
-  Avatar,
-  Dropdown,
-  Menu,
-  MenuButton,
-  MenuItem,
-  Stack,
-  Typography,
-} from '@mui/joy'
+import { Avatar, Dropdown, Menu, MenuButton, MenuItem } from '@mui/joy'
 import useOrganizationMembers from './useOrganizationMembers'
 import Loader from '@/components/UI/Loader'
 import styles from '../List.module.scss'
@@ -19,9 +11,9 @@ function ListMembers() {
 
   if (isLoading)
     return (
-      <Stack marginY={5}>
+      <div className={styles.loaderHolder}>
         <Loader />
-      </Stack>
+      </div>
     )
 
   return (
@@ -59,21 +51,12 @@ function ListMembers() {
                     <MenuButton sx={{ padding: 1 }}>
                       <Icon height={20} width={20} id="More_Horizontal" />
                     </MenuButton>
-                    <Menu
-                      sx={(theme) => ({
-                        backgroundColor: theme.vars.palette.primary[500],
-                      })}
-                    >
+                    <Menu className={styles.menu}>
                       <MenuItem onClick={() => deleteMember(member?.sub)}>
                         <Icon height={20} width={20} id="Remove_Minus_Circle" />
-                        <Typography
-                          fontSize={14}
-                          fontWeight="500"
-                          textColor="danger.700"
-                          paddingLeft={0.5}
-                        >
+                        <p className={styles.exclude}>
                           {t('members.table.remove_member')}
-                        </Typography>
+                        </p>
                       </MenuItem>
                     </Menu>
                   </Dropdown>

@@ -1,3 +1,21 @@
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 550px;
+  justify-content: space-between;
+}
+
+.modalContent {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  > p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
 .buttonCloseModal {
   background-color: transparent;
   cursor: pointer;

@@ -1,7 +1,6 @@
 import Sidebar from '@/components/Sidebar'
 import sidebarStyles from '@/components/Sidebar/Sidebar.module.scss'
 import sidebarItems from '@/components/Sidebar/sidebarItems'
-import { Typography } from '@mui/joy'
 import BaseLayout from '../BaseLayout'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -34,14 +33,9 @@ function ImageLayout({ children, title }) {
                 <img src="/images/logo-typo.svg" alt="voidr logo typo" />
               </div>
 
-              <Typography
-                fontSize={18}
-                fontWeight="600"
-                marginY={'30px'}
-                marginBottom={2}
-              >
+              <p className={styles.projectNameTitle}>
                 {user?.currentProject?.name}
-              </Typography>
+              </p>
 
               <ul className={sidebarStyles.listWrapper}>
                 {sidebarItems.images.map((item) => (
@@ -77,9 +71,7 @@ function ImageLayout({ children, title }) {
             <LanguageSwitcher />
           </div>
           <div className={styles.container}>
-            <Typography level="h2" className={styles.title}>
-              {title}
-            </Typography>
+            <h3 className={styles.title}>{title}</h3>
             {children}
           </div>
         </div>

@@ -1,7 +1,6 @@
 import Input from '@/components/Form/Input'
 import styles from '../Steps.module.scss'
 import { useFormContext } from 'react-hook-form'
-import CodeSnippet from '@/components/OnboardingWrapper/Steps/Setup/CodeSnippet'
 import getImageSource from '@/utils/getImageSource'
 import Button from '@/components/UI/Button'
 import useAuth from '@/context/auth/useAuth'
@@ -14,6 +13,7 @@ import Loader from '@/components/UI/Loader'
 import imagesService from '@/services/images'
 import formatBytes from '@/utils/formatBytes'
 import { Trans, useTranslation } from 'next-i18next'
+import CodeSnippet from '@/components/CodeSnippet'
 
 const OptimizeFirstImage = () => {
   const { user } = useAuth()

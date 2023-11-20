@@ -1,4 +1,4 @@
-import { Box, Divider, Modal, ModalDialog, Typography } from '@mui/joy'
+import { Box, Divider, Modal, ModalDialog } from '@mui/joy'
 import Icon from '@/components/UI/Icon'
 import { confirmable, createConfirmation } from 'react-confirm'
 import Button from '../UI/Button'
@@ -21,28 +21,20 @@ function Confirmation({
           aria-labelledby="alert-dialog-modal-title"
           aria-describedby="alert-dialog-modal-description"
         >
-          <Typography
-            id="alert-dialog-modal-title"
-            level="h3"
-            textColor="neutral.300"
-            startDecorator={
-              <Icon
-                className={styles.confirmationIcon}
-                id="Triangle_Warning"
-                width={30}
-                height={30}
-              />
-            }
-          >
-            {title}
-          </Typography>
+          <header className={styles.headerModal}>
+            <Icon
+              className={styles.confirmationIcon}
+              id="Triangle_Warning"
+              width={30}
+              height={30}
+            />
+
+            <h5>{title}</h5>
+          </header>
+
           <Divider />
-          <Typography
-            id="alert-dialog-modal-description"
-            textColor="text.tertiary"
-          >
-            {description}
-          </Typography>
+
+          <p style={{ marginBlock: '15px' }}>{description}</p>
           <Box
             sx={{
               display: 'flex',

@@ -4,6 +4,13 @@
   display: flex;
   flex-direction: row;
 
+  .projectNameTitle {
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-block: 10px;
+  }
+
   .imageLayoutScrollable {
     height: 100vh;
     overflow: auto;

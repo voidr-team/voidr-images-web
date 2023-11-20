@@ -5,6 +5,26 @@
   height: 100vh;
   overflow: hidden;
 
+  > .sidebarHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 20px 14px;
+    border-right: 1px solid var(--neutral-700);
+
+    > figure {
+      max-height: 100vh;
+    }
+
+    .productsNavigationWrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 30px;
+    }
+  }
+
   .sidebarContent {
     height: 100%;
     display: flex;
