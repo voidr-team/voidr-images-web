@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useTranslation } from 'next-i18next'
 
 const useLogin = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { loginWithRedirect } = useAuth0()
 
   function handleInvite() {
@@ -16,6 +16,7 @@ const useLogin = () => {
         authorizationParams: {
           invitation,
           organization,
+          ui_locales: i18n?.language || 'en',
         },
       })
     }

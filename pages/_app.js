@@ -39,7 +39,7 @@ const VoidrApp = ({ Component, pageProps, ...props }) => {
 
   return (
     <Auth0Wrapper>
-      <AuthProvider>
+      <AuthProvider locale={pageProps?._nextI18Next?.initialLocale}>
         <LoggedLayout currentPage={currentRoute}>{BaseComp}</LoggedLayout>
         <ToastContainer />
       </AuthProvider>
