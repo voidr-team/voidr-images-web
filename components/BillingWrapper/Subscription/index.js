@@ -13,7 +13,7 @@ const Subscription = () => {
   }
 
   return (
-    <div style={{ backgroundColor: 'red' }} className={styles.subscription}>
+    <div className={styles.subscription}>
       <h5>{t('subscription.title')}</h5>
       <InlineLink onClick={onClickViewSubscription}>
         {t('subscription.description')}

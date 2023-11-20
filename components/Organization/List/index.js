@@ -9,7 +9,7 @@ function List({ setIsOpenInviteMember }) {
   const { t } = useTranslation(['translations', 'common'])
 
   return (
-    <div>
+    <>
       <article className={styles.tabsHeader}>
         <h4>{t('members.title')}</h4>
         <Button
@@ -46,7 +46,7 @@ function List({ setIsOpenInviteMember }) {
           <ListInvites />
         </TabPanel>
       </Tabs>
-    </div>
+    </>
   )
 }
 

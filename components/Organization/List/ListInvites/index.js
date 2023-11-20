@@ -49,7 +49,7 @@ function ListInvites() {
                         <Icon height={20} width={20} id="More_Horizontal" />
                       </MenuButton>
                       <Menu className={styles.menu}>
-                        <CopyClipboard text={invite.invitation_url}>
+                        <CopyClipboard text={invite.invitationUrl}>
                           <MenuItem>
                             <p>{t('inviations.table.copy_invite')}</p>
                           </MenuItem>
