@@ -16,7 +16,7 @@ const useLogin = () => {
         authorizationParams: {
           invitation,
           organization,
-          ui_locales: i18n?.language || 'en',
+          ui_locales: 'en-US',
         },
       })
     }
