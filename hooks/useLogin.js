@@ -10,18 +10,23 @@ const useLogin = () => {
     const params = new URL(document.location).searchParams
     const invitation = params.get('invitation')
     const organization = params.get('organization')
+    const lang = i18n?.language || 'en'
 
     if (invitation && organization) {
       return loginWithRedirect({
         authorizationParams: {
           invitation,
           organization,
-          ui_locales: 'en-US',
+          ui_locales: lang,
         },
       })
     }
 
-    return loginWithRedirect()
+    return loginWithRedirect({
+      authorizationParams: {
+        ui_locales: lang,
+      },
+    })
   }
 
   useEffect(() => {
