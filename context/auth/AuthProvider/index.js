@@ -9,7 +9,7 @@ import { isEmpty } from 'ramda'
 
 export const AuthContext = createContext()
 
-function AuthProvider({ children }) {
+function AuthProvider({ locale, children }) {
   const {
     logout,
     isAuthenticated,
@@ -88,6 +88,7 @@ function AuthProvider({ children }) {
           return loginWithRedirect({
             authorizationParams: {
               organization: orgId,
+              ui_locales: locale,
             },
           })
         }
@@ -147,6 +148,8 @@ function AuthProvider({ children }) {
 
     startAuth()
   }, [isAuth0Loading, isAuthenticated])
+
+  console.log('@locale', locale)
 
   return (
     <>
