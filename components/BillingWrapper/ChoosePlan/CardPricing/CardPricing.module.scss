@@ -1,11 +1,20 @@
+@import '/styles/mixins';
+
 .rootWrapper {
   width: 100%;
   border: 1px solid var(--neutral-600);
   max-width: 340px;
   border-radius: 6px;
   padding: 30px;
-  min-height: 700px;
   background-color: var(--primary-600);
+
+  @include below(1300px) {
+    min-height: 640px;
+  }
+
+  @include below(400px) {
+    min-height: 690px;
+  }
 }
 
 .headerWrapper {
