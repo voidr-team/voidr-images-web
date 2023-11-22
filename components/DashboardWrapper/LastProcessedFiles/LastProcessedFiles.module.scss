@@ -9,26 +9,32 @@
     flex-wrap: wrap;
     gap: 20px;
 
-    @include below(1700px) {
-      & > div:nth-child(n + 13) {
+    @include below(1699px) {
+      & > figure:nth-child(n + 13) {
+        display: none;
+      }
+    }
+
+    @include below(1599px) {
+      & > figure:nth-child(n + 10) {
         display: none;
       }
     }
 
     @include below(1219px) {
-      & > div:nth-child(n + 14) {
-        display: none;
-      }
-    }
-
-    @include below(950px) {
-      & > div:nth-child(n + 9) {
+      & > figure:nth-child(n + 9) {
         display: none;
       }
     }
 
     @include below(949px) {
-      & > div:nth-child(n + 7) {
+      & > figure:nth-child(n + 7) {
+        display: none;
+      }
+    }
+
+    @include below(799px) {
+      & > figure:nth-child(n + 5) {
         display: none;
       }
     }

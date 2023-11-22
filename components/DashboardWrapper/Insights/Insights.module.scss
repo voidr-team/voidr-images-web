@@ -38,4 +38,10 @@
     width: 100%;
     cursor: pointer;
   }
+
+  @include below(1199px) {
+    > img {
+      max-width: 500px;
+    }
+  }
 }
