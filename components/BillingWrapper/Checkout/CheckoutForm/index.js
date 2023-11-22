@@ -7,14 +7,12 @@ import {
   CardExpiryElement,
   CardCvcElement,
 } from '@stripe/react-stripe-js'
-import http from '@/services/http'
 import Input from '@/components/Form/Input'
 import { useTranslation } from 'next-i18next'
 import { FormProvider, useForm } from 'react-hook-form'
 import useAuth from '@/context/auth/useAuth'
 import styles from './CheckoutForm.module.scss'
 import Label from '@/components/Form/Input/Label'
-import { Typography } from '@mui/joy'
 import { Column, Row } from '@/components/UI/Grid'
 import Button from '@/components/UI/Button'
 import toastEz from '@/utils/toastEz'
@@ -80,10 +78,9 @@ const CheckoutForm = ({ onSuccessfulCheckout }) => {
 
   return (
     <div className={styles.modalHolder}>
-      <Typography level="h2">{t('checkout.title')}</Typography>
-      <Typography level="body-md" lineHeight={1.2} marginTop="8px">
-        {t('checkout.description')}
-      </Typography>
+      <h3>{t('checkout.title')}</h3>
+      <p>{t('checkout.description')}</p>
+
       <FormProvider {...formMethods}>
         <form onSubmit={onSubmit}>
           <Row>

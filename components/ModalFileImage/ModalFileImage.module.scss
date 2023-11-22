@@ -13,7 +13,12 @@
   inset: 0;
 }
 
+.insideSpace {
+  padding: 30px;
+}
+
 .modal {
+  max-width: 100vw;
   transition: all 0.9s;
   position: fixed;
   overflow-y: auto;
@@ -23,8 +28,48 @@
   height: 100%;
   background-color: #1d2330;
 
-  @media (min-width: 1100px) {
+  > h4 {
+    padding-inline: 50px;
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  .imageInfo {
+    padding-inline: 50px;
+    margin-block: 30px;
+
+    > span {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .contentImageInfo {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+
+      div > span {
+        font-weight: 600;
+      }
+
+      div > p,
+      span {
+        font-size: 14px;
+        color: var(--neutral-500);
+      }
+
+      div p > span {
+        text-transform: uppercase !important;
+      }
+    }
+  }
+
+  @include above(1100px) {
     width: 600px;
+  }
+
+  @include below(400px) {
+    width: 100%;
   }
 
   .image {
@@ -40,6 +85,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     line-height: 1.3;
+    font-size: 15px !important;
   }
 }
 
@@ -48,25 +94,25 @@
   transition: all 0.3s;
 }
 
+.imageVariationsContainer {
+  > p {
+    padding-inline: 50px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
 .imageVariationsWrapper {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 0 45px;
-  overflow-x: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
+  padding-inline: 50px;
   border-radius: 2px;
   background-color: black;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  overflow-x: scroll;
 
   .scrollImageWrapper {
     padding: 12px 0;
-    position: relative;
     height: 100%;
     display: flex;
 
@@ -79,7 +125,7 @@
       outline: 3px solid var(--helper-500);
 
       &::before {
-        content: 'PEDRO';
+        content: '';
         position: absolute;
         width: 400px;
         height: 100px;
@@ -104,6 +150,45 @@
       transform: translateX(-50%);
     }
   }
+}
+
+.metadataWrapper {
+  padding-inline: 50px;
+
+  > h5 {
+    margin-block: 30px;
+  }
+
+  > img {
+    margin-bottom: 30px;
+
+    @include below(350px) {
+      width: 100%;
+    }
+  }
+
+  > article {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .infoWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    > span {
+      color: var(--neutral-500);
+      font-weight: 600;
+    }
+  }
+}
+
+.containerWrapper {
+  padding-inline: 50px;
+  margin-block: 30px;
 }
 
 .snippetWrapper {

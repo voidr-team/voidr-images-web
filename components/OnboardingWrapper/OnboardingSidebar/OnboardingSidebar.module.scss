@@ -2,12 +2,25 @@
 
 .sidebar {
   position: relative;
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--primary-500);
+
+  .sidebarActions {
+    min-height: 100vh;
+    padding: 20px 14px;
+    border-right: 1px solid var(--neutral-700);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   @include below(900px) {
     display: none !important;
   }
 
   .chevron {
+    width: max-content;
     display: block;
 
     @include above(900px) {
@@ -27,6 +40,52 @@
     justify-content: space-between;
     padding: 30px 20px;
     min-width: 250px;
+
+    .sidebarHolder {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+
+      > ul {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        gap: 50px;
+
+        li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 150px;
+          position: relative;
+          left: 86px;
+          z-index: 9;
+          gap: 20px;
+
+          .paragraphContent {
+            color: var(--neutral-100);
+          }
+
+          .paragraphContentActive {
+            color: var(--neutral-600);
+          }
+
+          .listFloatingBuble {
+            position: absolute;
+            background-color: var(--primary-500);
+            width: 14px;
+            height: 14px;
+            right: 0;
+            border-radius: 100px;
+            border: 2px solid var(--neutral-700);
+          }
+
+          .listFloatingBubleActive {
+            border: 2px solid var(--helper-500);
+          }
+        }
+      }
+    }
 
     @include below(900px) {
       position: absolute;

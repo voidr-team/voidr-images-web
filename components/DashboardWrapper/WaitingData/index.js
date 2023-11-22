@@ -1,10 +1,8 @@
-import { Stack, Typography } from '@mui/joy'
 import styles from './WaitingData.module.scss'
 import Loader from '@/components/UI/Loader'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
-import ExternalLink from '@/components/UI/ExternalLink'
 import useAuth from '@/context/auth/useAuth'
 import InlineLink from '@/components/UI/InlineLink'
 
@@ -23,32 +21,23 @@ export default function WaitingData() {
   }, [])
 
   return (
-    <Stack className={styles.awaitDataWrapper}>
+    <div className={styles.awaitDataWrapper}>
       <div className={styles.imageBackground}></div>
 
-      <Stack
-        bgcolor="primary.400"
-        border={1}
-        borderColor="neutral.600"
-        borderRadius={10}
-        padding={4}
-        className={styles.modalContainer}
-      >
-        <Typography fontWeight="600" fontSize={20}>
+      <div className={styles.modalContainer}>
+        <h3 fontWeight="600" fontSize={20}>
           {t('onboarding.finish.title')}
-        </Typography>
-        <Typography marginY={2} fontWeight="500" fontSize={16}>
-          {t('onboarding.finish.no_data')}
-        </Typography>
-        <Typography textColor="neutral.400" fontWeight="400" fontSize={16}>
+        </h3>
+        <p>{t('onboarding.finish.no_data')}</p>
+        <span>
           {t('onboarding.finish.description', {
             project: user?.currentProject?.name,
           })}
-        </Typography>
+        </span>
 
-        <Stack marginY={4}>
+        <div className={styles.loaderWrapper}>
           <Loader />
-        </Stack>
+        </div>
 
         <InlineLink
           href="https://voidr-images.readme.io/reference/intro"
@@ -57,7 +46,7 @@ export default function WaitingData() {
         >
           Ir para documentação
         </InlineLink>
-      </Stack>
-    </Stack>
+      </div>
+    </div>
   )
 }

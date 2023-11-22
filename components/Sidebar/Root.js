@@ -1,4 +1,3 @@
-import { Stack } from '@mui/joy'
 import styles from './Sidebar.module.scss'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -12,16 +11,8 @@ function Root({ children }) {
 
   return (
     <div className={styles.sidebar}>
-      <Stack
-        minHeight="100vh"
-        paddingX={'14px'}
-        paddingY={'20px'}
-        borderRight={1}
-        alignItems="center"
-        justifyContent="space-between"
-        borderColor="var(--neutral-700)"
-      >
-        <Stack maxHeight="100vh">
+      <div className={styles.sidebarHolder}>
+        <figure>
           <Image
             src="/images/logo-small.svg"
             alt="Logo voidr"
@@ -29,7 +20,7 @@ function Root({ children }) {
             height={45}
           />
 
-          <Stack paddingTop={3} alignItems="center">
+          <figure className={styles.productsNavigationWrapper}>
             <Link href="/images/dashboard">
               <Icon
                 className={cn(styles.iconNavigationItem, {
@@ -41,12 +32,13 @@ function Root({ children }) {
                 height={45}
               />
             </Link>
-          </Stack>
-        </Stack>
+          </figure>
+        </figure>
+
         <div className={styles.chevron}>
           <ChevronsRight />
         </div>
-      </Stack>
+      </div>
       <div className={styles.sidebarContent}>{children}</div>
     </div>
   )

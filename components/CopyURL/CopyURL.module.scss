@@ -1,4 +1,5 @@
 .wrapper {
+  height: 40px;
   background-color: var(--primary-300);
   border-radius: 10px;
   position: relative;
@@ -8,17 +9,21 @@
   gap: 20px;
 
   > p {
+    height: 100%;
     background-color: #d9d9d91e;
     font-weight: 600;
     font-size: 14px;
     color: white;
     border-radius: 10px;
     padding: 10px;
+    display: flex;
+    align-items: center;
   }
 
   > input {
     background-color: transparent;
     flex: 1;
+    overflow: hidden;
   }
 
   > button {

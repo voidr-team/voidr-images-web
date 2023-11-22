@@ -1,4 +1,3 @@
-import { Stack } from '@mui/joy'
 import Uppy from '@uppy/core'
 import AwsS3 from '@uppy/aws-s3'
 import { DragDrop } from '@uppy/react'
@@ -18,6 +17,7 @@ export default function AddNewFile() {
   const { t } = useTranslation(['translations', 'common'])
   const [isLoading, setIsLoading] = useState(false)
   const { user } = useAuth()
+
   const uppy = useMemo(
     () =>
       new Uppy({
@@ -79,12 +79,13 @@ export default function AddNewFile() {
 
     return () => uppy.close({ reason: 'unmount' })
   }, [uppy])
+
   return (
-    <Stack marginTop={3} className={styles.addNewFile}>
+    <div className={styles.addNewFile}>
       <h3>{t('add_new_file.title')}</h3>
 
       <p>{t('add_new_file.accepted_formats')}</p>
-      <Stack className={styles.dropWrapper}>
+      <div className={styles.dropWrapper}>
         {isLoading && (
           <>
             <div className={styles.overlay}></div>
@@ -93,7 +94,7 @@ export default function AddNewFile() {
         )}
 
         <DragDrop className={styles.dragDrop} uppy={uppy} />
-      </Stack>
-    </Stack>
+      </div>
+    </div>
   )
 }

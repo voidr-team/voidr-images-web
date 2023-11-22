@@ -1,26 +1,23 @@
-import { Tab, TabList, Tabs, TabPanel, Stack, Typography } from '@mui/joy'
+import { Tab, TabList, Tabs, TabPanel } from '@mui/joy'
 import ListMembers from './ListMembers'
 import ListInvites from './ListInvites'
 import Button from '@/components/UI/Button'
 import { useTranslation } from 'next-i18next'
+import styles from './List.module.scss'
 
 function List({ setIsOpenInviteMember }) {
   const { t } = useTranslation(['translations', 'common'])
+
   return (
-    <div>
-      <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent="space-between"
-        marginY={2}
-      >
-        <Typography level="h3">{t('members.title')}</Typography>
+    <>
+      <article className={styles.tabsHeader}>
+        <h4>{t('members.title')}</h4>
         <Button
           onClick={() => setIsOpenInviteMember((prevState) => !prevState)}
         >
           {t('members.invite_member')}
         </Button>
-      </Stack>
+      </article>
       <Tabs
         sx={(theme) => ({
           backgroundColor: theme.vars.palette.primary[500],
@@ -49,7 +46,7 @@ function List({ setIsOpenInviteMember }) {
           <ListInvites />
         </TabPanel>
       </Tabs>
-    </div>
+    </>
   )
 }
 

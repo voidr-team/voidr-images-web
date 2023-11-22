@@ -1,7 +1,6 @@
 import CreateProject from './CreateProject'
 import OptimizeFirstImage from './OptimizeFirstImage'
-import Setup from './Setup'
 
-const Steps = { CreateProject, Setup, OptimizeFirstImage }
+const Steps = { CreateProject, OptimizeFirstImage }
 
 export default Steps

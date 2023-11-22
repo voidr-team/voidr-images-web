@@ -25,7 +25,7 @@ export default function Insights() {
         <p>{t('insights.content.2')}</p>
       </article>
 
-      {!i18n.language === 'en' ? null : (
+      {i18n.language === 'pt-BR' ? (
         <a
           href="https://chat.whatsapp.com/HGk47PecZXRFRgxJ32PKX0"
           target="_blank"
@@ -42,7 +42,7 @@ export default function Insights() {
             />
           </figure>
         </a>
-      )}
+      ) : null}
     </Widget>
   )
 }

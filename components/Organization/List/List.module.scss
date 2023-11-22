@@ -1,3 +1,31 @@
+.loaderHolder {
+  margin-block: 50px;
+}
+
+.tabsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block: 20px;
+  margin-top: 50px;
+}
+
+.menu {
+  background-color: var(--primary-500);
+
+  p {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .exclude {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--danger-700);
+    padding-left: 3px;
+  }
+}
+
 .wrapper {
   width: 100%;
   overflow-x: auto;

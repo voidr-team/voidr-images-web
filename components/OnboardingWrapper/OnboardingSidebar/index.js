@@ -1,4 +1,3 @@
-import { Stack, Typography } from '@mui/joy'
 import Image from 'next/image'
 import SidebarItem from '@/components/Sidebar/SidebarItem'
 import sidebarItems from '@/components/Sidebar/sidebarItems'
@@ -21,22 +20,8 @@ export default function OnboardingSidebar({ steps }) {
   const { t } = useTranslation(['translations', 'common'])
 
   return (
-    <Stack
-      display="flex"
-      direction="row"
-      minHeight="100vh"
-      bgcolor="primary.500"
-      className={styles.sidebar}
-    >
-      <Stack
-        minHeight="100vh"
-        paddingX={'14px'}
-        paddingY={'20px'}
-        borderRight={1}
-        alignItems="center"
-        justifyContent="space-between"
-        borderColor="var(--neutral-700)"
-      >
+    <aside className={styles.sidebar}>
+      <div className={styles.sidebarActions}>
         <Image
           src="/images/logo-small.svg"
           alt="Logo voidr"
@@ -50,61 +35,45 @@ export default function OnboardingSidebar({ steps }) {
         >
           <ChevronsRight />
         </figure>
-      </Stack>
+      </div>
 
       <div
         className={cn(styles.sidebarContent, {
           [styles.sidebarContentActive]: isOpen,
         })}
       >
-        <Stack gap={10} height="100%" maxHeight="95vh">
+        <div className={styles.sidebarHolder}>
           <Image
             src="/images/logo-typo.svg"
             width="146"
             height="20"
             alt="Logo typo voidr"
           />
-          <Stack maxHeight="fit-content" position="relative" gap={10}>
+          <ul>
             {onboardingSteps(t)?.map((onboardingStep) => {
               const actualOrFinishedStep =
                 steps.current + 1 >= onboardingStep.number
 
               return (
-                <Stack
-                  key={onboardingStep.number}
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  width={'150px'}
-                  position={'relative'}
-                  left={'86px'}
-                  zIndex={9}
-                >
-                  <Typography
-                    textColor={
-                      actualOrFinishedStep ? 'neutral.100' : 'neutral.600'
-                    }
+                <li key={onboardingStep.number}>
+                  <p
+                    className={cn(styles.paragraphContent, {
+                      [styles.paragraphContentActive]: !actualOrFinishedStep,
+                    })}
                   >
                     {onboardingStep.label}
-                  </Typography>
-                  <Stack
-                    borderRadius={100}
-                    border={2}
-                    marginLeft={'14px'}
-                    borderColor={
-                      actualOrFinishedStep ? 'helper.500' : 'neutral.700'
-                    }
-                    width={14}
-                    height={14}
-                    justifyContent="center"
-                    alignItems="center"
-                    bgcolor="primary.500"
-                  ></Stack>
-                </Stack>
+                  </p>
+                  <div
+                    className={cn(styles.listFloatingBuble, {
+                      [styles.listFloatingBubleActive]: actualOrFinishedStep,
+                    })}
+                  />
+                </li>
               )
             })}
-          </Stack>
-        </Stack>
+          </ul>
+        </div>
+
         <SidebarItem
           link={logoutItem.link}
           key={logoutItem.id}
@@ -112,6 +81,6 @@ export default function OnboardingSidebar({ steps }) {
           label={t(logoutItem.label)}
         />
       </div>
-    </Stack>
+    </aside>
   )
 }

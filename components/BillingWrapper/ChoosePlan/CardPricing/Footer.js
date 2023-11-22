@@ -1,9 +1,5 @@
-import { Stack } from '@mui/joy'
+import styles from './CardPricing.module.scss'
 
 export default function Footer({ children }) {
-  return (
-    <Stack flex={1} justifyContent="flex-end" alignItems="center">
-      {children}
-    </Stack>
-  )
+  return <div className={styles.footerWrapper}>{children}</div>
 }

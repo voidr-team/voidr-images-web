@@ -1,0 +1,25 @@
+.sidebarContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 220px;
+  border-right: 1px solid #1d232d;
+  padding: 20px;
+
+  > div {
+    height: 100%;
+    max-width: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.listWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+  width: 100%;
+}

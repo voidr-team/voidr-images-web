@@ -1,10 +1,10 @@
-import { Divider, Stack } from '@mui/joy'
 import List from './List'
 import InviteMember from './InviteMember'
 import { useState } from 'react'
 import ChangeDomains from './ChangeDomains'
 import useProject from '@/hooks/useProject'
 import Loader from '../UI/Loader'
+import styles from './Organization.module.scss'
 
 //REFACTOR: dividir os componentes internos e montar eles direto na page
 function OrganizationList() {
@@ -14,9 +14,9 @@ function OrganizationList() {
   return (
     <div>
       {isLoading ? (
-        <Stack padding="35px">
+        <div className={styles.loadingHolder}>
           <Loader />
-        </Stack>
+        </div>
       ) : (
         <ChangeDomains domains={data?.domains} />
       )}

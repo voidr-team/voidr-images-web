@@ -1,6 +1,5 @@
 import CardFile from '@/components/CardFile'
 import useFilesList from '@/hooks/useFilesList'
-import { Stack, Typography } from '@mui/joy'
 import Pagination from '@/components/UI/Pagination'
 import Loader from '@/components/UI/Loader'
 import styles from './FileList.module.scss'
@@ -13,8 +12,8 @@ export default function FileList({ setIsDialogOpen, setCurrentImage }) {
   const { t } = useTranslation(['translations', 'common'])
 
   return (
-    <Stack>
-      <Typography level="h4">{t('file_list.title')}</Typography>
+    <section>
+      <h4>{t('file_list.title')}</h4>
 
       <div className={styles.cardFileList}>
         {isLoading ? (
@@ -51,6 +50,6 @@ export default function FileList({ setIsDialogOpen, setCurrentImage }) {
           initialPage={page}
         />
       ) : null}
-    </Stack>
+    </section>
   )
 }

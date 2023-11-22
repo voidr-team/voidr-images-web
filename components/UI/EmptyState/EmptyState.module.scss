@@ -1,0 +1,11 @@
+.container {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+
+  > p {
+    font-weight: 500;
+  }
+}

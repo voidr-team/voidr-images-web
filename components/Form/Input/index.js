@@ -1,10 +1,5 @@
 import ErrorMessage from '../../UI/ErrorMessage'
-import {
-  FormControl,
-  FormLabel,
-  Input as InputProvider,
-  Typography,
-} from '@mui/joy'
+import { FormControl, Input as InputProvider } from '@mui/joy'
 import { useFormContext } from 'react-hook-form'
 import Label from './Label'
 import { useAutoAnimate } from '@formkit/auto-animate/react'

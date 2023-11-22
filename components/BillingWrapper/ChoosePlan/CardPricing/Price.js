@@ -1,14 +1,5 @@
-import { Stack } from '@mui/joy'
+import styles from './CardPricing.module.scss'
 
 export default function Price({ children }) {
-  return (
-    <Stack
-      textAlign="center"
-      justifyContent="center"
-      height="100%"
-      maxHeight="110px"
-    >
-      {children}
-    </Stack>
-  )
+  return <div className={styles.priceWrapper}>{children}</div>
 }

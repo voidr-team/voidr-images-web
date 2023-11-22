@@ -1,4 +1,3 @@
-import { Stack, Typography } from '@mui/joy'
 import { FormProvider, useFieldArray } from 'react-hook-form'
 import useChangeDomains from './useChangeDomains'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
@@ -6,6 +5,7 @@ import Input from '@/components/Form/Input'
 import { Trash } from 'lucide-react'
 import Button from '@/components/UI/Button'
 import { useTranslation } from 'next-i18next'
+import styles from './ChangeDomains.module.scss'
 
 export default function ChangeDomains({ domains }) {
   const { t } = useTranslation(['translations', 'common'])
@@ -18,25 +18,18 @@ export default function ChangeDomains({ domains }) {
 
   return (
     <div>
-      <Typography level="h3">{t('change_domains.title')}</Typography>
+      <h4>{t('change_domains.title')}</h4>
       <FormProvider {...formMethods}>
         <form onSubmit={onSubmit}>
           <div ref={parentRef}>
             {fields.map((field, index) => (
-              <Stack
-                direction="row"
-                alignItems="center"
-                maxWidth="400px"
-                gap={2}
-                marginTop={1}
-                key={field.id}
-              >
-                <Stack width="100%" maxWidth="350px">
+              <div className={styles.fieldActionsWrapper} key={field.id}>
+                <div className={styles.fieldWrapper}>
                   <Input
                     name={`domains.${index}.domain`}
                     placeholder="https://mywebsite.com"
                   />
-                </Stack>
+                </div>
 
                 {index === 0 ? null : (
                   <Trash
@@ -44,25 +37,25 @@ export default function ChangeDomains({ domains }) {
                     onClick={() => remove(index)}
                   />
                 )}
-              </Stack>
+              </div>
             ))}
           </div>
 
-          <Typography
-            onClick={() => append({ domain: '' })}
-            sx={{ cursor: 'pointer' }}
-            marginTop={1}
-            textColor="helper.400"
-            fontSize={16}
+          <button
+            onClick={() => {
+              append({ domain: '' })
+            }}
+            type="button"
+            className={styles.addDomainButton}
           >
             {t('change_domains.add_domain')}
-          </Typography>
+          </button>
 
-          <Stack marginY={3}>
+          <div className={styles.saveChangesWrapper}>
             <Button type="submit" inverted isLoading={isLoading}>
               {t('common:save_changes')}
             </Button>
-          </Stack>
+          </div>
         </form>
       </FormProvider>
     </div>

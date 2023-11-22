@@ -1,12 +1,4 @@
-import {
-  Dropdown,
-  ListDivider,
-  Menu,
-  MenuButton,
-  MenuItem,
-  Stack,
-  Typography,
-} from '@mui/joy'
+import { Dropdown, ListDivider, Menu, MenuButton, MenuItem } from '@mui/joy'
 import useOrganizationInvites from './useOrganizationInvites'
 import Loader from '@/components/UI/Loader'
 import Icon from '@/components/UI/Icon'
@@ -22,9 +14,9 @@ function ListInvites() {
 
   if (isLoading) {
     return (
-      <Stack marginY={5}>
+      <div className={styles.loaderHolder}>
         <Loader />
-      </Stack>
+      </div>
     )
   }
 
@@ -44,57 +36,42 @@ function ListInvites() {
               </tr>
             </thead>
             <tbody>
-              {data?.data.map((invite) => {
-                return (
-                  <tr key={invite.id}>
-                    <td>{invite.invitee.email}</td>
-                    <td>{t('common:pending')}</td>
-                    <td>{formatDateLocal(invite.created_at)}</td>
-                    <td>{formatDateLocal(invite.expires_at)}</td>
-                    <td>{invite.inviter.name}</td>
-                    <td>
-                      <Dropdown>
-                        <MenuButton sx={{ padding: 1 }}>
-                          <Icon height={20} width={20} id="More_Horizontal" />
-                        </MenuButton>
-                        <Menu
-                          sx={(theme) => ({
-                            backgroundColor: theme.vars.palette.primary[500],
-                          })}
-                        >
-                          <Stack padding="5px">
-                            <CopyClipboard text={invite?.invitationUrl}>
-                              <MenuItem>
-                                <Typography fontSize={14} fontWeight="600">
-                                  {t('inviations.table.copy_invite')}
-                                </Typography>
-                              </MenuItem>
-                            </CopyClipboard>
+              {data?.data.map((invite) => (
+                <tr key={invite.id}>
+                  <td>{invite.invitee.email}</td>
+                  <td>{t('common:pending')}</td>
+                  <td>{formatDateLocal(invite.created_at)}</td>
+                  <td>{formatDateLocal(invite.expires_at)}</td>
+                  <td>{invite.inviter.name}</td>
+                  <td>
+                    <Dropdown>
+                      <MenuButton sx={{ padding: 1 }}>
+                        <Icon height={20} width={20} id="More_Horizontal" />
+                      </MenuButton>
+                      <Menu className={styles.menu}>
+                        <CopyClipboard text={invite.invitationUrl}>
+                          <MenuItem>
+                            <p>{t('inviations.table.copy_invite')}</p>
+                          </MenuItem>
+                        </CopyClipboard>
 
-                            <ListDivider />
+                        <ListDivider />
 
-                            <MenuItem onClick={() => cancelInvite(invite.id)}>
-                              <Icon
-                                height={20}
-                                width={20}
-                                id="Remove_Minus_Circle"
-                              />
-                              <Typography
-                                fontSize={14}
-                                fontWeight="500"
-                                textColor="danger.700"
-                                paddingLeft={0.5}
-                              >
-                                {t('inviations.table.remove_invite')}
-                              </Typography>
-                            </MenuItem>
-                          </Stack>
-                        </Menu>
-                      </Dropdown>
-                    </td>
-                  </tr>
-                )
-              })}
+                        <MenuItem onClick={() => cancelInvite(invite.id)}>
+                          <Icon
+                            height={20}
+                            width={20}
+                            id="Remove_Minus_Circle"
+                          />
+                          <p className={styles.exclude}>
+                            {t('inviations.table.remove_invite')}
+                          </p>
+                        </MenuItem>
+                      </Menu>
+                    </Dropdown>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </section>

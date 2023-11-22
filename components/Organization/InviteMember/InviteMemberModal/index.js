@@ -1,4 +1,4 @@
-import { Modal, ModalDialog, Stack, Typography } from '@mui/joy'
+import { Modal, ModalDialog } from '@mui/joy'
 import PropTypes from 'prop-types'
 
 import styles from './InviteMemberModal.module.scss'
@@ -13,19 +13,9 @@ function InviteMemberModal({ children, isOpen, setIsOpen, onClose }) {
       onClose={onClose ? onClose : () => setIsOpen((prevState) => !prevState)}
     >
       <ModalDialog color="primary" size="lg" variant="solid">
-        <Stack
-          minWidth={550}
-          justifyContent="space-between"
-          direction="column"
-          spacing="20px"
-        >
-          <Stack
-            marginBottom={2}
-            direction="row"
-            justifyContent="space-between"
-            spacing={4}
-          >
-            <Typography level="title-lg">{t('invite_member.title')}</Typography>
+        <div className={styles.modalContainer}>
+          <div className={styles.modalContent}>
+            <p>{t('invite_member.title')}</p>
             <button
               className={styles.buttonCloseModal}
               onClick={() => {
@@ -34,10 +24,10 @@ function InviteMemberModal({ children, isOpen, setIsOpen, onClose }) {
             >
               <Icon id="Close_MD" width={25} height={25} />
             </button>
-          </Stack>
+          </div>
 
-          <Stack>{children}</Stack>
-        </Stack>
+          <div>{children}</div>
+        </div>
       </ModalDialog>
     </Modal>
   )
