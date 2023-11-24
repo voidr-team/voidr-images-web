@@ -1,24 +1,36 @@
+.paginationWrapper {
+  display: flex;
+  align-items: center;
+}
+
 .pagination {
   display: flex;
   margin: 50px 0;
   align-items: center;
 
   li {
-    width: 35px;
-    height: 35px;
+    min-width: 35px;
+    min-height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    margin-inline: 5px;
+    padding: 10px;
+  }
+
+  & li[class='break'] + li,
+  li[class='break'] + li + li {
+    display: none;
   }
 
   :global {
     .next,
-    .previous { 
+    .previous {
       display: flex;
       align-items: center;
       justify-content: center;
-  
+
       > a {
         display: inline-block;
         margin-top: 5px;
