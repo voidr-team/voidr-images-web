@@ -17,5 +17,11 @@
   "billing": "Faturamento",
   "log_out": "Sair",
   "card_name": "Titular do cartão",
-  "add_card": "Cadastrar cartão"
+  "add_card": "Cadastrar cartão",
+
+  "form_errors.invalid_project_name": "O nome deve ser alfanumérico em minúsculas e só pode conter hífenes e sublinhados",
+  "form_errors.name_length_min": "O nome deve ter no mínimo {{length}} caractéres",
+  "form_errors.name_length_max": "O nome deve ter no máximo {{length}} caractéres",
+  "form_errors.required_field": "Campo obrigatório",
+  "form_errors.invalid_url": "Forneça uma URL válida"
 }

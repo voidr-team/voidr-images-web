@@ -17,29 +17,27 @@ const formSteps = {
   postStep: 'START',
 }
 
-const getSchema = (step) =>
-  yup.object().shape({
+const getSchema = (step, t) => {
+  return yup.object().shape({
     name: yup
       .string()
-      .matches(
-        /^[a-z0-9-_]+$/,
-        'O nome deve ser alfanumérico em minúsculas e só pode conter hífenes e sublinhados'
-      )
-      .min(3, 'Name must be at least 3 characters')
-      .max(20, 'Name must be at most 20 characters')
-      .required('Campo obrigatório'),
+      .matches(/^[a-z0-9-_]+$/, 'common:form_errors.invalid_project_name')
+      .min(3, t('common:form_errors.name_length_min', { length: 3 }))
+      .max(20, t('common:form_errors.name_length_max', { length: 20 }))
+      .required('common:form_errors.required_field'),
     imageUrl:
       step === 0
         ? yup.string().optional()
         : yup
             .string()
-            .required('Campo obrigatório')
+            .required('common:form_errors.required_field')
             .test(
               'is-valid-domain-or-asterisk',
-              'Forneça um URL válido',
+              'common:form_errors.invalid_url',
               (value) => value === '*' || yup.string().url().isValidSync(value)
             ),
   })
+}
 
 export default function useOnboarding() {
   const { t } = useTranslation(['translations', 'common'])
@@ -64,7 +62,7 @@ export default function useOnboarding() {
       tech: 'node',
       framework: 'react',
     },
-    resolver: yupResolver(getSchema(steps.current)),
+    resolver: yupResolver(getSchema(steps.current, t)),
   })
 
   const { mutate: createProject, isLoading } = useMutation({
