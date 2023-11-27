@@ -9,11 +9,11 @@ import { useTranslation } from 'next-i18next'
 const schema = yup
   .object()
   .shape({
-    name: yup.string().required('Nome é obrigatório'),
+    name: yup.string().required('common:form_errors.required_field'),
     email: yup
       .string()
-      .email('Preencha um e-mail válido')
-      .required('E-mail é obrigatório'),
+      .email('common:form_errors.invalid_mail')
+      .required('common:form_errors.required_field'),
   })
   .required()
 

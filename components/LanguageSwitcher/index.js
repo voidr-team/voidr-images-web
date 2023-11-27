@@ -1,4 +1,4 @@
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import MenuDropdown from '../UI/MenuDropdown'
 import Icon from '../UI/Icon'
 import { useRouter } from 'next/router'

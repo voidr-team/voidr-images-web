@@ -11,10 +11,10 @@ const schema = yup.object().shape({
     yup.object().shape({
       domain: yup
         .string()
-        .required('Campo obrigatório')
+        .required('common:form_errors.required_field')
         .test(
           'is-valid-domain-or-asterisk',
-          'Forneça um URL válido',
+          'common:form_errors.invalid_url',
           (value) => value === '*' || yup.string().url().isValidSync(value)
         ),
     })

@@ -23,5 +23,13 @@
   "form_errors.name_length_min": "O nome deve ter no mínimo {{length}} caractéres",
   "form_errors.name_length_max": "O nome deve ter no máximo {{length}} caractéres",
   "form_errors.required_field": "Campo obrigatório",
-  "form_errors.invalid_url": "Forneça uma URL válida"
+  "form_errors.invalid_url": "Forneça uma URL válida",
+  "form_errors.invalid_date": "Data inválida",
+  "form_errors.invalid_cnpj": "CNPJ inválido",
+  "form_errors.invalid_cpf": "CPF inválido",
+  "form_errors.invalid_cep": "CEP inválido",
+  "form_errors.invalid_phone": "Celular inválido",
+  "form_errors.invalid_mail": "E-mail inválido",
+  "form_errors.min_length": "Campo deve conter no mínimo {{length}} caracteres",
+  "form_errors.min_age": "Você precisa ter pelo menos {{age}} anos"
 }

@@ -1,5 +1,5 @@
 import plan from '../plansInfo'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import { Check, X } from 'lucide-react'
 import styles from './CardPricing.module.scss'
 

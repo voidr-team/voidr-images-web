@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { LibraryBig, LogOut, Menu, X } from 'lucide-react'
 import cn from 'classnames'
 import Link from 'next/link'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 export default function OnboardingHeaderMobile() {

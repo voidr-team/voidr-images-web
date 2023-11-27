@@ -23,5 +23,13 @@
   "form_errors.name_length_min": "Minimum length for the name is {{length}} characters",
   "form_errors.name_length_max": "Maximum length for the name is {{length}} characters",
   "form_errors.required_field": "Required field",
-  "form_errors.invalid_url": "Provide a valid URL"
+  "form_errors.invalid_url": "Provide a valid URL",
+  "form_errors.invalid_date": "Invalid date",
+  "form_errors.invalid_cnpj": "Invalid CNPJ",
+  "form_errors.invalid_cpf": "Invalid CPF",
+  "form_errors.invalid_cep": "Invalid CEP",
+  "form_errors.invalid_phone": "Invalid phone number",
+  "form_errors.invalid_mail": "Invalid email",
+  "form_errors.min_length": "Field must contain at least {{length}} characters",
+  "form_errors.min_age": "You need to be at least {{age}} years old"
 }
