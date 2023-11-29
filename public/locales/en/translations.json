@@ -118,6 +118,7 @@
   "onboarding.finish.no_data": "No data has been received yet.",
   "onboarding.finish.description": "Make sure that you have finished setting everything up so that we can load your dashboard.",
   "onboarding.finish.back": "Back to setup",
+  "onboarding.finish.go_docs": "Go to documentation",
   "subscription.title": "Subscription",
   "subscription.description": "View card & invoice details",
   "checkout.title": "Add credit card",

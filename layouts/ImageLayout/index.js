@@ -12,11 +12,12 @@ import { useTranslation } from 'next-i18next'
 import Header from '../../components/Header'
 import { LibraryBig } from 'lucide-react'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
+import getDocsUrlByLanguage from '@/utils/i18n/getDocsUrlByLanguage'
 
 function ImageLayout({ children, title }) {
   const router = useRouter()
   const { user } = useAuth()
-  const { t } = useTranslation(['translations', 'common'])
+  const { t, i18n } = useTranslation(['translations', 'common'])
 
   return (
     <BaseLayout currentPage="dashboard">
@@ -52,7 +53,7 @@ function ImageLayout({ children, title }) {
                   </Link>
                 ))}
                 <a
-                  href="https://voidr-images.readme.io/reference/intro"
+                  href={getDocsUrlByLanguage(i18n.language)}
                   target="_blank"
                   rel="noreferrer"
                 >

@@ -118,6 +118,7 @@
   "onboarding.finish.no_data": "Aún no se han recibido datos.",
   "onboarding.finish.description": "Asegúrese de haber terminado la configuración para que podamos cargar su dashboard.",
   "onboarding.finish.back": "Volver a la configuración",
+  "onboarding.finish.go_docs": "Ir a documentación",
   "subscription.title": "Suscripción",
   "subscription.description": "Ver detalles de tarjeta y factura",
   "checkout.title": "Agregar tarjeta de crédito",

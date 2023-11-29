@@ -5,9 +5,10 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'next-i18next'
 import useAuth from '@/context/auth/useAuth'
 import InlineLink from '@/components/UI/InlineLink'
+import getDocsUrlByLanguage from '@/utils/i18n/getDocsUrlByLanguage'
 
 export default function WaitingData() {
-  const { t } = useTranslation(['translations', 'common'])
+  const { t, i18n } = useTranslation(['translations', 'common'])
   const { user } = useAuth()
   const router = useRouter()
 
@@ -40,11 +41,11 @@ export default function WaitingData() {
         </div>
 
         <InlineLink
-          href="https://voidr-images.readme.io/reference/intro"
+          href={getDocsUrlByLanguage(i18n.language)}
           target="_blank"
           rel="noreferrer"
         >
-          Ir para documentação
+          {t('onboarding.finish.go_docs')}
         </InlineLink>
       </div>
     </div>

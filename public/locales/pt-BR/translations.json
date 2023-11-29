@@ -118,6 +118,7 @@
   "onboarding.finish.no_data": "Nenhum dado foi recebido ainda.",
   "onboarding.finish.description": "Certifique-se de ter concluído a implementação do projeto \"{{project}}\" para que possamos carregar seu dashboard.",
   "onboarding.finish.back": "Voltar para configurações",
+  "onboarding.finish.go_docs": "Ir para documentação",
   "subscription.title": "Assinatura",
   "subscription.description": "Ver detalhes do cartão & assinatura",
   "checkout.title": "Cadastre seu cartão de crédito",

@@ -14,6 +14,7 @@ import imagesService from '@/services/images'
 import formatBytes from '@/utils/formatBytes'
 import { Trans, useTranslation } from 'next-i18next'
 import CodeSnippet from '@/components/CodeSnippet'
+import getDocsUrlByLanguage from '@/utils/i18n/getDocsUrlByLanguage'
 
 const OptimizeFirstImage = () => {
   const { user } = useAuth()
@@ -23,7 +24,7 @@ const OptimizeFirstImage = () => {
   const [parentStep1Ref] = useAutoAnimate()
   const [parentStep2Ref] = useAutoAnimate()
   const [parentStep3Ref] = useAutoAnimate()
-  const { t } = useTranslation(['translations', 'common'])
+  const { t, i18n } = useTranslation(['translations', 'common'])
 
   const [imageUrl, setImageUrl] = useState(
     'https://yourwebsite.com/images/awesome_img.jpeg'
@@ -142,7 +143,7 @@ const OptimizeFirstImage = () => {
         <div className={styles.step}>
           <div className={styles.docs}>
             <ExternalLink
-              href="https://voidr-images.readme.io/reference/intro"
+              href={getDocsUrlByLanguage(i18n.language)}
               target="_blank"
               rel="noreferrer"
               icon="Docs_Icon"

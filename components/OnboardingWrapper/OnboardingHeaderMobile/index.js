@@ -6,9 +6,10 @@ import cn from 'classnames'
 import Link from 'next/link'
 import { useTranslation } from 'next-i18next'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
+import getDocsUrlByLanguage from '@/utils/i18n/getDocsUrlByLanguage'
 
 export default function OnboardingHeaderMobile() {
-  const { t } = useTranslation(['common'])
+  const { t, i18n } = useTranslation(['common'])
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => setIsOpen((prevState) => !prevState)
@@ -35,7 +36,7 @@ export default function OnboardingHeaderMobile() {
       <nav className={cn(styles.navbar, { [styles.navbarActive]: isOpen })}>
         <ul>
           <a
-            href="https://voidr-images.readme.io/reference/intro"
+            href={getDocsUrlByLanguage(i18n.language)}
             target="_blank"
             rel="noreferrer"
           >
