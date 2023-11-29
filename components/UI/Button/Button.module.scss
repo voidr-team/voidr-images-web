@@ -1,0 +1,108 @@
+.buttonWrapper {
+  font-weight: 500;
+  font-size: 16px;
+  padding: 3px 30px;
+  border-radius: 6px;
+  background-color: var(--helper-500);
+  border: 2px solid var(--helper-500);
+  color: white;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  min-height: 44px;
+  cursor: pointer;
+  min-width: 120px;
+  line-height: 1.2;
+  width: fit-content;
+  text-align: center;
+  font-weight: 600;
+  white-space: nowrap;
+
+  &.light {
+    background-color: var(--neutral-100);
+    border-color:  var(--neutral-100);
+    color: var(--neutral-800);
+
+    &:not([disabled]):not(.link):not(.inverted):hover {
+      background-color: var(--neutral-200);
+      border-color: var(--neutral-200);
+      color: var(--neutral-900);
+    }
+
+    .loaderWrapper div {
+      border-color: var(--neutral-800) transparent transparent transparent !important;
+    }
+  }
+
+  &.small {
+    padding: 7px 8px;
+    min-height: auto;
+    font-size: 14px;
+
+    .loaderWrapper {
+      width: 17px;
+      height: 17px;
+      div > div {
+        border: 2px solid;
+      }
+    }
+  }
+
+  &.isHidden {
+    @media screen and (max-width: 939px) {
+      display: none !important;
+    }
+
+    @media screen and (min-width: 940px) {
+      visibility: hidden;
+    }
+  }
+
+  .loaderWrapper {
+    width: 25px;
+    height: 25px;
+    margin: 0 auto;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  &:not([disabled]):not(.link):not(.inverted):hover {
+    background-color: darken(#5e5ce6, 10%);
+    border-color: darken(#5e5ce6, 10%);
+    color: white;
+  }
+
+  &.invertedWrapper {
+    background-color: transparent;
+    color: #5e5ce6;
+  }
+
+  &.hasIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 14px;
+    padding-right: 14px;
+
+    :global .icon {
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+      margin-left: 6px;
+      transition: 0.4s fill;
+      fill: currentColor;
+    }
+  }
+
+  &.link {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--theme-status);
+    font-weight: bold;
+    font-size: 0.875rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 6px 16px;
+  }
+}

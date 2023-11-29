@@ -1,0 +1,77 @@
+.planInfoContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  max-width: 400px;
+
+  .dataUsage {
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+    font-size: 46px;
+
+    > span {
+      font-weight: 500;
+      margin-left: 5px;
+      margin-top: 5px;
+      font-size: 16px;
+    }
+  }
+
+  .planUsageInfoContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.planInfo {
+  position: relative;
+  width: 100%;
+  height: 18px;
+  border-radius: 1000px;
+  margin: 20px 0;
+  background-color: var(--primary-300);
+  overflow: hidden;
+
+  .bar {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 200px;
+
+    border-radius: 1000px;
+    background-color: var(--helper-600);
+  }
+}
+
+.planUseInfo {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 20px;
+  gap: 10px;
+
+  .smallBadge {
+    height: 4px;
+    width: 30px;
+    border-radius: 1000px;
+  }
+
+  .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    > span {
+      line-height: 10px;
+      font-size: 14px;
+      color: var(--neutral-500);
+    }
+
+    > p {
+      font-weight: 600;
+      line-height: 3;
+      font-size: 14px;
+    }
+  }
+}

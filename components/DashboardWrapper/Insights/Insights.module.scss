@@ -1,0 +1,47 @@
+@import '/styles/mixins';
+
+.helpBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-block: 20px;
+
+  > p {
+    font-size: 16px;
+    color: var(--neutral-400);
+    font-weight: 500;
+    word-break: break-word;
+  }
+
+  .iconWrapper {
+    padding: 8px;
+    border-radius: 100px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    background-color: #20234c;
+
+    svg {
+      color: var(--helper-500);
+    }
+  }
+}
+
+.bannerImageWrapper {
+  width: 100%;
+  flex: 1;
+  height: 100%;
+
+  > img {
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  @include below(1199px) {
+    > img {
+      max-width: 500px;
+    }
+  }
+}

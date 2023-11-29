@@ -1,0 +1,124 @@
+@import '/styles/mixins';
+
+.sidebar {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+
+  > .sidebarHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px 14px;
+    border-right: 1px solid var(--neutral-700);
+
+    > figure {
+      max-height: 100vh;
+    }
+
+    .productsNavigationWrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 30px;
+    }
+  }
+
+  .sidebarContent {
+    height: 100%;
+    display: flex;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+
+    @include below(1440px) {
+      position: absolute;
+      background-color: var(--joy-palette-primary-500);
+      z-index: 0;
+      opacity: 0;
+      transform: translateX(-100%);
+      box-shadow: 2px 0px 10px 3px rgba(0, 0, 0, 0.69);
+    }
+  }
+
+  .chevron {
+    display: none;
+    margin-top: auto;
+  }
+
+  @include below(1440px) {
+    .chevron {
+      display: block;
+      margin-top: auto;
+    }
+    & {
+      .firstSideHolder {
+        z-index: 3;
+        position: relative;
+        background-color: var(--joy-palette-primary-500);
+      }
+
+      @include below(700px) {
+        display: none;
+      }
+    }
+    &:hover,
+    &:focus {
+      .sidebarContent {
+        z-index: 2;
+        opacity: 1;
+        transform: translateX(65px);
+      }
+    }
+  }
+
+  .iconNavigationItem {
+    cursor: pointer !important;
+    padding: 10px;
+    transition: all 0.1s ease;
+    color: #fff;
+
+    &:hover {
+      border-radius: 5px;
+      background-color: var(--primary-300);
+    }
+  }
+
+  .iconNavigationItemActive {
+    border-radius: 5px;
+    background-color: var(--primary-300);
+  }
+
+  .listWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.listItem {
+  color: #9fa8c0 !important;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+  transition: all 0.1s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--neutral-50);
+
+  &:hover {
+    border-radius: 5px;
+    background-color: var(--primary-300);
+    color: white !important;
+  }
+}
+
+.listItemActive {
+  border-radius: 5px;
+  background-color: var(--primary-300);
+  color: white !important;
+}

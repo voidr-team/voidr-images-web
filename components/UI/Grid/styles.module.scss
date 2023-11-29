@@ -1,0 +1,40 @@
+$columns: 12;
+$gap: 15px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 640px;
+$desktop-width: 1024px;
+
+.row {
+  margin: 0 -#{$gap} 0;
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% + #{$gap} * 2);
+  justify-content: space-between;
+
+  .col {
+    padding: 0 #{$gap} 0;
+  }
+
+  @for $i from 1 through $columns {
+    .size#{$i} {
+      width: calc(100% * #{$i} / #{$columns});
+    }
+  }
+
+  
+  @media (max-width: $breakpoint-tablet) {
+    @for $i from 1 through $columns {
+      .size-tablet#{$i} {
+        width: calc(100% * #{$i} / #{$columns});
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    @for $i from 1 through $columns {
+      .size-mobile#{$i} {
+        width: calc(100% * #{$i} / #{$columns});
+      }
+    }
+  }
+}

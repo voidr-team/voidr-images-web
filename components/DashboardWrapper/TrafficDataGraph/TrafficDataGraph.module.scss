@@ -1,0 +1,19 @@
+.tooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px 20px;
+  background-color: var(--primary-200);
+  border: none;
+  font-family: 'Work Sans', sans-serif;
+
+  .date {
+    font-size: 14px;
+    color: var(--primary-100);
+  }
+
+  .dataLabel {
+    color: white;
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,88 @@
+.radioButtonWrapper {
+  .radioButton {
+    input[type='radio']:checked + div {
+      padding: 10px;
+      border: 1px solid rgba(white, 0.7);
+      opacity: 1;
+
+      svg {
+        color: rgba(white, 0.7);
+      }
+    }
+
+    input[type='radio']:not(:checked) + div {
+      padding: 10px;
+      border: 1px solid var(--neutral-700);
+      opacity: 1;
+
+      svg {
+        color: var(--neutral-500);
+      }
+    }
+
+    input[type='radio']:not(:checked) + div > div,
+    input[type='radio']:checked + div > div {
+      height: 100%;
+    }
+  }
+}
+
+.radioButtonHorizontal {
+  svg {
+    position: static;
+    margin-right: 6px;
+    max-width: none;
+    width: 25px;
+    height: 100%;
+    transform: none;
+    padding: 0;
+  }
+
+  div {
+    padding: 0 !important;
+    display: flex;
+    flex-direction: row !important;
+
+    > span {
+      font-size: 12px !important;
+      font-weight: 500 !important;
+    }
+  }
+
+  input[type='radio']:checked + div {
+    padding: 10px;
+    opacity: 1;
+
+    svg,
+    span {
+      color: rgba(white, 0.7);
+    }
+  }
+
+  input[type='radio']:not(:checked) + div {
+    opacity: 1;
+
+    svg,
+    span {
+      color: var(--neutral-600);
+    }
+  }
+}
+
+.topSelectFramework,
+.codeWrapper {
+  border: 1px solid var(--neutral-700);
+}
+
+$base-snippet-radius: 10px;
+
+.topSelectFramework {
+  padding: 0 25px;
+  border-top-left-radius: $base-snippet-radius;
+  border-top-right-radius: $base-snippet-radius;
+}
+
+.codeWrapper {
+  margin-top: 10px;
+  border-radius: $base-snippet-radius;
+}

@@ -1,0 +1,82 @@
+@import '/styles/mixins';
+
+.imagesWrapper {
+  width: 100%;
+  height: 100%;
+
+  .containerImage {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @include below(1699px) {
+      & > figure:nth-child(n + 13) {
+        display: none;
+      }
+    }
+
+    @include below(1599px) {
+      & > figure:nth-child(n + 10) {
+        display: none;
+      }
+    }
+
+    @include below(1219px) {
+      & > figure:nth-child(n + 9) {
+        display: none;
+      }
+    }
+
+    @include below(949px) {
+      & > figure:nth-child(n + 7) {
+        display: none;
+      }
+    }
+
+    @include below(799px) {
+      & > figure:nth-child(n + 5) {
+        display: none;
+      }
+    }
+
+    > .cardFileItem {
+      width: calc(100% / 1 - 20px);
+
+      @include above(374px) {
+        width: calc(100% / 2 - 20px);
+      }
+      @include above(800px) {
+        width: calc(100% / 3 - 20px);
+      }
+      @include above(950px) {
+        width: calc(100% / 4 - 20px);
+      }
+
+      @include above(1201px) {
+        width: calc(100% / 2 - 20px);
+      }
+
+      @include above(1220px) {
+        width: calc(100% / 3 - 20px);
+      }
+      @include above(1600px) {
+        width: calc(100% / 4 - 20px);
+      }
+
+      @include above(1700px) {
+        width: calc(100% / 5 - 20px);
+      }
+    }
+  }
+}
+
+.viewMore {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  > span {
+    color: #ffffffcc;
+    font-weight: 600;
+  }
+}

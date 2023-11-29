@@ -1,0 +1,14 @@
+.headerModal {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+
+  > h5 {
+    color: var(--neutral-300);
+  }
+}
+
+.confirmationIcon {
+  color: white;
+}

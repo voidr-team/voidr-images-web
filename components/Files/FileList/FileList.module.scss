@@ -1,0 +1,35 @@
+@import '/styles/mixins';
+
+.cardFileList {
+  display: flex;
+  flex-flow: wrap;
+  width: 100%;
+  gap: 24px;
+  flex: 1;
+  margin-top: 20px;
+
+  @include below(700px) {
+    justify-content: center;
+  }
+
+  > .cardFileItem {
+    @include above(900px) {
+      width: calc(100% / 3 - 24px);
+    }
+    @include above(1150px) {
+      width: calc(100% / 4 - 24px);
+    }
+
+    @include above(1400px) {
+      width: calc(100% / 5 - 24px);
+    }
+
+    @include above(1600px) {
+      width: calc(100% / 6 - 24px);
+    }
+
+    @include above(1900px) {
+      width: calc(100% / 7 - 24px);
+    }
+  }
+}

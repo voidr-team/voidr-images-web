@@ -1,0 +1,118 @@
+.radioButton {
+  cursor: pointer;
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    opacity: 0.3;
+    border-radius: 6px;
+    transition: opacity 0.2s ease, border 0.2s ease;
+    will-change: opacity;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+
+    span {
+      text-align: center;
+      transition: color 0.2s ease;
+      font-size: 19px;
+      font-weight: 700;
+    }
+  }
+
+  &.themeRounded {
+    .iconWrapper {
+      border-radius: 50%;
+      width: 92px;
+      height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+  }
+
+  .iconWrapper {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+  }
+
+  svg {
+    display: block;
+    max-width: 100%;
+    height: 100%;
+    padding: 30%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    will-change: fill;
+    transition: fill 0.2s ease, color 0.2s ease;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  > input {
+    display: none;
+  }
+
+  &:hover .wrapper {
+    opacity: 0.5;
+    
+  }
+  > input:checked + .wrapper {
+    opacity: 0.9;
+    border-color: var(--neutral-100)
+  }
+
+  > input:not(:checked) + .wrapper {
+    .fakeInput {
+      svg {
+        opacity: 0;
+      }
+    }
+  }
+
+  &.noIcon > .wrapper {
+    padding-left: 44px;
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: flex-start;
+    justify-content: center;
+    border: none;
+
+    span {
+      text-align: left;
+      line-height: 1.2;
+      text-transform: none;
+      font-weight: normal;
+      font-size: 14px;
+    }
+  }
+
+  .fakeInput {
+    position: absolute;
+    border-radius: 50%;
+    padding: 0px;
+    height: 20px;
+    width: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 13px;
+    text-align: center;
+
+    svg {
+      height: 10px;
+      width: 10px;
+      color: white;
+      position: relative;
+      top: 1px;
+      transition: opacity 0.15s ease, background 0.15s ease;
+    }
+  }
+}

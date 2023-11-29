@@ -1,0 +1,41 @@
+@import '/styles/mixins';
+
+.languageSwitcherWrapper {
+  padding: 30px 60px 0;
+  display: flex;
+  justify-content: flex-end;
+
+  @include below(900px) {
+    display: none;
+  }
+}
+
+.menuActivatorWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  > p {
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+}
+
+.menuListWrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  background-color: var(--primary-800);
+  padding: 15px 25px;
+  gap: 15px;
+  width: 150px;
+}
+
+.listItem {
+  cursor: pointer;
+  font-size: 14px;
+
+  &:hover {
+    color: var(--helper-500);
+  }
+}

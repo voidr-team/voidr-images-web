@@ -1,0 +1,29 @@
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 640px;
+
+@mixin device($breakpoint) {
+
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: $breakpoint-tablet) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: $breakpoint-mobile) {
+      @content;
+    }
+  }
+}
+
+@mixin below($px) {
+  @media only screen and (max-width: $px) {
+    @content;
+  }
+}
+
+@mixin above($px) {
+  @media only screen and (min-width: $px) {
+    @content;
+  }
+}

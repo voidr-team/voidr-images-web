@@ -1,0 +1,20 @@
+.contentWrapper {
+  margin-block: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  article > p {
+    opacity: 0.8;
+  }
+
+  article > span {
+    font-size: 16px;
+  }
+
+  .title {
+    color: white;
+    font-weight: 900;
+    font-size: 46px;
+  }
+}

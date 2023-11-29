@@ -1,0 +1,14 @@
+.projectInput {
+  max-width: 500px;
+}
+
+.radioBtns {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin-top: 10px;
+
+  > .radio {
+    width: 100px;
+  }
+}

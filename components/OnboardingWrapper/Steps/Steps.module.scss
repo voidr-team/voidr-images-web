@@ -1,0 +1,45 @@
+@import '/styles/mixins';
+
+.stepsHolder {
+  padding: 30px 80px 80px;
+
+  @include below(800px) {
+    padding: 15px 5px;
+  }
+
+  > .steps {
+    padding-top: 40px;
+    max-width: 1000px;
+
+    .action {
+      margin-top: 20px;
+    }
+
+    > .step + .step {
+      margin-top: 60px;
+    }
+
+    > .disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      filter: blur(4px);
+      user-select: none;
+    }
+  }
+}
+
+.projectNameWrapper {
+  padding: 1px 6px;
+  border-radius: 5px;
+  background-color: #2b313d;
+  display: inline-block;
+}
+
+.docs {
+  display: flex;
+  align-items: center;
+}
+
+.stepLabel {
+  margin-bottom: 20px;
+}

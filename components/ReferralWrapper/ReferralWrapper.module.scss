@@ -1,0 +1,53 @@
+@import '/styles/mixins';
+
+.referralWrapper {
+  max-width: fit-content;
+  max-height: fit-content;
+  background-color: #1c1e2c;
+  border-radius: 6px;
+  display: flex;
+
+  @include below(900px) {
+    flex-wrap: wrap;
+  }
+
+  > img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  p {
+    line-height: 22px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-block: 10px;
+  }
+
+  .content {
+    padding: 35px;
+    max-width: 600px;
+  }
+
+  .copyUrlWrapper {
+    margin-block: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    p {
+      margin-block: 0;
+    }
+
+    div {
+      padding-left: 10px;
+      > p {
+        display: none;
+      }
+    }
+  }
+
+  .shareLink {
+    cursor: pointer;
+  }
+}

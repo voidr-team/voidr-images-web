@@ -1,0 +1,42 @@
+@import '/styles/mixins';
+
+.imageLayoutRoot {
+  display: flex;
+  flex-direction: row;
+
+  .projectNameTitle {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 35px 0 10px 10px;
+  }
+
+  .imageLayoutScrollable {
+    height: 100vh;
+    overflow: auto;
+    width: 100%;
+    flex: 1;
+
+    .container {
+      margin: 0 auto;
+      padding: 30px;
+
+      @include above(500px) {
+        padding: 30px 60px;
+      }
+    }
+    .title {
+      margin-bottom: 25px;
+    }
+  }
+
+  .logoTypo {
+    padding: 14px 0;
+    width: 140px;
+    display: flex;
+    align-items: center;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}

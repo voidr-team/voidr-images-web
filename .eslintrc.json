@@ -1,0 +1,30 @@
+{
+  "root": true,
+  "extends": ["prettier", "eslint:recommended", "plugin:react/recommended"],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": [],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/display-name": "off",
+    "react/prop-types": "off",
+    "no-unused-vars": "warn",
+    "react-hooks/exhaustive-deps": "off"
+  }
+}

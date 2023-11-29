@@ -1,0 +1,27 @@
+@import '/styles/mixins';
+
+.dashboardWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  .dataColumn {
+    grid-column: span 1;
+  }
+
+  .infoColumn {
+    grid-column: span 1;
+  }
+
+  @include above(1200px) {
+    grid-template-columns: repeat(3, 1fr);
+
+    .dataColumn {
+      grid-column: span 2;
+    }
+
+    .infoColumn {
+      grid-column: span 1;
+    }
+  }
+}
