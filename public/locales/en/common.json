@@ -13,13 +13,11 @@
   "files": "Files",
   "settings": "Settings",
   "referral": "Referral",
-  "integrations": "Integrations",
   "docs": "Documentation",
   "billing": "Billing",
   "log_out": "Log Out",
   "card_name": "Cardholder's name",
   "add_card": "Add card",
-  "soon": "Soon",
 
   "form_errors.invalid_project_name": "Name must be alphanumeric in lowercase and can only contain hyphens and underscores",
   "form_errors.name_length_min": "Minimum length for the name is {{length}} characters",
