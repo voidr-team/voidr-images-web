@@ -13,11 +13,13 @@
   "files": "Arquivos",
   "settings": "Configurações",
   "referral": "Indicação",
+  "integrations": "Integrações",
   "docs": "Documentação",
   "billing": "Faturamento",
   "log_out": "Sair",
   "card_name": "Titular do cartão",
   "add_card": "Cadastrar cartão",
+  "soon": "Em breve",
 
   "form_errors.invalid_project_name": "O nome deve ser alfanumérico em minúsculas e só pode conter hífenes e sublinhados",
   "form_errors.name_length_min": "O nome deve ter no mínimo {{length}} caractéres",

@@ -5,6 +5,7 @@ import {
   Settings,
   LogOut,
   Megaphone,
+  Workflow,
 } from 'lucide-react'
 
 const sidebarItems = {
@@ -38,6 +39,12 @@ const sidebarItems = {
       label: 'common:referral',
       icon: Megaphone,
       link: '/images/referral',
+    },
+    {
+      id: 6,
+      label: 'common:integrations',
+      icon: Workflow,
+      link: '/images/integrations',
     },
   ],
   common: [
