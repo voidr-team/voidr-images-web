@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import styles from './IntegrationsWrapper.module.scss'
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'next-i18next'
 
 const integrations = [
   {
