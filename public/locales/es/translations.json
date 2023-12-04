@@ -130,7 +130,5 @@
   "checkout.toast.success": "Tarjeta registrada con éxito",
   "translations.change_language.en": "🇺🇸 English",
   "translations.change_language.es": "🇪🇸 Español",
-  "translations.change_language.pt": "🇧🇷 Português",
-
-  "integrations.title": "Integraciones"
+  "translations.change_language.pt": "🇧🇷 Português"
 }
