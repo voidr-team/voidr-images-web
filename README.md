@@ -22,7 +22,7 @@ Voidr Images is a robust and scalable platform for image optimization and resizi
 
 ## How It Works
 
-1. **Create a Project**: Quickly set up your project to start optimizing images at [voidr.co](https://voidr.co/images).
+1. **Create a Project**: Quickly set up your project to start optimizing images at [voidr.co/images](https://voidr.co/images).
 2. **Integration with SDKs/API**: Easily integrate using our SDKs or API.
 3. **Real-Time Optimization**: Images are automatically optimized and served through our global CDN.
 
