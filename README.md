@@ -1,13 +1,13 @@
-# [![Voidr](https://img.voidr.co/voidr/compress:100/convert:webp/fetch/https://api.voidr.co/v1/images/raw/voidr/voidr-banner-en_1701195001454.png)](https://en.voidr.co/images)
+# [![Voidr Images](https://img.voidr.co/voidr/compress:100/convert:webp/fetch/https://api.voidr.co/v1/images/raw/voidr/voidr-banner-en_1701195001454.png)](https://voidr.co/images)
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Discord](https://img.shields.io/badge/Discord-7289DA?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/Wk6dfhJu)
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=flat-squeare&logo=telegram&logoColor=white)](https://t.me/comunidadevoidr/1)
 [![Twitter Follow](https://img.shields.io/twitter/follow/Voidr_co?style=social)](https://twitter.com/Voidr_co)
 
-# Voidr
+# Voidr Images
 
-Voidr is a robust and scalable platform for image optimization and resizing, specifically designed for developers. With our intuitive and flexible API, you can improve the loading performance of your applications in minutes by delivering optimized images in cutting-edge formats.
+Voidr Images is a robust and scalable platform for image optimization and resizing, specifically designed for developers. With our intuitive and flexible API, you can improve the loading performance of your applications in minutes by delivering optimized images in cutting-edge formats.
 
 [![Voidr Code Example](https://img.voidr.co/voidr/compress:100/convert:webp/fetch/https://api.voidr.co/v1/images/raw/voidr/code-example-clean.png)](https://voidr-images-en.readme.io/reference/intro)
 
@@ -22,7 +22,7 @@ Voidr is a robust and scalable platform for image optimization and resizing, spe
 
 ## How It Works
 
-1. **Create a Project**: Quickly set up your project to start optimizing images at [voidr.co](https://en.voidr.co/images).
+1. **Create a Project**: Quickly set up your project to start optimizing images at [voidr.co](https://voidr.co/images).
 2. **Integration with SDKs/API**: Easily integrate using our SDKs or API.
 3. **Real-Time Optimization**: Images are automatically optimized and served through our global CDN.
 
