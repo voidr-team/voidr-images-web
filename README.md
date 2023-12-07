@@ -1,3 +1,7 @@
+# Voidr Images Web Frontend Repository
+
+The Voidr Images Web Frontend repository is designed to streamline the onboarding of new projects utilizing the Voidr Images API. It focuses on simplifying domain security settings, managing project members within the Voidr Images platform, and tracking key metrics related to image optimizations.
+
 # [![Voidr Images](https://img.voidr.co/voidr/compress:100/convert:webp/fetch/https://api.voidr.co/v1/images/raw/voidr/voidr-banner-en_1701195001454.png)](https://voidr.co/images)
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
