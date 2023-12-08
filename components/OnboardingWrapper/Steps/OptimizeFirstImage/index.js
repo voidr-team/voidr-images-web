@@ -30,7 +30,7 @@ const OptimizeFirstImage = () => {
     'https://yourwebsite.com/images/awesome_img.jpeg'
   )
   const { formState, watch } = useFormContext()
-  const projectName = user.currentProject.name
+  const projectName = user?.currentProject?.name
 
   const image = watch('imageUrl')
 

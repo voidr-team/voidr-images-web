@@ -64,6 +64,35 @@ function AuthProvider({ locale, children }) {
     }
   }
 
+  const getNewAccessTokenWithOrg = async (userData) => {
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
+    if (isSafari) {
+      return loginWithRedirect({
+        authorizationParams: {
+          organization: userData.currentProject?.organizationId,
+          ui_locales: locale,
+        },
+      })
+    }
+
+    const orgId = userData.currentProject?.organizationId
+    await getAccessTokenSilently({
+      cacheMode: 'off',
+      authorizationParams: {
+        organization: orgId,
+      },
+    }).catch((e) => {
+      if (e.error === 'login_required' || e.error === 'consent_required') {
+        return loginWithRedirect({
+          authorizationParams: {
+            organization: orgId,
+            ui_locales: locale,
+          },
+        })
+      }
+    })
+  }
+
   const redirectAfterLogin = async (userData) => {
     const hasOrgId = !!userData?.organization?.id
     if (isEmpty(userData?.projects) && hasOrgId) {
@@ -75,22 +104,7 @@ function AuthProvider({ locale, children }) {
       !hasOrgId ||
       userData.currentProject?.organizationId !== userData?.organization?.id
     ) {
-      const orgId = userData.currentProject?.organizationId
-      await getAccessTokenSilently({
-        cacheMode: 'off',
-        authorizationParams: {
-          organization: orgId,
-        },
-      }).catch((e) => {
-        if (e.error === 'login_required' || e.error === 'consent_required') {
-          return loginWithRedirect({
-            authorizationParams: {
-              organization: orgId,
-              ui_locales: locale,
-            },
-          })
-        }
-      })
+      await getNewAccessTokenWithOrg(userData)
     }
 
     const returnTo = sessionStorage.getItem('returnTo')
